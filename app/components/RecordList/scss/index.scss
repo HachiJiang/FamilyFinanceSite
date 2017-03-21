@@ -1,0 +1,31 @@
+/**
+* SCSS for RecordList
+**/
+
+.record-list-header {
+  padding: 1rem 0; // also remove collapse
+}
+
+.record-summary-kpi {
+  li {
+    list-style-type: none;
+    margin-left: -40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .record-summary,
+  .record-summary-kpi {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .record-summary-kpi {
+    margin: 0;
+
+    li {
+      list-style-type: none;
+      margin-left: 20px;
+    }
+  }
+}

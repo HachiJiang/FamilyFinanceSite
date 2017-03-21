@@ -1,0 +1,1 @@
+Components in this folder are functionality components which can be placed in any container.

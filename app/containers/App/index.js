@@ -11,19 +11,24 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+import NavBar from '../../components/NavBar';
+import './scss/index.scss';
 
-  static propTypes = {
-    children: React.PropTypes.node
-  };
+const App = props => (
+    <div className="container">
+        <NavBar />
+        <div className="main-content">
+            { props.children }
+        </div>
+    </div>
+);
 
-  render() {
-    return (
-      <div>
-        {React.Children.toArray(this.props.children)}
-      </div>
-    );
-  }
-}
+App.propTypes = {
+    children: PropTypes.node
+};
+
+export default App;
+

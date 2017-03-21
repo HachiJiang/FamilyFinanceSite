@@ -1,0 +1,20 @@
+// variables
+$width-nav: 130px;
+
+.nav,
+.main-content {
+  position: absolute;
+  height: 100%;
+}
+
+.nav {
+  left: 0;
+  top: 0;
+  width: $width-nav;
+}
+
+.main-content {
+  left: $width-nav;
+  width: calc(100% - 130px);
+  padding: 0 30px; // also remove collapse
+}

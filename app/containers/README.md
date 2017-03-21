@@ -1,0 +1,1 @@
+Components in this folder affects website layout.

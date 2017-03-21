@@ -48,69 +48,65 @@ import createRoutes from './routes';
 // this uses the singleton browserHistory provided by react-router
 // Optionally, this could be changed to leverage a created history
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
-const initialState = {};
+const initialState = { };
 const store = configureStore(initialState, browserHistory);
 
 // Sync history and store, as the react-router-redux reducer
 // is under the non-default key ("routing"), selectLocationState
 // must be provided for resolving how to retrieve the "route" in the state
 const history = syncHistoryWithStore(browserHistory, store, {
-  selectLocationState: makeSelectLocationState()
+    selectLocationState: makeSelectLocationState()
 });
 
 // Set up the router, wrapping all Routes in the App component
-const rootRoute = {
-  component: App,
-  childRoutes: createRoutes(store)
-};
+const rootRoute = createRoutes(store);
 
 const render = (messages) => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <LanguageProvider messages={messages}>
-        <Router
-          history={history}
-          routes={rootRoute}
-          render={
-            // Scroll to top when going to a new page, imitating default browser
-            // behaviour
-            applyRouterMiddleware(useScroll())
-          }
-        />
-      </LanguageProvider>
-    </Provider>,
-    document.getElementById('app')
-  );
+    ReactDOM.render(
+        <Provider store={ store }>
+            <LanguageProvider messages={messages}>
+                <Router history={ history }
+                        routes={ rootRoute }
+                        render={
+                            // Scroll to top when going to a new page, imitating default browser
+                            // behaviour
+                            applyRouterMiddleware(useScroll())
+                        }
+                    />
+            </LanguageProvider>
+        </Provider>,
+        document.getElementById('app')
+    );
 };
 
 // Hot reloadable translation json files
 if (module.hot) {
-  // modules.hot.accept does not accept dynamic dependencies,
-  // have to be constants at compile-time
-  module.hot.accept('./i18n', () => {
-    render(translationMessages);
-  });
+    // modules.hot.accept does not accept dynamic dependencies,
+    // have to be constants at compile-time
+    module.hot.accept('./i18n', () => {
+        render(translationMessages);
+    });
 }
 
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
-  (new Promise((resolve) => {
-    resolve(import('intl'));
-  }))
-    .then(() => Promise.all([
-      import('intl/locale-data/jsonp/en.js'),
-    ]))
-    .then(() => render(translationMessages))
-    .catch((err) => {
-      throw err;
-    });
+    (new Promise((resolve) => {
+        resolve(import('intl'));
+    }))
+        .then(() => Promise.all([
+import('intl/locale-data/jsonp/en.js'),
+]))
+.then(() => render(translationMessages))
+        .catch((err) => {
+            throw err;
+        });
 } else {
-  render(translationMessages);
+    render(translationMessages);
 }
 
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed
 if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install(); // eslint-disable-line global-require
+    require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }

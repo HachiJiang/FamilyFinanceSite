@@ -1,0 +1,14 @@
+.record-header,
+.record-item {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.record-header {
+  background-color: lightgray;
+}
