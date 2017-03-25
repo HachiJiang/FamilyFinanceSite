@@ -8,14 +8,12 @@
 import React, { PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import NavLink from '../NavLink';
+import NavLink from '../base/NavLink';
 import messages from './messages';
 
-import './scss/index.scss';
-
 const NavBar = props => (
-    <header className="nav">
-        <ul className="nav-body">
+    <header className="main-nav">
+        <ul className="main-nav-body">
             <li><NavLink to="/">
                 <FormattedMessage {...messages.home} />
             </NavLink></li>
@@ -32,7 +30,7 @@ const NavBar = props => (
                 <FormattedMessage {...messages.account} />
             </NavLink></li>
         </ul>
-        <ul className="nav-footer">
+        <ul className="main-nav-footer">
             <li><NavLink to="/profile">
                 <FormattedMessage {...messages.setting} />
             </NavLink></li>

@@ -8,7 +8,8 @@ import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import languageProviderReducer from './containers/LanguageProvider/reducer';
-import recordReducer from './containers/RecordPage/reducer';
+import schemaReducer from './reducers/schema/index';
+import recordReducer from './reducers/recordPage/recordReducer';
 
 /*
  * routeReducer
@@ -44,7 +45,8 @@ function routeReducer(state = routeInitialState, action) {
 export default function createReducer(asyncReducers) {
     return combineReducers({
         route: routeReducer,
-        records: recordReducer,
+        schema: schemaReducer,
+        recordPage: recordReducer,
         language: languageProviderReducer,
         ...asyncReducers
     });

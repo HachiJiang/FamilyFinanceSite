@@ -1,0 +1,27 @@
+.pulldown {
+  display: flex;
+  align-items: center;
+
+  label {
+    margin: 0 5px;
+  }
+
+  .pulldown-levelSelect {
+    position: relative;
+
+    .selected {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: $border-default;
+      border-radius: 0;
+      width: $width-menu;
+      line-height: 1.5;
+
+      .selected-content {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

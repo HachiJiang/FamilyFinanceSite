@@ -1,0 +1,19 @@
+.menu-item2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .menu-item-content {
+    width: 100%;
+  }
+
+  .menu {
+    left: $width-menu - 2 * $width-border-default;
+    top: 0;
+  }
+
+  .menu.disabled {
+    display: none;
+  }
+}

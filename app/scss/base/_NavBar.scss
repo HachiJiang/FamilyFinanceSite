@@ -6,20 +6,19 @@ $color-nav-default: #31474f;
 $color-link-hover: lightblue;
 $color-link-active: darkseagreen;
 
-.nav {
+.main-nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  font-size: 1rem;
   padding-top: 10px;
   color: $color-font-default;
   background-color: $color-nav-default;
   overflow: auto;
 }
 
-.nav-body,
-.nav-footer {
+.main-nav-body,
+.main-nav-footer {
   list-style-type: none;
   margin: 0 0 0 -40px;
 
@@ -32,7 +31,7 @@ $color-link-active: darkseagreen;
   a {
     text-decoration: none;
     color: $color-font-default;
-    padding: 1rem 0;
+    padding: 15px 0;
 
     &:hover {
       background-color: $color-link-hover;

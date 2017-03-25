@@ -7,19 +7,19 @@ import React, { PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Record from '../RecordList/Record';
-import './scss/index.scss';
 
 const RecordGrid = props => (
-    <div className="record-list-table">
-        <div className="record-header">
-            <div>[Type]</div>
-            <div>[Category]</div>
-            <div>[Account]</div>
-            <div>[Amount]</div>
-            <div>[Project]</div>
-            <div>[Member]</div>
-            <div>[Tips]</div>
+    <div className='record-table'>
+        <div className='record-table-header'>
+            <div className='cell'>#</div>
+            <div className='cell'>[类别]</div>
+            <div className='cell'>[账户]</div>
+            <div className='cell'>[金额]</div>
+            <div className='cell'>[项目]</div>
+            <div className='cell'>[成员]</div>
+            <div className='cell'>[备注]</div>
         </div>
+        <div className="record-table-body">
         {
             (!props.records || props.records.length < 1) ?
                 <FormattedMessage {...messages.empty} /> :
@@ -36,6 +36,7 @@ const RecordGrid = props => (
                         />
                 ))
         }
+        </div>
     </div>
 );
 

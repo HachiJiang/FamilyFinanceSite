@@ -2,8 +2,12 @@
 * SCSS for RecordList
 **/
 
-.record-list-header {
-  padding: 1rem 0; // also remove collapse
+.record-list-container {
+  .record-list-header,
+  .record-filter,
+  .record-table {
+    padding: 20px 0 0 0; // also remove collapse
+  }
 }
 
 .record-summary-kpi {

@@ -1,7 +1,13 @@
+@import './font-awesome-4.7.0/font-awesome.scss';
+@import './App.scss';
+@import './base/index.scss';
+@import './recordPage/index.scss';
+
 html,
 body {
   height: 100%;
   width: 100%;
+  font-size: .9rem;
 }
 
 body {

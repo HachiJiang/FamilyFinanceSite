@@ -1,44 +1,14 @@
 /**
- * RecordPage selectors
+ * RecordEditor selectors
  */
-
-import * as EnumRecordType from '../../constants/EnumRecordType';
-
-/**
- * Get schema
- * @param {Object} state
- * @returns {*}
- */
-const getSchema = function(state) {
-    return state.get('schema');
-};
-
-/**
- * Get record page data
- * @param {Object} state
- * @returns {*}
- */
-const getRecordPageData = function(state) {
-    return state.get('recordPage');
-};
-
-/**
- * Get outcome categories
- * @param {Object} state
- * @returns {*}
- */
-const getCatOutcome = function(state) {
-    const schema = getSchema(state);
-    return schema.get('catOutcome');
-};
 
 /**
  * Get record list
- * @param {Object} state
+ * @param state
  * @returns {*}
  */
 const getRecordList = function(state) {
-    return getRecordPageData(state).list;
+    return state.get('recordPage').list;
 };
 
 /**
@@ -47,7 +17,7 @@ const getRecordList = function(state) {
  * @returns {{from: *, to: *}}
  */
 const getRange = function(state) {
-    const filter = getRecordPageData(state).filter;
+    const filter = state.get('recordPage').filter;
     return {
         from: filter.from,
         to: filter.to
@@ -60,7 +30,7 @@ const getRange = function(state) {
  * @returns {{income: number, outcome: (number|*)}}
  */
 const getTotals = function(state) {
-    const list = getRecordList(state);
+    const list = state.get('recordPage').list;
     let totalIncome = 0;
     let totalOutcome = 0;
 
@@ -81,7 +51,6 @@ const getTotals = function(state) {
 };
 
 export {
-    getCatOutcome,
     getRecordList,
     getRange,
     getTotals

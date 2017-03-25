@@ -1,0 +1,50 @@
+$background-color-default: white;
+$background-color-header: rgba(255, 182, 193, 1); // lightpink
+$background-color-header-hover: rgba(255, 255, 255, .5);
+
+.record-editor {
+  background-color: $background-color-default;
+
+  .tabs-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background-color-header;
+    color: black;
+
+    .tab {
+      line-height: 2.5rem;
+      flex-grow: 1;
+      text-align: center;
+      width: 100%;
+
+      &:hover {
+        background-color: $background-color-header-hover;
+      }
+
+      &.active {
+        background-color: $background-color-default;
+      }
+    }
+  }
+
+  .tabs-content {
+    margin: 20px 10px;
+
+    .control {
+      display: inline-block;
+    }
+  }
+
+  .saveBtn {
+    margin: 0 10px 10px 10px;
+  }
+
+  @media (min-width: 634px) {
+    .tabs-header {
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 3px 50px 0 50px;
+    }
+  }
+}

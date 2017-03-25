@@ -8,7 +8,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 const RecordFilter = props => (
-    <div>
+    <div className="record-filter">
         This is RecordFilter!
     </div>
 );

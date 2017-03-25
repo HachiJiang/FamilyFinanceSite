@@ -1,0 +1,31 @@
+.menu {
+  position: absolute;
+  width: $width-menu;
+  border: $border-default;
+  background-color: white;
+  text-align: center;
+
+  .menu-item {
+    &:hover {
+      background-color: lightgrey;
+    }
+
+    &.add {
+      border-top: $border-default;
+      color: orange;
+
+      .icon {
+
+      }
+    }
+  }
+
+  &.disabled {
+    display: none;
+  }
+}
+
+.menu-item {
+  line-height: 2;
+  padding: 2px 6px 3px 6px;
+}

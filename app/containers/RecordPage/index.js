@@ -4,29 +4,28 @@
  * List finance records
  */
 
+// Libs
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
-import NavLink from '../../components/NavLink';
+// Components
 import RecordEditor from '../../components/RecordEditor';
 import RecordList from '../../components/RecordList';
-import { getRecordList, getRange, getTotals } from './selectors';
 
-import './scss/index.scss';
+// Selectors
+import { getCatOutcome, getRecordList, getRange, getTotals } from './selectors';
 
-const RecordPage = props => {
-    return (
-        <div>
-            <RecordEditor />
-            <RecordList range={ props.range }
-                        records={ props.records }
-                        totalIncome={ props.totals.income }
-                        totalOutcome={ props.totals.outcome }
-                />
-        </div>
-    );
-};
+const RecordPage = props => (
+    <div>
+        <RecordEditor catOutcome={ props.catOutcome }/>
+        <RecordList range={ props.range }
+                    records={ props.records }
+                    totalIncome={ props.totals.income }
+                    totalOutcome={ props.totals.outcome }
+            />
+    </div>
+);
 
 RecordPage.propTypes = {
     range: PropTypes.shape({
@@ -38,6 +37,7 @@ RecordPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
+    catOutcome: getCatOutcome(state),
     records: getRecordList(state),
     range: getRange(state),
     totals: getTotals(state)

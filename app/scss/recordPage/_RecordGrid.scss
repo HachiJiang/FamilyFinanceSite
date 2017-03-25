@@ -1,0 +1,23 @@
+/**
+* SCSS for RecordGrid
+**/
+
+.record-table-header,
+.record-item {
+  display: flex;
+
+  .cell {
+    width: calc(100% / 7);
+    text-align: center;
+    border: 1px solid lightgrey;
+  }
+}
+
+.record-table-header {
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+.record-item:hover {
+  background-color: #fafafa;
+}

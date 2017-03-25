@@ -32,11 +32,11 @@ const initialState = {
     ]
 };
 
-function RecordReducer(state = initialState, action) {
+function recordReducer(state = initialState, action) {
     switch (action.type) {
         default:
             return state;
     }
 }
 
-export default RecordReducer;
+export default recordReducer;

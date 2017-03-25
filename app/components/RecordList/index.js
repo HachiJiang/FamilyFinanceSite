@@ -12,8 +12,6 @@ import RecordFilter from '../RecordFilter';
 import RecordGrid from '../RecordGrid';
 import messages from './messages';
 
-import './scss/index.scss';
-
 const RecordList = props => (
     <div className="record-list-container">
         <header className="record-list-header">

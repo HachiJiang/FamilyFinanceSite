@@ -5,7 +5,7 @@
  */
 import React, { PureComponent, PropTypes } from 'react';
 
-import EnumRecordType from '../../constants/EnumRecordType';
+import * as EnumRecordType from '../../constants/EnumRecordType';
 
 function getTypeName(type) {
     switch(type) {
@@ -44,14 +44,14 @@ export default class Record extends PureComponent {
     render() {
         const props = this.props;
         return (
-            <div className="record-item">
-                <div>{ getTypeName(props.type) }</div>
-                <div>{ props.category }</div>
-                <div>{ props.account }</div>
-                <div className={ getAmountClass(props.type) }>{ props.amount }</div>
-                <div>{ props.project }</div>
-                <div>{ props.member }</div>
-                <div>{ props.tips }</div>
+            <div className='record-item'>
+                <div className='cell'><span>{ getTypeName(props.type) }</span></div>
+                <div className='cell'><span>{ props.category }</span></div>
+                <div className='cell'><span>{ props.account }</span></div>
+                <div className='cell'><span className={ getAmountClass(props.type) }>{ props.amount }</span></div>
+                <div className='cell'><span>{ props.project }</span></div>
+                <div className='cell'><span>{ props.member }</span></div>
+                <div className='cell'><span>{ props.tips }</span></div>
             </div>
         );
     }
