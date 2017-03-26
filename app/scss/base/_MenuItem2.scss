@@ -1,12 +1,9 @@
 .menu-item2 {
+  @extend .menu-item;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-
-  .menu-item-content {
-    width: 100%;
-  }
 
   .menu {
     left: $width-menu - 2 * $width-border-default;

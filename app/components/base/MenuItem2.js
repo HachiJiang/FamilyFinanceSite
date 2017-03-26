@@ -8,41 +8,61 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 import MenuItem from './MenuItem';
-import AddItemForm from './AddItemForm';
+
+function showMenu() {
+    this.setState({ active: true });
+}
+
+function hideMenu() {
+    this.setState({ active: false });
+}
 
 class MenuItem2 extends Component {
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        items: PropTypes.array.isRequired,
-        activeIndex: PropTypes.number
-    };
-
     state = {
         active: false
     };
 
     render() {
-        const { title, items } = this.props;
-        const menuCls = classNames('menu', {
+        const mainCls = this.props.className ? "menu-item2 " + this.props.className : "menu-item2";
+        const menuCls = classNames("menu", {
             disabled: !this.state.active
         });
         return (
-            <div className='menu-item menu-item2'
-                 onMouseOver={ evt => this.setState({ active:true }) }
-                 onMouseLeave={ evt => this.setState({ active:false }) }>
-                <span className='menu-item-content'>{ title }</span>
+            <div className={ mainCls }
+                 onClick={ e => {
+                     e.stopPropagation(); // do not close the menu
+                     showMenu.call(this);
+                 } }
+                 onMouseOver={ () => showMenu.call(this) }
+                 onMouseLeave={ () => {
+                    this.props.onMouseLeave && this.props.onMouseLeave();
+                    hideMenu.call(this);
+                 } }>
+                <span className='menu-item-content'>{ this.props.title }</span>
                 <span className='fa fa-caret-right' aria-hidden='true'></span>
                 <div className={ menuCls }>
                     {
-                        items.map((item, index) => (
-                            <MenuItem key={ index } title={ item } />
+                        this.props.items && this.props.items.map((item, index) => (
+                            <MenuItem key={ index }
+                                      title={ item }
+                                      onSelectionChange={ title => this.props.onSelectionChange(index, title) }/>
                         ))
                     }
-                    <AddItemForm title='[新增二级分类]...' />
+                    {
+                        this.props.children
+                    }
                 </div>
             </div>
         );
     }
 }
+
+MenuItem2.propTypes = {
+    children: PropTypes.node,
+    title: PropTypes.string.isRequired,
+    items: PropTypes.array,
+    onSelectionChange: PropTypes.func,
+    className: PropTypes.string
+};
 
 export default MenuItem2;

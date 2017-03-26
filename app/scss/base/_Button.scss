@@ -1,0 +1,20 @@
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid $border-color-btn-default;
+  white-space: nowrap;
+  border-radius: 4px;
+  color: #fff;
+  margin: 2px;
+  background-color: $background-color-btn-default;
+
+  &:hover,
+  &:active {
+    background-color: $background-color-btn-active;
+    border-color: $border-color-btn-active;
+  }
+}

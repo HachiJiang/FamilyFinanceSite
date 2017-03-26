@@ -8,8 +8,8 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
 import Tabs from '../base/Tabs';
-import Pulldown from '../base/Pulldown';
-import MenuItem2 from '../base/MenuItem2';
+import Pulldown2 from '../base/Pulldown2';
+import AddItemForm from '../base/AddItemForm';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
 
@@ -37,15 +37,20 @@ const TABS = [
     }
 ];
 
-function getControls(catOutcome) {
+/**
+ * Get all the controllers
+ * @param {Object} props
+ * @returns {*[]}
+ */
+function getControls(props) {
+    const catOutcome = props.catOutcome;
     return [(
-        <Pulldown key={0} title='[分类]' value={catOutcome[0].items[0]} items={catOutcome}>
-            {
-                catOutcome.map((cat, index) => (
-                    <MenuItem2 key={index} title={cat.name} items={cat.items}/>
-                ))
-            }
-        </Pulldown>
+        <Pulldown2 key={0}
+                   title='[分类]'
+                   items={catOutcome}
+                   onSelectionChange={ (selected) => this.setState({ catSelected: selected })}>
+            <AddItemForm />
+        </Pulldown2>
     )];
 }
 
@@ -64,19 +69,13 @@ function getEditorControls(type, controls) {
 }
 
 class RecordEditor extends Component {
-    static propTypes = {
-        catOutcome: PropTypes.array,
-        activeIndex: PropTypes.number,
-        catOutcomeSelected: PropTypes.array // @TODO: add more state
-    };
-
     state = { // local state to store form
         type: this.props.activeIndex || 0,
-        catOutcomeSelected: this.props.catOutcomeSelected || [0, 0]
+        catSelected: this.props.catSelected || [0, 0]
     };
 
     render() {
-        let controls = getControls(this.props.catOutcome);
+        let controls = getControls.call(this, this.props);
         return (
             <div className="record-editor">
                 <Tabs activeIndex={this.state.type}>
@@ -88,10 +87,16 @@ class RecordEditor extends Component {
                         ))
                     }
                 </Tabs>
-                <button className='saveBtn btn btn-primary'>[保存]</button>
+                <button className='saveBtn btn'>[保存]</button>
             </div>
         );
     }
 }
+
+RecordEditor.propTypes = {
+    catOutcome: PropTypes.array,
+    activeIndex: PropTypes.number,
+    catSelected: PropTypes.array // @TODO: add more state
+};
 
 export default RecordEditor;

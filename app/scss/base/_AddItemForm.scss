@@ -1,0 +1,11 @@
+.input-form {
+  border-top: $border-default;
+  color: orange;
+
+  .menu {
+    top: -$width-border-default;
+    padding: 5px;
+    width: auto;
+    text-align: right;
+  }
+}
