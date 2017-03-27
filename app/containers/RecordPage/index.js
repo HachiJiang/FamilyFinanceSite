@@ -16,13 +16,13 @@ import RecordList from '../../components/RecordList';
 // Selectors
 import { getCatOutcome, getRecordList, getRange, getTotals } from './selectors';
 
-const RecordPage = props => (
+const RecordPage = ({ catOutcome, range, records, totals }) => (
     <div>
-        <RecordEditor catOutcome={ props.catOutcome }/>
-        <RecordList range={ props.range }
-                    records={ props.records }
-                    totalIncome={ props.totals.income }
-                    totalOutcome={ props.totals.outcome }
+        <RecordEditor catOutcome={ catOutcome }/>
+        <RecordList range={ range }
+                    records={ records }
+                    totalIncome={ totals.income }
+                    totalOutcome={ totals.outcome }
             />
     </div>
 );
@@ -33,7 +33,8 @@ RecordPage.propTypes = {
         to: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array.isRequired,
-    totals: PropTypes.object.isRequired
+    totals: PropTypes.object.isRequired,
+    catOutcome: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({

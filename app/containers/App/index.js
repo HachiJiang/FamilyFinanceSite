@@ -16,11 +16,11 @@ import { connect } from 'react-redux';
 
 import NavBar from '../../components/NavBar';
 
-const App = props => (
+const App = ({ children }) => (
     <div className="container">
         <NavBar />
         <div className="main-content">
-            { props.children }
+            { children }
         </div>
     </div>
 );

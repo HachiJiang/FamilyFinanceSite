@@ -59,9 +59,7 @@ function getEditorControls(type, controls) {
     switch(type) {
         case EnumRecordType.OUTCOME:
             return (
-                controls.map((ctrl, index) => {
-                    if (flags[index] === 1) return ctrl;
-                })
+                controls.filter((ctrl, index) => flags[index] === 1)
             );
         default:
             break;

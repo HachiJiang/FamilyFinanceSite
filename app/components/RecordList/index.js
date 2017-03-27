@@ -12,16 +12,16 @@ import RecordFilter from '../RecordFilter';
 import RecordGrid from '../RecordGrid';
 import messages from './messages';
 
-const RecordList = props => (
+const RecordList = ({ range, totalIncome, totalOutcome, records }) => (
     <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
-            <SummaryBar range={ props.range }
-                        totalIncome={ props.totalIncome }
-                        totalOutcome={ props.totalOutcome } />
+            <SummaryBar range={ range }
+                        totalIncome={ totalIncome }
+                        totalOutcome={ totalOutcome } />
         </header>
         <RecordFilter />
-        <RecordGrid records={ props.records }/>
+        <RecordGrid records={ records }/>
     </div>
 );
 
