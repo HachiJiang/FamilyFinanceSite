@@ -1,13 +1,27 @@
 /*
  *
- * Add category for Income or Outcome
+ * Action types for categories
  *
  */
 
-export const ADD_CATEGORY = 'location/ADD_CATEGORY';
-export const DELETE_CATEGORY = 'location/DELETE_CATEGORY';
-export const MODIFY_CATEGORY = 'location/MODIFY_CATEGORY';
+// @TODO: how to design action api?
 
-export const ADD_SUBCATEGORY = 'location/ADD_SUBCATEGORY';
-export const DELETE_SUBCATEGORY = 'location/DELETE_SUBCATEGORY';
-export const MODIFY_SUBCATEGORY = 'location/MODIFY_SUBCATEGORY';
+/* Outcome */
+export const ADD_CATEGORY_OUTCOME = 'category/outcome/ADD_CATEGORY';
+export const DELETE_CATEGORY_OUTCOME = 'category/outcome/DELETE_CATEGORY';
+export const UPDATE_CATEGORY_OUTCOME = 'category/outcome/UPDATE_CATEGORY';
+
+/* Income */
+export const ADD_CATEGORY_INCOME = 'category/income/ADD_CATEGORY';
+export const DELETE_CATEGORY_INCOME = 'category/income/DELETE_CATEGORY';
+export const UPDATE_CATEGORY_INCOME = 'category/income/UPDATE_CATEGORY';
+
+/* Account */
+export const ADD_CATEGORY_ACCOUNT = 'category/account/ADD_CATEGORY';
+export const DELETE_CATEGORY_ACCOUNT = 'category/account/DELETE_CATEGORY';
+export const UPDATE_CATEGORY_ACCOUNT = 'category/account/UPDATE_CATEGORY';
+
+/* Project */
+export const ADD_CATEGORY_PROJECT = 'category/project/ADD_CATEGORY';
+export const DELETE_CATEGORY_PROJECT = 'category/project/DELETE_CATEGORY';
+export const UPDATE_CATEGORY_PROJECT = 'category/project/UPDATE_CATEGORY';

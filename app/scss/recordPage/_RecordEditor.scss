@@ -32,7 +32,8 @@ $background-color-header-hover: rgba(255, 255, 255, .5);
     margin: 20px 10px;
 
     .control {
-      display: inline-block;
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 

@@ -4,6 +4,7 @@
   border: $border-default;
   background-color: white;
   text-align: center;
+  z-index: $z-index-menu;
 
   &.disabled {
     display: none;

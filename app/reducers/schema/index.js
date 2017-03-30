@@ -5,10 +5,20 @@
 
 import { combineReducers } from 'redux-immutable';
 
-import catOutcomeReducer from './catOutcomeReducer.js';
+import outcomeCategoriesReducer from './outcomeCategoriesReducer';
+import incomeCategoriesReducer from './incomeCategoriesReducer';
+import accountCategoriesReducer from './accountCategoriesReducer';
+import projectCategoriesReducer from './projectCategoriesReducer';
+import memberReducer from './memberReducer';
+import debtMemberReducer from './debtMemberReducer';
 
 const schemaReducer = combineReducers({
-    catOutcome: catOutcomeReducer
+    outcomeCategories: outcomeCategoriesReducer,
+    incomeCategories: incomeCategoriesReducer,
+    accountCategories: accountCategoriesReducer,
+    projectCategories: projectCategoriesReducer,
+    members: memberReducer,
+    debtMembers: debtMemberReducer
 });
 
 export default schemaReducer;

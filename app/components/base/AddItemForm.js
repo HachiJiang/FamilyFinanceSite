@@ -15,19 +15,34 @@ class AddItemForm extends Component  {
         this.setState({ value });
     }
 
+    onSubmit(e) {
+        e.preventDefault();
+        const value = this.state.value;
+        if (value) {
+            this.props.onSubmit(value);
+            this.setState({ value: '' });
+        }
+    }
+
     render() {
         return (
             <MenuItem2 title="[新增...]" className="input-form" onMouseLeave={ e => this.setState({ value: '' }) }>
-                <input type="text"
-                       placeholder="[输入类别...]"
-                       value={ this.state.value }
-                       onClick={ e => e.stopPropagation }
-                       onChange={ e => this.onValueChange(e.target.value) }
-                    />
-                <button className="saveBtn btn">[确定]</button>
+                <form onSubmit={ e => this.onSubmit(e) }>
+                    <input type="text"
+                           placeholder="[输入类别...]"
+                           value={ this.state.value }
+                           onClick={ e => e.stopPropagation }
+                           onChange={ e => this.onValueChange(e.target.value) }
+                        />
+                    <button type="submit" className="saveBtn btn">[确定]</button>
+                </form>
             </MenuItem2>
         );
     }
 }
+
+AddItemForm.propTypes = {
+    onSubmit: PropTypes.func
+};
 
 export default AddItemForm;
