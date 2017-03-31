@@ -34,6 +34,11 @@ $background-color-header-hover: rgba(255, 255, 255, .5);
     .control {
       display: flex;
       flex-wrap: wrap;
+      
+      .pulldown,
+      .input {
+        margin: 8px 0;
+      }
     }
   }
 

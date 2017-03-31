@@ -11,6 +11,7 @@ import classNames from 'classnames';
 import Tabs from '../base/Tabs';
 import Pulldown2 from '../base/Pulldown2';
 import AddItemForm from '../base/AddItemForm';
+import Input from '../base/Input';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
@@ -62,6 +63,8 @@ class RecordEditor extends Component {
         const { catOutcome, catIncome, catAccountFrom, catAccountTo, project, member, debtMember } = this.state;
         const subTitles = TABS[type].subTitles;
 
+        console.log(this.state);
+
         return [
             <Pulldown2 key="cat-outcome"
                        title={ subTitles[0] }
@@ -81,7 +84,7 @@ class RecordEditor extends Component {
                 >
                 <AddItemForm onSubmit={ addCategoryIncome }/>
             </Pulldown2>,
-            <Pulldown2 key='cat-account-from'
+            <Pulldown2 key="cat-account-from"
                        title={ subTitles[2] }
                        items={ accountCategories }
                        value={ catAccountFrom }
@@ -90,7 +93,7 @@ class RecordEditor extends Component {
                 >
                 <AddItemForm onSubmit={ addCategoryAccount }/>
             </Pulldown2>,
-            <Pulldown2 key='cat-account-to'
+            <Pulldown2 key="cat-account-to"
                        title={ subTitles[3] }
                        items={ accountCategories }
                        value={ catAccountTo }
@@ -99,7 +102,7 @@ class RecordEditor extends Component {
                 >
                 <AddItemForm onSubmit={ addCategoryAccount }/>
             </Pulldown2>,
-            <Pulldown2 key='project'
+            <Pulldown2 key="project"
                        title={ subTitles[4] }
                        items={ projectCategories }
                        value={ project }
@@ -108,8 +111,17 @@ class RecordEditor extends Component {
                 >
                 <AddItemForm onSubmit={ addCategoryProject }/>
             </Pulldown2>,
-            <Pulldown2 key='members'
+            <Pulldown2 key="debtMembers"
                        title={ subTitles[5] }
+                       items={ debtMembers }
+                       value={ debtMember }
+                       onSelectionChange={ value => this.setState({ debtMember: value })}
+                       addSubCategory={ addDebtMember }
+                >
+                <AddItemForm onSubmit={ addDebtMember }/>
+            </Pulldown2>,
+            <Pulldown2 key="members"
+                       title={ '[成员]' }
                        items={ members }
                        value={ member }
                        onSelectionChange={ value => this.setState({ member: value })}
@@ -117,15 +129,26 @@ class RecordEditor extends Component {
                 >
                 <AddItemForm onSubmit={ addMember }/>
             </Pulldown2>,
-            <Pulldown2 key='debtMembers'
-                       title={ subTitles[6] }
-                       items={ debtMembers }
-                       value={ debtMember }
-                       onSelectionChange={ value => this.setState({ debtMember: value })}
-                       addSubCategory={ addDebtMember }
+            <Input key="amount"
+                   title={ '[金额]' }
+                   type="number"
+                   placeholder="[输入金额...]"
+                   onChange={ value => this.setState({ amount: value }) }
                 >
-                <AddItemForm onSubmit={ addDebtMember }/>
-            </Pulldown2>
+            </Input>,
+            <Input key="date"
+                   title={ '[日期]' }
+                   type="date"
+                   placeholder="[输入日期...]"
+                   onChange={ value => this.setState({ date: value }) }
+                >
+            </Input>,
+            <Input key="tips"
+                   title={ '[备注]' }
+                   placeholder="[输入备注...]"
+                   onChange={ value => this.setState({ tips: value }) }
+                >
+            </Input>
         ];
     }
 

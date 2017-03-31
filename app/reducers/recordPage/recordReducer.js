@@ -18,7 +18,8 @@ const initialState = {
             account: 'account1',
             project: 'general',
             member: 'huan',
-            tips: 'eating fish'
+            tips: 'eating fish',
+            location: '上海'
         }, {
             id: '11',
             type: 1,
@@ -27,7 +28,8 @@ const initialState = {
             account: 'account1',
             project: 'general',
             member: 'huan',
-            tips: 'eating fish'
+            tips: 'eating fish',
+            location: '杭州'
         }
     ]
 };
