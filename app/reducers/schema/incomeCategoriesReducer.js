@@ -8,22 +8,9 @@ import _ from 'lodash';
 import * as CategoryActionTypes from '../../actiontypes/category';
 import { addCategory } from './categoriesReducerUtils';
 
-const initialState = [
-    {
-        name: '职业',
-        items: [
-            { name: '工资' },
-            { name: '奖金' },
-            { name: '兼职' }
-        ]
-    }, {
-        name: '理财',
-        items: [
-            { name: '基金利息' },
-            { name: '股票分红' }
-        ]
-    }
-];
+import incomeCategories from '../../data/incomeCategories';
+
+const initialState = incomeCategories || [];
 
 function incomeCategoriesReducer(state = initialState, action = {}) {
     switch (action.type) {

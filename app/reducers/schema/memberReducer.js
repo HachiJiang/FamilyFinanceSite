@@ -7,13 +7,9 @@
 import _ from 'lodash';
 import * as MemberActionTypes from '../../actiontypes/member';
 
-const initialState = [
-    {
-        name: '成员1'
-    }, {
-        name: '成员2'
-    }
-];
+import members from '../../data/members';
+
+const initialState = members || [];
 
 function memberReducer(state = initialState, action = {}) {
     switch (action.type) {

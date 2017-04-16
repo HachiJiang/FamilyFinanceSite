@@ -65,7 +65,10 @@ export const getDebtMembers = state => getSchema(state).get('debtMembers');
  * @param {Object} state
  * @returns {*}
  */
-export const getRecordList = state => getRecordPageData(state).list;
+export const getRecordList = state => {
+    const list = _.cloneDeep(getRecordPageData(state).list);
+    return _.reverse(_.sortBy(list, ['date']));
+};
 
 /**
  * Get time range
@@ -77,31 +80,5 @@ export const getRange = state => {
     return {
         from: filter.from,
         to: filter.to
-    };
-};
-
-/**
- * Get total values
- * @param {Object} state
- * @returns {{income: number, outcome: (number|*)}}
- */
-export const getTotals = state => {
-    const list = getRecordList(state);
-    let totalIncome = 0;
-    let totalOutcome = 0;
-
-    list.forEach(function(record) {
-        if (record) {
-            if (record.type === EnumRecordType.INCOME) {
-                totalIncome += record.amount;
-            } else if (record.type === EnumRecordType.OUTCOME) {
-                totalOutcome += record.amount;
-            }
-        }
-    });
-
-    return {
-        income: totalIncome,
-        outcome: totalOutcome
     };
 };

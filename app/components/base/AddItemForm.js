@@ -26,7 +26,7 @@ class AddItemForm extends Component  {
 
     render() {
         return (
-            <MenuItem2 title="[新增...]" className="input-form" onMouseLeave={ e => this.setState({ value: '' }) }>
+            <MenuItem2 title="[新增...]" className="addItem-form" onMouseLeave={ e => this.setState({ value: '' }) }>
                 <form onSubmit={ e => this.onSubmit(e) }>
                     <input type="text"
                            placeholder="[输入类别...]"

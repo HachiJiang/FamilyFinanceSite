@@ -4,38 +4,35 @@
  *
  */
 
-const initialState = {
-    filter: {
-        from: '2017.03.01',
-        to: '2017.03.31'
-    },
-    list: [
-        {
-            id: '10',
-            type: 0,
-            category: 'eating',
-            amount: 100,
-            account: 'account1',
-            project: 'general',
-            member: 'huan',
-            tips: 'eating fish',
-            location: '上海'
-        }, {
-            id: '11',
-            type: 1,
-            category: 'eating',
-            amount: 21,
-            account: 'account1',
-            project: 'general',
-            member: 'huan',
-            tips: 'eating fish',
-            location: '杭州'
-        }
-    ]
+import records from '../../data/records';
+import * as RecordActionTypes from '../../actiontypes/record';
+
+const initialState = records || {
+    filter: {},
+    list: [] // all records???
 };
 
 function recordReducer(state = initialState, action = {}) {
+    // @TODO: check whether the record satisfy filter
+
+    const { filter, list } = state;
+
     switch (action.type) {
+        case RecordActionTypes.ADD_RECORD:
+            return {
+                filter,
+                list: [
+                    ...list,
+                    action.record
+                ]
+            };
+        case RecordActionTypes.DELETE_RECORD:
+            return {
+                filter,
+                list: list.filter(record => record.id !== action.id)
+            };
+        case RecordActionTypes.UPDATE_RECORD:
+            console.log('update record');
         default:
             return state;
     }

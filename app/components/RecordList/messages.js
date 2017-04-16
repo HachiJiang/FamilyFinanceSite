@@ -12,19 +12,27 @@ export default defineMessages({
     },
     header: {
         id: 'app.components.RecordList.header',
-        defaultMessage: 'Record List'
+        defaultMessage: '流水记录'
     },
     totalIncome: {
         id: 'app.components.RecordList.totalIncome',
-        defaultMessage: 'Total Income: '
+        defaultMessage: '总收入: '
     },
     totalOutcome: {
         id: 'app.components.RecordList.totalOutcome',
-        defaultMessage: 'Total Outcome: '
+        defaultMessage: '总支出: '
+    },
+    totalDebt: {
+        id: 'app.components.RecordList.totalOutcome',
+        defaultMessage: '总负债: '
+    },
+    totalLoan: {
+        id: 'app.components.RecordList.totalOutcome',
+        defaultMessage: '总借出: '
     },
     unit: {
         id: 'app.components.RecordList.unit',
-        defaultMessage: '(Unit: RMB)'
+        defaultMessage: '(单位: RMB)'
     },
     income: {
         id: 'app.components.RecordList.type',

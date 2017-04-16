@@ -16,8 +16,15 @@ import { connect } from 'react-redux';
 
 import NavBar from '../../components/NavBar';
 
+function onKeyDown(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+    }
+}
+
 const App = ({ children }) => (
-    <div className="container">
+    <div className="container"
+        onKeyDown={e => onKeyDown(e)}>
         <NavBar />
         <div className="main-content">
             { children }

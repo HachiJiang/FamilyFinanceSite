@@ -12,16 +12,18 @@ import RecordFilter from '../RecordFilter';
 import RecordGrid from '../RecordGrid';
 import messages from './messages';
 
-const RecordList = ({ range, totalIncome, totalOutcome, records }) => (
+import { getRecordListSortedByDate, getTotals } from './selectors';
+
+const RecordList = ({ range, records, deleteRecord }) => (
     <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
             <SummaryBar range={ range }
-                        totalIncome={ totalIncome }
-                        totalOutcome={ totalOutcome } />
+                        totals={ getTotals(records) }
+                />
         </header>
         <RecordFilter />
-        <RecordGrid records={ records }/>
+        <RecordGrid records={ getRecordListSortedByDate(records) } deleteRecord={ deleteRecord }/>
     </div>
 );
 
@@ -31,8 +33,7 @@ RecordList.propTypes = {
         to: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array,
-    totalIncome: PropTypes.number.isRequired,
-    totalOutcome: PropTypes.number.isRequired
+    deleteRecord: PropTypes.func.isRequired
 };
 
 export default RecordList;

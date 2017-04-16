@@ -8,17 +8,8 @@ import { FormattedMessage } from 'react-intl';
 
 import Record from '../RecordList/Record';
 
-const RecordGrid = ({ records }) => (
+const RecordGrid = ({ records, deleteRecord }) => (
     <div className="record-table">
-        <div className="record-table-header">
-            <div className="cell">#</div>
-            <div className="cell">[类别]</div>
-            <div className="cell">[账户]</div>
-            <div className="cell">[金额]</div>
-            <div className="cell">[项目]</div>
-            <div className="cell">[成员]</div>
-            <div className="cell">[备注]</div>
-        </div>
         <div className="record-table-body">
         {
             (!records || records.length < 1) ?
@@ -27,12 +18,16 @@ const RecordGrid = ({ records }) => (
                     <Record key={ record.id }
                             id={ record.id }
                             type={ record.type }
-                            category={ record.category }
-                            account={ record.account }
                             amount={ record.amount}
-                            project={ record.project }
                             member={ record.member }
                             tips={ record.tips }
+                            category={ record.category }
+                            accountTo={ record.accountTo }
+                            accountFrom={ record.accountFrom }
+                            debtMember={ record.debtMember }
+                            project={ record.project }
+                            date={ record.date }
+                            deleteRecord={ deleteRecord }
                         />
                 ))
         }
@@ -41,7 +36,8 @@ const RecordGrid = ({ records }) => (
 );
 
 RecordGrid.propTypes = {
-    records: PropTypes.array
+    records: PropTypes.array,
+    deleteRecord: PropTypes.func.isRequired
 };
 
 export default RecordGrid;

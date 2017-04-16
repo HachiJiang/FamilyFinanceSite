@@ -21,34 +21,27 @@ import * as CategoryAccountActionCreators from '../../actions/categoryAccount';
 import * as CategoryProjectActionCreators from '../../actions/categoryProject';
 import * as MemberActionCreators from '../../actions/member';
 import * as DebtMemberActionCreators from '../../actions/debtMember';
+import * as RecordActionCreators from '../../actions/record';
 
 // Selectors
 import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getProjectCategories,
-    getMembers, getDebtMembers, getRecordList, getRange, getTotals } from './selectors';
+    getMembers, getDebtMembers, getRecordList, getRange } from './selectors';
 
 class RecordPage extends Component {
 
     render() {
         const { dispatch, outcomeCategories, incomeCategories, accountCategories, projectCategories,
-            members, debtMembers, range, records, totals } = this.props;
+            members, debtMembers, range, records } = this.props;
 
-        // Outcome
-        const addCategoryOutcome = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch);
-
-        // Income
-        const addCategoryIncome = bindActionCreators(CategoryIncomeActionCreators.addCategory, dispatch);
-
-        // Account
-        const addCategoryAccount = bindActionCreators(CategoryAccountActionCreators.addCategory, dispatch);
-
-        // Project
-        const addCategoryProject = bindActionCreators(CategoryProjectActionCreators.addCategory, dispatch);
-
-        // Member
-        const addMember = bindActionCreators(MemberActionCreators.addMember, dispatch);
-
-        // Debt Member
-        const addDebtMember = bindActionCreators(DebtMemberActionCreators.addMember, dispatch);
+        const addCategoryOutcome = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch); // Outcome
+        const addCategoryIncome = bindActionCreators(CategoryIncomeActionCreators.addCategory, dispatch);   // Income
+        const addCategoryAccount = bindActionCreators(CategoryAccountActionCreators.addCategory, dispatch); // Account
+        const addCategoryProject = bindActionCreators(CategoryProjectActionCreators.addCategory, dispatch); // Project
+        const addMember = bindActionCreators(MemberActionCreators.addMember, dispatch);                     // Member
+        const addDebtMember = bindActionCreators(DebtMemberActionCreators.addMember, dispatch);             // Debt Member
+        const addRecord = bindActionCreators(RecordActionCreators.addRecord, dispatch);                     // Add record
+        const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
+        const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
 
         return (
             <div>
@@ -64,11 +57,12 @@ class RecordPage extends Component {
                               addCategoryProject={ addCategoryProject }
                               addMember={ addMember }
                               addDebtMember={ addDebtMember }
+                              addRecord={ addRecord }
+                              updateRecord={ updateRecord }
                     />
                 <RecordList range={ range }
                             records={ records }
-                            totalIncome={ totals.income }
-                            totalOutcome={ totals.outcome }
+                            deleteRecord={ deleteRecord }
                     />
             </div>
         );
@@ -81,7 +75,6 @@ RecordPage.propTypes = {
         to: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array.isRequired,
-    totals: PropTypes.object.isRequired,
     outcomeCategories: PropTypes.array.isRequired,
     incomeCategories: PropTypes.array.isRequired,
     accountCategories: PropTypes.array.isRequired,
@@ -98,8 +91,7 @@ const mapStateToProps = state => ({
     members: getMembers(state),
     debtMembers: getDebtMembers(state),
     records: getRecordList(state),
-    range: getRange(state),
-    totals: getTotals(state)
+    range: getRange(state)
 });
 
 export default connect(mapStateToProps)(RecordPage);

@@ -32,24 +32,105 @@ function getDefaultValue(items) {
     }
 }
 
+function getRecord(state) {
+    const type = state.type;
+    let record = {
+        type,
+        id: _.toString(Date.now()),
+        amount: _.parseInt(state.amount),
+        member: state.member,
+        date: state.date,
+        tips: state.tips
+    };
+
+    switch(type) {
+        case EnumRecordType.INCOME:
+            return _.assign({
+                category: state.catIncome,
+                accountTo: state.accountTo,
+                project: state.project
+            }, record);
+        case EnumRecordType.OUTCOME:
+            return _.assign({
+                category: state.catOutcome,
+                accountFrom: state.accountFrom,
+                project: state.project
+            }, record);
+        case EnumRecordType.TRANSFER:
+            return _.assign({
+                accountTo: state.accountTo,
+                accountFrom: state.accountFrom
+            }, record);
+        case EnumRecordType.BORROW:
+        case EnumRecordType.COLLECT_DEBT:
+            return _.assign({
+                accountTo: state.accountTo,
+                debtMember: state.debtMember
+            }, record);
+        case EnumRecordType.LEND:
+        case EnumRecordType.REPAY:
+            return _.assign({
+                accountFrom: state.accountFrom,
+                debtMember: state.debtMember
+            }, record);
+        default:
+            return record;
+    }
+}
+
+function generateCurrentDate() {
+    const now = new Date();
+    let month = now.getMonth() + 1;
+    let day = now.getDate();
+    month = month < 10 ? '0' + month : month;
+    day = day < 10 ? '0' + day : day;
+    return now.getFullYear() + '-' + month + '-' + day;
+}
+
+function getInitialState(activeIndex, props) {
+    const accountCategories = props.accountCategories;
+
+    return {
+        type: activeIndex,
+        amount: 0,                                          // 金额
+        member: getDefaultValue(props.members),                   // 成员
+        date: generateCurrentDate(),        // 日期
+        tips: '',                                           // 备注
+        catIncome: getDefaultValue(props.incomeCategories),
+        catOutcome: getDefaultValue(props.outcomeCategories),
+        accountFrom: getDefaultValue(accountCategories),
+        accountTo: getDefaultValue(accountCategories),
+        project: getDefaultValue(props.projectCategories),
+        debtMember: getDefaultValue(props.debtMembers)
+    };
+}
+
 class RecordEditor extends Component {
     constructor(props) {
         super(props);
+        this.state = getInitialState(props.activeIndex || 0, this.props);
+    }
 
-        const { activeIndex, outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtMembers } = this.props;
-        this.state = {                      // local state to store form
-            type: activeIndex || 0,
-            catOutcome: getDefaultValue(outcomeCategories),              // 支出类别
-            catIncome: getDefaultValue(incomeCategories),                // 收入类别
-            catAccountTo: getDefaultValue(accountCategories),            // 转入账户
-            catAccountFrom: getDefaultValue(accountCategories),           // 转出账户
-            amount: 0,                    // 金额
-            member: getDefaultValue(members),                   // 成员
-            debtMember: getDefaultValue(debtMembers),                   // 债权人
-            date: '',                     // 日期
-            project: getDefaultValue(projectCategories),                  // 项目
-            tips: ''                      // 备注
-        };
+    _readyToSave() {
+        const { amount, date } = this.state;
+        return !!amount && !!date;
+    }
+
+    save() {
+        const { id, addRecord, updateRecord } = this.props;
+
+        if (!this._readyToSave()) {
+            return;
+        }
+
+        const record = getRecord(this.state);
+
+        if (id && updateRecord) {
+            updateRecord(id, record);
+        } else if (addRecord) {
+            addRecord(record);
+        }
+        this.setState(getInitialState(this.state.type, this.props));
     }
 
     /**
@@ -60,10 +141,8 @@ class RecordEditor extends Component {
     getControls(type) {
         const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtMembers,
             addCategoryOutcome, addCategoryIncome, addCategoryAccount, addCategoryProject, addMember, addDebtMember } = this.props;
-        const { catOutcome, catIncome, catAccountFrom, catAccountTo, project, member, debtMember } = this.state;
+        const { catOutcome, catIncome, amount, accountFrom, accountTo, project, date, member, debtMember, tips } = this.state;
         const subTitles = TABS[type].subTitles;
-
-        console.log(this.state);
 
         return [
             <Pulldown2 key="cat-outcome"
@@ -87,8 +166,8 @@ class RecordEditor extends Component {
             <Pulldown2 key="cat-account-from"
                        title={ subTitles[2] }
                        items={ accountCategories }
-                       value={ catAccountFrom }
-                       onSelectionChange={ value => this.setState({ catAccountFrom: value })}
+                       value={ accountFrom }
+                       onSelectionChange={ value => this.setState({ accountFrom: value })}
                        addSubCategory={ addCategoryAccount }
                 >
                 <AddItemForm onSubmit={ addCategoryAccount }/>
@@ -96,8 +175,8 @@ class RecordEditor extends Component {
             <Pulldown2 key="cat-account-to"
                        title={ subTitles[3] }
                        items={ accountCategories }
-                       value={ catAccountTo }
-                       onSelectionChange={ value => this.setState({ catAccountTo: value })}
+                       value={ accountTo }
+                       onSelectionChange={ value => this.setState({ accountTo: value })}
                        addSubCategory={ addCategoryAccount }
                 >
                 <AddItemForm onSubmit={ addCategoryAccount }/>
@@ -121,7 +200,7 @@ class RecordEditor extends Component {
                 <AddItemForm onSubmit={ addDebtMember }/>
             </Pulldown2>,
             <Pulldown2 key="members"
-                       title={ '[成员]' }
+                       title="[成员]"
                        items={ members }
                        value={ member }
                        onSelectionChange={ value => this.setState({ member: value })}
@@ -130,21 +209,24 @@ class RecordEditor extends Component {
                 <AddItemForm onSubmit={ addMember }/>
             </Pulldown2>,
             <Input key="amount"
-                   title={ '[金额]' }
+                   title="[金额]"
                    type="number"
+                   value={amount}
                    placeholder="[输入金额...]"
                    onChange={ value => this.setState({ amount: value }) }
                 >
             </Input>,
             <Input key="date"
-                   title={ '[日期]' }
+                   title="[日期]"
                    type="date"
-                   placeholder="[输入日期...]"
+                   value={date}
                    onChange={ value => this.setState({ date: value }) }
                 >
             </Input>,
             <Input key="tips"
-                   title={ '[备注]' }
+                   title="[备注]"
+                   type="text"
+                   value={tips}
                    placeholder="[输入备注...]"
                    onChange={ value => this.setState({ tips: value }) }
                 >
@@ -169,13 +251,14 @@ class RecordEditor extends Component {
                         })
                     }
                 </Tabs>
-                <button className='saveBtn btn'>[保存]</button>
+                <button className='saveBtn btn' onClick={ e => this.save() }>[保存]</button>
             </div>
         );
     }
 }
 
 RecordEditor.propTypes = {
+    id: PropTypes.string,
     outcomeCategories: PropTypes.arrayOf(PropTypes.object),
     incomeCategories: PropTypes.arrayOf(PropTypes.object),
     accountCategories: PropTypes.arrayOf(PropTypes.object),
@@ -187,7 +270,9 @@ RecordEditor.propTypes = {
     addCategoryIncome: PropTypes.func,
     addCategoryAccount: PropTypes.func,
     addCategorProject: PropTypes.func,
-    addMember: PropTypes.func
+    addMember: PropTypes.func,
+    addRecord: PropTypes.func,
+    updateRecord: PropTypes.func
 };
 
 export default RecordEditor;

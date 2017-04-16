@@ -5,9 +5,10 @@
 .record-table-header,
 .record-item {
   display: flex;
+  line-height: 2rem;
 
   .cell {
-    width: calc(100% / 7);
+    width: calc(100% / 5);
     text-align: center;
     border: 1px solid lightgrey;
   }
@@ -20,4 +21,15 @@
 
 .record-item:hover {
   background-color: #fafafa;
+  
+  .remove-record {
+    visibility: visible;
+  }
+}
+
+.remove-record {
+  visibility: hidden;
+  margin-left: -10px;
+  color: #e57373;
+  cursor: pointer;
 }
