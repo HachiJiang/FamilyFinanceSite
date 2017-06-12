@@ -20,7 +20,9 @@ const outcomeCategories = [
         items: [
             { name: '日常用品' },
             { name: '数码电器' },
-            { name: '水电煤' },
+            { name: '水费' },
+            { name: '电费' },
+            { name: '燃气费' },
             { name: '物业费' },
             { name: '房租' },
             { name: '家具' },
