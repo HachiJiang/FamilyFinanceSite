@@ -12,7 +12,7 @@ export default defineMessages({
     },
     header: {
         id: 'app.components.RecordList.header',
-        defaultMessage: '流水记录'
+        defaultMessage: '流水清单'
     },
     totalIncome: {
         id: 'app.components.RecordList.totalIncome',

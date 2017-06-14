@@ -62,6 +62,7 @@ class RecordPage extends Component {
                     />
                 <RecordList range={ range }
                             records={ records }
+                            members={ members }
                             deleteRecord={ deleteRecord }
                     />
             </div>

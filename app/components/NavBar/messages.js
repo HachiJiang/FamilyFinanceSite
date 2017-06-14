@@ -8,26 +8,26 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
     home: {
         id: 'boilerplate.components.NavBar.home',
-        defaultMessage: 'Home'
+        defaultMessage: '概览'
     },
     records: {
         id: 'boilerplate.components.NavBar.records',
-        defaultMessage: 'Records'
+        defaultMessage: '流水'
     },
     budget: {
         id: 'boilerplate.components.NavBar.budget',
-        defaultMessage: 'Budget'
+        defaultMessage: '预算'
     },
     dashboard: {
         id: 'boilerplate.components.NavBar.dashboard',
-        defaultMessage: 'Dashboards'
+        defaultMessage: '报表'
     },
     account: {
         id: 'boilerplate.components.NavBar.account',
-        defaultMessage: 'Account'
+        defaultMessage: '账户'
     },
     setting: {
         id: 'boilerplate.components.NavBar.setting',
-        defaultMessage: 'Setting'
+        defaultMessage: '设置'
     }
 });

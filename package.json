@@ -227,6 +227,7 @@
     "whatwg-fetch": "2.0.1"
   },
   "devDependencies": {
+    "antd": "^2.11.0",
     "babel-cli": "6.18.0",
     "babel-core": "6.21.0",
     "babel-eslint": "7.1.1",
@@ -266,6 +267,7 @@
     "jest-cli": "18.0.0",
     "lint-staged": "3.2.1",
     "lodash": "^4.17.2",
+    "moment": "^2.18.1",
     "ngrok": "2.2.4",
     "node-plop": "0.5.4",
     "node-sass": "^4.5.0",

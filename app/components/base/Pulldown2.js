@@ -44,7 +44,7 @@ export default class Pulldown2 extends Component {
 
         return (
             <div className="pulldown">
-                <span>{ title && <label>{ title }</label> }</span>
+                <span>{ title && <label>{ title + ': ' }</label> }</span>
                 <span className="pulldown-levelSelect">
                     <div className="menu-item selected" ref="levelSelected"
                             onClick={ _ => this.setState({ expanded: !this.state.expanded })}>

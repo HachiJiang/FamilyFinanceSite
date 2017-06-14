@@ -65,10 +65,7 @@ export const getDebtMembers = state => getSchema(state).get('debtMembers');
  * @param {Object} state
  * @returns {*}
  */
-export const getRecordList = state => {
-    const list = _.cloneDeep(getRecordPageData(state).list);
-    return _.reverse(_.sortBy(list, ['date']));
-};
+export const getRecordList = state => getRecordPageData(state).list;
 
 /**
  * Get time range

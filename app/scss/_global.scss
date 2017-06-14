@@ -1,7 +1,5 @@
+@import '~antd/dist/antd.css'; // @TODO: performance concern, need import dynamically
 @import './font-awesome-4.7.0/font-awesome.scss';
-@import './App.scss';
-@import './base/index.scss';
-@import './recordPage/index.scss';
 
 html,
 body {

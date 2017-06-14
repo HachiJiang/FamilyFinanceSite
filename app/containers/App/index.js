@@ -16,6 +16,11 @@ import { connect } from 'react-redux';
 
 import NavBar from '../../components/NavBar';
 
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
+const { SubMenu } = Menu;
+const { Header, Content, Footer } = Layout;
+
 function onKeyDown(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
@@ -23,13 +28,17 @@ function onKeyDown(e) {
 }
 
 const App = ({ children }) => (
-    <div className="container"
-        onKeyDown={e => onKeyDown(e)}>
+    <Layout className="layout">
         <NavBar />
-        <div className="main-content">
-            { children }
-        </div>
-    </div>
+        <Content style={{ padding: '0 50px', margin: '24px 16px 0' }}>
+            <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+                { children }
+            </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+            Finance App ©2017 Created by Swordarchor
+        </Footer>
+    </Layout>
 );
 
 App.propTypes = {

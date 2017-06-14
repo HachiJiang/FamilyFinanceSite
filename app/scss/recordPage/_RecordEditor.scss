@@ -1,5 +1,5 @@
 .record-editor {
-  border: 1px solid lightgrey;;
+  border: 1px solid lightgrey;
 
   .tabs-header {
     display: flex;
@@ -25,12 +25,10 @@
   }
 
   .tabs-content {
-    margin: 20px 10px;
-
     .control {
       display: flex;
       flex-wrap: wrap;
-      
+
       .pulldown,
       .input {
         margin: 5px 8px;
@@ -38,8 +36,13 @@
     }
   }
 
-  > .saveBtn {
-    margin: 0 10px 10px 10px;
+  .tabs-content,
+  .btns {
+    margin: 20px 10px 10px 10px;
+  }
+  
+  .btns {
+    text-align: right;
   }
 
   @media (min-width: 634px) {

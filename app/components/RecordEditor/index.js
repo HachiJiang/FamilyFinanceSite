@@ -5,8 +5,11 @@
  */
 
 import _ from 'lodash';
+import moment from 'moment';
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+
+import { Button, DatePicker } from 'antd';
 
 import Tabs from '../base/Tabs';
 import Pulldown2 from '../base/Pulldown2';
@@ -91,10 +94,10 @@ function getInitialState(activeIndex, props) {
     const accountCategories = props.accountCategories;
 
     return {
-        type: activeIndex,
+        type: activeIndex.toString(),
         amount: 0,                                          // 金额
-        member: getDefaultValue(props.members),                   // 成员
-        date: generateCurrentDate(),        // 日期
+        member: getDefaultValue(props.members),             // 成员
+        date: moment(),                                     // 日期
         tips: '',                                           // 备注
         catIncome: getDefaultValue(props.incomeCategories),
         catOutcome: getDefaultValue(props.outcomeCategories),
@@ -113,6 +116,7 @@ class RecordEditor extends Component {
 
     _readyToSave() {
         const { amount, date } = this.state;
+        console.log(date);
         return !!amount && !!date;
     }
 
@@ -130,6 +134,10 @@ class RecordEditor extends Component {
         } else if (addRecord) {
             addRecord(record);
         }
+        this.reset();
+    }
+
+    reset() {
         this.setState(getInitialState(this.state.type, this.props));
     }
 
@@ -200,7 +208,7 @@ class RecordEditor extends Component {
                 <AddItemForm onSubmit={ addDebtMember }/>
             </Pulldown2>,
             <Pulldown2 key="members"
-                       title="[成员]"
+                       title="成员: "
                        items={ members }
                        value={ member }
                        onSelectionChange={ value => this.setState({ member: value })}
@@ -209,24 +217,22 @@ class RecordEditor extends Component {
                 <AddItemForm onSubmit={ addMember }/>
             </Pulldown2>,
             <Input key="amount"
-                   title="[金额]"
+                   title="金额: "
                    type="number"
-                   value={amount}
+                   value={ amount }
                    placeholder="[输入金额...]"
                    onChange={ value => this.setState({ amount: value }) }
                 >
             </Input>,
-            <Input key="date"
-                   title="[日期]"
-                   type="date"
-                   value={date}
-                   onChange={ value => this.setState({ date: value }) }
-                >
-            </Input>,
+            <form key="date" className="input">
+                <span>日期: </span>
+                <DatePicker defaultValue={ date }
+                            onChange={ value => { value && this.setState({ date: value.format() }) } } />
+            </form>,
             <Input key="tips"
-                   title="[备注]"
+                   title="备注: "
                    type="text"
-                   value={tips}
+                   value={ tips }
                    placeholder="[输入备注...]"
                    onChange={ value => this.setState({ tips: value }) }
                 >
@@ -240,7 +246,7 @@ class RecordEditor extends Component {
 
         return (
             <div className="record-editor">
-                <Tabs activeIndex={ type } onSwitch={ activeIndex => this.setState({ type:activeIndex }) } >
+                <Tabs activeIndex={ parseInt(type) } onSwitch={ activeIndex => this.setState({ type:activeIndex }) } >
                     {
                         TABS.map((tab, type) => {
                             return (
@@ -251,7 +257,10 @@ class RecordEditor extends Component {
                         })
                     }
                 </Tabs>
-                <button className='saveBtn btn' onClick={ e => this.save() }>[保存]</button>
+                <div className="btns">
+                    <Button className="fn-btn" onClick={ e => this.reset() }>[重置]</Button>
+                    <Button className="fn-btn" type="primary" onClick={ e => this.save() }>[保存]</Button>
+                </div>
             </div>
         );
     }

@@ -1,22 +1,3 @@
-// variables
-$width-nav: 130px;
-
-.main-nav,
-.main-content {
-  position: absolute;
-  height: 100%;
-}
-
-.main-nav {
-  left: 0;
-  top: 0;
-  width: $width-nav;
-}
-
-.main-content {
-  left: $width-nav;
-  min-width: 512px;
-  width: calc(100% - 130px);
-  padding: 0 30px; // also remove collapse
-  background-color: white;
-}
+@import './global.scss';
+@import './base/index.scss';
+@import './recordPage/index.scss';

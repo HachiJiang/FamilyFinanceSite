@@ -1,45 +1,4 @@
-/* For Navigation Bar */
-
-$color-font-default: white;
-$color-font-active: black;
-$color-nav-default: #31474f;
-$color-link-hover: lightblue;
-$color-link-active: darkseagreen;
-
 .main-nav {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
-  padding-top: 10px;
-  color: $color-font-default;
-  background-color: $color-nav-default;
-  overflow: auto;
-}
-
-.main-nav-body,
-.main-nav-footer {
-  list-style-type: none;
-  margin: 0 0 0 -40px;
-
-  li {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  a {
-    text-decoration: none;
-    color: $color-font-default;
-    padding: 15px 0;
-
-    &:hover {
-      background-color: $color-link-hover;
-    }
-
-    &.active {
-      background-color: $color-link-active;
-      color: $color-font-active;
-    }
-  }
+  justify-content: flex-start;
 }

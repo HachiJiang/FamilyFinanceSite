@@ -14,7 +14,7 @@ import messages from './messages';
 
 import { getRecordListSortedByDate, getTotals } from './selectors';
 
-const RecordList = ({ range, records, deleteRecord }) => (
+const RecordList = ({ range, records, deleteRecord, members }) => (
     <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
@@ -23,7 +23,10 @@ const RecordList = ({ range, records, deleteRecord }) => (
                 />
         </header>
         <RecordFilter />
-        <RecordGrid records={ getRecordListSortedByDate(records) } deleteRecord={ deleteRecord }/>
+        <RecordGrid records={ getRecordListSortedByDate(records) }
+                    deleteRecord={ deleteRecord }
+                    members={ members }
+            />
     </div>
 );
 
@@ -33,6 +36,7 @@ RecordList.propTypes = {
         to: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array,
+    members: PropTypes.array,
     deleteRecord: PropTypes.func.isRequired
 };
 

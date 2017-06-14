@@ -11,31 +11,48 @@ import { FormattedMessage } from 'react-intl';
 import NavLink from '../base/NavLink';
 import messages from './messages';
 
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
+
 const NavBar = props => (
-    <header className="main-nav">
-        <ul className="main-nav-body">
-            <li><NavLink to="/">
-                <FormattedMessage {...messages.home} />
-            </NavLink></li>
-            <li><NavLink to="/records">
-                <FormattedMessage {...messages.records} />
-            </NavLink></li>
-            <li><NavLink to="/budget">
-                <FormattedMessage {...messages.budget} />
-            </NavLink></li>
-            <li><NavLink to="/dashboards">
-                <FormattedMessage {...messages.dashboard} />
-            </NavLink></li>
-            <li><NavLink to="/account">
-                <FormattedMessage {...messages.account} />
-            </NavLink></li>
-        </ul>
-        <ul className="main-nav-footer">
-            <li><NavLink to="/profile">
-                <FormattedMessage {...messages.setting} />
-            </NavLink></li>
-        </ul>
-    </header>
+    <Header className="header">
+        <div className="logo" />
+        <Menu
+            className="main-nav"
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['1']}
+            style={{ lineHeight: '64px' }}
+            >
+            <Menu.Item key="1">
+                <NavLink to="/">
+                    <FormattedMessage {...messages.home} />
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key="2">
+                <NavLink to="/records">
+                    <FormattedMessage {...messages.records} />
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <NavLink to="/budget">
+                    <FormattedMessage {...messages.budget} />
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key="4">
+                <NavLink to="/dashboards">
+                    <FormattedMessage {...messages.dashboard} />
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key="5">
+                <NavLink to="/profile">
+                    <FormattedMessage {...messages.setting} />
+                </NavLink>
+            </Menu.Item>
+        </Menu>
+    </Header>
 );
 
 export default NavBar;

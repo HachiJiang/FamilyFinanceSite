@@ -39,7 +39,7 @@ import { translationMessages } from './i18n';
 
 // Import CSS reset and Global Styles
 import 'sanitize.css/sanitize.css';
-import './scss/_global.scss';
+import './scss/_App.scss';
 
 // Import root routes
 import createRoutes from './routes';
