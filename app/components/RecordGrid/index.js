@@ -5,10 +5,10 @@
  */
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
+import moment from 'moment';
 
+import messages from './messages';
 import { Table } from 'antd';
-
-import Record from '../RecordList/Record';
 import { getDataRows, getRecordTypeFilters, getMemberFilters } from './selectors';
 
 /**
@@ -20,7 +20,10 @@ function getColumns(props) {
     return [{
         title: '日期',
         dataIndex: 'date',
-        key: 'date'
+        key: 'date',
+        sorter: (a, b) => {
+            return moment(a.date).isAfter(moment(b.date)) ? 1 : -1;
+        }
     }, {
         title: '类型',
         dataIndex: 'text',
@@ -34,7 +37,8 @@ function getColumns(props) {
     }, {
         title: '金额',
         dataIndex: 'amount',
-        key: 'amount'
+        key: 'amount',
+        sorter: (a, b) => a.amount - b.amount
     }, {
         title: '成员',
         dataIndex: 'member',

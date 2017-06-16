@@ -2,17 +2,7 @@
  * RecordList selectors
  */
 
-import moment from 'moment';
 import * as EnumRecordType from '../../constants/EnumRecordType';
-
-/**
- * Get record list sorted by date
- * @param {Array} list
- * @returns {Array}
- */
-export const getRecordListSortedByDate = list => list.sort((a, b) => {
-    return moment(a.date).isBefore(moment(b.date));
-});
 
 /**
  * Get total values

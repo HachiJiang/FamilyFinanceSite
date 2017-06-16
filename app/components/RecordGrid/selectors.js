@@ -2,7 +2,7 @@ import moment from 'moment';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import { getRecordTypeName } from '../../utils/recordUtils';
 
-export const getDataRows = records => records.map((record, index) => {
+export const getDataRows = records => getRecordListSortedByDate(records).map((record, index) => {
     return {
         ...record,
         key: index.toString(),
@@ -31,4 +31,13 @@ export const getMemberFilters = members => members.map(({ name }) => {
         value: name,
         text: name
     }
+});
+
+/**
+ * Get record list sorted by date
+ * @param {Array} list
+ * @returns {Array}
+ */
+const getRecordListSortedByDate = list => list.sort((a, b) => {
+    return moment(a.date).isBefore(moment(b.date)) ? 1: -1;
 });

@@ -29,6 +29,7 @@ class AddItemForm extends Component  {
             <MenuItem2 title="[新增...]" className="addItem-form" onMouseLeave={ e => this.setState({ value: '' }) }>
                 <form onSubmit={ e => this.onSubmit(e) }>
                     <input type="text"
+                           className="input"
                            placeholder="[输入类别...]"
                            value={ this.state.value }
                            onClick={ e => e.stopPropagation }

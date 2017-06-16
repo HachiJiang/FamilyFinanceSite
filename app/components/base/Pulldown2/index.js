@@ -1,17 +1,18 @@
 /*
- * Pulldown2
+ * Cascader
  *
- * Pulldown with 2-level menu
  */
 import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-import MenuItem from './MenuItem';
-import MenuItem2 from './MenuItem2';
-import AddItemForm from './AddItemForm';
+import MenuItem from '../MenuItem';
+import MenuItem2 from '../MenuItem2';
+import AddItemForm from '../AddItemForm';
 
-export default class Pulldown2 extends Component {
+import './style/_index.scss';
+
+class Pulldown2 extends Component {
     constructor(props) {
         super(props);
 
@@ -43,7 +44,7 @@ export default class Pulldown2 extends Component {
         });
 
         return (
-            <div className="pulldown">
+            <div className="form">
                 <span>{ title && <label>{ title + ': ' }</label> }</span>
                 <span className="pulldown-levelSelect">
                     <div className="menu-item selected" ref="levelSelected"
@@ -92,3 +93,5 @@ Pulldown2.propTypes = {
     onSelectionChange: PropTypes.func,
     addSubCategory: PropTypes.func
 };
+
+export default Pulldown2;

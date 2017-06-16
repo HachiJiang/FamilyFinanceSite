@@ -9,12 +9,12 @@ import moment from 'moment';
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
-import { Button, DatePicker } from 'antd';
+import { Button, DatePicker, InputNumber, Input } from 'antd';
 
 import Tabs from '../base/Tabs';
 import Pulldown2 from '../base/Pulldown2';
 import AddItemForm from '../base/AddItemForm';
-import Input from '../base/Input';
+import BaseInput from '../base/Input';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
@@ -43,6 +43,7 @@ function getRecord(state) {
         amount: _.parseInt(state.amount),
         member: state.member,
         date: state.date,
+        project: state.project,
         tips: state.tips
     };
 
@@ -50,14 +51,12 @@ function getRecord(state) {
         case EnumRecordType.INCOME:
             return _.assign({
                 category: state.catIncome,
-                accountTo: state.accountTo,
-                project: state.project
+                accountTo: state.accountTo
             }, record);
         case EnumRecordType.OUTCOME:
             return _.assign({
                 category: state.catOutcome,
-                accountFrom: state.accountFrom,
-                project: state.project
+                accountFrom: state.accountFrom
             }, record);
         case EnumRecordType.TRANSFER:
             return _.assign({
@@ -128,7 +127,7 @@ class RecordEditor extends Component {
         }
 
         const record = getRecord(this.state);
-
+         console.log(record);
         if (id && updateRecord) {
             updateRecord(id, record);
         } else if (addRecord) {
@@ -216,27 +215,22 @@ class RecordEditor extends Component {
                 >
                 <AddItemForm onSubmit={ addMember }/>
             </Pulldown2>,
-            <Input key="amount"
-                   title="金额: "
-                   type="number"
-                   value={ amount }
-                   placeholder="[输入金额...]"
-                   onChange={ value => this.setState({ amount: value }) }
-                >
-            </Input>,
-            <form key="date" className="input">
-                <span>日期: </span>
+            <BaseInput key="amount" title="金额: ">
+                <InputNumber defaultValue={ 0 }
+                             value = { amount }
+                             onChange={ value => this.setState({ amount: value }) }
+                    >
+                </InputNumber>
+            </BaseInput>,
+            <BaseInput key="date" title="日期: " >
                 <DatePicker defaultValue={ date }
                             onChange={ value => { value && this.setState({ date: value.format() }) } } />
-            </form>,
-            <Input key="tips"
-                   title="备注: "
-                   type="text"
-                   value={ tips }
-                   placeholder="[输入备注...]"
-                   onChange={ value => this.setState({ tips: value }) }
-                >
-            </Input>
+            </BaseInput>,
+            <BaseInput key="tips" title="备注: " >
+                <Input placeholder="输入备注..."
+                       value = { tips }
+                       onChange={ e => this.setState({ tips: e.target.value }) }/>
+            </BaseInput>
         ];
     }
 
@@ -246,7 +240,7 @@ class RecordEditor extends Component {
 
         return (
             <div className="record-editor">
-                <Tabs activeIndex={ parseInt(type) } onSwitch={ activeIndex => this.setState({ type:activeIndex }) } >
+                <Tabs activeIndex={ parseInt(type) } onSwitch={ activeIndex => this.setState({ type: activeIndex.toString() }) } >
                     {
                         TABS.map((tab, type) => {
                             return (

@@ -12,7 +12,7 @@ import RecordFilter from '../RecordFilter';
 import RecordGrid from '../RecordGrid';
 import messages from './messages';
 
-import { getRecordListSortedByDate, getTotals } from './selectors';
+import { getTotals } from './selectors';
 
 const RecordList = ({ range, records, deleteRecord, members }) => (
     <div className="record-list-container">
@@ -23,7 +23,7 @@ const RecordList = ({ range, records, deleteRecord, members }) => (
                 />
         </header>
         <RecordFilter />
-        <RecordGrid records={ getRecordListSortedByDate(records) }
+        <RecordGrid records={ records }
                     deleteRecord={ deleteRecord }
                     members={ members }
             />

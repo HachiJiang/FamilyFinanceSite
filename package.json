@@ -56,6 +56,15 @@
       "react",
       "stage-0"
     ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": true
+        }
+      ]
+    ],
     "env": {
       "production": {
         "only": [
@@ -265,6 +274,8 @@
     "image-webpack-loader": "2.0.0",
     "imports-loader": "0.6.5",
     "jest-cli": "18.0.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "lint-staged": "3.2.1",
     "lodash": "^4.17.2",
     "moment": "^2.18.1",
