@@ -16,10 +16,10 @@ import { connect } from 'react-redux';
 
 import NavBar from '../../components/NavBar';
 
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 
 const { SubMenu } = Menu;
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 
 function onKeyDown(e) {
     if (e.key === 'Enter') {
@@ -27,19 +27,42 @@ function onKeyDown(e) {
     }
 }
 
-const App = ({ children }) => (
-    <Layout className="layout">
-        <NavBar />
-        <Content style={{ padding: '0 50px', margin: '24px 16px 0' }}>
-            <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-                { children }
-            </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-            Finance App ©2017 Created by Swordarchor
-        </Footer>
-    </Layout>
-);
+class App extends Component {
+    state = {
+        collapsed: false
+    };
+
+    onCollapse(collapsed) {
+        this.setState({ collapsed });
+    }
+
+    render() {
+        return (
+            <Layout style={{ height: '100vh' }}>
+                <Sider id='main-sider'
+                       breakpoint='lg'
+                       collapsible
+                       collapsed={this.state.collapsed}
+                       onCollapse={ (collapsed, type) => this.onCollapse(collapsed) }
+                       style={{ overflow: 'auto' }}
+                    >
+                    <div className="logo" />
+                    <NavBar />
+                </Sider>
+                <Layout>
+                    <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+                        <div style={{ background: '#fff', padding: 24, minHeight: 360 }}>
+                            { this.props.children }
+                        </div>
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}>
+                        Finance App ©2017 Created by Swordarchor
+                    </Footer>
+                </Layout>
+            </Layout>
+        );
+    }
+}
 
 App.propTypes = {
     children: PropTypes.node

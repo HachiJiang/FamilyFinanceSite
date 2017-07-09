@@ -14,20 +14,28 @@ export default defineMessages({
         id: 'boilerplate.components.NavBar.records',
         defaultMessage: '流水'
     },
-    budget: {
-        id: 'boilerplate.components.NavBar.budget',
-        defaultMessage: '预算'
+    budgets: {
+        id: 'boilerplate.components.NavBar.budgets',
+        defaultMessage: '预算管理'
     },
-    dashboard: {
-        id: 'boilerplate.components.NavBar.dashboard',
+    dashboards: {
+        id: 'boilerplate.components.NavBar.dashboards',
         defaultMessage: '报表'
     },
-    account: {
-        id: 'boilerplate.components.NavBar.account',
-        defaultMessage: '账户'
+    accounts: {
+        id: 'boilerplate.components.NavBar.accounts',
+        defaultMessage: '账户管理'
     },
-    setting: {
-        id: 'boilerplate.components.NavBar.setting',
+    settings: {
+        id: 'boilerplate.components.NavBar.settings',
         defaultMessage: '设置'
+    },
+    profile: {
+        id: 'boilerplate.components.NavBar.profile',
+        defaultMessage: '个人中心'
+    },
+    categories: {
+        id: 'boilerplate.components.NavBar.categories',
+        defaultMessage: '分类管理'
     }
 });

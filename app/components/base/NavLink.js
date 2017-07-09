@@ -5,7 +5,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 const NavLink = props => (
-    <Link {...props} activeClassName='active' />
+    <Link activeClassName='selected'
+          to={ props.to } >
+        { props.children }
+    </Link>
 );
 
 export default NavLink;

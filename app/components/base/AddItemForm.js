@@ -4,6 +4,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 
+import { Form, Button } from 'antd';
 import MenuItem2 from './MenuItem2';
 
 class AddItemForm extends Component  {
@@ -27,7 +28,7 @@ class AddItemForm extends Component  {
     render() {
         return (
             <MenuItem2 title="[新增...]" className="addItem-form" onMouseLeave={ e => this.setState({ value: '' }) }>
-                <form onSubmit={ e => this.onSubmit(e) }>
+                <Form layout="inline" onSubmit={ e => this.onSubmit(e) }>
                     <input type="text"
                            className="input"
                            placeholder="[输入类别...]"
@@ -35,8 +36,14 @@ class AddItemForm extends Component  {
                            onClick={ e => e.stopPropagation }
                            onChange={ e => this.onValueChange(e.target.value) }
                         />
-                    <button type="submit" className="saveBtn btn">[确定]</button>
-                </form>
+                    <Button type="primary"
+                            htmlType="submit"
+                            className="saveBtn btn"
+                            disabled={ !this.state.value }
+                        >
+                        确定
+                    </Button>
+                </Form>
             </MenuItem2>
         );
     }

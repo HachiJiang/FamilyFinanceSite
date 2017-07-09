@@ -15,10 +15,10 @@ export default function createRoutes() {
         <Route component={ App } >
             <Route path="/" component={ HomePage } />
             <Route path="records" component={ RecordPage } />
-            <Route path="budget" component={ BudgetPage } />
+            <Route path="budgets" component={ BudgetPage } />
             <Route path="dashboards" component={ DashboardPage } />
-            <Route path="account" component={ AccountPage } />
-            <Route path="profile" component={ ProfilePage } />
+            <Route path="accounts" component={ AccountPage } />
+            <Route path="settings" component={ ProfilePage } />
             <Route path="*" component={ NotFoundPage } />
         </Route>
     );
