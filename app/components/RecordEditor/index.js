@@ -36,7 +36,7 @@ function getDefaultValue(items) {
 }
 
 function getRecord(state) {
-    const type = state.type;
+    const type = TABS[state.activeIndex].value;
     let record = {
         type,
         id: _.toString(Date.now()),
@@ -93,7 +93,7 @@ function getInitialState(activeIndex, props) {
     const accountCategories = props.accountCategories;
 
     return {
-        type: activeIndex.toString(),
+        activeIndex: activeIndex,
         amount: 0,                                          // 金额
         member: getDefaultValue(props.members),             // 成员
         date: moment(),                                     // 日期
@@ -137,19 +137,19 @@ class RecordEditor extends Component {
     }
 
     reset() {
-        this.setState(getInitialState(this.state.type, this.props));
+        this.setState(getInitialState(this.state.activeIndex, this.props));
     }
 
     /**
      * Get all the controllers
-     * @param {String} type: record type
+     * @param {number} activeIndex
      * @returns {XML[]}
      */
-    getControls(type) {
+    getControls(activeIndex) {
         const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtMembers,
             addCategoryOutcome, addCategoryIncome, addCategoryAccount, addCategoryProject, addMember, addDebtMember } = this.props;
         const { catOutcome, catIncome, amount, accountFrom, accountTo, project, date, member, debtMember, tips } = this.state;
-        const subTitles = TABS[type].subTitles;
+        const subTitles = TABS[activeIndex].subTitles;
 
         return [
             <Pulldown2 key="cat-outcome"
@@ -235,17 +235,17 @@ class RecordEditor extends Component {
     }
 
     render() {
-        const type = this.state.type;
-        const controls = this.getControls(type);
+        const activeIndex = this.state.activeIndex;
+        const controls = this.getControls(activeIndex);
 
         return (
             <div className="record-editor">
-                <Tabs activeIndex={ parseInt(type) } onSwitch={ activeIndex => this.setState({ type: activeIndex.toString() }) } >
+                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState({ activeIndex }) } >
                     {
-                        TABS.map((tab, type) => {
+                        TABS.map((tab, i) => {
                             return (
-                                <div key={ type } title={ tab.title } className='control'>
-                                    { controls.filter((ctrl, index) => TABS[type].flags[index]) }
+                                <div key={ i } title={ tab.title } className='control'>
+                                    { controls.filter((ctrl, index) => TABS[i].flags[index]) }
                                 </div>
                             )
                         })

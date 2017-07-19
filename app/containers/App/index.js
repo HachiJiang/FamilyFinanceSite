@@ -51,9 +51,7 @@ class App extends Component {
                 </Sider>
                 <Layout>
                     <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-                        <div style={{ background: '#fff', padding: 24, minHeight: 360 }}>
-                            { this.props.children }
-                        </div>
+                        { this.props.children }
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
                         Finance App ©2017 Created by Swordarchor

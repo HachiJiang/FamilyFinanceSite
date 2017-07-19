@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Combine all reducers in this file and export the combined reducers.
  * If we were to do this in store.js, reducers wouldn't be hot reloadable.
@@ -27,7 +29,7 @@ const routeInitialState = fromJS({
 /**
  * Merge route into the global application state
  */
-function routeReducer(state = routeInitialState, action) {
+function routeReducer(state = routeInitialState, action = {}) {
     switch (action.type) {
         /* istanbul ignore next */
         case LOCATION_CHANGE:

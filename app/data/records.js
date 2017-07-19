@@ -6,7 +6,7 @@ const records = {
     list: [
         {
             id: '10',
-            type: '0',
+            type: 'outcome',
             amount: 100,
             category: '正餐',
             account: '现金',
@@ -17,7 +17,7 @@ const records = {
             location: '上海'
         }, {
             id: '11',
-            type: '1',
+            type: 'income',
             category: '奖金',
             amount: 21,
             account: '现金',
@@ -28,7 +28,7 @@ const records = {
             location: '杭州'
         }, {
             id: '14',
-            type: '1',
+            type: 'income',
             category: '奖金',
             amount: 21,
             account: '现金',

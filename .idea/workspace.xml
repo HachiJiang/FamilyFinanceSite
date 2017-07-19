@@ -2,98 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf3910ce-feb6-48da-b8fc-65309c69b700" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/intl-locale-data.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/reducer.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/middlewares/frontendMiddleware.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/format-translation-messages.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/progress.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/generate-templates-for-linting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/cssModule.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/tests/asyncInjectors.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translation-messages.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translations-json.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/add-locale-data.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/selectors.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/app-locale.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.nginx.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/dependencies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/utils/componentExists.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/xmark.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/selectors.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/testing/test-bundler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/stateless.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/reducers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/store.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/routeWithReducer.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.pure.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/logger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/store.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/i18n.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/translations/en.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/image.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/extract-intl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/selectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/constants.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.base.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/messages.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/analyze.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/messages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/asyncInjectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/manifest.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dll.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/npmcheckversion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/i18n.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/messages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/selectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/actions.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.prod.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/selectors.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/constants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/progress.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/messages.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/polyfill-intl-locale.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/route.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/format-translation-messages.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/reducer.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/intl-locale-data.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/messages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/asyncInjectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/store.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/stateless.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.nginx.conf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/translations/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/xmark.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.prod.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/generate-templates-for-linting.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/dependencies.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/reducers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/testing/test-bundler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.pure.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translations-json.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/reducer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/tests/asyncInjectors.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/selectors.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/add-locale-data.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/app-locale.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/actions.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/i18n.test.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/test.js.hbs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scss/global-styles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/reducer.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/checkmark.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/analyze.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/selectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/i18n.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dll.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/selectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/utils/componentExists.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/route.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.base.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/polyfill-intl-locale.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/middlewares/frontendMiddleware.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/constants.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translation-messages.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/messages.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/logger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/extract-intl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/routeWithReducer.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/cssModule.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/constants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/npmcheckversion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/manifest.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
     </list>
     <ignored path="FamilyFinanceSite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,109 +114,103 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/containers/App/index.js">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.071429">
-              <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+            <state vertical-scroll-proportion="-0.30120483">
+              <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/NavBar/index.js">
+      <file leaf-file-name="manifest.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.392858">
-              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavLink.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/base/NavLink.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            <state vertical-scroll-proportion="-14.666667">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/routes.js">
+      <file leaf-file-name="webpack.prod.babel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internals/webpack/webpack.prod.babel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37606838">
-              <caret line="12" column="36" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="36" />
+            <state vertical-scroll-proportion="2.357143">
+              <caret line="24" column="7" selection-start-line="19" selection-start-column="4" selection-end-line="24" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/containers/AccountPage/index.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-17.11111">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9642857">
+              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_RecordGrid.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordGrid.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/containers/AccountPage/messages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messages.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/NavBar/messages.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/containers/BudgetPage/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_App.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scss/_App.scss">
+      <file leaf-file-name="_RecordEditor.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordEditor.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6296296">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            <state vertical-scroll-proportion="-0.8148148">
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_global.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scss/_global.scss">
+      <file leaf-file-name="_variables.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_variables.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.037037">
-              <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.043564357">
+              <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="store.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="en.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/translations/en.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -238,24 +232,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/components/base/Modal.js" />
-        <option value="$PROJECT_DIR$/app/scss/recordPage/index.scss" />
-        <option value="$PROJECT_DIR$/app/scss/recordPage/_RecordGrid.scss" />
-        <option value="$PROJECT_DIR$/app/utils/recordUtils.js" />
-        <option value="$PROJECT_DIR$/app/components/RecordEditor/selectors.js" />
-        <option value="$PROJECT_DIR$/app/constants/EnumRecordType.js" />
-        <option value="$PROJECT_DIR$/app/components/RecordList/messages.js" />
-        <option value="$PROJECT_DIR$/app/scss/recordPage/_RecordList.scss" />
-        <option value="$PROJECT_DIR$/app/scss/recordPage/_layout.scss" />
         <option value="$PROJECT_DIR$/app/scss/base/_Button.scss" />
         <option value="$PROJECT_DIR$/app/components/RecordFilter/index.js" />
-        <option value="$PROJECT_DIR$/app/data/records.js" />
         <option value="$PROJECT_DIR$/app/containers/RecordPage/index.js" />
         <option value="$PROJECT_DIR$/app/containers/RecordPage/selectors.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/internals/webpack/webpack.base.babel.js" />
-        <option value="$PROJECT_DIR$/app/app.js" />
-        <option value="$PROJECT_DIR$/app/components/RecordEditor/tabConfig.js" />
         <option value="$PROJECT_DIR$/app/components/RecordList/index.js" />
         <option value="$PROJECT_DIR$/app/components/RecordList/selectors.js" />
         <option value="$PROJECT_DIR$/app/components/RecordGrid/selectors.js" />
@@ -266,12 +247,10 @@
         <option value="$PROJECT_DIR$/app/components/base/Cascader/selectors.js" />
         <option value="$PROJECT_DIR$/app/components/base/Cascader2/index.js" />
         <option value="$PROJECT_DIR$/app/components/base/Cascader2/selectors.js" />
-        <option value="$PROJECT_DIR$/app/components/RecordEditor/index.js" />
         <option value="$PROJECT_DIR$/app/components/base/Pulldown2/selectors.js" />
         <option value="$PROJECT_DIR$/app/data/outcomeCategories.js" />
         <option value="$PROJECT_DIR$/app/components/base/Pulldown2/style/_index.scss" />
         <option value="$PROJECT_DIR$/app/scss/base/_Input.scss" />
-        <option value="$PROJECT_DIR$/app/scss/recordPage/_RecordEditor.scss" />
         <option value="$PROJECT_DIR$/app/components/base/Input.js" />
         <option value="$PROJECT_DIR$/app/components/base/Pulldown2/index.js" />
         <option value="$PROJECT_DIR$/app/scss/base/_Pulldown.scss" />
@@ -281,14 +260,29 @@
         <option value="$PROJECT_DIR$/docs/database.md" />
         <option value="$PROJECT_DIR$/docs/main.md" />
         <option value="$PROJECT_DIR$/app/scss/base/_NavBar.scss" />
-        <option value="$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js" />
-        <option value="$PROJECT_DIR$/app/scss/_global.scss" />
         <option value="$PROJECT_DIR$/app/containers/AccountPage/messages.js" />
-        <option value="$PROJECT_DIR$/app/containers/App/index.js" />
         <option value="$PROJECT_DIR$/app/components/NavBar/messages.js" />
-        <option value="$PROJECT_DIR$/app/components/base/NavLink.js" />
         <option value="$PROJECT_DIR$/app/components/NavBar/index.js" />
+        <option value="$PROJECT_DIR$/app/containers/HomePage/index.js" />
+        <option value="$PROJECT_DIR$/app/containers/HomePage/messages.js" />
+        <option value="$PROJECT_DIR$/app/containers/HomePage/tests/index.test.js" />
         <option value="$PROJECT_DIR$/app/routes.js" />
+        <option value="$PROJECT_DIR$/app/constants/EnumRecordType.js" />
+        <option value="$PROJECT_DIR$/app/data/records.js" />
+        <option value="$PROJECT_DIR$/app/components/RecordEditor/tabConfig.js" />
+        <option value="$PROJECT_DIR$/app/components/RecordEditor/index.js" />
+        <option value="$PROJECT_DIR$/app/data/accounts.js" />
+        <option value="$PROJECT_DIR$/app/reducers.js" />
+        <option value="$PROJECT_DIR$/app/containers/App/index.js" />
+        <option value="$PROJECT_DIR$/app/scss/recordPage/_layout.scss" />
+        <option value="$PROJECT_DIR$/app/scss/recordPage/_RecordEditor.scss" />
+        <option value="$PROJECT_DIR$/app/scss/_global.scss" />
+        <option value="$PROJECT_DIR$/app/components/base/NavLink.js" />
+        <option value="$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app/store.js" />
+        <option value="$PROJECT_DIR$/app/app.js" />
+        <option value="$PROJECT_DIR$/app/scss/recordPage/_variables.scss" />
       </list>
     </option>
   </component>
@@ -374,38 +368,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="internals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="internals" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webpack" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -442,67 +404,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
+              <option name="myItemId" value="scss" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NavBar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FamilyFinanceSite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
+              <option name="myItemId" value="recordPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../my-app" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="JavaScriptLanguageLevel" value="JSX" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -572,11 +494,11 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23272438" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24225576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23287672" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -631,308 +553,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/input-number/style/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/base/_Menu.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordList/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03405573">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/tabConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordGrid/messages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37606838">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordList/messages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3133903">
-          <caret line="14" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordList/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6581197">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/containers/RecordPage/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8571428">
-          <caret line="43" column="124" selection-start-line="43" selection-start-column="124" selection-end-line="43" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0411255">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/records.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/members.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/Pulldown2/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordGrid/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/outcomeCategories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/Pulldown2/style/_index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/base/_Input.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.148149">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordEditor.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8554217">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordGrid/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="228" column="12" selection-start-line="228" selection-start-column="12" selection-end-line="228" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/Input.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/Pulldown2/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/base/_Pulldown.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/MenuItem2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/specification.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/api.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/server.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/front-end.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/database.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/main.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.0">
-            <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.222222">
-          <caret line="280" column="24" selection-start-line="280" selection-start-column="24" selection-end-line="280" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data/accounts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/base/_NavBar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/Tabs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/rdfa.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -940,7 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -948,15 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.767857">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -964,31 +578,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9047619">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internals/webpack/webpack.base.babel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scss/_App.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6296296">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/_global.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.037037">
-          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -996,7 +592,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/containers/AccountPage/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/NavBar/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1004,6 +613,335 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/NavBar/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internals/generators/container/sagas.js.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20229885">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/selectors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/actions/categoryIncome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23719676">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/accounts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/records.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="46" selection-start-line="244" selection-start-column="46" selection-end-line="244" selection-end-column="46" />
+          <folding>
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1499993853000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/incomeCategories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/outcomeCategories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data/projectCategories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/tabConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/constants/EnumRecordType.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/reducers/recordPage/recordReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/logger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/reducers/schema/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/containers/App/selectors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/containers/RecordPage/messages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/RecordList/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordList.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17425743">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6296296">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="3" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/containers/RecordPage/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <marker date="1497453840000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1497453840000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1497453840000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/base/NavLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/containers/App/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scss/_global.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.814815">
+          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/reducers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/.nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.666667">
+          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.666667">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.11111">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internals/webpack/webpack.prod.babel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.357143">
+          <caret line="24" column="7" selection-start-line="19" selection-start-column="4" selection-end-line="24" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internals/webpack/webpack.base.babel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/translations/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/i18n.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5960591">
+          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.035714">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30120483">
+          <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1012,62 +950,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.43874645">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+        <state vertical-scroll-proportion="-1.9642857">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/containers/AccountPage/messages.js">
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordGrid.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/NavBar/messages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/containers/App/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.071429">
-          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/NavLink.js">
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordEditor.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        <state vertical-scroll-proportion="-0.8148148">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/NavBar/index.js">
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.392858">
-          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37606838">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.043564357">
+          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
           <folding />
         </state>
       </provider>

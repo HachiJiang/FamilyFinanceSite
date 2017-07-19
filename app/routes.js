@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRedirect } from 'react-router';
 
 import App from './containers/App';
-import HomePage from './containers/HomePage';
+import SummaryPage from './containers/SummaryPage';
 import RecordPage from './containers/RecordPage';
 import BudgetPage from './containers/BudgetPage';
 import DashboardPage from './containers/DashboardPage';
@@ -12,8 +12,9 @@ import NotFoundPage from './containers/NotFoundPage';
 
 export default function createRoutes() {
     return (
-        <Route component={ App } >
-            <Route path="/" component={ HomePage } />
+        <Route path="/" component={ App } >
+            <IndexRedirect to="summary" />
+            <Route path="summary" component={ SummaryPage } />
             <Route path="records" component={ RecordPage } />
             <Route path="budgets" component={ BudgetPage } />
             <Route path="dashboards" component={ DashboardPage } />
