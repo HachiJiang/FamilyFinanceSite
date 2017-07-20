@@ -29,6 +29,10 @@ import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getPro
 
 class RecordPage extends Component {
 
+    componentDidMount() {
+
+    }
+
     render() {
         const { dispatch, outcomeCategories, incomeCategories, accountCategories, projectCategories,
             members, debtMembers, range, records } = this.props;
