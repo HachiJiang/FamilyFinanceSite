@@ -94,7 +94,6 @@
       "es6": true
     },
     "plugins": [
-      "redux-saga",
       "react",
       "jsx-a11y"
     ],
@@ -147,8 +146,6 @@
       "react/jsx-no-target-blank": 0,
       "react/require-extension": 0,
       "react/self-closing-comp": 0,
-      "redux-saga/no-yield-in-race": 2,
-      "redux-saga/yield-effects": 2,
       "require-yield": 0,
       "import/no-webpack-loader-syntax": 0
     },
@@ -206,10 +203,10 @@
   },
   "dependencies": {
     "antd": "^2.12.1",
-    "classnames": "^2.2.5",
     "babel-polyfill": "6.20.0",
     "bootstrap": "^4.0.0-alpha.6",
     "chalk": "1.1.3",
+    "classnames": "^2.2.5",
     "compression": "1.6.2",
     "cross-env": "3.1.3",
     "express": "4.14.0",
@@ -218,6 +215,7 @@
     "intl": "^1.2.5",
     "invariant": "2.2.2",
     "ip": "1.1.4",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "minimist": "1.2.0",
     "moment": "^2.18.1",
@@ -232,7 +230,7 @@
     "react-router-scroll": "^0.4.2",
     "redux": "^3.7.2",
     "redux-immutable": "^4.0.0",
-    "redux-saga": "0.14.0",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "sanitize.css": "^5.0.0",
     "warning": "3.0.0",

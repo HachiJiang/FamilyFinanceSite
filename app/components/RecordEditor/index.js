@@ -115,7 +115,6 @@ class RecordEditor extends Component {
 
     _readyToSave() {
         const { amount, date } = this.state;
-        console.log(date);
         return !!amount && !!date;
     }
 
