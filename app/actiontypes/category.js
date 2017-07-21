@@ -10,7 +10,7 @@
 export const OUTCOME_ADD_CATEGORY = 'outcome/ADD_CATEGORY';
 export const OUTCOME_DELETE_CATEGORY = 'outcome/DELETE_CATEGORY';
 export const UPDATE_CATEGORY_OUTCOME = 'outcome/UPDATE_CATEGORY';
-export const OUTCOME_RECEIVE_CATEGORIES = 'account/RECEIVE_CATEGORIES';
+export const OUTCOME_RECEIVE_CATEGORIES = 'outcome/RECEIVE_CATEGORIES';
 
 /* Income */
 export const ADD_CATEGORY_INCOME = 'income/ADD_CATEGORY';

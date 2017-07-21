@@ -50,7 +50,7 @@ export const updateCategory = (name, indices) => {
 /**
  * Receive account categories
  * @param json
- * @returns {{type: OUTCOME_RECEIVE_CATEGORIES, accounts: *}}
+ * @returns {{type: OUTCOME_RECEIVE_CATEGORIES, cats: *}}
  */
 function receiveCategories(json) {
     return {
