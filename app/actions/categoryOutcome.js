@@ -5,16 +5,17 @@
  */
 
 import * as CategoryActionTypes from '../actiontypes/category';
+import { OUTCOME_GET } from '../constants/API';
 
 /**
  * Add category with name
  * @param {string} name
  * @param {Array} indices
- * @returns {{type: ADD_CATEGORY_OUTCOME, name: *, indices: *}}
+ * @returns {{type: OUTCOME_ADD_CATEGORY, name: *, indices: *}}
  */
 export const addCategory = (name, indices) => {
     return {
-        type: CategoryActionTypes.ADD_CATEGORY_OUTCOME,
+        type: CategoryActionTypes.OUTCOME_ADD_CATEGORY,
         name,
         indices
     };
@@ -23,11 +24,11 @@ export const addCategory = (name, indices) => {
 /**
  * Delete category in specific position
  * @param {Array} indices
- * @returns {{type: DELETE_CATEGORY_OUTCOME, Array: *}}
+ * @returns {{type: OUTCOME_DELETE_CATEGORY, Array: *}}
  */
 export const deleteCategory = indices => {
     return {
-        type: CategoryActionTypes.DELETE_CATEGORY_OUTCOME,
+        type: CategoryActionTypes.OUTCOME_DELETE_CATEGORY,
         indices
     };
 };
@@ -43,5 +44,29 @@ export const updateCategory = (name, indices) => {
         type: CategoryActionTypes.UPDATE_CATEGORY_OUTCOME,
         name,
         indices
+    };
+};
+
+/**
+ * Receive account categories
+ * @param json
+ * @returns {{type: OUTCOME_RECEIVE_CATEGORIES, accounts: *}}
+ */
+function receiveCategories(json) {
+    return {
+        type: CategoryActionTypes.OUTCOME_RECEIVE_CATEGORIES,
+        cats: json
+    };
+}
+
+/**
+ * Fetch accounts from server
+ * @returns {Function}
+ */
+export const fetchCategories = () => {
+    return dispatch => {
+        return fetch(OUTCOME_GET)
+            .then(res => res.json())
+            .then(json => dispatch(receiveCategories(json)));
     };
 };

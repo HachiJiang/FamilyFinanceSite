@@ -26,13 +26,16 @@ function recordReducer(state = initialState, action = {}) {
                     action.record
                 ]
             };
+
         case RecordActionTypes.DELETE_RECORD:
             return {
                 filter,
                 list: list.filter(record => record.id !== action.id)
             };
+
         case RecordActionTypes.UPDATE_RECORD:
             console.log('update record');
+
         default:
             return state;
     }

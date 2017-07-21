@@ -12,10 +12,11 @@ import accounts from '../../data/accounts';
 
 const initialState = accounts || [];
 
-function accountCategoriesReducer(state = initialState, action = {}) {
+function accountReducer(state = initialState, action = {}) {
     switch (action.type) {
         case CategoryActionTypes.ADD_CATEGORY_ACCOUNT:
             return addCategory(state, action);
+
         case CategoryActionTypes.DELETE_CATEGORY_ACCOUNT:
 
             return state;
@@ -23,9 +24,12 @@ function accountCategoriesReducer(state = initialState, action = {}) {
         case CategoryActionTypes.UPDATE_CATEGORY_ACCOUNT:
             return state;
 
+        case CategoryActionTypes.ACCOUNTS_RECEIVE_CATEGORIES:  // fetch data from server
+            return action.cats;
+
         default:
             return state;
     }
 }
 
-export default accountCategoriesReducer;
+export default accountReducer;

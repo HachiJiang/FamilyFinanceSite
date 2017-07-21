@@ -14,14 +14,17 @@ const initialState = outcomeCategories || [];
 
 function catOutcomeReducer(state = initialState, action = {}) {
     switch (action.type) {
-        case CategoryActionTypes.ADD_CATEGORY_OUTCOME:
+        case CategoryActionTypes.OUTCOME_ADD_CATEGORY:
             return addCategory(state, action);
-        case CategoryActionTypes.DELETE_CATEGORY_OUTCOME:
+        case CategoryActionTypes.OUTCOME_DELETE_CATEGORY:
 
             return state;
 
         case CategoryActionTypes.UPDATE_CATEGORY_OUTCOME:
             return state;
+
+        case CategoryActionTypes.OUTCOME_RECEIVE_CATEGORIES:  // fetch data from server
+            return action.cats;
 
         default:
             return state;

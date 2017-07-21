@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Enum for locale types
  * @type {{DEFAULT_LOCALE: string}}

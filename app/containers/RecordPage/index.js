@@ -17,11 +17,12 @@ import RecordList from '../../components/RecordList';
 // Actions
 import * as CategoryOutcomeActionCreators from '../../actions/categoryOutcome';
 import * as CategoryIncomeActionCreators from '../../actions/categoryIncome';
-import * as CategoryAccountActionCreators from '../../actions/categoryAccount';
+import * as CategoryAccountActionCreators from '../../actions/accounts';
 import * as CategoryProjectActionCreators from '../../actions/categoryProject';
 import * as MemberActionCreators from '../../actions/member';
 import * as DebtMemberActionCreators from '../../actions/debtMember';
 import * as RecordActionCreators from '../../actions/record';
+import { fetchSchema, fetchRecords } from '../../actions/recordPage';
 
 // Selectors
 import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getProjectCategories,
@@ -30,7 +31,8 @@ import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getPro
 class RecordPage extends Component {
 
     componentDidMount() {
-
+        // Async fetch
+        fetchSchema(this.props.dispatch)
     }
 
     render() {
