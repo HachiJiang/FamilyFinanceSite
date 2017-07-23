@@ -67,13 +67,13 @@ function getRecord(state) {
         case EnumRecordType.COLLECT_DEBT:
             return _.assign({
                 accountTo: state.accountTo,
-                debtMember: state.debtMember
+                debtor: state.debtor
             }, record);
         case EnumRecordType.LEND:
         case EnumRecordType.REPAY:
             return _.assign({
                 accountFrom: state.accountFrom,
-                debtMember: state.debtMember
+                debtor: state.debtor
             }, record);
         default:
             return record;
@@ -103,7 +103,7 @@ function getInitialState(activeIndex, props) {
         accountFrom: getDefaultValue(accountCategories),
         accountTo: getDefaultValue(accountCategories),
         project: getDefaultValue(props.projectCategories),
-        debtMember: getDefaultValue(props.debtMembers)
+        debtor: getDefaultValue(props.debtors)
     };
 }
 
@@ -145,9 +145,9 @@ class RecordEditor extends Component {
      * @returns {XML[]}
      */
     getControls(activeIndex) {
-        const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtMembers,
-            addCategoryOutcome, addCategoryIncome, addCategoryAccount, addCategoryProject, addMember, addDebtMember } = this.props;
-        const { catOutcome, catIncome, amount, accountFrom, accountTo, project, date, member, debtMember, tips } = this.state;
+        const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors,
+            addOutcomeCategory, addIncomeCategory, addAccountCategory, addProjectCategory, addMember, addDebtor } = this.props;
+        const { catOutcome, catIncome, amount, accountFrom, accountTo, project, date, member, debtor, tips } = this.state;
         const subTitles = TABS[activeIndex].subTitles;
 
         return [
@@ -156,54 +156,54 @@ class RecordEditor extends Component {
                        items={ outcomeCategories }
                        value={ catOutcome }
                        onSelectionChange={ value => this.setState({ catOutcome: value })}
-                       addSubCategory={ addCategoryOutcome }
+                       addSubCategory={ addOutcomeCategory }
                 >
-                <AddItemForm onSubmit={ addCategoryOutcome }/>
+                <AddItemForm onSubmit={ addOutcomeCategory }/>
             </Pulldown2>,
             <Pulldown2 key="cat-income"
                        title={ subTitles[1] }
                        items={ incomeCategories }
                        value={ catIncome }
                        onSelectionChange={ value => this.setState({ catIncome: value })}
-                       addSubCategory={ addCategoryIncome }
+                       addSubCategory={ addIncomeCategory }
                 >
-                <AddItemForm onSubmit={ addCategoryIncome }/>
+                <AddItemForm onSubmit={ addIncomeCategory }/>
             </Pulldown2>,
             <Pulldown2 key="cat-account-from"
                        title={ subTitles[2] }
                        items={ accountCategories }
                        value={ accountFrom }
                        onSelectionChange={ value => this.setState({ accountFrom: value })}
-                       addSubCategory={ addCategoryAccount }
+                       addSubCategory={ addAccountCategory }
                 >
-                <AddItemForm onSubmit={ addCategoryAccount }/>
+                <AddItemForm onSubmit={ addAccountCategory }/>
             </Pulldown2>,
             <Pulldown2 key="cat-account-to"
                        title={ subTitles[3] }
                        items={ accountCategories }
                        value={ accountTo }
                        onSelectionChange={ value => this.setState({ accountTo: value })}
-                       addSubCategory={ addCategoryAccount }
+                       addSubCategory={ addAccountCategory }
                 >
-                <AddItemForm onSubmit={ addCategoryAccount }/>
+                <AddItemForm onSubmit={ addAccountCategory }/>
             </Pulldown2>,
             <Pulldown2 key="project"
                        title={ subTitles[4] }
                        items={ projectCategories }
                        value={ project }
                        onSelectionChange={ value => this.setState({ project: value })}
-                       addSubCategory={ addCategoryProject }
+                       addSubCategory={ addProjectCategory }
                 >
-                <AddItemForm onSubmit={ addCategoryProject }/>
+                <AddItemForm onSubmit={ addProjectCategory }/>
             </Pulldown2>,
-            <Pulldown2 key="debtMembers"
+            <Pulldown2 key="debtors"
                        title={ subTitles[5] }
-                       items={ debtMembers }
-                       value={ debtMember }
-                       onSelectionChange={ value => this.setState({ debtMember: value })}
-                       addSubCategory={ addDebtMember }
+                       items={ debtors }
+                       value={ debtor }
+                       onSelectionChange={ value => this.setState({ debtor: value })}
+                       addSubCategory={ addDebtor }
                 >
-                <AddItemForm onSubmit={ addDebtMember }/>
+                <AddItemForm onSubmit={ addDebtor }/>
             </Pulldown2>,
             <Pulldown2 key="members"
                        title="成员: "
@@ -266,11 +266,11 @@ RecordEditor.propTypes = {
     accountCategories: PropTypes.arrayOf(PropTypes.object),
     projectCategories: PropTypes.arrayOf(PropTypes.object),
     members: PropTypes.arrayOf(PropTypes.object),
-    debtMembers: PropTypes.arrayOf(PropTypes.object),
+    debtors: PropTypes.arrayOf(PropTypes.object),
     activeIndex: PropTypes.number,
-    addCategoryOutcome: PropTypes.func,
-    addCategoryIncome: PropTypes.func,
-    addCategoryAccount: PropTypes.func,
+    addOutcomeCategory: PropTypes.func,
+    addIncomeCategory: PropTypes.func,
+    addAccountCategory: PropTypes.func,
     addCategorProject: PropTypes.func,
     addMember: PropTypes.func,
     addRecord: PropTypes.func,

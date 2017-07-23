@@ -5,12 +5,12 @@
 
 import { combineReducers } from 'redux-immutable';
 
-import outcomeCategoriesReducer from './outcomeCategoriesReducer';
-import incomeCategoriesReducer from './incomeCategoriesReducer';
+import outcomeCategoriesReducer from './outcomeReducer';
+import incomeCategoriesReducer from './incomeReducer';
 import accountCategoriesReducer from './accountReducer';
-import projectCategoriesReducer from './projectCategoriesReducer';
+import projectCategoriesReducer from './projectReducer';
 import memberReducer from './memberReducer';
-import debtMemberReducer from './debtMemberReducer';
+import debtMemberReducer from './debtorReducer';
 
 const schemaReducer = combineReducers({
     outcomeCategories: outcomeCategoriesReducer,
@@ -18,7 +18,7 @@ const schemaReducer = combineReducers({
     accountCategories: accountCategoriesReducer,
     projectCategories: projectCategoriesReducer,
     members: memberReducer,
-    debtMembers: debtMemberReducer
+    debtors: debtMemberReducer
 });
 
 export default schemaReducer;

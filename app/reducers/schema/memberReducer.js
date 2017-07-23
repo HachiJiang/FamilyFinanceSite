@@ -5,13 +5,9 @@
  */
 
 import _ from 'lodash';
-import * as MemberActionTypes from '../../actiontypes/member';
+import * as MemberActionTypes from '../../actiontypes/schema/member';
 
-import members from '../../data/members';
-
-const initialState = members || [];
-
-function memberReducer(state = initialState, action = {}) {
+function memberReducer(state = [], action = {}) {
     switch (action.type) {
         case MemberActionTypes.ADD_MEMBER:
             return [
@@ -25,6 +21,9 @@ function memberReducer(state = initialState, action = {}) {
 
         case MemberActionTypes.UPDATE_MEMBER:
             return state;
+
+        case MemberActionTypes.RECEIVE_MEMBERS:
+            return action.data;
 
         default:
             return state;

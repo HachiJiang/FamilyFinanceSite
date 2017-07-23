@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  *
  * Account reducer
@@ -5,27 +7,23 @@
  */
 
 import _ from 'lodash';
-import * as CategoryActionTypes from '../../actiontypes/category';
+import * as AccountActionTypes from '../../actiontypes/schema/account';
 import { addCategory } from './categoriesReducerUtils';
 
-import accounts from '../../data/accounts';
-
-const initialState = accounts || [];
-
-function accountReducer(state = initialState, action = {}) {
+function accountReducer(state = [], action = {}) {
     switch (action.type) {
-        case CategoryActionTypes.ADD_CATEGORY_ACCOUNT:
+        case AccountActionTypes.ADD_CATEGORY:
             return addCategory(state, action);
 
-        case CategoryActionTypes.DELETE_CATEGORY_ACCOUNT:
+        case AccountActionTypes.DELETE_CATEGORY:
 
             return state;
 
-        case CategoryActionTypes.UPDATE_CATEGORY_ACCOUNT:
+        case AccountActionTypes.UPDATE_CATEGORY:
             return state;
 
-        case CategoryActionTypes.ACCOUNTS_RECEIVE_CATEGORIES:  // fetch data from server
-            return action.cats;
+        case AccountActionTypes.RECEIVE_CATEGORIES:  // fetch data from server
+            return action.data;
 
         default:
             return state;

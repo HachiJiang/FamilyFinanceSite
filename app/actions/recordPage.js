@@ -1,16 +1,22 @@
-import * as CategoryOutcomeActionCreators from './categoryOutcome';
-import * as CategoryIncomeActionCreators from './categoryIncome';
-import * as CategoryAccountActionCreators from './accounts';
-import * as CategoryProjectActionCreators from './categoryProject';
-import * as MemberActionCreators from './member';
-import * as DebtMemberActionCreators from './debtMember';
+'use strict';
+
+import * as AccountActionCreators from './schema/account';
+import * as DebtMemberActionCreators from './schema/debtor';
+import * as IncomeActionCreators from './schema/income';
+import * as MemberActionCreators from './schema/member';
+import * as OutcomeActionCreators from './schema/outcome';
+import * as ProjectActionCreators from './schema/project';
 
 /**
  * Fetch Schema
  */
 export const fetchSchema = dispatch => {
-    dispatch(CategoryOutcomeActionCreators.fetchCategories());
-    dispatch(CategoryAccountActionCreators.fetchCategories());
+    dispatch(AccountActionCreators.fetchCategories());
+    dispatch(DebtMemberActionCreators.fetchDebtors());
+    dispatch(IncomeActionCreators.fetchCategories());
+    dispatch(MemberActionCreators.fetchMembers());
+    dispatch(OutcomeActionCreators.fetchCategories());
+    dispatch(ProjectActionCreators.fetchCategories());
 };
 
 /**

@@ -4,7 +4,7 @@
  *
  */
 
-import * as RecordActionTypes from '../actiontypes/record';
+import * as RecordActionTypes from '../../actiontypes/record';
 
 /**
  * Add record

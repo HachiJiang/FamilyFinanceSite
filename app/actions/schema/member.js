@@ -1,10 +1,14 @@
+'use strict';
+
 /*
  *
  * Actions for member
  *
  */
 
-import * as MemberActionTypes from '../actiontypes/member';
+import * as MemberActionTypes from '../../actiontypes/schema/member';
+import request from './../base/request.js';
+import { MEMBER_GET } from '../../constants/API';
 
 /**
  * Add member with name
@@ -42,4 +46,24 @@ export const updateMember = (name, index) => {
         name,
         index
     };
+};
+
+/**
+ * Receive members
+ * @param json
+ * @returns {{type: RECEIVE_MEMBERS, data: *}}
+ */
+function receiveMembers(json) {
+    return {
+        type: MemberActionTypes.RECEIVE_MEMBERS,
+        data: json
+    };
+}
+
+/**
+ * Fetch members from server
+ * @returns {Function}
+ */
+export const fetchMembers = () => {
+    return request(MEMBER_GET, receiveMembers);
 };

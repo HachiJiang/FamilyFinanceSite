@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * RecordPage
  *
@@ -15,13 +17,13 @@ import RecordEditor from '../../components/RecordEditor';
 import RecordList from '../../components/RecordList';
 
 // Actions
-import * as CategoryOutcomeActionCreators from '../../actions/categoryOutcome';
-import * as CategoryIncomeActionCreators from '../../actions/categoryIncome';
-import * as CategoryAccountActionCreators from '../../actions/accounts';
-import * as CategoryProjectActionCreators from '../../actions/categoryProject';
-import * as MemberActionCreators from '../../actions/member';
-import * as DebtMemberActionCreators from '../../actions/debtMember';
-import * as RecordActionCreators from '../../actions/record';
+import * as CategoryOutcomeActionCreators from '../../actions/schema/outcome';
+import * as CategoryIncomeActionCreators from '../../actions/schema/income';
+import * as CategoryAccountActionCreators from '../../actions/schema/account';
+import * as CategoryProjectActionCreators from '../../actions/schema/project';
+import * as MemberActionCreators from '../../actions/schema/member';
+import * as DebtMemberActionCreators from '../../actions/schema/debtor';
+import * as RecordActionCreators from '../../actions/schema/record';
 import { fetchSchema, fetchRecords } from '../../actions/recordPage';
 
 // Selectors
@@ -31,20 +33,19 @@ import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getPro
 class RecordPage extends Component {
 
     componentDidMount() {
-        // Async fetch
-        fetchSchema(this.props.dispatch)
+        fetchSchema(this.props.dispatch); // Async fetch
     }
 
     render() {
         const { dispatch, outcomeCategories, incomeCategories, accountCategories, projectCategories,
-            members, debtMembers, range, records } = this.props;
+            members, debtors, range, records } = this.props;
 
-        const addCategoryOutcome = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch); // Outcome
-        const addCategoryIncome = bindActionCreators(CategoryIncomeActionCreators.addCategory, dispatch);   // Income
-        const addCategoryAccount = bindActionCreators(CategoryAccountActionCreators.addCategory, dispatch); // Account
-        const addCategoryProject = bindActionCreators(CategoryProjectActionCreators.addCategory, dispatch); // Project
+        const addOutcomeCategory = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch); // Outcome
+        const addIncomeCategory = bindActionCreators(CategoryIncomeActionCreators.addCategory, dispatch);   // Income
+        const addAccountCategory = bindActionCreators(CategoryAccountActionCreators.addCategory, dispatch); // Account
+        const addProjectCategory = bindActionCreators(CategoryProjectActionCreators.addCategory, dispatch); // Project
         const addMember = bindActionCreators(MemberActionCreators.addMember, dispatch);                     // Member
-        const addDebtMember = bindActionCreators(DebtMemberActionCreators.addMember, dispatch);             // Debt Member
+        const addDebtor = bindActionCreators(DebtMemberActionCreators.addMember, dispatch);                 // Debt Member
         const addRecord = bindActionCreators(RecordActionCreators.addRecord, dispatch);                     // Add record
         const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
         const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
@@ -56,13 +57,13 @@ class RecordPage extends Component {
                               accountCategories={ accountCategories }
                               projectCategories={ projectCategories }
                               members={ members }
-                              debtMembers={ debtMembers }
-                              addCategoryOutcome={ addCategoryOutcome }
-                              addCategoryIncome={ addCategoryIncome }
-                              addCategoryAccount={ addCategoryAccount }
-                              addCategoryProject={ addCategoryProject }
+                              debtors={ debtors }
+                              addOutcomeCategory={ addOutcomeCategory }
+                              addIncomeCategory={ addIncomeCategory }
+                              addAccountCategory={ addAccountCategory }
+                              addProjectCategory={ addProjectCategory }
                               addMember={ addMember }
-                              addDebtMember={ addDebtMember }
+                              addDebtor={ addDebtor }
                               addRecord={ addRecord }
                               updateRecord={ updateRecord }
                     />
@@ -87,7 +88,7 @@ RecordPage.propTypes = {
     accountCategories: PropTypes.array.isRequired,
     projectCategories: PropTypes.array.isRequired,
     members: PropTypes.array.isRequired,
-    debtMembers: PropTypes.array.isRequired
+    debtors: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -96,7 +97,7 @@ const mapStateToProps = state => ({
     accountCategories: getAccountCategories(state),
     projectCategories: getProjectCategories(state),
     members: getMembers(state),
-    debtMembers: getDebtMembers(state),
+    debtors: getDebtMembers(state),
     records: getRecordList(state),
     range: getRange(state)
 });

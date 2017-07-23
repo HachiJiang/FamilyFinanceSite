@@ -1,4 +1,4 @@
-const debtMembers = [
+const debtors = [
     {
         name: '债权人1'
     }, {
@@ -6,4 +6,4 @@ const debtMembers = [
     }
 ];
 
-export default debtMembers;
+export default debtors;

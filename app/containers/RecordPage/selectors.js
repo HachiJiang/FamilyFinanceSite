@@ -58,7 +58,7 @@ export const getMembers = state => getSchema(state).get('members');
  * @param {Object} state
  * @returns {*}
  */
-export const getDebtMembers = state => getSchema(state).get('debtMembers');
+export const getDebtMembers = state => getSchema(state).get('debtors');
 
 /**
  * Get record list
