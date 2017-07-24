@@ -6,22 +6,25 @@
  *
  */
 
+import * as API from '../../constants/API';
 import * as IncomeActionTypes from '../../actiontypes/schema/income';
 import request from './../base/request.js';
-import { INCOME_GET } from '../../constants/API';
 
 /**
  * Add category with name
- * @param {string} name
- * @param {Array} indices
- * @returns {{type: ADD_CATEGORY, name: *, indices: *}}
+ * @param {String} name
+ * @param {String} catId
+ * @returns {{type: ADD_CATEGORY, cat: Object}}
  */
-export const addCategory = (name, indices) => {
-    return {
-        type: IncomeActionTypes.ADD_CATEGORY,
-        name,
-        indices
-    };
+export const addCategory = (name, catId) => {
+    const url = catId ? API.INCOME_CREATE_SUBCATEGORY({ catId }) : API.INCOME_CREATE_CATEGORY;
+
+    return request.post(url, { catId, name }, cat => {
+        return {
+            type: IncomeActionTypes.ADD_CATEGORY,
+            cat
+        }
+    });
 };
 
 /**
@@ -66,6 +69,4 @@ function receiveCategories(json) {
  * Fetch categories from server
  * @returns {Function}
  */
-export const fetchCategories = () => {
-    return request(INCOME_GET, receiveCategories);
-};
+export const fetchCategories = () => request.get(API.INCOME_GET, receiveCategories);

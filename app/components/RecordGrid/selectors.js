@@ -7,7 +7,7 @@ export const getDataRows = records => getRecordListSortedByDate(records).map((re
         ...record,
         key: index.toString(),
         text: getRecordTypeName(record.type),
-        date: moment(record.date).format('YYYY-MM-DD')
+        date: moment(record.consumeDate).format('YYYY-MM-DD')
     };
 });
 

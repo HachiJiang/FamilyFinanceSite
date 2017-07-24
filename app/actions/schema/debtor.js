@@ -6,21 +6,21 @@
  *
  */
 
+import * as API from '../../constants/API';
 import * as DebtorActionTypes from '../../actiontypes/schema/debtor';
 import request from './../base/request.js';
-import { DEBTOR_GET } from '../../constants/API';
 
 /**
  * Add member with name
  * @param {string} name
- * @returns {{type: ADD_DEBTOR, name: *, index: *}}
+ * @returns {{type: ADD_DEBTOR, item: Object}}
  */
-export const addMember = name => {
+export const addMember = name => request.post(API.DEBTOR_CREATE, { name }, item => {
     return {
         type: DebtorActionTypes.ADD_DEBTOR,
-        name
-    };
-};
+        item
+    }
+});
 
 /**
  * Delete member in specific position
@@ -50,13 +50,13 @@ export const updateMember = (name, index) => {
 
 /**
  * Receive debtors
- * @param json
+ * @param data
  * @returns {{type: RECEIVE_DEBTORS, data: *}}
  */
-function receiveDebtors(json) {
+function receiveDebtors(data) {
     return {
         type: DebtorActionTypes.RECEIVE_DEBTORS,
-        data: json
+        data
     };
 }
 
@@ -64,6 +64,4 @@ function receiveDebtors(json) {
  * Fetch debtors from server
  * @returns {Function}
  */
-export const fetchDebtors = () => {
-    return request(DEBTOR_GET, receiveDebtors);
-};
+export const fetchDebtors = () => request.get(API.DEBTOR_GET, receiveDebtors);

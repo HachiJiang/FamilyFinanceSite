@@ -12,6 +12,8 @@ import AddItemForm from '../AddItemForm';
 
 import './style/_index.scss';
 
+const DEFAULT_VALUE = '[请选择...]';
+
 class Pulldown2 extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +40,7 @@ class Pulldown2 extends Component {
     }
 
     render() {
-        const { title, items, onSelectionChange, addSubCategory, children } = this.props;
+        const { title, value, items, onSelectionChange, addItem } = this.props;
         const menuCls = classNames('menu', {
             disabled: !this.state.expanded
         });
@@ -49,7 +51,7 @@ class Pulldown2 extends Component {
                 <span className="pulldown-levelSelect">
                     <div className="menu-item selected" ref="levelSelected"
                             onClick={ _ => this.setState({ expanded: !this.state.expanded })}>
-                        <span className='selected-content'>{ this.props.value }</span>
+                        <span className='selected-content'>{ value || DEFAULT_VALUE }</span>
                         <span className="fa fa-caret-down" aria-hidden="true"></span>
                     </div>
                     <div className={ menuCls }>
@@ -66,7 +68,7 @@ class Pulldown2 extends Component {
                                                     onSelectionChange(itemName);
                                                 } }
                                         >
-                                        <AddItemForm onSubmit={ value => addSubCategory(value, [index]) } />
+                                        <AddItemForm onSubmit={ value => addItem(value, cat._id) } />
                                     </MenuItem2>
                                 ) : (
                                     <MenuItem key={ index }
@@ -76,7 +78,7 @@ class Pulldown2 extends Component {
                                 )
                             })
                         }
-                        { children }
+                        <AddItemForm onSubmit={ addItem }/>
                     </div>
                 </span>
             </div>
@@ -85,13 +87,12 @@ class Pulldown2 extends Component {
 }
 
 Pulldown2.propTypes = {
-    children: PropTypes.node,
     title: PropTypes.string,
     value: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     onClick: PropTypes.func,
     onSelectionChange: PropTypes.func,
-    addSubCategory: PropTypes.func
+    addItem: PropTypes.func
 };
 
 export default Pulldown2;

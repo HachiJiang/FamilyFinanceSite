@@ -6,6 +6,7 @@ import * as IncomeActionCreators from './schema/income';
 import * as MemberActionCreators from './schema/member';
 import * as OutcomeActionCreators from './schema/outcome';
 import * as ProjectActionCreators from './schema/project';
+import * as RecordActionCreators from './schema/record';
 
 /**
  * Fetch Schema
@@ -22,6 +23,6 @@ export const fetchSchema = dispatch => {
 /**
  * Fetch records
  */
-export const fetchRecords = () => {
-
+export const fetchRecords = dispatch => {
+    dispatch(RecordActionCreators.fetchRecords());
 };

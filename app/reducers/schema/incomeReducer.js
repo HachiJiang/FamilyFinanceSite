@@ -1,17 +1,19 @@
+'use strict';
+
 /*
  *
  * Income category reducer
  *
  */
 
-import _ from 'lodash';
 import * as IncomeActionTypes from '../../actiontypes/schema/income';
-import { addCategory } from './categoriesReducerUtils';
+import { updateCategory } from './categoriesReducerUtils';
 
 function incomeCategoriesReducer(state = [], action = {}) {
     switch (action.type) {
         case IncomeActionTypes.ADD_CATEGORY:
-            return addCategory(state, action);
+            return updateCategory(state, action.cat);
+
         case IncomeActionTypes.DELETE_CATEGORY:
 
             return state;

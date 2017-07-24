@@ -4,14 +4,14 @@
  * Project categories reducer
  */
 
-import _ from 'lodash';
 import * as ProjectActionTypes from '../../actiontypes/schema/project';
-import { addCategory } from './categoriesReducerUtils';
+import { updateCategory } from './categoriesReducerUtils';
 
 function projectCategoriesReducer(state = [], action = {}) {
     switch (action.type) {
         case ProjectActionTypes.ADD_CATEGORY:
-            return addCategory(state, action);
+            return updateCategory(state, action.cat);
+
         case ProjectActionTypes.DELETE_CATEGORY:
 
             return state;

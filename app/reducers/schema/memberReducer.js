@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  *
  * Member reducer
@@ -12,10 +14,9 @@ function memberReducer(state = [], action = {}) {
         case MemberActionTypes.ADD_MEMBER:
             return [
                 ...state,
-                {
-                    name: action.name
-                }
+                action.item
             ];
+
         case MemberActionTypes.DELETE_MEMBER:
             return state;
 

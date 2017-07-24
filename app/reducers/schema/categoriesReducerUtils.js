@@ -1,37 +1,34 @@
-/**
+'use strict';
+
+/*
+ *
  * Utils for category reducers
+ *
  */
 
-export const addCategory = (state, action) => {
-    const indices = action.indices;
-    let newState;
-
-    if (_.isEmpty(indices)) {
-        newState = [
-            ...state,
-            {
-                name: action.name,
-                items: []
-            }
-        ];
-    } else { // sub category
-        const index = indices[0];
-        const category = state[indices[0]];
-
-        newState = [
-            ...state.slice(0, index),
-            {
-                name: category.name,
-                items: [
-                    ...category.items,
-                    {
-                        name: action.name
-                    }
-                ]
-            },
-            ...state.slice(index + 1)
-        ];
+/**
+ * Add/Update category
+ * @param {Array} state
+ * @param {Object} cat
+ * @returns {Array}
+ */
+export const updateCategory = (state, cat) => {
+    if (!cat || !cat.name) {
+        return state;
     }
 
-    return newState;
+    const index = _.findIndex(state, { _id: cat._id });
+
+    if (index !== -1) { // if exist, update category
+        return [
+            ...state.slice(0, index),
+            cat,
+            ...state.slice(index + 1)
+        ];
+    } else {            // if not exist, add new one
+        return [
+            ...state,
+            cat
+        ];
+    }
 };

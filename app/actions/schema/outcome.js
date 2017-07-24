@@ -6,22 +6,25 @@
  *
  */
 
+import * as API from '../../constants/API';
 import * as OutcomeActionTypes from '../../actiontypes/schema/outcome';
 import request from './../base/request.js';
-import { OUTCOME_GET } from '../../constants/API';
 
 /**
  * Add category with name
- * @param {string} name
- * @param {Array} indices
- * @returns {{type: ADD_CATEGORY, name: *, indices: *}}
+ * @param {String} name
+ * @param {String} catId
+ * @returns {{type: ADD_CATEGORY, cat: Object}}
  */
-export const addCategory = (name, indices) => {
-    return {
-        type: OutcomeActionTypes.ADD_CATEGORY,
-        name,
-        indices
-    };
+export const addCategory = (name, catId) => {
+    const url = catId ? API.OUTCOME_CREATE_SUBCATEGORY({ catId }) : API.OUTCOME_CREATE_CATEGORY;
+
+    return request.post(url, { catId, name }, cat => {
+        return {
+            type: OutcomeActionTypes.ADD_CATEGORY,
+            cat
+        }
+    });
 };
 
 /**
@@ -66,6 +69,4 @@ function receiveCategories(json) {
  * Fetch categories from server
  * @returns {Function}
  */
-export const fetchCategories = () => {
-    return request(OUTCOME_GET, receiveCategories);
-};
+export const fetchCategories = () => request.get(API.OUTCOME_GET, receiveCategories);

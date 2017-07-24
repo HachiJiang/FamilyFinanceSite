@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * RecordEditor
  *
@@ -13,7 +15,6 @@ import { Button, DatePicker, InputNumber, Input } from 'antd';
 
 import Tabs from '../base/Tabs';
 import Pulldown2 from '../base/Pulldown2';
-import AddItemForm from '../base/AddItemForm';
 import BaseInput from '../base/Input';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
@@ -21,64 +22,6 @@ import TABS from './tabConfig';
 
 //const TITLES = ["[Outcome]", "[Income]", "[Transfer]", "[Borrow]", "[Lend]", "[Repay]", "[Collect Debt]"];
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
-
-function getDefaultValue(items) {
-    if (_.isEmpty(items)) {
-        return '[请选择...]';
-    }
-
-    const subItems = items[0].items;
-    if (!subItems) {
-        return items[0].name;
-    } else if (subItems[0]) {
-        return subItems[0].name;
-    }
-}
-
-function getRecord(state) {
-    const type = TABS[state.activeIndex].value;
-    let record = {
-        type,
-        id: _.toString(Date.now()),
-        amount: _.parseInt(state.amount),
-        member: state.member,
-        date: state.date,
-        project: state.project,
-        tips: state.tips
-    };
-
-    switch(type) {
-        case EnumRecordType.INCOME:
-            return _.assign({
-                category: state.catIncome,
-                accountTo: state.accountTo
-            }, record);
-        case EnumRecordType.OUTCOME:
-            return _.assign({
-                category: state.catOutcome,
-                accountFrom: state.accountFrom
-            }, record);
-        case EnumRecordType.TRANSFER:
-            return _.assign({
-                accountTo: state.accountTo,
-                accountFrom: state.accountFrom
-            }, record);
-        case EnumRecordType.BORROW:
-        case EnumRecordType.COLLECT_DEBT:
-            return _.assign({
-                accountTo: state.accountTo,
-                debtor: state.debtor
-            }, record);
-        case EnumRecordType.LEND:
-        case EnumRecordType.REPAY:
-            return _.assign({
-                accountFrom: state.accountFrom,
-                debtor: state.debtor
-            }, record);
-        default:
-            return record;
-    }
-}
 
 function generateCurrentDate() {
     const now = new Date();
@@ -89,33 +32,47 @@ function generateCurrentDate() {
     return now.getFullYear() + '-' + month + '-' + day;
 }
 
-function getInitialState(activeIndex, props) {
-    const accountCategories = props.accountCategories;
-
+/**
+ * Get initial state
+ * @param {Object} record
+ * @returns {Object}
+ */
+function getInitialState(record = {}) {
     return {
-        activeIndex: activeIndex,
-        amount: 0,                                          // 金额
-        member: getDefaultValue(props.members),             // 成员
-        date: moment(),                                     // 日期
-        tips: '',                                           // 备注
-        catIncome: getDefaultValue(props.incomeCategories),
-        catOutcome: getDefaultValue(props.outcomeCategories),
-        accountFrom: getDefaultValue(accountCategories),
-        accountTo: getDefaultValue(accountCategories),
-        project: getDefaultValue(props.projectCategories),
-        debtor: getDefaultValue(props.debtors)
+        type: EnumRecordType.OUTCOME,
+        amount: 0,                         // 金额
+        consumeDate: moment(),             // 日期
+        ...record
     };
+}
+
+/**
+ * Get tab index by record type
+ * @param {String} type
+ * @returns {number}
+ */
+function typeToIdx(type) {
+    return _.findIndex(TABS, { value: type });
+}
+
+/**
+ * Get record type by tab index
+ * @param {number} idx
+ * @returns {String}
+ */
+function idxToType(idx) {
+    return TABS[idx].value;
 }
 
 class RecordEditor extends Component {
     constructor(props) {
         super(props);
-        this.state = getInitialState(props.activeIndex || 0, this.props);
+        this.state = getInitialState(this.props.record);
     }
 
     _readyToSave() {
-        const { amount, date } = this.state;
-        return !!amount && !!date;
+        const { amount, consumeDate } = this.state;
+        return !!amount && !!consumeDate;
     }
 
     save() {
@@ -125,8 +82,12 @@ class RecordEditor extends Component {
             return;
         }
 
-        const record = getRecord(this.state);
-         console.log(record);
+        const state = this.state;
+        const record = {
+            ...state,
+            amount: _.parseInt(state.amount)
+        };
+
         if (id && updateRecord) {
             updateRecord(id, record);
         } else if (addRecord) {
@@ -136,7 +97,7 @@ class RecordEditor extends Component {
     }
 
     reset() {
-        this.setState(getInitialState(this.state.activeIndex, this.props));
+        this.setState(getInitialState(this.props.record));
     }
 
     /**
@@ -147,72 +108,65 @@ class RecordEditor extends Component {
     getControls(activeIndex) {
         const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors,
             addOutcomeCategory, addIncomeCategory, addAccountCategory, addProjectCategory, addMember, addDebtor } = this.props;
-        const { catOutcome, catIncome, amount, accountFrom, accountTo, project, date, member, debtor, tips } = this.state;
+        const { type, category, amount, accountFrom, accountTo, project, consumeDate, member, debtor, tips } = this.state;
         const subTitles = TABS[activeIndex].subTitles;
 
         return [
             <Pulldown2 key="cat-outcome"
                        title={ subTitles[0] }
                        items={ outcomeCategories }
-                       value={ catOutcome }
-                       onSelectionChange={ value => this.setState({ catOutcome: value })}
-                       addSubCategory={ addOutcomeCategory }
+                       value={ type === EnumRecordType.OUTCOME ? category : '' }
+                       onSelectionChange={ value => this.setState({ category: value })}
+                       addItem={ addOutcomeCategory }
                 >
-                <AddItemForm onSubmit={ addOutcomeCategory }/>
             </Pulldown2>,
             <Pulldown2 key="cat-income"
                        title={ subTitles[1] }
                        items={ incomeCategories }
-                       value={ catIncome }
-                       onSelectionChange={ value => this.setState({ catIncome: value })}
-                       addSubCategory={ addIncomeCategory }
+                       value={ type === EnumRecordType.INCOME ? category : '' }
+                       onSelectionChange={ value => this.setState({ category: value })}
+                       addItem={ addIncomeCategory }
                 >
-                <AddItemForm onSubmit={ addIncomeCategory }/>
             </Pulldown2>,
             <Pulldown2 key="cat-account-from"
                        title={ subTitles[2] }
                        items={ accountCategories }
                        value={ accountFrom }
                        onSelectionChange={ value => this.setState({ accountFrom: value })}
-                       addSubCategory={ addAccountCategory }
+                       addItem={ addAccountCategory }
                 >
-                <AddItemForm onSubmit={ addAccountCategory }/>
             </Pulldown2>,
             <Pulldown2 key="cat-account-to"
                        title={ subTitles[3] }
                        items={ accountCategories }
                        value={ accountTo }
                        onSelectionChange={ value => this.setState({ accountTo: value })}
-                       addSubCategory={ addAccountCategory }
+                       addItem={ addAccountCategory }
                 >
-                <AddItemForm onSubmit={ addAccountCategory }/>
             </Pulldown2>,
             <Pulldown2 key="project"
                        title={ subTitles[4] }
                        items={ projectCategories }
                        value={ project }
                        onSelectionChange={ value => this.setState({ project: value })}
-                       addSubCategory={ addProjectCategory }
+                       addItem={ addProjectCategory }
                 >
-                <AddItemForm onSubmit={ addProjectCategory }/>
             </Pulldown2>,
             <Pulldown2 key="debtors"
                        title={ subTitles[5] }
                        items={ debtors }
                        value={ debtor }
                        onSelectionChange={ value => this.setState({ debtor: value })}
-                       addSubCategory={ addDebtor }
+                       addItem={ addDebtor }
                 >
-                <AddItemForm onSubmit={ addDebtor }/>
             </Pulldown2>,
             <Pulldown2 key="members"
-                       title="成员: "
+                       title="成员"
                        items={ members }
                        value={ member }
                        onSelectionChange={ value => this.setState({ member: value })}
-                       addSubCategory={ addMember }
+                       addItem={ addMember }
                 >
-                <AddItemForm onSubmit={ addMember }/>
             </Pulldown2>,
             <BaseInput key="amount" title="金额: ">
                 <InputNumber defaultValue={ 0 }
@@ -222,8 +176,8 @@ class RecordEditor extends Component {
                 </InputNumber>
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
-                <DatePicker defaultValue={ date }
-                            onChange={ value => { value && this.setState({ date: value.format() }) } } />
+                <DatePicker defaultValue={ consumeDate }
+                            onChange={ value => { value && this.setState({ consumeDate: value.format() }) } } />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >
                 <Input placeholder="输入备注..."
@@ -234,12 +188,12 @@ class RecordEditor extends Component {
     }
 
     render() {
-        const activeIndex = this.state.activeIndex;
+        const activeIndex =  typeToIdx(this.state.type);
         const controls = this.getControls(activeIndex);
 
         return (
             <div className="record-editor">
-                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState({ activeIndex }) } >
+                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState({ type: idxToType(activeIndex) }) } >
                     {
                         TABS.map((tab, i) => {
                             return (
@@ -260,18 +214,27 @@ class RecordEditor extends Component {
 }
 
 RecordEditor.propTypes = {
-    id: PropTypes.string,
+    record: PropTypes.shape({
+        _id: PropTypes.string,
+        type: PropTypes.string.required,
+        amount: PropTypes.number.required,
+        consumeDate: PropTypes.number.required,
+        category: PropTypes.string,
+        accountFrom: PropTypes.string,
+        accountTo: PropTypes.string,
+        project: PropTypes.string,
+        member: PropTypes.string
+    }),
     outcomeCategories: PropTypes.arrayOf(PropTypes.object),
     incomeCategories: PropTypes.arrayOf(PropTypes.object),
     accountCategories: PropTypes.arrayOf(PropTypes.object),
     projectCategories: PropTypes.arrayOf(PropTypes.object),
     members: PropTypes.arrayOf(PropTypes.object),
     debtors: PropTypes.arrayOf(PropTypes.object),
-    activeIndex: PropTypes.number,
     addOutcomeCategory: PropTypes.func,
     addIncomeCategory: PropTypes.func,
     addAccountCategory: PropTypes.func,
-    addCategorProject: PropTypes.func,
+    addProjectCategory: PropTypes.func,
     addMember: PropTypes.func,
     addRecord: PropTypes.func,
     updateRecord: PropTypes.func

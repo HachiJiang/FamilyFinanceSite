@@ -6,21 +6,21 @@
  *
  */
 
+import * as API from '../../constants/API';
 import * as MemberActionTypes from '../../actiontypes/schema/member';
 import request from './../base/request.js';
-import { MEMBER_GET } from '../../constants/API';
 
 /**
  * Add member with name
  * @param {string} name
- * @returns {{type: ADD_MEMBER, name: *, index: *}}
+ * @returns {{type: ADD_MEMBER, item: Object}}
  */
-export const addMember = name => {
+export const addMember = name => request.post(API.MEMBER_CREATE, { name }, item => {
     return {
         type: MemberActionTypes.ADD_MEMBER,
-        name
-    };
-};
+        item
+    }
+});
 
 /**
  * Delete member in specific position
@@ -64,6 +64,4 @@ function receiveMembers(json) {
  * Fetch members from server
  * @returns {Function}
  */
-export const fetchMembers = () => {
-    return request(MEMBER_GET, receiveMembers);
-};
+export const fetchMembers = () => request.get(API.MEMBER_GET, receiveMembers);

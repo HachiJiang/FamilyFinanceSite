@@ -33,7 +33,9 @@ import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getPro
 class RecordPage extends Component {
 
     componentDidMount() {
-        fetchSchema(this.props.dispatch); // Async fetch
+        const { dispatch } = this.props;
+        fetchSchema(dispatch);    // Async fetch
+        fetchRecords(dispatch);
     }
 
     render() {

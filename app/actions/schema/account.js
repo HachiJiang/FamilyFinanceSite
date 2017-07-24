@@ -6,22 +6,25 @@
  *
  */
 
+import * as API from '../../constants/API';
 import * as AccountActionTypes from '../../actiontypes/schema/account';
 import request from './../base/request.js';
-import { ACCOUNT_GET } from '../../constants/API';
 
 /**
  * Add category with name
- * @param {string} name
- * @param {Array} indices
- * @returns {{type: ADD_CATEGORY, name: *, indices: *}}
+ * @param {String} name
+ * @param {String} catId
+ * @returns {{type: ADD_CATEGORY, cat: Object}}
  */
-export const addCategory = (name, indices) => {
-    return {
-        type: AccountActionTypes.ADD_CATEGORY,
-        name,
-        indices
-    };
+export const addCategory = (name, catId) => {
+    const url = catId ? API.ACCOUNT_CREATE_SUBCATEGORY({ catId }) : API.ACCOUNT_CREATE_CATEGORY;
+
+    return request.post(url, { catId, name }, cat => {
+        return {
+            type: AccountActionTypes.ADD_CATEGORY,
+            cat
+        }
+    });
 };
 
 /**
@@ -51,21 +54,12 @@ export const updateCategory = (name, indices) => {
 };
 
 /**
- * Receive categories
- * @param json
- * @returns {{type: RECEIVE_CATEGORIES, data: *}}
- */
-function receiveCategories(json) {
-    return {
-        type: AccountActionTypes.RECEIVE_CATEGORIES,
-        data: json
-    };
-}
-
-/**
  * Fetch categories from server
  * @returns {Function}
  */
-export const fetchCategories = () => {
-    return request(ACCOUNT_GET, receiveCategories);
-};
+export const fetchCategories = () => request.get(API.ACCOUNT_GET, data => {
+    return {  // generate action with response data
+        type: AccountActionTypes.RECEIVE_CATEGORIES,
+        data
+    };
+});

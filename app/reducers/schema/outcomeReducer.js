@@ -1,17 +1,19 @@
+'use strict';
+
 /*
  *
  * Outcome category reducer
  *
  */
 
-import _ from 'lodash';
 import * as OutcomeActionTypes from '../../actiontypes/schema/outcome';
-import { addCategory } from './categoriesReducerUtils';
+import { updateCategory } from './categoriesReducerUtils';
 
 function catOutcomeReducer(state = [], action = {}) {
     switch (action.type) {
         case OutcomeActionTypes.ADD_CATEGORY:
-            return addCategory(state, action);
+            return updateCategory(state, action.cat);
+
         case OutcomeActionTypes.DELETE_CATEGORY:
 
             return state;

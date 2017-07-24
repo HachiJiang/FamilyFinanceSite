@@ -6,14 +6,13 @@
  *
  */
 
-import _ from 'lodash';
 import * as AccountActionTypes from '../../actiontypes/schema/account';
-import { addCategory } from './categoriesReducerUtils';
+import { updateCategory } from './categoriesReducerUtils';
 
 function accountReducer(state = [], action = {}) {
     switch (action.type) {
         case AccountActionTypes.ADD_CATEGORY:
-            return addCategory(state, action);
+            return updateCategory(state, action.cat);
 
         case AccountActionTypes.DELETE_CATEGORY:
 

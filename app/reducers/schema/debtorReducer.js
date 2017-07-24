@@ -1,10 +1,11 @@
+'use strict';
+
 /*
  *
  * Debt member reducer
  *
  */
 
-import _ from 'lodash';
 import * as DebtorActionTypes from '../../actiontypes/schema/debtor';
 
 function debtorReducer(state = [], action = {}) {
@@ -12,10 +13,9 @@ function debtorReducer(state = [], action = {}) {
         case DebtorActionTypes.ADD_DEBTOR:
             return [
                 ...state,
-                {
-                    name: action.name
-                }
+                action.item
             ];
+
         case DebtorActionTypes.DELETE_DEBTOR:
             return state;
 

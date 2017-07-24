@@ -60,7 +60,7 @@ function getColumns(props) {
             <span>
               <a href="#">编辑</a>
               <span className="ant-divider" />
-              <a href="#" onClick={ () => props.deleteRecord(record.id) }>删除</a>
+              <a href="#" onClick={ () => props.deleteRecord(record._id) }>删除</a>
             </span>
         )
     }];
