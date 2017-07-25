@@ -9,6 +9,8 @@ import moment from 'moment';
 
 import messages from './messages';
 import { Table } from 'antd';
+import RecordEditor from '../RecordEditor';
+
 import { getDataRows, getRecordTypeFilters, getMemberFilters } from './selectors';
 
 /**
@@ -66,7 +68,9 @@ function getColumns(props) {
     }];
 }
 
-const expandedRowRender = record => <p>{record.description}</p>;
+const expandedRowRender = () => {
+    return <RecordEditor />;
+};
 
 class RecordGrid extends Component {
     state = {
