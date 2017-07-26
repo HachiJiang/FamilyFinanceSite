@@ -14,7 +14,7 @@ import messages from './messages';
 
 import { getTotals } from './selectors';
 
-const RecordList = ({ range, records, deleteRecord, members }) => (
+const RecordList = ({ range, records, deleteRecord, members, createEditor }) => (
     <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
@@ -26,6 +26,7 @@ const RecordList = ({ range, records, deleteRecord, members }) => (
         <RecordGrid records={ records }
                     deleteRecord={ deleteRecord }
                     members={ members }
+                    createEditor={ createEditor }
             />
     </div>
 );
@@ -37,7 +38,8 @@ RecordList.propTypes = {
     }).isRequired,
     records: PropTypes.array,
     members: PropTypes.array,
-    deleteRecord: PropTypes.func.isRequired
+    deleteRecord: PropTypes.func.isRequired,
+    createEditor: PropTypes.func.isRequired
 };
 
 export default RecordList;

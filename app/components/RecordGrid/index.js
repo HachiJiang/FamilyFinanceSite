@@ -9,7 +9,6 @@ import moment from 'moment';
 
 import messages from './messages';
 import { Table } from 'antd';
-import RecordEditor from '../RecordEditor';
 
 import { getDataRows, getRecordTypeFilters, getMemberFilters } from './selectors';
 
@@ -68,20 +67,20 @@ function getColumns(props) {
     }];
 }
 
-const expandedRowRender = () => {
-    return <RecordEditor />;
-};
-
 class RecordGrid extends Component {
-    state = {
-        bordered: true,
-        loading: false,
-        pagination: false,
-        size: 'default',
-        expandedRowRender,
-        showHeader: true,
-        scroll: undefined
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            bordered: true,
+            loading: false,
+            pagination: false,
+            size: 'default',
+            expandedRowRender: ({ record }) => props.createEditor(record),
+            showHeader: true,
+            scroll: undefined
+        };
+    }
 
     render() {
         const { records } = this.props;
@@ -101,7 +100,8 @@ class RecordGrid extends Component {
 RecordGrid.propTypes = {
     records: PropTypes.array,
     members: PropTypes.array,
-    deleteRecord: PropTypes.func.isRequired
+    deleteRecord: PropTypes.func.isRequired,
+    createEditor: PropTypes.func.isRequired
 };
 
 export default RecordGrid;

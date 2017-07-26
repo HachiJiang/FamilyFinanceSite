@@ -4,6 +4,7 @@ import { getRecordTypeName } from '../../utils/recordUtils';
 
 export const getDataRows = records => getRecordListSortedByDate(records).map((record, index) => {
     return {
+        record,
         ...record,
         key: index.toString(),
         text: getRecordTypeName(record.type),

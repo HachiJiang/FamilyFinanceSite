@@ -39,8 +39,8 @@ class RecordPage extends Component {
     }
 
     render() {
-        const { dispatch, outcomeCategories, incomeCategories, accountCategories, projectCategories,
-            members, debtors, range, records } = this.props;
+        const { dispatch, members, range, records } = this.props;
+        const me = this;
 
         const addOutcomeCategory = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch); // Outcome
         const addIncomeCategory = bindActionCreators(CategoryIncomeActionCreators.addCategory, dispatch);   // Income
@@ -52,8 +52,10 @@ class RecordPage extends Component {
         const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
         const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
 
-        return (
-            <div>
+        const createEditor = record => {
+            const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } = me.props;
+
+            return (
                 <RecordEditor outcomeCategories={ outcomeCategories }
                               incomeCategories={ incomeCategories }
                               accountCategories={ accountCategories }
@@ -68,11 +70,19 @@ class RecordPage extends Component {
                               addDebtor={ addDebtor }
                               addRecord={ addRecord }
                               updateRecord={ updateRecord }
+                              record={ record }
                     />
+            );
+        };
+
+        return (
+            <div>
+                { createEditor() }
                 <RecordList range={ range }
                             records={ records }
                             members={ members }
                             deleteRecord={ deleteRecord }
+                            createEditor={ createEditor }
                     />
             </div>
         );
