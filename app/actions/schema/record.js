@@ -36,17 +36,16 @@ export const deleteRecord = rid => request.del(API.RECORD_DELETE({ rid }), ({ _i
 
 /**
  * Update record of specific id
- * @param {String} id
+ * @param {String} rid
  * @param {Object} record
  * @returns {{type: UPDATE_RECORD, id: *, record: *}}
  */
-export const updateRecord = (id, record) => {
+export const updateRecord = (rid, record) => request.update(API.RECORD_UPDATE({ rid }), record, newRecord => {
     return {
         type: RecordActionTypes.UPDATE_RECORD,
-        id,
-        record
-    };
-};
+        record: newRecord // the id of deleted record, id = '' means deletion failed
+    }
+});
 
 /**
  * Receive records @TODO: add condition

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Config for tabs
  * 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 项目, 债权人, 成员, 金额, 日期, 备注
@@ -13,8 +15,8 @@ const TABS = [
     }, {
         value: EnumRecordType.INCOME,
         title: "[收入]",
-        flags: [0, 1, 1, 0, 1, 0, 1, 1, 1, 1],
-        subTitles: ['', '[分类]', '[收入账户]', '', '[项目]', '']
+        flags: [0, 1, 0, 1, 1, 0, 1, 1, 1, 1],
+        subTitles: ['', '[分类]', '', '[收入账户]', '[项目]', '']
     }, {
         value: EnumRecordType.TRANSFER,
         title: "[转账]",

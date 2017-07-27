@@ -20,17 +20,10 @@ import BaseInput from '../base/Input';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
 
+const dateFormat = 'YY-MM-DD';
+
 //const TITLES = ["[Outcome]", "[Income]", "[Transfer]", "[Borrow]", "[Lend]", "[Repay]", "[Collect Debt]"];
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
-
-function generateCurrentDate() {
-    const now = new Date();
-    let month = now.getMonth() + 1;
-    let day = now.getDate();
-    month = month < 10 ? '0' + month : month;
-    day = day < 10 ? '0' + day : day;
-    return now.getFullYear() + '-' + month + '-' + day;
-}
 
 /**
  * Get initial state
@@ -41,8 +34,8 @@ function getInitialState(record = {}) {
     return {
         type: EnumRecordType.OUTCOME,
         amount: 0,                         // 金额
-        consumeDate: moment(),             // 日期
-        ...record
+        ...record,
+        consumeDate: record.consumeDate ? moment(record.consumeDate) : moment()        // 日期
     };
 }
 
@@ -72,11 +65,11 @@ class RecordEditor extends Component {
 
     _readyToSave() {
         const { amount, consumeDate } = this.state;
-        return !!amount && !!consumeDate;
+        return !!amount && amount > 0 && !!consumeDate;
     }
 
     save() {
-        const { id, addRecord, updateRecord } = this.props;
+        const { addRecord, updateRecord } = this.props;
 
         if (!this._readyToSave()) {
             return;
@@ -88,12 +81,15 @@ class RecordEditor extends Component {
             amount: _.parseInt(state.amount)
         };
 
-        if (id && updateRecord) {
-            updateRecord(id, record);
+        if (record._id && updateRecord) {
+            updateRecord(record._id, record);
+            this.setState({
+                ...record
+            });
         } else if (addRecord) {
             addRecord(record);
+            this.reset();
         }
-        this.reset();
     }
 
     reset() {
@@ -177,6 +173,7 @@ class RecordEditor extends Component {
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
                 <DatePicker defaultValue={ consumeDate }
+                            /*value={ consumeDate }*/
                             onChange={ value => { value && this.setState({ consumeDate: value.format() }) } } />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >

@@ -63,13 +63,14 @@ const del = (url, callback) => {
  * @returns {Function}
  */
 const update = (url, body, callback) => {
-    return dispatch => tpl(dispatch, callback, url, 'UPDATE', body);
+    return dispatch => tpl(dispatch, callback, url, 'PUT', body);
 };
 
 const request = {
     get,
     post,
-    del
+    del,
+    update
 };
 
 export default request;

@@ -39,8 +39,16 @@ function recordReducer(state = initialState, action = {}) {
             };
 
         case RecordActionTypes.UPDATE_RECORD:
-            console.log('update record');
-            return state;
+            const record = action.record;
+            const index = _.findIndex(list, { _id: record._id });
+            return {
+                filter,
+                list: [
+                    ...list.slice(0, index),
+                    record,
+                    ...list.slice(index + 1)
+                ]
+            };
 
         case RecordActionTypes.RECEIVE_RECORDS:
             return {
