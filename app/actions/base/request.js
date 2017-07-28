@@ -20,7 +20,7 @@ function tpl(dispatch, callback, url, method, body) {
         .then(json => dispatch(callback(json)))
         .catch(err => {
             console.log('ERROR: ' + err);
-            dispatch(callback({}));
+            dispatch(callback([]));
         });
 }
 

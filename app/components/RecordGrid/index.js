@@ -9,10 +9,20 @@ import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 
-import messages from './messages';
-import { Table } from 'antd';
+import selfMessages from './messages';
+import { Table, Popconfirm, message } from 'antd';
 
 import { getDataRows, getRecordTypeFilters, getMemberFilters } from './selectors';
+
+function confirm(e) {
+    console.log(e);
+    message.success('Click on Yes');
+}
+
+function cancel(e) {
+    console.log(e);
+    message.error('Click on No');
+}
 
 /**
  * Get Columns
@@ -60,11 +70,14 @@ function getColumns(props) {
         title: '#',
         key: 'action',
         render: (text, record) => (
-            <span>
-              <a href="#">编辑</a>
-              <span className="ant-divider" />
-              <a href="#" onClick={ () => props.deleteRecord(record._id) }>删除</a>
-            </span>
+            <Popconfirm title='确定删除记录么?'
+                        onConfirm={ () => {
+                            props.deleteRecord(record._id);
+                            message.success('删除成功')
+                        } }
+                        onCancel={ () => { message.error('取消删除') } }>
+              <a href="#">删除</a>
+            </Popconfirm>
         )
     }];
 }
@@ -91,7 +104,7 @@ class RecordGrid extends Component {
             <div className="record-table">
                 {
                     (!records || records.length < 1) ?
-                        <FormattedMessage { ...messages.empty } /> :
+                        <FormattedMessage { ...selfMessages.empty } /> :
                         <Table {...this.state} columns={ getColumns(this.props) } dataSource={ getDataRows(records) } />
                 }
             </div>

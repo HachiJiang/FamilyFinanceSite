@@ -12,6 +12,7 @@ import * as RecordActionCreators from './schema/record';
  * Fetch Schema
  */
 export const fetchSchema = dispatch => {
+    // @TODO: Promise.all?? update state once all request done?
     dispatch(AccountActionCreators.fetchCategories());
     dispatch(DebtMemberActionCreators.fetchDebtors());
     dispatch(IncomeActionCreators.fetchCategories());

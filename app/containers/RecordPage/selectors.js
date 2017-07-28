@@ -1,3 +1,7 @@
+'use strict';
+
+import _ from 'lodash';
+
 /**
  * RecordPage selectors
  */

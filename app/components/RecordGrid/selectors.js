@@ -35,10 +35,10 @@ export const getMemberFilters = members => members.map(({ name }) => {
 });
 
 /**
- * Get record list sorted by date
+ * Get record list sorted by consumeDate
  * @param {Array} list
  * @returns {Array}
  */
 const getRecordListSortedByDate = list => list.sort((a, b) => {
-    return moment(a.date).isBefore(moment(b.date)) ? 1: -1;
+    return moment(a.consumeDate).isBefore(moment(b.consumeDate)) ? 1: -1;
 });

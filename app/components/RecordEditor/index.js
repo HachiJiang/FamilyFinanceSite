@@ -19,8 +19,7 @@ import BaseInput from '../base/Input';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
-
-const dateFormat = 'YY-MM-DD';
+import { getDefaultRecord } from './selectors';
 
 //const TITLES = ["[Outcome]", "[Income]", "[Transfer]", "[Borrow]", "[Lend]", "[Repay]", "[Collect Debt]"];
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
@@ -33,9 +32,9 @@ const dateFormat = 'YY-MM-DD';
 function getInitialState(record = {}) {
     return {
         type: EnumRecordType.OUTCOME,
-        amount: 0,                         // 金额
-        ...record,
-        consumeDate: record.consumeDate ? moment(record.consumeDate) : moment()        // 日期
+        amount: 0,
+        consumeDate: moment().format(),
+        ...record
     };
 }
 
@@ -61,6 +60,10 @@ class RecordEditor extends Component {
     constructor(props) {
         super(props);
         this.state = getInitialState(this.props.record);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState(nextProps.record || getDefaultRecord(nextProps));
     }
 
     _readyToSave() {
@@ -165,15 +168,14 @@ class RecordEditor extends Component {
                 >
             </Pulldown2>,
             <BaseInput key="amount" title="金额: ">
-                <InputNumber defaultValue={ 0 }
-                             value = { amount }
+                <InputNumber value = { amount }
                              onChange={ value => this.setState({ amount: value }) }
                     >
                 </InputNumber>
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
-                <DatePicker defaultValue={ consumeDate }
-                            /*value={ consumeDate }*/
+                <DatePicker defaultValue={ moment() }
+                            value={ moment(consumeDate) }
                             onChange={ value => { value && this.setState({ consumeDate: value.format() }) } } />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >
@@ -190,7 +192,7 @@ class RecordEditor extends Component {
 
         return (
             <div className="record-editor">
-                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState({ type: idxToType(activeIndex) }) } >
+                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState(getDefaultRecord(this.props, idxToType(activeIndex))) } >
                     {
                         TABS.map((tab, i) => {
                             return (
