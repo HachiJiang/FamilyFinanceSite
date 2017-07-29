@@ -19,7 +19,7 @@ import BaseInput from '../base/Input';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
-import { getDefaultRecord } from './selectors';
+import { getDefaultRecord, getPropKeysByType } from './selectors';
 
 //const TITLES = ["[Outcome]", "[Income]", "[Transfer]", "[Borrow]", "[Lend]", "[Repay]", "[Collect Debt]"];
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
@@ -31,7 +31,6 @@ import { getDefaultRecord } from './selectors';
  */
 function getInitialState(record = {}) {
     return {
-        type: EnumRecordType.OUTCOME,
         amount: 0,
         consumeDate: moment().format(),
         ...record
@@ -43,7 +42,7 @@ function getInitialState(record = {}) {
  * @param {String} type
  * @returns {number}
  */
-function typeToIdx(type) {
+function typeToIdx(type = EnumRecordType.OUTCOME) {
     return _.findIndex(TABS, { value: type });
 }
 
@@ -63,7 +62,19 @@ class RecordEditor extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState(nextProps.record || getDefaultRecord(nextProps));
+        const oldState = this.state;
+        const propKeys = getPropKeysByType(oldState.type);
+        const defaultRecord = getDefaultRecord(nextProps.schema, oldState.type);
+        let newState = _.clone(oldState);
+
+        // defaultRecord should override undefined prop only
+        _.forEach(propKeys, key => {
+            if (!newState[key]) {
+                newState[key] = defaultRecord[key];
+            }
+        });
+
+        this.setState(newState);
     }
 
     _readyToSave() {
@@ -105,7 +116,7 @@ class RecordEditor extends Component {
      * @returns {XML[]}
      */
     getControls(activeIndex) {
-        const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors,
+        const { schema: { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors },
             addOutcomeCategory, addIncomeCategory, addAccountCategory, addProjectCategory, addMember, addDebtor } = this.props;
         const { type, category, amount, accountFrom, accountTo, project, consumeDate, member, debtor, tips } = this.state;
         const subTitles = TABS[activeIndex].subTitles;
@@ -192,7 +203,7 @@ class RecordEditor extends Component {
 
         return (
             <div className="record-editor">
-                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState(getDefaultRecord(this.props, idxToType(activeIndex))) } >
+                <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState(getDefaultRecord(this.props.schema, idxToType(activeIndex))) } >
                     {
                         TABS.map((tab, i) => {
                             return (
@@ -213,6 +224,14 @@ class RecordEditor extends Component {
 }
 
 RecordEditor.propTypes = {
+    schema: PropTypes.shape({
+        outcomeCategories: PropTypes.arrayOf(PropTypes.object),
+        incomeCategories: PropTypes.arrayOf(PropTypes.object),
+        accountCategories: PropTypes.arrayOf(PropTypes.object),
+        projectCategories: PropTypes.arrayOf(PropTypes.object),
+        members: PropTypes.arrayOf(PropTypes.object),
+        debtors: PropTypes.arrayOf(PropTypes.object)
+    }).isRequired,
     record: PropTypes.shape({
         _id: PropTypes.string,
         type: PropTypes.string.required,
@@ -224,19 +243,13 @@ RecordEditor.propTypes = {
         project: PropTypes.string,
         member: PropTypes.string
     }),
-    outcomeCategories: PropTypes.arrayOf(PropTypes.object),
-    incomeCategories: PropTypes.arrayOf(PropTypes.object),
-    accountCategories: PropTypes.arrayOf(PropTypes.object),
-    projectCategories: PropTypes.arrayOf(PropTypes.object),
-    members: PropTypes.arrayOf(PropTypes.object),
-    debtors: PropTypes.arrayOf(PropTypes.object),
-    addOutcomeCategory: PropTypes.func,
-    addIncomeCategory: PropTypes.func,
-    addAccountCategory: PropTypes.func,
-    addProjectCategory: PropTypes.func,
-    addMember: PropTypes.func,
-    addRecord: PropTypes.func,
-    updateRecord: PropTypes.func
+    addOutcomeCategory: PropTypes.func.isRequired,
+    addIncomeCategory: PropTypes.func.isRequired,
+    addAccountCategory: PropTypes.func.isRequired,
+    addProjectCategory: PropTypes.func.isRequired,
+    addMember: PropTypes.func.isRequired,
+    addRecord: PropTypes.func.isRequired,
+    updateRecord: PropTypes.func.isRequired
 };
 
 export default RecordEditor;

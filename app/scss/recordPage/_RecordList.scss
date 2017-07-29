@@ -10,6 +10,7 @@
 
     .record-editor {
       display: flex;
+      justify-content: space-between;
       background-color: inherit;
       margin-top: -15px;
       margin-bottom: -10px;
@@ -17,6 +18,11 @@
 
       .tabs-header {
         display: none;
+      }
+      
+      .btns {
+        display: flex;
+        flex-direction: column;
       }
     }
   }

@@ -2,98 +2,98 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf3910ce-feb6-48da-b8fc-65309c69b700" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.base.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/route.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/xmark.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/constants.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scss/global-styles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/dependencies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/translations/en.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/selectors.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/add-locale-data.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/utils/componentExists.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/store.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/messages.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/logger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/messages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/middlewares/frontendMiddleware.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/store.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/format-translation-messages.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/selectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/selectors.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/i18n.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translation-messages.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/reducer.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/polyfill-intl-locale.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/intl-locale-data.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/progress.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/checkmark.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/generate-templates-for-linting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/selectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translations-json.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/cssModule.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/tests/asyncInjectors.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/manifest.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/messages.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/app-locale.hbs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/extract-intl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/tests/index.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/asyncInjectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/npmcheckversion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dll.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/image.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/routeWithReducer.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/generate-templates-for-linting.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/add-locale-data.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/store.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/messages.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/messages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/polyfill-intl-locale.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/route.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/reducer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/utils/componentExists.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/i18n.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/selectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/xmark.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/extract-intl.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/messages.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/reducers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/messages.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/constants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/constants.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/image.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/middlewares/frontendMiddleware.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/actions.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/format-translation-messages.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.pure.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/routes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translations-json.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/constants.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/reducer.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.base.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/npmcheckversion.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dll.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/intl-locale-data.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/tests/store.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/stateless.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/NotFoundPage/index.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/.nginx.conf" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/testing/test-bundler.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.dev.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/tests/selectors.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/checkmark.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/analyze.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/i18n.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/App/index.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/reducers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/HomePage/messages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.prod.babel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/sagas.test.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/es6.pure.js.hbs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/actions.test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/app-locale.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/stateless.js.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/reducer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/asyncInjectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/index.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/utils/tests/asyncInjectors.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/selectors.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/reducer.test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/route/routeWithReducer.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/selectors.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/webpack/webpack.prod.babel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/translations/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/helpers/progress.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/logger.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/containers/LanguageProvider/tests/selectors.test.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/language/translation-messages.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/mocks/cssModule.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/manifest.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/server/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scss/global-styles.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/component/test.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/generators/container/actions.js.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/internals/scripts/dependencies.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE.md" />
     </list>
     <ignored path="FamilyFinanceSite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,8 +117,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.803571">
-              <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+            <state vertical-scroll-proportion="48.410713">
+              <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -127,8 +127,8 @@
       <file leaf-file-name="selectors.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/selectors.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.055727553">
-              <caret line="126" column="45" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.2820513">
+              <caret line="158" column="78" selection-start-line="158" selection-start-column="78" selection-end-line="158" selection-end-column="78" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -139,7 +139,7 @@
       <file leaf-file-name="account.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/actions/schema/account.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.214286">
+            <state vertical-scroll-proportion="0.0">
               <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
               <folding />
             </state>
@@ -150,7 +150,7 @@
         <entry file="file://$PROJECT_DIR$/app/actions/base/request.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -160,7 +160,7 @@
         <entry file="file://$PROJECT_DIR$/app/containers/RecordPage/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+              <caret line="58" column="136" selection-start-line="58" selection-start-column="136" selection-end-line="58" selection-end-column="136" />
               <folding />
             </state>
           </provider>
@@ -192,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/actiontypes/outcome.js" />
         <option value="$PROJECT_DIR$/app/actions/outcome.js" />
         <option value="$PROJECT_DIR$/app/actiontypes/account.js" />
         <option value="$PROJECT_DIR$/app/actiontypes/category.js" />
@@ -230,18 +229,19 @@
         <option value="$PROJECT_DIR$/app/actions/schema/outcome.js" />
         <option value="$PROJECT_DIR$/app/actions/schema/project.js" />
         <option value="$PROJECT_DIR$/app/containers/App/index.js" />
-        <option value="$PROJECT_DIR$/app/scss/recordPage/_RecordList.scss" />
         <option value="$PROJECT_DIR$/app/components/RecordList/index.js" />
         <option value="$PROJECT_DIR$/app/actions/schema/record.js" />
         <option value="$PROJECT_DIR$/app/reducers/schema/recordReducer.js" />
         <option value="$PROJECT_DIR$/app/components/RecordEditor/tabConfig.js" />
         <option value="$PROJECT_DIR$/app/containers/RecordPage/selectors.js" />
-        <option value="$PROJECT_DIR$/app/containers/RecordPage/index.js" />
         <option value="$PROJECT_DIR$/app/components/RecordGrid/selectors.js" />
         <option value="$PROJECT_DIR$/app/actions/recordPage.js" />
         <option value="$PROJECT_DIR$/app/components/RecordGrid/index.js" />
-        <option value="$PROJECT_DIR$/app/components/RecordEditor/index.js" />
         <option value="$PROJECT_DIR$/app/actions/base/request.js" />
+        <option value="$PROJECT_DIR$/app/scss/recordPage/index.scss" />
+        <option value="$PROJECT_DIR$/app/scss/recordPage/_RecordList.scss" />
+        <option value="$PROJECT_DIR$/app/containers/RecordPage/index.js" />
+        <option value="$PROJECT_DIR$/app/components/RecordEditor/index.js" />
         <option value="$PROJECT_DIR$/app/components/RecordEditor/selectors.js" />
       </list>
     </option>
@@ -300,6 +300,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -329,6 +330,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FamilyFinanceSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FamilyFinanceSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FamilyFinanceSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FamilyFinanceSite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scss" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="recordPage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -521,7 +562,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -607,7 +647,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23287672" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -619,6 +658,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23287672" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -647,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -662,9 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -825,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="66" column="78" selection-start-line="66" selection-start-column="78" selection-end-line="66" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,7 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="85" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,7 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="85" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,23 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordGrid.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordList.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.407408">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,7 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="2" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,7 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4472935">
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,9 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6866097">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -907,7 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="13" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -915,7 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -923,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -931,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,17 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/containers/RecordPage/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -989,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,9 +1001,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4444444">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scss/recordPage/_RecordList.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3585185">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/containers/RecordPage/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="136" selection-start-line="58" selection-start-column="136" selection-end-line="58" selection-end-column="136" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/actions/schema/account.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.214286">
+        <state vertical-scroll-proportion="0.0">
           <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
           <folding />
         </state>
@@ -1020,23 +1036,23 @@
     <entry file="file://$PROJECT_DIR$/app/actions/base/request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.803571">
-          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
+        <state vertical-scroll-proportion="48.410713">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/selectors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.055727553">
-          <caret line="126" column="45" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.2820513">
+          <caret line="158" column="78" selection-start-line="158" selection-start-column="78" selection-end-line="158" selection-end-column="78" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

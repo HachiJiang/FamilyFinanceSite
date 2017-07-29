@@ -56,12 +56,7 @@ class RecordPage extends Component {
             const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } = me.props;
 
             return (
-                <RecordEditor outcomeCategories={ outcomeCategories }
-                              incomeCategories={ incomeCategories }
-                              accountCategories={ accountCategories }
-                              projectCategories={ projectCategories }
-                              members={ members }
-                              debtors={ debtors }
+                <RecordEditor schema={ { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } }
                               addOutcomeCategory={ addOutcomeCategory }
                               addIncomeCategory={ addIncomeCategory }
                               addAccountCategory={ addAccountCategory }
