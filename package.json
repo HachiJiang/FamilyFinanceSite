@@ -86,7 +86,9 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "eslint:recommended",
+    "extends": [
+      "plugin:react/recommended"
+    ],
     "env": {
       "browser": true,
       "node": true,
@@ -95,7 +97,8 @@
     },
     "plugins": [
       "react",
-      "jsx-a11y"
+      "jsx-a11y",
+      "import"
     ],
     "parserOptions": {
       "ecmaVersion": 6,
@@ -118,7 +121,7 @@
       "import/prefer-default-export": 0,
       "indent": [
         2,
-        2,
+        4,
         {
           "SwitchCase": 1
         }

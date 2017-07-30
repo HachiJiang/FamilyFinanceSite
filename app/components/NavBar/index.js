@@ -28,15 +28,16 @@ function getSelectedIdx() {
 
 const NavBar = () => {
     const selectedIdx = getSelectedIdx();
-    const selectedKey = selectedIdx !== -1 ? selectedIdx + '' : '0';
+    const selectedKey = selectedIdx !== -1 ? `${selectedIdx  }` : '0';
     const openKey = selectedIdx > 2 ? 'sub-3' : '';
 
     return (
-        <Menu theme="dark"
-              mode="inline"
-              selectedKeys={[selectedKey]}
-              defaultOpenKeys={[openKey]}
-            >
+        <Menu
+            theme="dark"
+            mode="inline"
+            selectedKeys={[selectedKey]}
+            defaultOpenKeys={[openKey]}
+        >
             <Menu.Item key="0">
                 <NavLink to="/">
                     <Icon type="home" />
@@ -55,8 +56,9 @@ const NavBar = () => {
                     <FormattedMessage {...messages.dashboards} />
                 </NavLink>
             </Menu.Item>
-            <SubMenu key="sub-3"
-                     title={<span><Icon type="setting" />设置</span>}>
+            <SubMenu
+                key="sub-3"
+                title={<span><Icon type="setting" />设置</span>}>
                 <Menu.Item key="3">
                     <NavLink to="/profile">
                         <Icon type="user" />

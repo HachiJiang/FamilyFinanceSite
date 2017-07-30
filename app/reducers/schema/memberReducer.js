@@ -6,7 +6,6 @@
  *
  */
 
-import _ from 'lodash';
 import * as MemberActionTypes from '../../actiontypes/schema/member';
 
 function memberReducer(state = [], action = {}) {

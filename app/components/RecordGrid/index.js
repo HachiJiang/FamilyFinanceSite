@@ -34,9 +34,7 @@ function getColumns(props) {
         title: '日期',
         dataIndex: 'date',
         key: 'date',
-        sorter: (a, b) => {
-            return moment(a.date).isAfter(moment(b.date)) ? 1 : -1;
-        }
+        sorter: (a, b) => moment(a.date).isAfter(moment(b.date)) ? 1 : -1
     }, {
         title: '类型',
         dataIndex: 'text',
@@ -70,13 +68,14 @@ function getColumns(props) {
         title: '#',
         key: 'action',
         render: (text, record) => (
-            <Popconfirm title='确定删除记录么?'
-                        onConfirm={ () => {
-                            props.deleteRecord(record._id);
-                            message.success('删除成功')
-                        } }
-                        onCancel={ () => { message.error('取消删除') } }>
-              <a href="#">删除</a>
+            <Popconfirm
+                title='确定删除记录么?'
+                onConfirm={ () => {
+                    props.deleteRecord(record._id);
+                    message.success('删除成功')
+                } }
+                onCancel={ () => { message.error('取消删除') } }>
+                <a href="#">删除</a>
             </Popconfirm>
         )
     }];

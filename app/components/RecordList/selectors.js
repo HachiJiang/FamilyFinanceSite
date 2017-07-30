@@ -1,7 +1,9 @@
+'use strict';
+
 /**
  * RecordList selectors
  */
-
+import _ from 'lodash';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 
 /**

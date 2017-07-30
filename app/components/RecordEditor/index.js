@@ -122,77 +122,87 @@ class RecordEditor extends Component {
         const subTitles = TABS[activeIndex].subTitles;
 
         return [
-            <Pulldown2 key="cat-outcome"
-                       title={ subTitles[0] }
-                       items={ outcomeCategories }
-                       value={ type === EnumRecordType.OUTCOME ? category : '' }
-                       onSelectionChange={ value => this.setState({ category: value })}
-                       addItem={ addOutcomeCategory }
-                >
+            <Pulldown2
+                key="cat-outcome"
+                title={ subTitles[0] }
+                items={ outcomeCategories }
+                value={ type === EnumRecordType.OUTCOME ? category : '' }
+                onSelectionChange={ value => this.setState({ category: value })}
+                addItem={ addOutcomeCategory }
+            >
             </Pulldown2>,
-            <Pulldown2 key="cat-income"
-                       title={ subTitles[1] }
-                       items={ incomeCategories }
-                       value={ type === EnumRecordType.INCOME ? category : '' }
-                       onSelectionChange={ value => this.setState({ category: value })}
-                       addItem={ addIncomeCategory }
-                >
+            <Pulldown2
+                key="cat-income"
+                title={ subTitles[1] }
+                items={ incomeCategories }
+                value={ type === EnumRecordType.INCOME ? category : '' }
+                onSelectionChange={ value => this.setState({ category: value })}
+                addItem={ addIncomeCategory }
+            >
             </Pulldown2>,
-            <Pulldown2 key="cat-account-from"
-                       title={ subTitles[2] }
-                       items={ accountCategories }
-                       value={ accountFrom }
-                       onSelectionChange={ value => this.setState({ accountFrom: value })}
-                       addItem={ addAccountCategory }
-                >
+            <Pulldown2
+                key="cat-account-from"
+                title={ subTitles[2] }
+                items={ accountCategories }
+                value={ accountFrom }
+                onSelectionChange={ value => this.setState({ accountFrom: value })}
+                addItem={ addAccountCategory }
+            >
             </Pulldown2>,
-            <Pulldown2 key="cat-account-to"
-                       title={ subTitles[3] }
-                       items={ accountCategories }
-                       value={ accountTo }
-                       onSelectionChange={ value => this.setState({ accountTo: value })}
-                       addItem={ addAccountCategory }
-                >
+            <Pulldown2
+                key="cat-account-to"
+                title={ subTitles[3] }
+                items={ accountCategories }
+                value={ accountTo }
+                onSelectionChange={ value => this.setState({ accountTo: value })}
+                addItem={ addAccountCategory }
+            >
             </Pulldown2>,
-            <Pulldown2 key="project"
-                       title={ subTitles[4] }
-                       items={ projectCategories }
-                       value={ project }
-                       onSelectionChange={ value => this.setState({ project: value })}
-                       addItem={ addProjectCategory }
-                >
+            <Pulldown2
+                key="project"
+                title={ subTitles[4] }
+                items={ projectCategories }
+                value={ project }
+                onSelectionChange={ value => this.setState({ project: value })}
+                addItem={ addProjectCategory }
+            >
             </Pulldown2>,
-            <Pulldown2 key="debtors"
-                       title={ subTitles[5] }
-                       items={ debtors }
-                       value={ debtor }
-                       onSelectionChange={ value => this.setState({ debtor: value })}
-                       addItem={ addDebtor }
-                >
+            <Pulldown2
+                key="debtors"
+                title={ subTitles[5] }
+                items={ debtors }
+                value={ debtor }
+                onSelectionChange={ value => this.setState({ debtor: value })}
+                addItem={ addDebtor }
+            >
             </Pulldown2>,
-            <Pulldown2 key="members"
-                       title="成员"
-                       items={ members }
-                       value={ member }
-                       onSelectionChange={ value => this.setState({ member: value })}
-                       addItem={ addMember }
-                >
+            <Pulldown2
+                key="members"
+                title="成员"
+                items={ members }
+                value={ member }
+                onSelectionChange={ value => this.setState({ member: value })}
+                addItem={ addMember }
+            >
             </Pulldown2>,
             <BaseInput key="amount" title="金额: ">
-                <InputNumber value = { amount }
-                             onChange={ value => this.setState({ amount: value }) }
-                    >
+                <InputNumber
+                    value = { amount }
+                    onChange={ value => this.setState({ amount: value }) }
+                >
                 </InputNumber>
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
-                <DatePicker defaultValue={ moment() }
-                            value={ moment(consumeDate) }
-                            onChange={ value => { value && this.setState({ consumeDate: value.format() }) } } />
+                <DatePicker
+                    defaultValue={ moment() }
+                    value={ moment(consumeDate) }
+                    onChange={ value => { value && this.setState({ consumeDate: value.format() }) } } />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >
-                <Input placeholder="输入备注..."
-                       value = { tips }
-                       onChange={ e => this.setState({ tips: e.target.value }) }/>
+                <Input
+                    placeholder="输入备注..."
+                    value = { tips }
+                    onChange={ e => this.setState({ tips: e.target.value }) }/>
             </BaseInput>
         ];
     }
@@ -205,13 +215,11 @@ class RecordEditor extends Component {
             <div className="record-editor">
                 <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState(getDefaultRecord(this.props.schema, idxToType(activeIndex))) } >
                     {
-                        TABS.map((tab, i) => {
-                            return (
-                                <div key={ i } title={ tab.title } className='control'>
-                                    { controls.filter((ctrl, index) => TABS[i].flags[index]) }
-                                </div>
-                            )
-                        })
+                        TABS.map((tab, i) => (
+                            <div key={ i } title={ tab.title } className='control'>
+                                { controls.filter((ctrl, index) => TABS[i].flags[index]) }
+                            </div>
+                        ))
                     }
                 </Tabs>
                 <div className="btns">

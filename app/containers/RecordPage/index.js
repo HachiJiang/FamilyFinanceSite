@@ -10,7 +10,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { FormattedMessage } from 'react-intl';
 
 // Components
 import RecordEditor from '../../components/RecordEditor';
@@ -27,8 +26,8 @@ import * as RecordActionCreators from '../../actions/schema/record';
 import { fetchSchema, fetchRecords } from '../../actions/recordPage';
 
 // Selectors
-import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getProjectCategories,
-    getMembers, getDebtMembers, getRecordList, getRange } from './selectors';
+import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getProjectCategories, getMembers, getDebtors } from '../App/selectors';
+import { getRecordList, getRange } from './selectors';
 
 class RecordPage extends Component {
 
@@ -56,29 +55,31 @@ class RecordPage extends Component {
             const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } = me.props;
 
             return (
-                <RecordEditor schema={ { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } }
-                              addOutcomeCategory={ addOutcomeCategory }
-                              addIncomeCategory={ addIncomeCategory }
-                              addAccountCategory={ addAccountCategory }
-                              addProjectCategory={ addProjectCategory }
-                              addMember={ addMember }
-                              addDebtor={ addDebtor }
-                              addRecord={ addRecord }
-                              updateRecord={ updateRecord }
-                              record={ record }
-                    />
+                <RecordEditor
+                    schema={ { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } }
+                    addOutcomeCategory={ addOutcomeCategory }
+                    addIncomeCategory={ addIncomeCategory }
+                    addAccountCategory={ addAccountCategory }
+                    addProjectCategory={ addProjectCategory }
+                    addMember={ addMember }
+                    addDebtor={ addDebtor }
+                    addRecord={ addRecord }
+                    updateRecord={ updateRecord }
+                    record={ record }
+                />
             );
         };
 
         return (
             <div>
                 { createEditor() }
-                <RecordList range={ range }
-                            records={ records }
-                            members={ members }
-                            deleteRecord={ deleteRecord }
-                            createEditor={ createEditor }
-                    />
+                <RecordList
+                    range={ range }
+                    records={ records }
+                    members={ members }
+                    deleteRecord={ deleteRecord }
+                    createEditor={ createEditor }
+                />
             </div>
         );
     }
@@ -104,7 +105,7 @@ const mapStateToProps = state => ({
     accountCategories: getAccountCategories(state),
     projectCategories: getProjectCategories(state),
     members: getMembers(state),
-    debtors: getDebtMembers(state),
+    debtors: getDebtors(state),
     records: getRecordList(state),
     range: getRange(state)
 });

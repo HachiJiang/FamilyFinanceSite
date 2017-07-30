@@ -1,9 +1,10 @@
+'use strict';
+
 /*
  * RecordList
  *
  * List finance records
  */
-
 import React, { PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 
@@ -18,16 +19,18 @@ const RecordList = ({ range, records, deleteRecord, members, createEditor }) => 
     <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
-            <SummaryBar range={ range }
-                        totals={ getTotals(records) }
-                />
+            <SummaryBar
+                range={ range }
+                totals={ getTotals(records) }
+            />
         </header>
         <RecordFilter />
-        <RecordGrid records={ records }
-                    deleteRecord={ deleteRecord }
-                    members={ members }
-                    createEditor={ createEditor }
-            />
+        <RecordGrid
+            records={ records }
+            deleteRecord={ deleteRecord }
+            members={ members }
+            createEditor={ createEditor }
+        />
     </div>
 );
 

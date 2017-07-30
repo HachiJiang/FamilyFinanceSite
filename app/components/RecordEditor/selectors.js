@@ -1,7 +1,9 @@
+'use strict';
+
 /**
  * RecordEditor selectors
  */
-
+import _ from 'lodash';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 
 function getDefaultCat(categories) {

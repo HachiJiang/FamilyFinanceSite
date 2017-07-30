@@ -15,8 +15,8 @@ const app = express();
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
-  outputPath: resolve(process.cwd(), 'build'),
-  publicPath: '/',
+    outputPath: resolve(process.cwd(), 'build'),
+    publicPath: '/'
 });
 
 // get the intended host and port number, use localhost and port 3000 if not provided
@@ -28,20 +28,20 @@ const port = argv.port || process.env.PORT || 3000;
 
 // Start your app.
 app.listen(port, host, (err) => {
-  if (err) {
-    return logger.error(err.message);
-  }
+    if (err) {
+        return logger.error(err.message);
+    }
 
-  // Connect to ngrok in dev mode
-  if (ngrok) {
-    ngrok.connect(port, (innerErr, url) => {
-      if (innerErr) {
-        return logger.error(innerErr);
-      }
+    // Connect to ngrok in dev mode
+    if (ngrok) {
+        ngrok.connect(port, (innerErr, url) => {
+            if (innerErr) {
+                return logger.error(innerErr);
+            }
 
-      logger.appStarted(port, prettyHost, url);
-    });
-  } else {
-    logger.appStarted(port, prettyHost);
-  }
+            logger.appStarted(port, prettyHost, url);
+        });
+    } else {
+        logger.appStarted(port, prettyHost);
+    }
 });

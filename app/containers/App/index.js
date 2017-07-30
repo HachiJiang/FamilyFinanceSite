@@ -43,13 +43,14 @@ class App extends Component {
         return (
             <Spin spinning={ this.state.loading }>
                 <Layout style={{ height: '100vh' }}>
-                    <Sider id='main-sider'
-                           breakpoint='lg'
-                           collapsible
-                           collapsed={this.state.collapsed}
-                           onCollapse={ (collapsed, type) => this.onCollapse(collapsed) }
-                           style={{ overflow: 'auto' }}
-                        >
+                    <Sider
+                        id='main-sider'
+                        breakpoint='lg'
+                        collapsible
+                        collapsed={this.state.collapsed}
+                        onCollapse={ (collapsed, type) => this.onCollapse(collapsed) }
+                        style={{ overflow: 'auto' }}
+                    >
                         <div className="logo" />
                         <NavBar />
                     </Sider>

@@ -63,14 +63,15 @@ const render = (messages) => {
     ReactDOM.render(
         <Provider store={ store }>
             <LanguageProvider messages={messages}>
-                <Router history={ history }
-                        routes={ rootRoute }
-                        render={
-                            // Scroll to top when going to a new page, imitating default browser
-                            // behaviour
-                            applyRouterMiddleware(useScroll())
-                        }
-                    />
+                <Router
+                    history={ history }
+                    routes={ rootRoute }
+                    render={
+                        // Scroll to top when going to a new page, imitating default browser
+                        // behaviour
+                        applyRouterMiddleware(useScroll())
+                    }
+                />
             </LanguageProvider>
         </Provider>,
         document.getElementById('app')
@@ -93,8 +94,8 @@ if (!window.Intl) {
     }))
         .then(() => Promise.all([
 import('intl/locale-data/jsonp/en.js'),
-]))
-.then(() => render(translationMessages))
+        ]))
+        .then(() => render(translationMessages))
         .catch((err) => {
             throw err;
         });

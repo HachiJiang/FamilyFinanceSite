@@ -19,12 +19,10 @@ import request from './../base/request.js';
 export const addCategory = (name, catId) => {
     const url = catId ? API.OUTCOME_CREATE_SUBCATEGORY({ catId }) : API.OUTCOME_CREATE_CATEGORY;
 
-    return request.post(url, { catId, name }, cat => {
-        return {
-            type: OutcomeActionTypes.ADD_CATEGORY,
-            cat
-        }
-    });
+    return request.post(url, { catId, name }, cat => ({
+        type: OutcomeActionTypes.ADD_CATEGORY,
+        cat
+    }));
 };
 
 /**
@@ -32,12 +30,10 @@ export const addCategory = (name, catId) => {
  * @param {Array} indices
  * @returns {{type: DELETE_CATEGORY, Array: *}}
  */
-export const deleteCategory = indices => {
-    return {
-        type: OutcomeActionTypes.DELETE_CATEGORY,
-        indices
-    };
-};
+export const deleteCategory = indices => ({
+    type: OutcomeActionTypes.DELETE_CATEGORY,
+    indices
+});
 
 /**
  * Update category with name in specific position
@@ -45,13 +41,11 @@ export const deleteCategory = indices => {
  * @param {Array} indices
  * @returns {{type: UPDATE_CATEGORY, index: *, name: *}}
  */
-export const updateCategory = (name, indices) => {
-    return {
-        type: OutcomeActionTypes.UPDATE_CATEGORY,
-        name,
-        indices
-    };
-};
+export const updateCategory = (name, indices) => ({
+    type: OutcomeActionTypes.UPDATE_CATEGORY,
+    name,
+    indices
+});
 
 /**
  * Receive categories

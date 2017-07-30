@@ -15,24 +15,20 @@ import request from './../base/request.js';
  * @param {string} name
  * @returns {{type: ADD_MEMBER, item: Object}}
  */
-export const addMember = name => request.post(API.MEMBER_CREATE, { name }, item => {
-    return {
-        type: MemberActionTypes.ADD_MEMBER,
-        item
-    }
-});
+export const addMember = name => request.post(API.MEMBER_CREATE, { name }, item => ({
+    type: MemberActionTypes.ADD_MEMBER,
+    item
+}));
 
 /**
  * Delete member in specific position
  * @param {number} index
  * @returns {{type: DELETE_MEMBER, Array: *}}
  */
-export const deleteMember = index => {
-    return {
-        type: MemberActionTypes.DELETE_MEMBER,
-        index
-    };
-};
+export const deleteMember = index => ({
+    type: MemberActionTypes.DELETE_MEMBER,
+    index
+});
 
 /**
  * Update member with name in specific position
@@ -40,13 +36,11 @@ export const deleteMember = index => {
  * @param {number} index
  * @returns {{type: UPDATE_MEMBER, index: *, name: *}}
  */
-export const updateMember = (name, index) => {
-    return {
-        type: MemberActionTypes.UPDATE_MEMBER,
-        name,
-        index
-    };
-};
+export const updateMember = (name, index) => ({
+    type: MemberActionTypes.UPDATE_MEMBER,
+    name,
+    index
+});
 
 /**
  * Receive members

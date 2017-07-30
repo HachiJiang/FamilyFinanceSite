@@ -15,24 +15,20 @@ import request from './../base/request.js';
  * @param {string} name
  * @returns {{type: ADD_DEBTOR, item: Object}}
  */
-export const addMember = name => request.post(API.DEBTOR_CREATE, { name }, item => {
-    return {
-        type: DebtorActionTypes.ADD_DEBTOR,
-        item
-    }
-});
+export const addMember = name => request.post(API.DEBTOR_CREATE, { name }, item => ({
+    type: DebtorActionTypes.ADD_DEBTOR,
+    item
+}));
 
 /**
  * Delete member in specific position
  * @param {number} index
  * @returns {{type: DELETE_DEBTOR, Array: *}}
  */
-export const deleteMember = index => {
-    return {
-        type: DebtorActionTypes.DELETE_DEBTOR,
-        index
-    };
-};
+export const deleteMember = index => ({
+    type: DebtorActionTypes.DELETE_DEBTOR,
+    index
+});
 
 /**
  * Update member with name in specific position
@@ -40,13 +36,11 @@ export const deleteMember = index => {
  * @param {number} index
  * @returns {{type: UPDATE_DEBTOR, index: *, name: *}}
  */
-export const updateMember = (name, index) => {
-    return {
-        type: DebtorActionTypes.UPDATE_DEBTOR,
-        name,
-        index
-    };
-};
+export const updateMember = (name, index) => ({
+    type: DebtorActionTypes.UPDATE_DEBTOR,
+    name,
+    index
+});
 
 /**
  * Receive debtors

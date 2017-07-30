@@ -19,9 +19,10 @@ class Tabs extends Component {
                                 });
                                 const title = tab.props.title;
                                 return (
-                                    <div key={ title }
-                                         className={ cls }
-                                         onClick={ e => onSwitch(index) }>
+                                    <div
+                                        key={ title }
+                                        className={ cls }
+                                        onClick={ e => onSwitch(index) }>
                                         <span>{ title }</span>
                                     </div>
                                 );

@@ -12,7 +12,7 @@ export default defineMessages({
     },
     records: {
         id: 'boilerplate.components.NavBar.records',
-        defaultMessage: '流水'
+        defaultMessage: '记账'
     },
     budgets: {
         id: 'boilerplate.components.NavBar.budgets',

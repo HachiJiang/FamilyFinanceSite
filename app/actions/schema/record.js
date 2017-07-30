@@ -15,24 +15,20 @@ import request from './../base/request.js';
  * @param {Object} record
  * @returns {{type: ADD_RECORD, record: Object}}
  */
-export const addRecord = record => request.post(API.RECORD_CREATE, record, record => {
-    return {
-        type: RecordActionTypes.ADD_RECORD,
-        record
-    }
-});
+export const addRecord = record => request.post(API.RECORD_CREATE, record, record => ({
+    type: RecordActionTypes.ADD_RECORD,
+    record
+}));
 
 /**
  * Delete record of specific id
  * @param {String} rid: record id
  * @returns {{type: DELETE_RECORD, id: *}}
  */
-export const deleteRecord = rid => request.del(API.RECORD_DELETE({ rid }), ({ _id }) => {
-    return {
-        type: RecordActionTypes.DELETE_RECORD,
-        _id // the id of deleted record, id = '' means deletion failed
-    }
-});
+export const deleteRecord = rid => request.del(API.RECORD_DELETE({ rid }), ({ _id }) => ({
+    type: RecordActionTypes.DELETE_RECORD,
+    _id // the id of deleted record, id = '' means deletion failed
+}));
 
 /**
  * Update record of specific id
@@ -40,12 +36,10 @@ export const deleteRecord = rid => request.del(API.RECORD_DELETE({ rid }), ({ _i
  * @param {Object} record
  * @returns {{type: UPDATE_RECORD, id: *, record: *}}
  */
-export const updateRecord = (rid, record) => request.update(API.RECORD_UPDATE({ rid }), record, newRecord => {
-    return {
-        type: RecordActionTypes.UPDATE_RECORD,
-        record: newRecord // the id of deleted record, id = '' means deletion failed
-    }
-});
+export const updateRecord = (rid, record) => request.update(API.RECORD_UPDATE({ rid }), record, newRecord => ({
+    type: RecordActionTypes.UPDATE_RECORD,
+    record: newRecord // the id of deleted record, id = '' means deletion failed
+}));
 
 /**
  * Receive records @TODO: add condition

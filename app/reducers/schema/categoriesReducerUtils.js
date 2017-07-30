@@ -6,6 +6,8 @@
  *
  */
 
+import _ from 'lodash';
+
 /**
  * Add/Update category
  * @param {Array} state

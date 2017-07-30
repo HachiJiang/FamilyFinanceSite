@@ -47,36 +47,37 @@ class Pulldown2 extends Component {
 
         return (
             <div className="form">
-                <span>{ title && <label>{ title + ': ' }</label> }</span>
+                <span>{ title && <label>{ `${title  }: ` }</label> }</span>
                 <span className="pulldown-levelSelect">
-                    <div className="menu-item selected" ref="levelSelected"
-                            onClick={ _ => this.setState({ expanded: !this.state.expanded })}>
+                    <div
+                        className="menu-item selected" ref="levelSelected"
+                        onClick={ _ => this.setState({ expanded: !this.state.expanded })}>
                         <span className='selected-content'>{ value || DEFAULT_VALUE }</span>
                         <span className="fa fa-caret-down" aria-hidden="true"></span>
                     </div>
                     <div className={ menuCls }>
                         {
-                            items && items.map((cat, index) => {
-                                return cat.items ? (
-                                    <MenuItem2 key={ index }
-                                               title={ cat.name }
-                                               items={ cat.items }
-                                               onSelectionChange={ itemName => {
-                                                    this.setState({
-                                                        expanded: false
-                                                    });
-                                                    onSelectionChange(itemName);
-                                                } }
-                                        >
-                                        <AddItemForm onSubmit={ value => addItem(value, cat._id) } />
-                                    </MenuItem2>
-                                ) : (
-                                    <MenuItem key={ index }
-                                              title={ cat.name }
-                                              onSelectionChange={ title => onSelectionChange(title) }
-                                        />
-                                )
-                            })
+                            items && items.map((cat, index) => cat.items ? (
+                                <MenuItem2
+                                    key={ index }
+                                    title={ cat.name }
+                                    items={ cat.items }
+                                    onSelectionChange={ itemName => {
+                                        this.setState({
+                                            expanded: false
+                                        });
+                                        onSelectionChange(itemName);
+                                    } }
+                                >
+                                    <AddItemForm onSubmit={ value => addItem(value, cat._id) } />
+                                </MenuItem2>
+                            ) : (
+                                <MenuItem
+                                    key={ index }
+                                    title={ cat.name }
+                                    onSelectionChange={ title => onSelectionChange(title) }
+                                />
+                            ))
                         }
                         <AddItemForm onSubmit={ addItem }/>
                     </div>

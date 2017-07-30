@@ -7,24 +7,6 @@
   .record-filter,
   .record-table {
     padding: 20px 0 0 0; // also remove collapse
-
-    .record-editor {
-      display: flex;
-      justify-content: space-between;
-      background-color: inherit;
-      margin-top: -15px;
-      margin-bottom: -10px;
-      padding-bottom: 0;
-
-      .tabs-header {
-        display: none;
-      }
-      
-      .btns {
-        display: flex;
-        flex-direction: column;
-      }
-    }
   }
 }
 

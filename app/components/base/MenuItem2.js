@@ -24,28 +24,30 @@ class MenuItem2 extends Component {
 
     render() {
         const { items, onSelectionChange, onMouseLeave, children, className } = this.props;
-        const mainCls = className ? "menu-item2 " + className : "menu-item2";
+        const mainCls = className ? `menu-item2 ${  className}` : "menu-item2";
         const menuCls = classNames("menu", {
             disabled: !this.state.active
         });
 
         return (
-            <div className={ mainCls }
-                 onClick={ e => e.stopPropagation() /* do not close the menu */ }
-                 onMouseOver={ () => showMenu.call(this) }
-                 onMouseLeave={ () => {
+            <div
+                className={ mainCls }
+                onClick={ e => e.stopPropagation() /* do not close the menu */ }
+                onMouseOver={ () => showMenu.call(this) }
+                onMouseLeave={ () => {
                     onMouseLeave && onMouseLeave();
                     hideMenu.call(this);
-                 } }>
+                } }>
                 <span className='menu-item-content'>{ this.props.title }</span>
                 <span className='fa fa-caret-right' aria-hidden='true'></span>
                 <div className={ menuCls }>
                     {
                         items && items.map((item, index) => (
-                            <MenuItem key={ index }
-                                      title={ item.name }
-                                      onSelectionChange={ title => onSelectionChange(title) }
-                                />
+                            <MenuItem
+                                key={ index }
+                                title={ item.name }
+                                onSelectionChange={ title => onSelectionChange(title) }
+                            />
                         ))
                     }
                     { children }

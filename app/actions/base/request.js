@@ -19,7 +19,7 @@ function tpl(dispatch, callback, url, method, body) {
         .then(res => res.json())
         .then(json => dispatch(callback(json)))
         .catch(err => {
-            console.log('ERROR: ' + err);
+            console.log(`ERROR: ${  err}`);
             dispatch(callback([]));
         });
 }
@@ -30,9 +30,7 @@ function tpl(dispatch, callback, url, method, body) {
  * @param {Function} callback
  * @returns {Function}
  */
-const get = (url, callback) => {
-    return dispatch => tpl(dispatch, callback, url, 'GET');
-};
+const get = (url, callback) => dispatch => tpl(dispatch, callback, url, 'GET');
 
 /**
  * POST request with url and callback
@@ -41,9 +39,7 @@ const get = (url, callback) => {
  * @param {Function} callback
  * @returns {Function}
  */
-const post = (url, body, callback) => {
-    return dispatch => tpl(dispatch, callback, url, 'POST', body);
-};
+const post = (url, body, callback) => dispatch => tpl(dispatch, callback, url, 'POST', body);
 
 /**
  * DELETE request with url and callback
@@ -51,9 +47,7 @@ const post = (url, body, callback) => {
  * @param {Function} callback
  * @returns {Function}
  */
-const del = (url, callback) => {
-    return dispatch => tpl(dispatch, callback, url, 'DELETE');
-};
+const del = (url, callback) => dispatch => tpl(dispatch, callback, url, 'DELETE');
 
 /**
  * DELETE request with url and callback
@@ -62,9 +56,7 @@ const del = (url, callback) => {
  * @param {Function} callback
  * @returns {Function}
  */
-const update = (url, body, callback) => {
-    return dispatch => tpl(dispatch, callback, url, 'PUT', body);
-};
+const update = (url, body, callback) => dispatch => tpl(dispatch, callback, url, 'PUT', body);
 
 const request = {
     get,

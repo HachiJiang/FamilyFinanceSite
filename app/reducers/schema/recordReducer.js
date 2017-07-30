@@ -17,6 +17,26 @@ const initialState = {
     list: [] // all records???
 };
 
+/**
+ * Record state for updating record
+ * @param {Object} oldState
+ * @param {Object} record
+ * @returns {{filter: *, list: *[]}}
+ */
+const updateRecord = (oldState, record) => {
+    const { filter, list } = oldState;
+    const index = _.findIndex(list, { _id: record._id });
+
+    return {
+        filter,
+        list: [
+            ...list.slice(0, index),
+            record,
+            ...list.slice(index + 1)
+        ]
+    };
+};
+
 function recordReducer(state = initialState, action = {}) {
     // @TODO: check whether the record satisfy filter
 
@@ -39,16 +59,7 @@ function recordReducer(state = initialState, action = {}) {
             };
 
         case RecordActionTypes.UPDATE_RECORD:
-            const record = action.record;
-            const index = _.findIndex(list, { _id: record._id });
-            return {
-                filter,
-                list: [
-                    ...list.slice(0, index),
-                    record,
-                    ...list.slice(index + 1)
-                ]
-            };
+            return updateRecord(state, action.record);
 
         case RecordActionTypes.RECEIVE_RECORDS:
             return {
