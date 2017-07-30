@@ -14,16 +14,6 @@ import { Table, Popconfirm, message } from 'antd';
 
 import { getDataRows, getRecordTypeFilters, getMemberFilters } from './selectors';
 
-function confirm(e) {
-    console.log(e);
-    message.success('Click on Yes');
-}
-
-function cancel(e) {
-    console.log(e);
-    message.error('Click on No');
-}
-
 /**
  * Get Columns
  * @param {Object} props
@@ -69,10 +59,9 @@ function getColumns(props) {
         key: 'action',
         render: (text, record) => (
             <Popconfirm
-                title='确定删除记录么?'
+                title='确定删除么?'
                 onConfirm={ () => {
                     props.deleteRecord(record._id);
-                    message.success('删除成功')
                 } }
                 onCancel={ () => { message.error('取消删除') } }>
                 <a href="#">删除</a>

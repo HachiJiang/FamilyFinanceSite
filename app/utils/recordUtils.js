@@ -1,3 +1,5 @@
+'use strict';
+
 import * as EnumRecordType from '../constants/EnumRecordType';
 
 export const getRecordTypeName = (type) => {

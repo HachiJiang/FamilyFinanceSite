@@ -5,24 +5,31 @@
  * Async request to get actions
  *
  */
-
 import fetch from 'isomorphic-fetch';
+import * as messageUtils from '../../utils/messageUtils';
 
-function tpl(dispatch, callback, url, method, body) {
-    return fetch(url, {
-        method: method,
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(body)
+const onFail = err => {
+    console.log(`ERROR: ${err.message}`);
+    messageUtils.fail();
+};
+
+const tpl = (dispatch, callback, url, method, body) => fetch(url, {
+    method: method,
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify(body)
+})
+    .then(res => res.json())
+    .then(json => {
+        const { error } = json;
+        if (error) {
+            onFail(error);
+        } else {
+            dispatch(callback(json));
+        }
     })
-        .then(res => res.json())
-        .then(json => dispatch(callback(json)))
-        .catch(err => {
-            console.log(`ERROR: ${  err}`);
-            dispatch(callback([]));
-        });
-}
+    .catch(onFail);
 
 /**
  * GET request with url and callback

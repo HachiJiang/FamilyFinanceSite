@@ -7,12 +7,12 @@
  */
 
 import * as OutcomeActionTypes from '../../actiontypes/schema/outcome';
-import { updateCategory } from './categoriesReducerUtils';
+import * as categoriesReducerUtils from './categoriesReducerUtils';
 
 function catOutcomeReducer(state = [], action = {}) {
     switch (action.type) {
         case OutcomeActionTypes.ADD_CATEGORY:
-            return updateCategory(state, action.cat);
+            return categoriesReducerUtils.updateCategory(state, action.cat);
 
         case OutcomeActionTypes.DELETE_CATEGORY:
 

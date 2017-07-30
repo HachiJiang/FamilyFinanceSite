@@ -7,12 +7,12 @@
  */
 
 import * as IncomeActionTypes from '../../actiontypes/schema/income';
-import { updateCategory } from './categoriesReducerUtils';
+import * as categoriesReducerUtils from './categoriesReducerUtils';
 
 function incomeCategoriesReducer(state = [], action = {}) {
     switch (action.type) {
         case IncomeActionTypes.ADD_CATEGORY:
-            return updateCategory(state, action.cat);
+            return categoriesReducerUtils.updateCategory(state, action.cat);
 
         case IncomeActionTypes.DELETE_CATEGORY:
 

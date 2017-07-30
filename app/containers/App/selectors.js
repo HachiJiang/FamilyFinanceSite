@@ -43,9 +43,7 @@ export const getIncomeCategories = state => getSchema(state).get('incomeCategori
  * @param {Object} state
  * @returns {*}
  */
-export const getAccountCategories = state => {
-    return getSchema(state).get('accountCategories');
-};
+export const getAccountCategories = state => getSchema(state).get('accountCategories');
 
 /**
  * Get project categories

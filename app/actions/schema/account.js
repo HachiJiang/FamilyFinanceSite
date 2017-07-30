@@ -27,13 +27,19 @@ export const addCategory = (name, catId) => {
 
 /**
  * Delete category in specific position
- * @param {Array} indices
+ * @param {String} catId
+ * @param {String} itemId
  * @returns {{type: DELETE_CATEGORY, Array: *}}
  */
-export const deleteCategory = indices => ({
-    type: AccountActionTypes.DELETE_CATEGORY,
-    indices
-});
+export const deleteCategory = (catId, itemId) => {
+    const url = itemId ? API.ACCOUNT_DELETE_SUBCATEGORY({ itemId, catId }) : API.ACCOUNT_DELETE_CATEGORY({ catId });
+
+    return request.del(url, cat => ({
+        type: AccountActionTypes.DELETE_CATEGORY,
+        cat,
+        itemId
+    }));
+};
 
 /**
  * Update category with name in specific position

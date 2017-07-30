@@ -27,13 +27,22 @@ class AccountPage extends Component {
     }
 
     render() {
-        const { accountCategories } = this.props;
+        const { dispatch, accountCategories } = this.props;
+
+        const addAccountCategory = bindActionCreators(CategoryAccountActionCreators.addCategory, dispatch);
+        const deleteAccountCategory = bindActionCreators(CategoryAccountActionCreators.deleteCategory, dispatch);
+        const updateAccountCategory = bindActionCreators(CategoryAccountActionCreators.updateCategory, dispatch);
 
         return (
             <div>
                 <div className='account-kpi'>Account KPI</div>
                 <div className='account-details'>
-                    <AccountPanel accountCategories={ accountCategories } />
+                    <AccountPanel
+                        accountCategories={ accountCategories }
+                        addAccountCategory={ addAccountCategory }
+                        deleteAccountCategory={ deleteAccountCategory }
+                        updateAccountCategory={ updateAccountCategory }
+                    />
                 </div>
             </div>
         );

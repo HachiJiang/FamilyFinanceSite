@@ -5,21 +5,24 @@
  * Utils for category reducers
  *
  */
-
 import _ from 'lodash';
+import * as messageUtils from '../../utils/messageUtils';
 
 /**
- * Add/Update category
+ * Add/Update category, update category for adding new subcategory
  * @param {Array} state
  * @param {Object} cat
  * @returns {Array}
  */
 export const updateCategory = (state, cat) => {
     if (!cat || !cat.name) {
+        messageUtils.fail();
         return state;
     }
 
     const index = _.findIndex(state, { _id: cat._id });
+
+    messageUtils.success();
 
     if (index !== -1) { // if exist, update category
         return [
@@ -32,5 +35,20 @@ export const updateCategory = (state, cat) => {
             ...state,
             cat
         ];
+    }
+};
+
+/**
+ * Delete category
+ * @param {Array} state
+ * @param {Object} cat
+ * @param {String} itemId
+ * @returns {Array}
+ */
+export const deleteCategory = (state, cat, itemId) => {
+    if (itemId) {
+        return updateCategory(state, cat);
+    } else {
+        return _.filter(state, item => item._id !== cat._id);
     }
 };

@@ -8,6 +8,7 @@
 
 import _ from 'lodash';
 import * as RecordActionTypes from '../../actiontypes/schema/record';
+import * as messageUtils from '../../utils/messageUtils';
 
 const initialState = {
     filter: {
@@ -44,6 +45,13 @@ function recordReducer(state = initialState, action = {}) {
 
     switch (action.type) {
         case RecordActionTypes.ADD_RECORD:
+            if (_.isEmpty(action.record)) {
+                messageUtils.fail();
+                return state;
+            }
+
+            messageUtils.success();
+
             return {
                 filter,
                 list: _.sortBy([

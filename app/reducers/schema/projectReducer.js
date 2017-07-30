@@ -5,12 +5,12 @@
  */
 
 import * as ProjectActionTypes from '../../actiontypes/schema/project';
-import { updateCategory } from './categoriesReducerUtils';
+import * as categoriesReducerUtils from './categoriesReducerUtils';
 
 function projectCategoriesReducer(state = [], action = {}) {
     switch (action.type) {
         case ProjectActionTypes.ADD_CATEGORY:
-            return updateCategory(state, action.cat);
+            return categoriesReducerUtils.updateCategory(state, action.cat);
 
         case ProjectActionTypes.DELETE_CATEGORY:
 

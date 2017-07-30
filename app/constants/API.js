@@ -11,14 +11,16 @@ const HOST = 'http://localhost:8000';
  * Accounts
  */
 export const ACCOUNT_GET = `${HOST}/accounts`;
-export const ACCOUNT_CREATE_CATEGORY = `${HOST}/accounts`;
+export const ACCOUNT_CREATE_CATEGORY = ACCOUNT_GET;
 export const ACCOUNT_CREATE_SUBCATEGORY = _.template(`${HOST}/accounts/<%= catId %>/items`);
+export const ACCOUNT_DELETE_CATEGORY = _.template(`${HOST}/accounts/<%= catId %>`);
+export const ACCOUNT_DELETE_SUBCATEGORY = _.template(`${HOST}/accounts/<%= catId %>/items/<%= itemId %>`);
 
 /**
  * Income
  */
 export const INCOME_GET = `${HOST}/income`;
-export const INCOME_CREATE_CATEGORY = `${HOST}/income`;
+export const INCOME_CREATE_CATEGORY = INCOME_GET;
 export const INCOME_CREATE_SUBCATEGORY = _.template(`${HOST}/income/<%= catId %>/items`);
 
 /**
