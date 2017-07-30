@@ -58,4 +58,4 @@ function receiveMembers(json) {
  * Fetch members from server
  * @returns {Function}
  */
-export const fetchMembers = () => request.get(API.MEMBER_GET, receiveMembers);
+export const fetchMembers = dispatch => dispatch(request.get(API.MEMBER_GET, receiveMembers));

@@ -58,4 +58,4 @@ function receiveDebtors(data) {
  * Fetch debtors from server
  * @returns {Function}
  */
-export const fetchDebtors = () => request.get(API.DEBTOR_GET, receiveDebtors);
+export const fetchDebtors = dispatch => dispatch(request.get(API.DEBTOR_GET, receiveDebtors));

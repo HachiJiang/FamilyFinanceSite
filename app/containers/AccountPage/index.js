@@ -21,6 +21,11 @@ import { getAccountCategories } from '../App/selectors';
 
 class AccountPage extends Component {
 
+    componentDidMount() {
+        const { dispatch } = this.props;
+        CategoryAccountActionCreators.fetchCategories(dispatch);
+    }
+
     render() {
         const { accountCategories } = this.props;
 
@@ -28,7 +33,7 @@ class AccountPage extends Component {
             <div>
                 <div className='account-kpi'>Account KPI</div>
                 <div className='account-details'>
-                    <AccountPanel accounts={ accountCategories } />
+                    <AccountPanel accountCategories={ accountCategories } />
                 </div>
             </div>
         );

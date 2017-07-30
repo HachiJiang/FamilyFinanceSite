@@ -63,4 +63,4 @@ function receiveCategories(json) {
  * Fetch categories from server
  * @returns {Function}
  */
-export const fetchCategories = () => request.get(API.PROJECT_GET, receiveCategories);
+export const fetchCategories = dispatch => dispatch(request.get(API.PROJECT_GET, receiveCategories));

@@ -51,7 +51,7 @@ export const updateCategory = (name, indices) => ({
  * Fetch categories from server
  * @returns {Function}
  */
-export const fetchCategories = () => request.get(API.ACCOUNT_GET, data => ({  // generate action with response data
+export const fetchCategories = dispatch => dispatch(request.get(API.ACCOUNT_GET, data => ({  // generate action with response data
     type: AccountActionTypes.RECEIVE_CATEGORIES,
     data
-}));
+})));

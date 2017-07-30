@@ -13,12 +13,12 @@ import * as RecordActionCreators from './schema/record';
  */
 export const fetchSchema = dispatch => {
     // @TODO: Promise.all?? update state once all request done?
-    dispatch(AccountActionCreators.fetchCategories());
-    dispatch(DebtMemberActionCreators.fetchDebtors());
-    dispatch(IncomeActionCreators.fetchCategories());
-    dispatch(MemberActionCreators.fetchMembers());
-    dispatch(OutcomeActionCreators.fetchCategories());
-    dispatch(ProjectActionCreators.fetchCategories());
+    AccountActionCreators.fetchCategories(dispatch);
+    DebtMemberActionCreators.fetchDebtors(dispatch);
+    IncomeActionCreators.fetchCategories(dispatch);
+    MemberActionCreators.fetchMembers(dispatch);
+    OutcomeActionCreators.fetchCategories(dispatch);
+    ProjectActionCreators.fetchCategories(dispatch);
 };
 
 /**
