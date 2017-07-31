@@ -9,7 +9,6 @@
 import _ from 'lodash';
 import moment from 'moment';
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
 
 import { Button, DatePicker, InputNumber, Input } from 'antd';
 

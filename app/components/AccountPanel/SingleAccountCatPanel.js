@@ -11,8 +11,8 @@ import EditableSchemaHeader from '../base/EditableSchemaHeader';
 
 const Panel = Collapse.Panel;
 
-const createTitle = (item, onAdd, onDelete, onUpdate, needAdd) => (
-    <EditableSchemaHeader item={ item } onAdd={ onAdd } onDelete={ onDelete } onUpdate={ onUpdate } needAdd={ needAdd } />
+const createTitle = (item, onDelete, onUpdate, onAdd) => (
+    <EditableSchemaHeader item={ item } onAdd={ onAdd } onDelete={ onDelete } onUpdate={ onUpdate } />
 );
 
 class SingleAccountCatPanel extends Component {
@@ -21,7 +21,7 @@ class SingleAccountCatPanel extends Component {
         const { items } = cat;
         
         return (
-            <Card title={ createTitle(cat, addAccountCategory, deleteAccountCategory, updateAccountCategory, true) } >
+            <Card title={ createTitle(cat, deleteAccountCategory, updateAccountCategory, id => addAccountCategory(cat._id, id)) } >
                 {
                     (items && items.length > 0) ?
                         (
@@ -29,7 +29,11 @@ class SingleAccountCatPanel extends Component {
                                 {
                                     items.map((item, index) => (
                                         <Panel key={ item._id }
-                                               header={ createTitle(item, addAccountCategory, id => deleteAccountCategory(cat._id, id), updateAccountCategory) }>
+                                               header={ createTitle(
+                                                            item,
+                                                            id => deleteAccountCategory(cat._id, id),
+                                                            id => updateAccountCategory(cat._id, id)
+                                                        ) }>
                                             按事件倒序的流水记录
                                         </Panel>
                                     ))

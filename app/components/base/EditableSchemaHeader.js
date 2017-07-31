@@ -8,6 +8,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { Popconfirm, message, Icon, Input } from 'antd';
+import AddItemPopup from './PopupInputForm';
 
 const stopPropagation = e => e.stopPropagation();
 
@@ -41,7 +42,7 @@ class EditableSchemaHeader extends Component  {
 
     render() {
         const { value, editable } = this.state;
-        const { needAdd = false } = this.props;
+        const { onAdd } = this.props;
 
         return (
             <div className='editable-schema-header'>
@@ -69,20 +70,18 @@ class EditableSchemaHeader extends Component  {
                 <span>#余额: #</span>
                 <span style={ {float: 'right'} }>
                     {
-                        needAdd &&
+                        onAdd &&
                         <span>
-                            <Popconfirm title='确定新增么?'
-                                        onConfirm={ () => this.confirmAdd() }
-                                        onCancel={ () => { message.error('取消新增') } }>
-                                <a href="#" onClick={ stopPropagation }>新增</a>
-                            </Popconfirm>
+                            <AddItemPopup onConfirm={ () => this.confirmAdd() }>
+                                <a href="#" onClick={ stopPropagation }>add</a>
+                            </AddItemPopup>
                             <span className="ant-divider" />
                         </span>
                     }
                     <Popconfirm title='确定删除么?'
                                 onConfirm={ () => this.confirmDelete() }
                                 onCancel={ () => { message.error('取消删除') } }>
-                        <a href="#" onClick={ stopPropagation }>删除</a>
+                        <a href="#" onClick={ stopPropagation }>delete</a>
                     </Popconfirm>
                 </span>
             </div>
@@ -95,7 +94,6 @@ EditableSchemaHeader.propTypes = {
         _id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired
     }),
-    needAdd: PropTypes.boolean,
     onAdd: PropTypes.func,
     onUpdate: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired
