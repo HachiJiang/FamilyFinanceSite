@@ -49,6 +49,7 @@ export const deleteCategory = (state, cat, itemId) => {
     if (itemId) {
         return updateCategory(state, cat);
     } else {
+        messageUtils.success();
         return _.filter(state, item => item._id !== cat._id);
     }
 };

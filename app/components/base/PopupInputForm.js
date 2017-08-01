@@ -22,9 +22,15 @@ class PopupInputForm extends Component {
     }
 
     onSubmit() {
+        const { value } = this.state;
         const { onConfirm } = this.props;
-        onConfirm(this.state.value);
-        this.reset();
+
+        if (value) {
+            onConfirm(value);
+            this.reset();
+        } else {
+            message.warning('无效输入!');
+        }
     }
 
     render() {

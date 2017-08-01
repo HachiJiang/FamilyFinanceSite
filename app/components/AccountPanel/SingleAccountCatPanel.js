@@ -21,7 +21,12 @@ class SingleAccountCatPanel extends Component {
         const { items } = cat;
         
         return (
-            <Card title={ createTitle(cat, deleteAccountCategory, updateAccountCategory, id => addAccountCategory(cat._id, id)) } >
+            <Card title={ createTitle(
+                                cat,
+                                deleteAccountCategory,
+                                name => updateAccountCategory(name, cat._id),
+                                name => addAccountCategory(name, cat._id)
+                            ) } >
                 {
                     (items && items.length > 0) ?
                         (
@@ -32,7 +37,7 @@ class SingleAccountCatPanel extends Component {
                                                header={ createTitle(
                                                             item,
                                                             id => deleteAccountCategory(cat._id, id),
-                                                            id => updateAccountCategory(cat._id, id)
+                                                            name => updateAccountCategory(name, cat._id, item._id)
                                                         ) }>
                                             按事件倒序的流水记录
                                         </Panel>

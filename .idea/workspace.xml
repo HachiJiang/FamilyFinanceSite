@@ -114,32 +114,69 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/AccountPanel/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.892857">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PopupInputForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/base/PopupInputForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.25">
-              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+            <state vertical-scroll-proportion="-3.4464285">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <marker date="1501592065000" expanded="true" signature="712:1268" placeholder="&lt;xml/&gt;" />
+                <marker date="1501592065000" expanded="true" signature="732:944" placeholder="&lt;xml/&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="API.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/constants/API.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleAccountCatPanel.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="accountReducer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/reducers/schema/accountReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="income.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/actions/schema/income.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoriesReducerUtils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/reducers/schema/categoriesReducerUtils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="2" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SingleAccountCatPanel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/AccountPanel/SingleAccountCatPanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6393189">
-              <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
-              <folding />
+            <state vertical-scroll-proportion="5.053571">
+              <caret line="39" column="113" selection-start-line="39" selection-start-column="113" selection-end-line="39" selection-end-column="113" />
+              <folding>
+                <marker date="1501600084000" expanded="true" signature="676:2113" placeholder="&lt;xml/&gt;" />
+                <marker date="1501600084000" expanded="true" signature="1103:1978" placeholder="&lt;xml/&gt;" />
+                <marker date="1501600084000" expanded="true" signature="1325:1865" placeholder="&lt;xml/&gt;" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,58 +184,49 @@
       <file leaf-file-name="EditableSchemaHeader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/base/EditableSchemaHeader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="4.714286">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-              <folding />
+            <state vertical-scroll-proportion="2.75">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+              <folding>
+                <marker date="1501598677000" expanded="true" signature="934:2810" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="1048:1587" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="1122:1344" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="1373:1556" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="1638:1968" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="1756:1937" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="2039:2791" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="2152:2438" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="2187:2345" placeholder="&lt;xml/&gt;" />
+                <marker date="1501598677000" expanded="true" signature="2481:2767" placeholder="&lt;xml/&gt;" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuItem2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/base/MenuItem2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.625">
-              <caret line="27" column="34" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tabs.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/base/Tabs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.78571427">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/actions/schema/account.js">
+      <file leaf-file-name="debtor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/actions/schema/debtor.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+              <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/base/Pulldown2/index.js">
+      <file leaf-file-name="account.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/actions/schema/account.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.589286">
-              <caret line="48" column="33" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.38430583">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/RecordEditor/index.js">
+      <file leaf-file-name="request.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/actions/base/request.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.232143">
-              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -248,7 +276,6 @@
         <option value="$PROJECT_DIR$/app/scss/base/index.scss" />
         <option value="$PROJECT_DIR$/app/scss/base/_EditableSchemaHeader.scss" />
         <option value="$PROJECT_DIR$/app/containers/App/selectors.js" />
-        <option value="$PROJECT_DIR$/app/constants/API.js" />
         <option value="$PROJECT_DIR$/app/components/RecordGrid/index.js" />
         <option value="$PROJECT_DIR$/app/scss/accountPage/_layout.scss" />
         <option value="$PROJECT_DIR$/app/reducers/schema/recordReducer.js" />
@@ -257,20 +284,21 @@
         <option value="$PROJECT_DIR$/app/utils/recordUtils.js" />
         <option value="$PROJECT_DIR$/app/utils/renderUtils.js" />
         <option value="$PROJECT_DIR$/app/actions/base/request.js" />
-        <option value="$PROJECT_DIR$/app/reducers/schema/accountReducer.js" />
         <option value="$PROJECT_DIR$/app/reducers/schema/incomeReducer.js" />
         <option value="$PROJECT_DIR$/app/reducers/schema/outcomeReducer.js" />
         <option value="$PROJECT_DIR$/app/reducers/schema/projectReducer.js" />
-        <option value="$PROJECT_DIR$/app/reducers/schema/categoriesReducerUtils.js" />
-        <option value="$PROJECT_DIR$/app/actions/schema/account.js" />
         <option value="$PROJECT_DIR$/app/components/RecordEditor/index.js" />
         <option value="$PROJECT_DIR$/app/components/AccountPanel/AddCategoryPopup.js" />
         <option value="$PROJECT_DIR$/app/components/base/AddCategoryPopup.js" />
         <option value="$PROJECT_DIR$/app/components/base/AddItemPopup.js" />
+        <option value="$PROJECT_DIR$/app/components/AccountPanel/index.js" />
         <option value="$PROJECT_DIR$/app/components/base/PopupInputForm.js" />
         <option value="$PROJECT_DIR$/app/components/base/EditableSchemaHeader.js" />
-        <option value="$PROJECT_DIR$/app/components/AccountPanel/index.js" />
+        <option value="$PROJECT_DIR$/app/constants/API.js" />
         <option value="$PROJECT_DIR$/app/components/AccountPanel/SingleAccountCatPanel.js" />
+        <option value="$PROJECT_DIR$/app/reducers/schema/accountReducer.js" />
+        <option value="$PROJECT_DIR$/app/reducers/schema/categoriesReducerUtils.js" />
+        <option value="$PROJECT_DIR$/app/actions/schema/account.js" />
       </list>
     </option>
   </component>
@@ -757,7 +785,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2780822" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28082192" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -839,20 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/actions/schema/debtor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/actions/schema/income.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="99" selection-start-line="65" selection-start-column="99" selection-end-line="65" selection-end-column="99" />
         </state>
       </provider>
     </entry>
@@ -967,6 +981,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3133903">
           <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,22 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/actions/base/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7207977">
-          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/reducers/schema/categoriesReducerUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/reducers/schema/incomeReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1037,22 +1036,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/reducers/schema/accountReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09116809">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/constants/API.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1081,20 +1064,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/AddItemForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7207977">
-          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/base/Input.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1103,7 +1078,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.625">
           <caret line="27" column="34" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="34" />
-          <folding />
+          <folding>
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1111,7 +1090,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.78571427">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1131,14 +1114,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/actions/schema/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/containers/AccountPage/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0940171">
@@ -1147,34 +1122,128 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/base/PopupInputForm.js">
+    <entry file="file://$PROJECT_DIR$/app/components/base/AddItemForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.25">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding>
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501393544000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/AccountPanel/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.892857">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.78571427">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding>
+            <marker date="1501514273000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501514273000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501514273000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501514273000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501514273000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+            <marker date="1501514273000" expanded="true" signature="-1:-1" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/actions/schema/debtor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="3" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/base/PopupInputForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4464285">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <marker date="1501592065000" expanded="true" signature="712:1268" placeholder="&lt;xml/&gt;" />
+            <marker date="1501592065000" expanded="true" signature="732:944" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/actions/base/request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/constants/API.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/base/EditableSchemaHeader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.714286">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state vertical-scroll-proportion="2.75">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <marker date="1501598677000" expanded="true" signature="934:2810" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="1048:1587" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="1122:1344" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="1373:1556" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="1638:1968" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="1756:1937" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="2039:2791" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="2152:2438" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="2187:2345" placeholder="&lt;xml/&gt;" />
+            <marker date="1501598677000" expanded="true" signature="2481:2767" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/actions/schema/income.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/AccountPanel/SingleAccountCatPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6393189">
-          <caret line="31" column="56" selection-start-line="31" selection-start-column="56" selection-end-line="31" selection-end-column="56" />
+        <state vertical-scroll-proportion="5.053571">
+          <caret line="39" column="113" selection-start-line="39" selection-start-column="113" selection-end-line="39" selection-end-column="113" />
+          <folding>
+            <marker date="1501600084000" expanded="true" signature="676:2113" placeholder="&lt;xml/&gt;" />
+            <marker date="1501600084000" expanded="true" signature="1103:1978" placeholder="&lt;xml/&gt;" />
+            <marker date="1501600084000" expanded="true" signature="1325:1865" placeholder="&lt;xml/&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/reducers/schema/accountReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/reducers/schema/categoriesReducerUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="2" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/actions/schema/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38430583">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>

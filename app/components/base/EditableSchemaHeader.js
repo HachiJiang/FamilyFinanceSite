@@ -31,10 +31,6 @@ class EditableSchemaHeader extends Component  {
         this.setState({ editable: true });
     }
 
-    confirmAdd() {
-        message.success('新增成功');
-    }
-
     confirmDelete() {
         const { onDelete, item: { _id } } = this.props;
         onDelete(_id);
@@ -72,7 +68,7 @@ class EditableSchemaHeader extends Component  {
                     {
                         onAdd &&
                         <span>
-                            <AddItemPopup onConfirm={ () => this.confirmAdd() }>
+                            <AddItemPopup onConfirm={ onAdd }>
                                 <a href="#" onClick={ stopPropagation }>add</a>
                             </AddItemPopup>
                             <span className="ant-divider" />

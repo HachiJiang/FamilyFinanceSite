@@ -19,7 +19,7 @@ import request from './../base/request.js';
 export const addCategory = (name, catId) => {
     const url = catId ? API.ACCOUNT_CREATE_SUBCATEGORY({ catId }) : API.ACCOUNT_CREATE_CATEGORY;
 
-    return request.post(url, { catId, name }, cat => ({
+    return request.post(url, { name }, cat => ({
         type: AccountActionTypes.ADD_CATEGORY,
         cat
     }));
@@ -29,7 +29,7 @@ export const addCategory = (name, catId) => {
  * Delete category in specific position
  * @param {String} catId
  * @param {String} itemId
- * @returns {{type: DELETE_CATEGORY, Array: *}}
+ * @returns {{type: DELETE_CATEGORY, cat: {}, itemId: String}}
  */
 export const deleteCategory = (catId, itemId) => {
     const url = itemId ? API.ACCOUNT_DELETE_SUBCATEGORY({ itemId, catId }) : API.ACCOUNT_DELETE_CATEGORY({ catId });
@@ -43,15 +43,19 @@ export const deleteCategory = (catId, itemId) => {
 
 /**
  * Update category with name in specific position
- * @param {string} name
- * @param {Array} indices
- * @returns {{type: UPDATE_CATEGORY, index: *, name: *}}
+ * @param {String} name
+ * @param {String} catId
+ * @param {String} itemId
+ * @returns {{type: UPDATE_CATEGORY, cat: {}}}
  */
-export const updateCategory = (name, indices) => ({
-    type: AccountActionTypes.UPDATE_CATEGORY,
-    name,
-    indices
-});
+export const updateCategory = (name, catId, itemId) => {
+    const url = itemId ? API.ACCOUNT_UPDATE_SUBCATEGORY({ itemId, catId }) : API.ACCOUNT_UPDATE_CATEGORY({ catId });
+
+    return request.update(url, { name }, cat => ({
+        type: AccountActionTypes.UPDATE_CATEGORY,
+        cat
+    }));
+};
 
 /**
  * Fetch categories from server
