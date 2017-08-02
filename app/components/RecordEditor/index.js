@@ -20,7 +20,8 @@ import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
 import { getDefaultRecord, getPropKeysByType } from './selectors';
 
-//const TITLES = ["[Outcome]", "[Income]", "[Transfer]", "[Borrow]", "[Lend]", "[Repay]", "[Collect Debt]"];
+import { getCategoryVal } from '../../utils/schemaUtils';
+
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
 
 /**
@@ -126,7 +127,7 @@ class RecordEditor extends Component {
                 title={ subTitles[0] }
                 items={ outcomeCategories }
                 value={ type === EnumRecordType.OUTCOME ? category : '' }
-                onSelectionChange={ id=> this.setState({ category: id })}
+                onSelectionChange={ (catId, itemId) => this.setState({ category: getCategoryVal(catId, itemId) }) }
                 addItem={ addOutcomeCategory }
             >
             </Pulldown2>,
@@ -135,7 +136,7 @@ class RecordEditor extends Component {
                 title={ subTitles[1] }
                 items={ incomeCategories }
                 value={ type === EnumRecordType.INCOME ? category : '' }
-                onSelectionChange={ id => this.setState({ category: id })}
+                onSelectionChange={ (catId, itemId) => this.setState({ category: getCategoryVal(catId, itemId) }) }
                 addItem={ addIncomeCategory }
             >
             </Pulldown2>,
@@ -144,7 +145,7 @@ class RecordEditor extends Component {
                 title={ subTitles[2] }
                 items={ accountCategories }
                 value={ accountFrom }
-                onSelectionChange={ id => this.setState({ accountFrom: id })}
+                onSelectionChange={ (catId, itemId) => this.setState({ accountFrom: getCategoryVal(catId, itemId) }) }
                 addItem={ addAccountCategory }
             >
             </Pulldown2>,
@@ -153,7 +154,7 @@ class RecordEditor extends Component {
                 title={ subTitles[3] }
                 items={ accountCategories }
                 value={ accountTo }
-                onSelectionChange={ id => this.setState({ accountTo: id })}
+                onSelectionChange={ (catId, itemId) => this.setState({ accountTo: getCategoryVal(catId, itemId) }) }
                 addItem={ addAccountCategory }
             >
             </Pulldown2>,
@@ -162,7 +163,7 @@ class RecordEditor extends Component {
                 title={ subTitles[4] }
                 items={ projectCategories }
                 value={ project }
-                onSelectionChange={ id => this.setState({ project: id })}
+                onSelectionChange={ (catId, itemId) => this.setState({ project: getCategoryVal(catId, itemId) }) }
                 addItem={ addProjectCategory }
             >
             </Pulldown2>,

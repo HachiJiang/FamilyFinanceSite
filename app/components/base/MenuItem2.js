@@ -23,8 +23,8 @@ class MenuItem2 extends Component {
     };
 
     render() {
-        const { items, onSelectionChange, onMouseLeave, children, className } = this.props;
-        const mainCls = className ? `menu-item2 ${  className}` : "menu-item2";
+        const { id, title, items, onSelectionChange, onMouseLeave, children, className } = this.props;
+        const mainCls = className ? `menu-item2 ${className}` : "menu-item2";
         const menuCls = classNames("menu", {
             disabled: !this.state.active
         });
@@ -38,7 +38,7 @@ class MenuItem2 extends Component {
                     onMouseLeave && onMouseLeave();
                     hideMenu.call(this);
                 } }>
-                <span className='menu-item-content'>{ this.props.title }</span>
+                <span className='menu-item-content'>{ title }</span>
                 <span className='fa fa-caret-right' aria-hidden='true'></span>
                 <div className={ menuCls }>
                     {
@@ -47,7 +47,7 @@ class MenuItem2 extends Component {
                                 key={ index }
                                 id={ item._id }
                                 title={ item.name }
-                                onSelectionChange={ (title, id) => onSelectionChange(title, id) }
+                                onSelectionChange={ onSelectionChange }
                             />
                         ))
                     }
@@ -60,6 +60,7 @@ class MenuItem2 extends Component {
 
 MenuItem2.propTypes = {
     children: PropTypes.node,
+    id: PropTypes.string,  // only id never change for one schema item
     title: PropTypes.string.isRequired,
     items: PropTypes.array,
     onMouseLeave: PropTypes.func,

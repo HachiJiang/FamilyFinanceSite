@@ -5,13 +5,17 @@
  */
 import _ from 'lodash';
 import * as EnumRecordType from '../../constants/EnumRecordType';
+import { ID_SEPARATOR } from '../../constants/Config';
 
-function getDefaultCat(categories) {
-    if (_.isArray(categories)) {
-        const category = categories[0];
-        return getDefaultCat((category && category.items) ? category.items : category);
+function getDefaultCatId(categories, idStr = '') {
+    if (_.isArray(categories) && categories.length > 0) {
+        const cat = categories[0];
+        return getDefaultCatId((cat && cat.items) ? cat.items : cat, idStr ? (idStr + ID_SEPARATOR + cat._id) : cat._id);
     }
-    return categories && categories.name;
+
+    if (categories) {
+        return idStr;
+    }
 }
 
 /**
@@ -23,10 +27,10 @@ function getDefaultRecordOutcome(schema) {
     return {
         type: EnumRecordType.OUTCOME,
         amount: 0,
-        category: getDefaultCat(schema.outcomeCategories),
-        accountFrom: getDefaultCat(schema.accountCategories),
-        project: getDefaultCat(schema.projectCategories),
-        member: getDefaultCat(schema.members)
+        category: getDefaultCatId(schema.outcomeCategories),
+        accountFrom: getDefaultCatId(schema.accountCategories),
+        project: getDefaultCatId(schema.projectCategories),
+        member: getDefaultCatId(schema.members)
     };
 }
 
@@ -39,10 +43,10 @@ function getDefaultRecordIncome(schema) {
     return {
         type: EnumRecordType.INCOME,
         amount: 0,
-        project: getDefaultCat(schema.projectCategories),
-        member: getDefaultCat(schema.members),
-        category: getDefaultCat(schema.incomeCategories),
-        accountTo: getDefaultCat(schema.accountCategories)
+        project: getDefaultCatId(schema.projectCategories),
+        member: getDefaultCatId(schema.members),
+        category: getDefaultCatId(schema.incomeCategories),
+        accountTo: getDefaultCatId(schema.accountCategories)
     };
 }
 
@@ -55,10 +59,10 @@ function getDefaultRecordTransfer(schema) {
     return {
         type: EnumRecordType.TRANSFER,
         amount: 0,
-        project: getDefaultCat(schema.projectCategories),
-        member: getDefaultCat(schema.members),
-        accountFrom: getDefaultCat(schema.accountCategories),
-        accountTo: getDefaultCat(schema.accountCategories)
+        project: getDefaultCatId(schema.projectCategories),
+        member: getDefaultCatId(schema.members),
+        accountFrom: getDefaultCatId(schema.accountCategories),
+        accountTo: getDefaultCatId(schema.accountCategories)
     };
 }
 
@@ -71,10 +75,10 @@ function getDefaultRecordBorrow(schema) {
     return {
         type: EnumRecordType.BORROW,
         amount: 0,
-        project: getDefaultCat(schema.projectCategories),
-        member: getDefaultCat(schema.members),
-        accountTo: getDefaultCat(schema.accountCategories),
-        debtor: getDefaultCat(schema.debtors)
+        project: getDefaultCatId(schema.projectCategories),
+        member: getDefaultCatId(schema.members),
+        accountTo: getDefaultCatId(schema.accountCategories),
+        debtor: getDefaultCatId(schema.debtors)
     };
 }
 
@@ -87,10 +91,10 @@ function getDefaultRecordLend(schema) {
     return {
         type: EnumRecordType.LEND,
         amount: 0,
-        project: getDefaultCat(schema.projectCategories),
-        member: getDefaultCat(schema.members),
-        accountFrom: getDefaultCat(schema.accountCategories),
-        debtor: getDefaultCat(schema.debtors)
+        project: getDefaultCatId(schema.projectCategories),
+        member: getDefaultCatId(schema.members),
+        accountFrom: getDefaultCatId(schema.accountCategories),
+        debtor: getDefaultCatId(schema.debtors)
     };
 }
 
@@ -103,10 +107,10 @@ function getDefaultRecordRepay(schema) {
     return {
         type: EnumRecordType.REPAY,
         amount: 0,
-        project: getDefaultCat(schema.projectCategories),
-        member: getDefaultCat(schema.members),
-        accountFrom: getDefaultCat(schema.accountCategories),
-        debtor: getDefaultCat(schema.debtors)
+        project: getDefaultCatId(schema.projectCategories),
+        member: getDefaultCatId(schema.members),
+        accountFrom: getDefaultCatId(schema.accountCategories),
+        debtor: getDefaultCatId(schema.debtors)
     };
 }
 
@@ -119,10 +123,10 @@ function getDefaultRecordCollectDebt(schema) {
     return {
         type: EnumRecordType.COLLECT_DEBT,
         amount: 0,
-        project: getDefaultCat(schema.projectCategories),
-        accountTo: getDefaultCat(schema.accountCategories),
-        member: getDefaultCat(schema.members),
-        debtor: getDefaultCat(schema.debtors)
+        project: getDefaultCatId(schema.projectCategories),
+        accountTo: getDefaultCatId(schema.accountCategories),
+        member: getDefaultCatId(schema.members),
+        debtor: getDefaultCatId(schema.debtors)
     };
 }
 

@@ -1,5 +1,7 @@
+'use strict';
+
 /*
- * Cascader
+ * Cascader, only for schema
  *
  */
 import _ from 'lodash';
@@ -9,6 +11,8 @@ import classNames from 'classnames';
 import MenuItem from '../MenuItem';
 import MenuItem2 from '../MenuItem2';
 import AddItemForm from '../AddItemForm';
+
+import { idStrToName } from '../../../utils/schemaUtils';
 
 import './style/_index.scss';
 
@@ -47,12 +51,12 @@ class Pulldown2 extends Component {
 
         return (
             <div className="form">
-                <span>{ title && <label>{ `${title  }: ` }</label> }</span>
+                <span>{ title && <label>{ `${title}: ` }</label> }</span>
                 <span className="pulldown-levelSelect">
                     <div
                         className="menu-item selected" ref="levelSelected"
                         onClick={ _ => this.setState({ expanded: !this.state.expanded })}>
-                        <span className='selected-content'>{ value || DEFAULT_VALUE }</span>
+                        <span className='selected-content'>{ value ? idStrToName(value, items) : DEFAULT_VALUE }</span>
                         <span className="fa fa-caret-down" aria-hidden="true"></span>
                     </div>
                     <div className={ menuCls }>
@@ -63,11 +67,11 @@ class Pulldown2 extends Component {
                                     id={ cat._id }
                                     title={ cat.name }
                                     items={ cat.items }
-                                    onSelectionChange={ itemName => {
+                                    onSelectionChange={ itemId => {
                                         this.setState({
                                             expanded: false
                                         });
-                                        onSelectionChange(itemName);
+                                        onSelectionChange(cat._id, itemId);
                                     } }
                                 >
                                     <AddItemForm onSubmit={ value => addItem(value, cat._id) } />
@@ -75,8 +79,9 @@ class Pulldown2 extends Component {
                             ) : (
                                 <MenuItem
                                     key={ index }
+                                    id={ cat._id }
                                     title={ cat.name }
-                                    onSelectionChange={ title => onSelectionChange(title) }
+                                    onSelectionChange={ id => onSelectionChange(id) }
                                 />
                             ))
                         }
@@ -90,7 +95,7 @@ class Pulldown2 extends Component {
 
 Pulldown2.propTypes = {
     title: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.string, // id string
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     onSelectionChange: PropTypes.func,
     addItem: PropTypes.func
