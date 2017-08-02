@@ -5,7 +5,8 @@
  */
 
 import _ from 'lodash';
-const HOST = 'http://localhost:8000';
+const VERSION = 'v1';
+const HOST = `http://localhost:8000/${VERSION}`;
 
 /**
  * Accounts
