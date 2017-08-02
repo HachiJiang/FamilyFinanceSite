@@ -22,7 +22,7 @@ const TabPane = Tabs.TabPane;
 const TabPaneHeader = ({ name, balance }) => (
     <div>
         { name }
-        <div>#余额#</div>
+        { balance && <div>#余额#</div> }
     </div>
 );
 

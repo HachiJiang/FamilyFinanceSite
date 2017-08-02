@@ -38,7 +38,7 @@ class EditableSchemaHeader extends Component  {
 
     render() {
         const { value, editable } = this.state;
-        const { onAdd } = this.props;
+        const { onAdd, item: { balance } } = this.props;
 
         return (
             <div className='editable-schema-header'>
@@ -63,7 +63,7 @@ class EditableSchemaHeader extends Component  {
                                 />
                         </div>
                 }
-                <span>#余额: #</span>
+                { balance && <span>#余额: #</span> }
                 <span style={ {float: 'right'} }>
                     {
                         onAdd &&
@@ -88,7 +88,8 @@ class EditableSchemaHeader extends Component  {
 EditableSchemaHeader.propTypes = {
     item: PropTypes.shape({
         _id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired
+        name: PropTypes.string.isRequired,
+        balance: PropTypes.number
     }),
     onAdd: PropTypes.func,
     onUpdate: PropTypes.func.isRequired,
