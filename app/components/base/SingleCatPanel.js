@@ -36,8 +36,8 @@ class SingleCatPanel extends Component {
                                         <Panel key={ item._id }
                                                header={ createTitle(
                                                             item,
-                                                            id => deleteItem(cat._id, id),
-                                                            name => updateItem(name, cat._id, item._id)
+                                                            cat._id ? id => deleteItem(cat._id, id) : deleteItem,
+                                                            cat._id ? name => updateItem(name, cat._id, item._id) : name => updateItem(name, item._id)
                                                         ) }>
                                             按事件倒序的流水记录
                                         </Panel>

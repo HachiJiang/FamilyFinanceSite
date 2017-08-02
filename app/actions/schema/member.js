@@ -21,26 +21,25 @@ export const addMember = name => request.post(API.MEMBER_CREATE, { name }, item 
 }));
 
 /**
- * Delete member in specific position
- * @param {number} index
- * @returns {{type: DELETE_MEMBER, Array: *}}
+ * Delete member with _id
+ * @param {string} memberId
+ * @returns {{type: DELETE_MEMBER, _id: string}}
  */
-export const deleteMember = index => ({
+export const deleteMember = memberId => request.del(API.MEMBER_DELETE({ memberId }), ({ _id }) => ({
     type: MemberActionTypes.DELETE_MEMBER,
-    index
-});
+    _id
+}));
 
 /**
  * Update member with name in specific position
  * @param {string} name
- * @param {number} index
- * @returns {{type: UPDATE_MEMBER, index: *, name: *}}
+ * @param {string} memberId
+ * @returns {{type: UPDATE_MEMBER, item: Object}}
  */
-export const updateMember = (name, index) => ({
+export const updateMember = (name, memberId) => request.update(API.MEMBER_UPDATE({ memberId, }), { name }, item => ({
     type: MemberActionTypes.UPDATE_MEMBER,
-    name,
-    index
-});
+    item
+}));
 
 /**
  * Receive members

@@ -6,6 +6,7 @@
  *
  */
 import * as MemberActionTypes from '../../actiontypes/schema/member';
+import * as categoriesReducerUtils from './categoriesReducerUtils';
 
 function memberReducer(state = [], action = {}) {
     switch (action.type) {
@@ -16,10 +17,10 @@ function memberReducer(state = [], action = {}) {
             ];
 
         case MemberActionTypes.DELETE_MEMBER:
-            return state;
+            return categoriesReducerUtils.deleteCategory(state, { _id: action._id });
 
         case MemberActionTypes.UPDATE_MEMBER:
-            return state;
+            return categoriesReducerUtils.updateCategory(state, action.item);
 
         case MemberActionTypes.RECEIVE_MEMBERS:
             return action.data;

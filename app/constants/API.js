@@ -45,12 +45,16 @@ export const PROJECT_CREATE_SUBCATEGORY = _.template(`${HOST}/projects/<%= catId
  */
 export const MEMBER_GET = `${HOST}/members`;
 export const MEMBER_CREATE = MEMBER_GET;
+export const MEMBER_UPDATE = _.template(`${HOST}/members/<%= memberId %>`);
+export const MEMBER_DELETE = MEMBER_UPDATE;
 
 /**
  * Debtors
  */
 export const DEBTOR_GET = `${HOST}/debtors`;
 export const DEBTOR_CREATE = DEBTOR_GET;
+export const DEBTOR_UPDATE = _.template(`${HOST}/debtors/<%= debtorId %>`);
+export const DEBTOR_DELETE = DEBTOR_UPDATE;
 
 /**
  * Records

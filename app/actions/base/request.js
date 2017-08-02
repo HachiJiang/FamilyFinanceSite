@@ -9,7 +9,9 @@ import fetch from 'isomorphic-fetch';
 import * as messageUtils from '../../utils/messageUtils';
 
 const onFail = err => {
-    console.log(`ERROR: ${err.message}`);
+    if (err) {
+        console.log(`ERROR: ${err.message}`);
+    }
     messageUtils.fail();
 };
 

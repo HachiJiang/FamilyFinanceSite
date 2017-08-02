@@ -22,25 +22,24 @@ export const addDebtor = name => request.post(API.DEBTOR_CREATE, { name }, item 
 
 /**
  * Delete debtor in specific position
- * @param {number} index
- * @returns {{type: DELETE_DEBTOR, Array: *}}
+ * @param {string} debtorId
+ * @returns {{type: DELETE_DEBTOR, _id: string}}
  */
-export const deleteDebtor = index => ({
+export const deleteDebtor = debtorId => request.del(API.DEBTOR_UPDATE({ debtorId }), ({ _id }) => ({
     type: DebtorActionTypes.DELETE_DEBTOR,
-    index
-});
+    _id
+}));
 
 /**
  * Update debtor with name in specific position
  * @param {string} name
- * @param {number} index
- * @returns {{type: UPDATE_DEBTOR, index: *, name: *}}
+ * @param {string} debtorId
+ * @returns {{type: UPDATE_MEMBER, item: Object}}
  */
-export const updateDebtor = (name, index) => ({
+export const updateDebtor = (name, debtorId) => request.update(API.DEBTOR_UPDATE({ debtorId }), { name }, item => ({
     type: DebtorActionTypes.UPDATE_DEBTOR,
-    name,
-    index
-});
+    item
+}));
 
 /**
  * Receive debtors

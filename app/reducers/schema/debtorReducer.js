@@ -5,8 +5,8 @@
  * Debt member reducer
  *
  */
-
 import * as DebtorActionTypes from '../../actiontypes/schema/debtor';
+import * as categoriesReducerUtils from './categoriesReducerUtils';
 
 function debtorReducer(state = [], action = {}) {
     switch (action.type) {
@@ -17,10 +17,10 @@ function debtorReducer(state = [], action = {}) {
             ];
 
         case DebtorActionTypes.DELETE_DEBTOR:
-            return state;
+            return categoriesReducerUtils.deleteCategory(state, { _id: action._id });
 
         case DebtorActionTypes.UPDATE_DEBTOR:
-            return state;
+            return categoriesReducerUtils.updateCategory(state, action.item);
 
         case DebtorActionTypes.RECEIVE_DEBTORS:
             return action.data;
