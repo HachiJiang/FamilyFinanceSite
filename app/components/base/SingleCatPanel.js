@@ -1,13 +1,13 @@
 'use strict';
 
 /*
- * SingleAccountCatPanel
+ * SingleCatPanel
  *
- * Panel for single account category
+ * Panel for single category
  */
 import React, { Component, PropTypes } from 'React';
 import { Card, Collapse } from 'antd';
-import EditableSchemaHeader from '../base/EditableSchemaHeader';
+import EditableSchemaHeader from './EditableSchemaHeader';
 
 const Panel = Collapse.Panel;
 
@@ -15,17 +15,17 @@ const createTitle = (item, onDelete, onUpdate, onAdd) => (
     <EditableSchemaHeader item={ item } onAdd={ onAdd } onDelete={ onDelete } onUpdate={ onUpdate } />
 );
 
-class SingleAccountCatPanel extends Component {
+class SingleCatPanel extends Component {
     render() {
-        const { cat, addAccountCategory, deleteAccountCategory, updateAccountCategory } = this.props;
+        const { cat, addItem, deleteItem, updateItem } = this.props;
         const { items } = cat;
         
         return (
             <Card title={ createTitle(
                                 cat,
-                                deleteAccountCategory,
-                                name => updateAccountCategory(name, cat._id),
-                                name => addAccountCategory(name, cat._id)
+                                cat._id && deleteItem,
+                                cat._id && (name => updateItem(name, cat._id)),
+                                name => addItem(name, cat._id)
                             ) } >
                 {
                     (items && items.length > 0) ?
@@ -36,8 +36,8 @@ class SingleAccountCatPanel extends Component {
                                         <Panel key={ item._id }
                                                header={ createTitle(
                                                             item,
-                                                            id => deleteAccountCategory(cat._id, id),
-                                                            name => updateAccountCategory(name, cat._id, item._id)
+                                                            id => deleteItem(cat._id, id),
+                                                            name => updateItem(name, cat._id, item._id)
                                                         ) }>
                                             按事件倒序的流水记录
                                         </Panel>
@@ -53,15 +53,15 @@ class SingleAccountCatPanel extends Component {
     }
 }
 
-SingleAccountCatPanel.propTypes = {
+SingleCatPanel.propTypes = {
     cat: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
+        _id: PropTypes.string,
         name: PropTypes.string.isRequired,
-        items: PropTypes.array
+        items: PropTypes.array.isRequired
     }),
-    addAccountCategory: PropTypes.func.isRequired,
-    deleteAccountCategory: PropTypes.func.isRequired,
-    updateAccountCategory: PropTypes.func.isRequired
+    addItem: PropTypes.func.isRequired,
+    deleteItem: PropTypes.func.isRequired,
+    updateItem: PropTypes.func.isRequired
 };
 
-export default SingleAccountCatPanel;
+export default SingleCatPanel;

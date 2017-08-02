@@ -5,6 +5,8 @@
  *
  * create | edit | delete
  *
+ * If the input item doesn't have _id, the item cannot be edit or delete.
+ *
  */
 import React, { Component, PropTypes } from 'react';
 import { Popconfirm, message, Icon, Input } from 'antd';
@@ -38,47 +40,51 @@ class EditableSchemaHeader extends Component  {
 
     render() {
         const { value, editable } = this.state;
-        const { onAdd, item: { balance } } = this.props;
+        const { onAdd, item: { _id, balance } } = this.props;
 
         return (
             <div className='editable-schema-header'>
                 {
-                    editable ?
-                        <div className="editable-cell-input-wrapper">
-                            <Input value={ value }
-                                   onChange={ e => this.setState({ value: e.target.value }) }
-                                   onPressEnter={ () => this.check() }
+                    _id ?
+                        (editable ?
+                            <div className="editable-cell-input-wrapper">
+                                <Input value={ value }
+                                       onChange={ e => this.setState({ value: e.target.value }) }
+                                       onPressEnter={ () => this.check() }
                                 />
-                            <Icon type="check"
-                                  className="editable-cell-icon"
-                                  onClick={ () => this.check() }
+                                <Icon type="check"
+                                      className="editable-cell-icon"
+                                      onClick={ () => this.check() }
                                 />
-                        </div>
+                            </div>
+                            :
+                            <div className="editable-cell-text-wrapper">
+                                { value || ' ' }
+                                <Icon type="edit"
+                                      className="editable-cell-icon"
+                                      onClick={ () => this.edit() }
+                                />
+                            </div>)
                         :
-                        <div className="editable-cell-text-wrapper">
-                            { value || ' ' }
-                            <Icon type="edit"
-                                  className="editable-cell-icon"
-                                  onClick={ () => this.edit() }
-                                />
-                        </div>
+                        <div>{ value }</div>
                 }
                 { balance && <span>#余额: #</span> }
                 <span style={ {float: 'right'} }>
                     {
                         onAdd &&
-                        <span>
-                            <AddItemPopup onConfirm={ onAdd }>
-                                <a href="#" onClick={ stopPropagation }>add</a>
-                            </AddItemPopup>
-                            <span className="ant-divider" />
-                        </span>
+                        <AddItemPopup onConfirm={ onAdd }>
+                            <a href="#" onClick={ stopPropagation }>add</a>
+                        </AddItemPopup>
                     }
-                    <Popconfirm title='确定删除么?'
-                                onConfirm={ () => this.confirmDelete() }
-                                onCancel={ () => { message.error('取消删除') } }>
-                        <a href="#" onClick={ stopPropagation }>delete</a>
-                    </Popconfirm>
+                    { onAdd && _id && <span className="ant-divider" /> }
+                    {
+                        _id &&
+                        <Popconfirm title='确定删除么?'
+                                           onConfirm={ () => this.confirmDelete() }
+                                           onCancel={ () => { message.error('取消删除') } }>
+                            <a href="#" onClick={ stopPropagation }>delete</a>
+                        </Popconfirm>
+                    }
                 </span>
             </div>
         );
@@ -87,13 +93,13 @@ class EditableSchemaHeader extends Component  {
 
 EditableSchemaHeader.propTypes = {
     item: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
+        _id: PropTypes.string,
         name: PropTypes.string.isRequired,
         balance: PropTypes.number
     }),
     onAdd: PropTypes.func,
-    onUpdate: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired
+    onUpdate: PropTypes.func,
+    onDelete: PropTypes.func
 };
 
 export default EditableSchemaHeader;

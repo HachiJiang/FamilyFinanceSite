@@ -3,7 +3,7 @@
 /*
  * AccountPage
  *
- * List info of all the accounts
+ * List and manage info of all the accounts
  */
 
 import React, { Component, PropTypes } from 'react';
@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Components
-import AccountPanel from '../../components/AccountPanel';
+import CategoryPanel from '../../components/CategoryPanel';
 
 // Actions
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
@@ -34,16 +34,14 @@ class AccountPage extends Component {
         const updateAccountCategory = bindActionCreators(CategoryAccountActionCreators.updateCategory, dispatch);
 
         return (
-            <div>
+            <div className='account-page'>
                 <div className='account-kpi'>Account KPI</div>
-                <div className='account-details'>
-                    <AccountPanel
-                        accountCategories={ accountCategories }
-                        addAccountCategory={ addAccountCategory }
-                        deleteAccountCategory={ deleteAccountCategory }
-                        updateAccountCategory={ updateAccountCategory }
-                    />
-                </div>
+                <CategoryPanel
+                    categories={ accountCategories }
+                    addCategory={ addAccountCategory }
+                    deleteCategory={ deleteAccountCategory }
+                    updateCategory={ updateAccountCategory }
+                />
             </div>
         );
     }

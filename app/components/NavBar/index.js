@@ -13,7 +13,7 @@ import messages from './messages';
 
 import { Menu, Icon } from 'antd';
 
-const menuItemKeys = ['/home', '/records', '/dashboards', '/profile', '/accounts', '/categories', '/budgets'];
+const menuItemPaths = ['/', '/records', '/dashboards', '/profile', '/accounts', '/outcome', '/income', '/projects', '/members','/budgets'];
 
 const { SubMenu } = Menu;
 
@@ -23,7 +23,7 @@ const { SubMenu } = Menu;
  */
 function getSelectedIdx() {
     const { pathname } = document.location || {};
-    return menuItemKeys.indexOf(pathname);
+    return menuItemPaths.indexOf(pathname);
 }
 
 const NavBar = () => {
@@ -39,19 +39,19 @@ const NavBar = () => {
             defaultOpenKeys={[openKey]}
         >
             <Menu.Item key="0">
-                <NavLink to="/">
+                <NavLink to={ menuItemPaths[0] }>
                     <Icon type="home" />
                     <FormattedMessage {...messages.home} />
                 </NavLink>
             </Menu.Item>
             <Menu.Item key="1">
-                <NavLink to="/records">
+                <NavLink to={ menuItemPaths[1] }>
                     <Icon type="pay-circle-o" />
                     <FormattedMessage {...messages.records} />
                 </NavLink>
             </Menu.Item>
             <Menu.Item key="2">
-                <NavLink to="/dashboards">
+                <NavLink to={ menuItemPaths[2] }>
                     <Icon type="line-chart" />
                     <FormattedMessage {...messages.dashboards} />
                 </NavLink>
@@ -60,25 +60,43 @@ const NavBar = () => {
                 key="sub-3"
                 title={<span><Icon type="setting" />设置</span>}>
                 <Menu.Item key="3">
-                    <NavLink to="/profile">
+                    <NavLink to={ menuItemPaths[3] }>
                         <Icon type="user" />
                         <FormattedMessage {...messages.profile} />
                     </NavLink>
                 </Menu.Item>
                 <Menu.Item key="4">
-                    <NavLink to="/accounts">
+                    <NavLink to={ menuItemPaths[4] }>
                         <Icon type="line-chart" />
                         <FormattedMessage {...messages.accounts} />
                     </NavLink>
                 </Menu.Item>
                 <Menu.Item key="5">
-                    <NavLink to="/categories">
-                        <Icon type="line-chart" />
-                        <FormattedMessage {...messages.categories} />
+                    <NavLink to={ menuItemPaths[5] }>
+                        <Icon type="tags-o" />
+                        <FormattedMessage {...messages.outcome} />
                     </NavLink>
                 </Menu.Item>
                 <Menu.Item key="6">
-                    <NavLink to="/budgets">
+                    <NavLink to={ menuItemPaths[6] }>
+                        <Icon type="tags-o" />
+                        <FormattedMessage {...messages.income} />
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="7">
+                    <NavLink to={ menuItemPaths[7] }>
+                        <Icon type="tags-o" />
+                        <FormattedMessage {...messages.project} />
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="8">
+                    <NavLink to={ menuItemPaths[8] }>
+                        <Icon type="team" />
+                        <FormattedMessage {...messages.members} />
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="9">
+                    <NavLink to={ menuItemPaths[9] }>
                         <Icon type="schedule" />
                         <FormattedMessage {...messages.budgets} />
                     </NavLink>

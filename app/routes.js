@@ -1,5 +1,7 @@
+'use strict';
+
 import React from 'react';
-import { Router, Route, IndexRedirect } from 'react-router';
+import { Route, IndexRedirect } from 'react-router';
 
 import App from './containers/App';
 import SummaryPage from './containers/SummaryPage';
@@ -7,6 +9,10 @@ import RecordPage from './containers/RecordPage';
 import BudgetPage from './containers/BudgetPage';
 import DashboardPage from './containers/DashboardPage';
 import AccountPage from './containers/AccountPage';
+import OutcomePage from './containers/OutcomePage';
+import IncomePage from './containers/IncomePage';
+import ProjectPage from './containers/ProjectPage';
+import MemberPage from './containers/MemberPage';
 import ProfilePage from './containers/ProfilePage';
 import NotFoundPage from './containers/NotFoundPage';
 
@@ -19,6 +25,10 @@ export default function createRoutes() {
             <Route path="budgets" component={ BudgetPage } />
             <Route path="dashboards" component={ DashboardPage } />
             <Route path="accounts" component={ AccountPage } />
+            <Route path="outcome" component={ OutcomePage } />
+            <Route path="income" component={ IncomePage } />
+            <Route path="projects" component={ ProjectPage } />
+            <Route path="members" component={ MemberPage } />
             <Route path="settings" component={ ProfilePage } />
             <Route path="*" component={ NotFoundPage } />
         </Route>

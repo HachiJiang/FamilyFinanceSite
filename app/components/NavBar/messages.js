@@ -34,8 +34,20 @@ export default defineMessages({
         id: 'boilerplate.components.NavBar.profile',
         defaultMessage: '个人中心'
     },
-    categories: {
-        id: 'boilerplate.components.NavBar.categories',
-        defaultMessage: '分类管理'
+    outcome: {
+        id: 'boilerplate.components.NavBar.outcome',
+        defaultMessage: '支出类别'
+    },
+    income: {
+        id: 'boilerplate.components.NavBar.income',
+        defaultMessage: '收入类别'
+    },
+    project: {
+        id: 'boilerplate.components.NavBar.project',
+        defaultMessage: '项目类别'
+    },
+    members: {
+        id: 'boilerplate.components.NavBar.members',
+        defaultMessage: '成员管理'
     }
 });

@@ -26,6 +26,9 @@ const tpl = (dispatch, callback, url, method, body) => fetch(url, {
         if (error) {
             onFail(error);
         } else {
+            if (method !== 'GET') {
+                messageUtils.success();
+            }
             dispatch(callback(json));
         }
     })

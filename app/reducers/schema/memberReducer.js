@@ -5,7 +5,6 @@
  * Member reducer
  *
  */
-
 import * as MemberActionTypes from '../../actiontypes/schema/member';
 
 function memberReducer(state = [], action = {}) {

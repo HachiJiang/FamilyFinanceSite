@@ -6,7 +6,6 @@
  *
  */
 import _ from 'lodash';
-import * as messageUtils from '../../utils/messageUtils';
 
 /**
  * Add/Update category, update category for adding new subcategory
@@ -16,13 +15,10 @@ import * as messageUtils from '../../utils/messageUtils';
  */
 export const updateCategory = (state, cat) => {
     if (!cat || !cat.name) {
-        messageUtils.fail();
         return state;
     }
 
     const index = _.findIndex(state, { _id: cat._id });
-
-    messageUtils.success();
 
     if (index !== -1) { // if exist, update category
         return [
@@ -49,7 +45,6 @@ export const deleteCategory = (state, cat, itemId) => {
     if (itemId) {
         return updateCategory(state, cat);
     } else {
-        messageUtils.success();
         return _.filter(state, item => item._id !== cat._id);
     }
 };

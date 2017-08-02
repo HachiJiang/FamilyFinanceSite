@@ -44,7 +44,7 @@ class RecordPage extends Component {
         const addAccountCategory = bindActionCreators(CategoryAccountActionCreators.addCategory, dispatch); // Account
         const addProjectCategory = bindActionCreators(CategoryProjectActionCreators.addCategory, dispatch); // Project
         const addMember = bindActionCreators(MemberActionCreators.addMember, dispatch);                     // Member
-        const addDebtor = bindActionCreators(DebtMemberActionCreators.addMember, dispatch);                 // Debt Member
+        const addDebtor = bindActionCreators(DebtMemberActionCreators.addDebtor, dispatch);                 // Debt Member
         const addRecord = bindActionCreators(RecordActionCreators.addRecord, dispatch);                     // Add record
         const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
         const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
