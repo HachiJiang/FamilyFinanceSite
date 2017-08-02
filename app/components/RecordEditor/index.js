@@ -89,7 +89,7 @@ class RecordEditor extends Component {
         }
 
         const state = this.state;
-        const record = {
+        const record = { // should save id for schema info
             ...state,
             amount: _.parseInt(state.amount)
         };
@@ -126,7 +126,7 @@ class RecordEditor extends Component {
                 title={ subTitles[0] }
                 items={ outcomeCategories }
                 value={ type === EnumRecordType.OUTCOME ? category : '' }
-                onSelectionChange={ value => this.setState({ category: value })}
+                onSelectionChange={ id=> this.setState({ category: id })}
                 addItem={ addOutcomeCategory }
             >
             </Pulldown2>,
@@ -135,7 +135,7 @@ class RecordEditor extends Component {
                 title={ subTitles[1] }
                 items={ incomeCategories }
                 value={ type === EnumRecordType.INCOME ? category : '' }
-                onSelectionChange={ value => this.setState({ category: value })}
+                onSelectionChange={ id => this.setState({ category: id })}
                 addItem={ addIncomeCategory }
             >
             </Pulldown2>,
@@ -144,7 +144,7 @@ class RecordEditor extends Component {
                 title={ subTitles[2] }
                 items={ accountCategories }
                 value={ accountFrom }
-                onSelectionChange={ value => this.setState({ accountFrom: value })}
+                onSelectionChange={ id => this.setState({ accountFrom: id })}
                 addItem={ addAccountCategory }
             >
             </Pulldown2>,
@@ -153,7 +153,7 @@ class RecordEditor extends Component {
                 title={ subTitles[3] }
                 items={ accountCategories }
                 value={ accountTo }
-                onSelectionChange={ value => this.setState({ accountTo: value })}
+                onSelectionChange={ id => this.setState({ accountTo: id })}
                 addItem={ addAccountCategory }
             >
             </Pulldown2>,
@@ -162,7 +162,7 @@ class RecordEditor extends Component {
                 title={ subTitles[4] }
                 items={ projectCategories }
                 value={ project }
-                onSelectionChange={ value => this.setState({ project: value })}
+                onSelectionChange={ id => this.setState({ project: id })}
                 addItem={ addProjectCategory }
             >
             </Pulldown2>,
@@ -171,7 +171,7 @@ class RecordEditor extends Component {
                 title={ subTitles[5] }
                 items={ debtors }
                 value={ debtor }
-                onSelectionChange={ value => this.setState({ debtor: value })}
+                onSelectionChange={ id => this.setState({ debtor: id })}
                 addItem={ addDebtor }
             >
             </Pulldown2>,
@@ -180,7 +180,7 @@ class RecordEditor extends Component {
                 title="成员"
                 items={ members }
                 value={ member }
-                onSelectionChange={ value => this.setState({ member: value })}
+                onSelectionChange={ id => this.setState({ member: id })}
                 addItem={ addMember }
             >
             </Pulldown2>,

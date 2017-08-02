@@ -45,8 +45,9 @@ class MenuItem2 extends Component {
                         items && items.map((item, index) => (
                             <MenuItem
                                 key={ index }
+                                id={ item._id }
                                 title={ item.name }
-                                onSelectionChange={ title => onSelectionChange(title) }
+                                onSelectionChange={ (title, id) => onSelectionChange(title, id) }
                             />
                         ))
                     }

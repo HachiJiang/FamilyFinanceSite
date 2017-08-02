@@ -60,6 +60,7 @@ class Pulldown2 extends Component {
                             items && items.map((cat, index) => cat.items ? (
                                 <MenuItem2
                                     key={ index }
+                                    id={ cat._id }
                                     title={ cat.name }
                                     items={ cat.items }
                                     onSelectionChange={ itemName => {
@@ -91,7 +92,6 @@ Pulldown2.propTypes = {
     title: PropTypes.string,
     value: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    onClick: PropTypes.func,
     onSelectionChange: PropTypes.func,
     addItem: PropTypes.func
 };
