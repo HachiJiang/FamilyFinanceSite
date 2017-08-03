@@ -27,25 +27,35 @@ export const addCategory = (name, catId) => {
 
 /**
  * Delete category in specific position
- * @param {Array} indices
- * @returns {{type: DELETE_CATEGORY, Array: *}}
+ * @param {String} catId
+ * @param {String} itemId
+ * @returns {{type: DELETE_CATEGORY, cat: {}, itemId: String}}
  */
-export const deleteCategory = indices => ({
-    type: IncomeActionTypes.DELETE_CATEGORY,
-    indices
-});
+export const deleteCategory = (catId, itemId) => {
+    const url = itemId ? API.INCOME_DELETE_SUBCATEGORY({ itemId, catId }) : API.INCOME_DELETE_CATEGORY({ catId });
+
+    return request.del(url, cat => ({
+        type: IncomeActionTypes.DELETE_CATEGORY,
+        cat,
+        itemId
+    }));
+};
 
 /**
  * Update category with name in specific position
- * @param {string} name
- * @param {Array} indices
- * @returns {{type: UPDATE_CATEGORY, index: *, name: *}}
+ * @param {String} name
+ * @param {String} catId
+ * @param {String} itemId
+ * @returns {{type: UPDATE_CATEGORY, cat: {}}}
  */
-export const updateCategory = (name, indices) => ({
-    type: IncomeActionTypes.UPDATE_CATEGORY,
-    name,
-    indices
-});
+export const updateCategory = (name, catId, itemId) => {
+    const url = itemId ? API.INCOME_UPDATE_SUBCATEGORY({ itemId, catId }) : API.INCOME_UPDATE_CATEGORY({ catId });
+
+    return request.update(url, { name }, cat => ({
+        type: IncomeActionTypes.UPDATE_CATEGORY,
+        cat
+    }));
+};
 
 /**
  * Receive categories

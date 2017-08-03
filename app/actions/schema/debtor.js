@@ -25,7 +25,7 @@ export const addDebtor = name => request.post(API.DEBTOR_CREATE, { name }, item 
  * @param {string} debtorId
  * @returns {{type: DELETE_DEBTOR, _id: string}}
  */
-export const deleteDebtor = debtorId => request.del(API.DEBTOR_UPDATE({ debtorId }), ({ _id }) => ({
+export const deleteDebtor = debtorId => request.del(API.DEBTOR_DELETE({ debtorId }), ({ _id }) => ({
     type: DebtorActionTypes.DELETE_DEBTOR,
     _id
 }));

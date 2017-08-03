@@ -25,6 +25,10 @@ export const ACCOUNT_DELETE_SUBCATEGORY = ACCOUNT_UPDATE_SUBCATEGORY;
 export const INCOME_GET = `${HOST}/income`;
 export const INCOME_CREATE_CATEGORY = INCOME_GET;
 export const INCOME_CREATE_SUBCATEGORY = _.template(`${HOST}/income/<%= catId %>/items`);
+export const INCOME_UPDATE_CATEGORY = _.template(`${HOST}/income/<%= catId %>`);
+export const INCOME_UPDATE_SUBCATEGORY = _.template(`${HOST}/income/<%= catId %>/items/<%= itemId %>`);
+export const INCOME_DELETE_CATEGORY = INCOME_UPDATE_CATEGORY;
+export const INCOME_DELETE_SUBCATEGORY = INCOME_UPDATE_SUBCATEGORY;
 
 /**
  * Outcome
@@ -32,6 +36,10 @@ export const INCOME_CREATE_SUBCATEGORY = _.template(`${HOST}/income/<%= catId %>
 export const OUTCOME_GET = `${HOST}/outcome`;
 export const OUTCOME_CREATE_CATEGORY = OUTCOME_GET;
 export const OUTCOME_CREATE_SUBCATEGORY = _.template(`${HOST}/outcome/<%= catId %>/items`);
+export const OUTCOME_UPDATE_CATEGORY = _.template(`${HOST}/outcome/<%= catId %>`);
+export const OUTCOME_UPDATE_SUBCATEGORY = _.template(`${HOST}/outcome/<%= catId %>/items/<%= itemId %>`);
+export const OUTCOME_DELETE_CATEGORY = OUTCOME_UPDATE_CATEGORY;
+export const OUTCOME_DELETE_SUBCATEGORY = OUTCOME_UPDATE_SUBCATEGORY;
 
 /**
  * Projects
@@ -39,6 +47,10 @@ export const OUTCOME_CREATE_SUBCATEGORY = _.template(`${HOST}/outcome/<%= catId 
 export const PROJECT_GET = `${HOST}/projects`;
 export const PROJECT_CREATE_CATEGORY = PROJECT_GET;
 export const PROJECT_CREATE_SUBCATEGORY = _.template(`${HOST}/projects/<%= catId %>/items`);
+export const PROJECT_UPDATE_CATEGORY = _.template(`${HOST}/projects/<%= catId %>`);
+export const PROJECT_UPDATE_SUBCATEGORY = _.template(`${HOST}/projects/<%= catId %>/items/<%= itemId %>`);
+export const PROJECT_DELETE_CATEGORY = PROJECT_UPDATE_CATEGORY;
+export const PROJECT_DELETE_SUBCATEGORY = PROJECT_UPDATE_SUBCATEGORY;
 
 /**
  * Members

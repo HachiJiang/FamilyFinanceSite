@@ -27,25 +27,35 @@ export const addCategory = (name, catId) => {
 
 /**
  * Delete category in specific position
- * @param {Array} indices
- * @returns {{type: DELETE_CATEGORY, Array: *}}
+ * @param {String} catId
+ * @param {String} itemId
+ * @returns {{type: DELETE_CATEGORY, cat: {}, itemId: String}}
  */
-export const deleteCategory = indices => ({
-    type: ProjectActionTypes.DELETE_CATEGORY,
-    indices
-});
+export const deleteCategory = (catId, itemId) => {
+    const url = itemId ? API.PROJECT_DELETE_SUBCATEGORY({ itemId, catId }) : API.PROJECT_DELETE_CATEGORY({ catId });
+
+    return request.del(url, cat => ({
+        type: ProjectActionTypes.DELETE_CATEGORY,
+        cat,
+        itemId
+    }));
+};
 
 /**
  * Update category with name in specific position
- * @param {string} name
- * @param {Array} indices
- * @returns {{type: RECEIVE_CATEGORIES, index: *, name: *}}
+ * @param {String} name
+ * @param {String} catId
+ * @param {String} itemId
+ * @returns {{type: UPDATE_CATEGORY, cat: {}}}
  */
-export const updateCategory = (name, indices) => ({
-    type: ProjectActionTypes.UPDATE_CATEGORY,
-    name,
-    indices
-});
+export const updateCategory = (name, catId, itemId) => {
+    const url = itemId ? API.PROJECT_DELETE_SUBCATEGORY({ itemId, catId }) : API.PROJECT_DELETE_CATEGORY({ catId });
+
+    return request.update(url, { name }, cat => ({
+        type: ProjectActionTypes.UPDATE_CATEGORY,
+        cat
+    }));
+};
 
 /**
  * Receive categories

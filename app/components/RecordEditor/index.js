@@ -187,7 +187,8 @@ class RecordEditor extends Component {
             </Pulldown2>,
             <BaseInput key="amount" title="金额: ">
                 <InputNumber
-                    value = { amount }
+                    value= { amount }
+                    min={ 0 }
                     onChange={ value => this.setState({ amount: value }) }
                 >
                 </InputNumber>

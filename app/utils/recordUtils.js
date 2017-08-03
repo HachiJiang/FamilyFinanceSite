@@ -98,7 +98,12 @@ const idStrToName = (idStr, categories) => {
 
     const idArr = idStr.split(ID_SEPARATOR);
     const cat = _.find(categories, cat => cat._id === idArr[0]);
-    const target = (idArr.length > 1) ? _.find(cat.items, item => item._id === idArr[1]) : cat;
+
+    if (!cat) {
+        return;
+    }
+    
+    const target = (idArr.length > 1 && _.isArray(cat.items)) ? _.find(cat.items, item => item._id === idArr[1]) : cat;
 
     if (target) {
         return target.name;
