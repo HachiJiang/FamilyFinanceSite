@@ -6,7 +6,7 @@
 
 import _ from 'lodash';
 const VERSION = 'v1';
-const HOST = `http://localhost:8000/${VERSION}`;
+const HOST = `http://localhost:8000/api/${VERSION}`;
 
 /**
  * Accounts

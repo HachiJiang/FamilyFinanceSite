@@ -18,9 +18,9 @@ import BaseInput from '../base/Input';
 
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import TABS from './tabConfig';
-import { getDefaultRecord, getPropKeysByType } from './selectors';
+import { getDefaultRecord } from './selectors';
 
-import { getCategoryVal } from '../../utils/schemaUtils';
+import { getPropKeysByType, getCategoryVal, validateRecord } from '../../utils/recordUtils';
 
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
 
@@ -90,10 +90,10 @@ class RecordEditor extends Component {
         }
 
         const state = this.state;
-        const record = { // should save id for schema info
+        const record = validateRecord({ // should save id for schema info
             ...state,
             amount: _.parseInt(state.amount)
-        };
+        });
 
         if (record._id && updateRecord) {
             updateRecord(record._id, record);

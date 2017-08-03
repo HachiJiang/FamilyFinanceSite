@@ -12,7 +12,7 @@ import MenuItem from '../MenuItem';
 import MenuItem2 from '../MenuItem2';
 import AddItemForm from '../AddItemForm';
 
-import { idStrToName } from '../../../utils/schemaUtils';
+import { idStrToName } from '../../../utils/recordUtils';
 
 import './style/_index.scss';
 

@@ -79,7 +79,7 @@ class RecordGrid extends Component {
             loading: false,
             pagination: false,
             size: 'default',
-            expandedRowRender: ({ record }) => props.createEditor(record),
+            expandedRowRender: ({ record }) => props.createEditor(record._raw),  // use raw record for editing
             showHeader: true,
             scroll: undefined
         };

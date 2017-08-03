@@ -65,3 +65,19 @@ export const getMembers = state => getSchema(state).get('members');
  * @returns {*}
  */
 export const getDebtors = state => getSchema(state).get('debtors');
+
+/**
+ * Get schema objects
+ * @param {Object} state
+ */
+export const getSchemaObjects = state => {
+    const schema = getSchema(state);
+    return {
+        incomeCategories: schema.get('incomeCategories'),
+        outcomeCategories: schema.get('outcomeCategories'),
+        accountCategories: schema.get('accountCategories'),
+        projectCategories: schema.get('projectCategories'),
+        members: schema.get('members'),
+        debtors: schema.get('debtors')
+    }
+};

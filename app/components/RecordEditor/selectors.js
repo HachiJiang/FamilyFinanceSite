@@ -156,31 +156,6 @@ const getDefaultRecord = (schema, type) => {
     }
 };
 
-/**
- * Get property keys by record type
- * @param {String} type
- * @returns {Object}
- */
-const getPropKeysByType = type => {
-    const keys = ['type', 'amount', 'project', 'tips', 'consumeDate', 'member'];
-    switch(type) {
-        case EnumRecordType.OUTCOME:
-        default:
-            return keys.concat(['category', 'accountFrom']);
-        case EnumRecordType.INCOME:
-            return keys.concat(['category', 'accountFrom']);
-        case EnumRecordType.TRANSFER:
-            return keys.concat(['accountFrom', 'accountTo']);
-        case EnumRecordType.BORROW:
-        case EnumRecordType.COLLECT_DEBT:
-            return keys.concat(['accountTo', 'project']);
-        case EnumRecordType.LEND:
-        case EnumRecordType.REPAY:
-            return keys.concat(['accountFrom', 'project']);
-    }
-};
-
 export {
-    getDefaultRecord,
-    getPropKeysByType
+    getDefaultRecord
 };
