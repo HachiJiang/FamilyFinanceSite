@@ -5,6 +5,7 @@
  *
  * List and manage accounts
  */
+import _ from 'lodash';
 import React, { Component, PropTypes } from 'React';
 
 import { Tabs, Button } from 'antd';
@@ -30,32 +31,59 @@ TabPaneHeader.propTypes = {
     balance: PropTypes.number
 };
 
-const CategoryPanel = ({ categories, addCategory, deleteCategory, updateCategory }) => (
-    <div className='category-panel'>
-        <AddItemPopup onConfirm={ value => addCategory(value) }>
-            <Button style={{ marginLeft: 20, marginBottom: 16 }} onClick={ e => e.stopPropagation() }>ADD</Button>
-        </AddItemPopup>
-        <Tabs tabPosition='left'
-              defaultActiveKey={ (categories && categories.length > 0) ? categories[0]._id : '' }
-        >
-            {
-                categories && categories.map((cat, index) => (
-                    <TabPane
-                        key={ cat._id }
-                        tab={ <TabPaneHeader name={ cat.name }/> }
+class CategoryPanel extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeKey: null
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { categories } = nextProps;
+        const { activeKey } = this.state;
+
+        // activeKey不存在或者对应的category不存在, 则重新赋默认值
+        if (!activeKey || !_.filter(categories, cat => cat._id === activeKey)) {
+            this.setState({
+                activeKey: (categories && categories.length > 0) ? categories[0]._id : ''
+            });
+        }
+    }
+
+    render() {
+        const { categories, addCategory, deleteCategory, updateCategory } = this.props;
+
+        return (
+            <div className='category-panel'>
+                <AddItemPopup onConfirm={ value => addCategory(value) }>
+                    <Button style={{ marginLeft: 20, marginBottom: 16 }} onClick={ e => e.stopPropagation() }>ADD</Button>
+                </AddItemPopup>
+                <Tabs tabPosition='left'
+                      activeKey={ this.state.activeKey }
+                      onChange={ key => this.setState({ activeKey: key }) }
                     >
-                        <SingleCatPanel
-                            cat={ cat }
-                            addItem={ addCategory }
-                            deleteItem={ deleteCategory }
-                            updateItem={ updateCategory }
-                        />
-                    </TabPane>
-                ))
-            }
-        </Tabs>
-    </div>
-);
+                    {
+                        categories && categories.map((cat, index) => (
+                            <TabPane
+                                key={ cat._id }
+                                tab={ <TabPaneHeader name={ cat.name }/> }
+                                >
+                                <SingleCatPanel
+                                    cat={ cat }
+                                    addItem={ addCategory }
+                                    deleteItem={ deleteCategory }
+                                    updateItem={ updateCategory }
+                                    />
+                            </TabPane>
+                        ))
+                    }
+                </Tabs>
+            </div>
+        );
+    }
+}
 
 CategoryPanel.propTypes = {
     categories: PropTypes.array.isRequired,

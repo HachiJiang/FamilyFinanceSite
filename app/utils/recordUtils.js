@@ -37,7 +37,7 @@ const getRecordTypeName = (type) => {
  * @returns {Object}
  */
 const getPropKeysByType = type => {
-    const keys = ['type', 'amount', 'project', 'tips', 'consumeDate', 'member', 'location', 'createdAt', 'updatedAt'];
+    const keys = ['_id', 'type', 'amount', 'project', 'tips', 'consumeDate', 'member', 'location', 'createdAt', 'updatedAt'];
     switch(type) {
         case EnumRecordType.OUTCOME:
         default:

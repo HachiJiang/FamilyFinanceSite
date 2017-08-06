@@ -68,7 +68,7 @@ class EditableSchemaHeader extends Component  {
                         :
                         <div>{ value }</div>
                 }
-                { balance && <span>#余额: #</span> }
+                { balance && <span>余额:  { balance } (RMB)</span> }
                 <span style={ {float: 'right'} }>
                     {
                         onAdd &&

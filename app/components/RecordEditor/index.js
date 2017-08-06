@@ -21,6 +21,7 @@ import TABS from './tabConfig';
 import { getDefaultRecord } from './selectors';
 
 import { getPropKeysByType, getCategoryVal, validateRecord } from '../../utils/recordUtils';
+import { CONSUME_DATE_FORMAT } from '../../constants/Config';
 
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
 
@@ -32,7 +33,7 @@ import { getPropKeysByType, getCategoryVal, validateRecord } from '../../utils/r
 function getInitialState(record = {}) {
     return {
         amount: 0,
-        consumeDate: moment().format(),
+        consumeDate: moment().format(CONSUME_DATE_FORMAT),
         ...record
     };
 }
@@ -197,7 +198,7 @@ class RecordEditor extends Component {
                 <DatePicker
                     defaultValue={ moment() }
                     value={ moment(consumeDate) }
-                    onChange={ value => { value && this.setState({ consumeDate: value.format() }) } } />
+                    onChange={ value => { value && this.setState({ consumeDate: value.format(CONSUME_DATE_FORMAT) }) } } />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >
                 <Input
