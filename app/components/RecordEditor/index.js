@@ -34,6 +34,7 @@ function getInitialState(record = {}) {
     return {
         amount: 0,
         consumeDate: moment().format(CONSUME_DATE_FORMAT),
+        tips: '',
         ...record
     };
 }
@@ -93,7 +94,7 @@ class RecordEditor extends Component {
         const state = this.state;
         const record = validateRecord({ // should save id for schema info
             ...state,
-            amount: _.parseInt(state.amount)
+            amount: _.toNumber(state.amount)
         });
 
         if (record._id && updateRecord) {
@@ -191,6 +192,7 @@ class RecordEditor extends Component {
                     value= { amount }
                     min={ 0 }
                     onChange={ value => this.setState({ amount: value }) }
+                    precision={ 2 }
                 >
                 </InputNumber>
             </BaseInput>,

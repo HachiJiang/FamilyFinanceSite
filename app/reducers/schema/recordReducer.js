@@ -7,6 +7,7 @@
  */
 
 import _ from 'lodash';
+import moment from 'moment';
 import * as RecordActionTypes from '../../actiontypes/schema/record';
 
 const initialState = {
@@ -66,9 +67,12 @@ function recordReducer(state = initialState, action = {}) {
             return updateRecord(state, action.record);
 
         case RecordActionTypes.RECEIVE_RECORDS:
+            if (!action.data) return state;
+
             return {
                 filter,
-                list: action.data
+                list: action.data.sort((a, b) => moment(a.consumeDate).isBefore(moment(b.consumeDate)) ? 1: -1)
+                                 .sort((a, b) => moment(a.createdAt).isBefore(moment(b.createdAt)) ? 1: -1)
             };
 
         default:

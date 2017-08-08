@@ -1,6 +1,8 @@
 'use strict';
 
+import _ from 'lodash';
 import moment from 'moment';
+import { CONSUME_DATE_FORMAT } from '../../constants/Config';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import { getRecordTypeName } from '../../utils/recordUtils';
 
@@ -9,7 +11,7 @@ export const getDataRows = records => getRecordListSortedByDate(records).map((re
     ...record,
     key: index.toString(),
     text: getRecordTypeName(record.type),
-    date: moment(record.consumeDate).format('YYYY-MM-DD')
+    date: moment(record.consumeDate).format(CONSUME_DATE_FORMAT)
 }));
 
 /**
@@ -35,4 +37,4 @@ export const getMemberFilters = members => members.map(({ name }) => ({
  * @param {Array} list
  * @returns {Array}
  */
-const getRecordListSortedByDate = list => list.sort((a, b) => moment(a.consumeDate).isBefore(moment(b.consumeDate)) ? 1: -1);
+const getRecordListSortedByDate = list => _.orderBy(list, ['consumeDate', 'createdAt'], ['desc', 'asc']);
