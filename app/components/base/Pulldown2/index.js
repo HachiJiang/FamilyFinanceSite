@@ -4,7 +4,6 @@
  * Cascader, only for schema
  *
  */
-import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 
@@ -55,7 +54,7 @@ class Pulldown2 extends Component {
                 <span className="pulldown-levelSelect">
                     <div
                         className="menu-item selected" ref="levelSelected"
-                        onClick={ _ => this.setState({ expanded: !this.state.expanded })}>
+                        onClick={ () => this.setState({ expanded: !this.state.expanded })}>
                         <span className='selected-content'>{ value ? idStrToName(value, items) : DEFAULT_VALUE }</span>
                         <span className="fa fa-caret-down" aria-hidden="true"></span>
                     </div>

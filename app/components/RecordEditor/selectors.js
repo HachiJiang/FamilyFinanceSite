@@ -7,14 +7,31 @@ import _ from 'lodash';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import { ID_SEPARATOR } from '../../constants/Config';
 
-function getDefaultCatId(categories, idStr = '') {
-    if (_.isArray(categories) && categories.length > 0) {
-        const cat = categories[0];
-        return getDefaultCatId((cat && cat.items) ? cat.items : cat, idStr ? (idStr + ID_SEPARATOR + cat._id) : cat._id);
+/**
+ * Get default id string for two-level categories
+ * @param {Array} categories
+ * @returns {*}
+ */
+function getDefaultCatId(categories) {
+    if (!_.isArray(categories) || categories.length < 1) {
+        return;
     }
 
-    if (categories) {
-        return idStr;
+    const cat = categories[0];
+    const itemId = getDefaultItemId(cat && cat.items);
+    if (itemId) {
+        return cat._id + ID_SEPARATOR + itemId;
+    }
+}
+
+/**
+ * Get default item id for one-level category
+ * @param {Array} items
+ */
+function getDefaultItemId(items) {
+    const item = items && items[0];
+    if (item) {
+        return item._id;
     }
 }
 
@@ -30,7 +47,7 @@ function getDefaultRecordOutcome(schema) {
         category: getDefaultCatId(schema.outcomeCategories),
         accountFrom: getDefaultCatId(schema.accountCategories),
         project: getDefaultCatId(schema.projectCategories),
-        member: getDefaultCatId(schema.members)
+        member: getDefaultItemId(schema.members)
     };
 }
 
@@ -44,7 +61,7 @@ function getDefaultRecordIncome(schema) {
         type: EnumRecordType.INCOME,
         amount: 0,
         project: getDefaultCatId(schema.projectCategories),
-        member: getDefaultCatId(schema.members),
+        member: getDefaultItemId(schema.members),
         category: getDefaultCatId(schema.incomeCategories),
         accountTo: getDefaultCatId(schema.accountCategories)
     };
@@ -60,7 +77,7 @@ function getDefaultRecordTransfer(schema) {
         type: EnumRecordType.TRANSFER,
         amount: 0,
         project: getDefaultCatId(schema.projectCategories),
-        member: getDefaultCatId(schema.members),
+        member: getDefaultItemId(schema.members),
         accountFrom: getDefaultCatId(schema.accountCategories),
         accountTo: getDefaultCatId(schema.accountCategories)
     };
@@ -76,9 +93,9 @@ function getDefaultRecordBorrow(schema) {
         type: EnumRecordType.BORROW,
         amount: 0,
         project: getDefaultCatId(schema.projectCategories),
-        member: getDefaultCatId(schema.members),
+        member: getDefaultItemId(schema.members),
         accountTo: getDefaultCatId(schema.accountCategories),
-        debtor: getDefaultCatId(schema.debtors)
+        debtor: getDefaultItemId(schema.debtors)
     };
 }
 
@@ -92,9 +109,9 @@ function getDefaultRecordLend(schema) {
         type: EnumRecordType.LEND,
         amount: 0,
         project: getDefaultCatId(schema.projectCategories),
-        member: getDefaultCatId(schema.members),
+        member: getDefaultItemId(schema.members),
         accountFrom: getDefaultCatId(schema.accountCategories),
-        debtor: getDefaultCatId(schema.debtors)
+        debtor: getDefaultItemId(schema.debtors)
     };
 }
 
@@ -108,9 +125,9 @@ function getDefaultRecordRepay(schema) {
         type: EnumRecordType.REPAY,
         amount: 0,
         project: getDefaultCatId(schema.projectCategories),
-        member: getDefaultCatId(schema.members),
+        member: getDefaultItemId(schema.members),
         accountFrom: getDefaultCatId(schema.accountCategories),
-        debtor: getDefaultCatId(schema.debtors)
+        debtor: getDefaultItemId(schema.debtors)
     };
 }
 
@@ -125,8 +142,8 @@ function getDefaultRecordCollectDebt(schema) {
         amount: 0,
         project: getDefaultCatId(schema.projectCategories),
         accountTo: getDefaultCatId(schema.accountCategories),
-        member: getDefaultCatId(schema.members),
-        debtor: getDefaultCatId(schema.debtors)
+        member: getDefaultItemId(schema.members),
+        debtor: getDefaultItemId(schema.debtors)
     };
 }
 
