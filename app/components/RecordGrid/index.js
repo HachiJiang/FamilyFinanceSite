@@ -36,6 +36,14 @@ function getColumns(props) {
         dataIndex: 'category',
         key: 'category'
     }, {
+        title: '支出账户',
+        dataIndex: 'accountFrom',
+        key: 'accountFrom'
+    }, {
+        title: '收入账户',
+        dataIndex: 'accountTo',
+        key: 'accountTo'
+    }, {
         title: '金额',
         dataIndex: 'amount',
         key: 'amount',
@@ -75,7 +83,7 @@ class RecordGrid extends Component {
         super(props);
 
         this.state = {
-            bordered: true,
+            bordered: false,
             loading: false,
             pagination: false,
             size: 'default',

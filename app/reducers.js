@@ -11,7 +11,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import languageProviderReducer from './containers/LanguageProvider/reducer';
 import schemaReducer from './reducers/schema/index';
-import recordReducer from './reducers/schema/recordReducer';
+import recordReducer from './reducers/recordPageReducer';
 
 /*
  * routeReducer

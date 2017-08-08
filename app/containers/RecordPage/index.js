@@ -21,7 +21,7 @@ import * as CategoryProjectActionCreators from '../../actions/schema/project';
 import * as MemberActionCreators from '../../actions/schema/member';
 import * as DebtMemberActionCreators from '../../actions/schema/debtor';
 import * as RecordActionCreators from '../../actions/schema/record';
-import { fetchSchema, fetchRecords } from '../../actions/recordPage';
+import * as RecordPageActionCreators from '../../actions/recordPage';
 
 // Selectors
 import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getProjectCategories, getMembers, getDebtors } from '../App/selectors';
@@ -30,9 +30,9 @@ import { getRecordList, getRange } from './selectors';
 class RecordPage extends Component {
 
     componentDidMount() {
-        const { dispatch } = this.props;
-        fetchSchema(dispatch);    // Async fetch
-        fetchRecords(dispatch);
+        const { dispatch, range } = this.props;
+        RecordPageActionCreators.fetchSchema(dispatch);    // Async fetch
+        RecordPageActionCreators.fetchRecords(dispatch, range);
     }
 
     render() {
@@ -77,6 +77,7 @@ class RecordPage extends Component {
                     members={ members }
                     deleteRecord={ deleteRecord }
                     createEditor={ createEditor }
+                    onDateRangeChange={ (fDate, tDate) => RecordPageActionCreators.changeDateRange(dispatch, fDate, tDate) }
                 />
             </div>
         );
@@ -85,8 +86,8 @@ class RecordPage extends Component {
 
 RecordPage.propTypes = {
     range: PropTypes.shape({
-        from: PropTypes.string.isRequired,
-        to: PropTypes.string.isRequired
+        fDate: PropTypes.string.isRequired,
+        tDate: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array.isRequired,
     outcomeCategories: PropTypes.array.isRequired,
@@ -97,15 +98,17 @@ RecordPage.propTypes = {
     debtors: PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+return {
     outcomeCategories: getOutcomeCategories(state),
-    incomeCategories: getIncomeCategories(state),
+        incomeCategories: getIncomeCategories(state),
     accountCategories: getAccountCategories(state),
     projectCategories: getProjectCategories(state),
     members: getMembers(state),
     debtors: getDebtors(state),
     records: getRecordList(state),
     range: getRange(state)
-});
+};
+};
 
 export default connect(mapStateToProps)(RecordPage);

@@ -9,6 +9,7 @@
 import * as API from '../../constants/API';
 import * as RecordActionTypes from '../../actiontypes/schema/record';
 import request from './../base/request.js';
+import * as messageUtils from '../../utils/messageUtils';
 
 /**
  * Add record
@@ -54,7 +55,15 @@ function receiveRecords(json) {
 }
 
 /**
- * Fetch records from server @TODO: add condition
+ * Fetch records from server
+ * @param {String} fDate
+ * @param {String} tDate
  * @returns {Function}
  */
-export const fetchRecords = () => request.get(API.RECORD_GET, receiveRecords);
+export const fetchRecords = (fDate, tDate, callback = '') => {
+    if (fDate && tDate) {
+        return request.get(API.RECORD_GET_BY_DATE({ fDate, tDate }), callback ? callback : receiveRecords);
+    } else {
+        messageUtils.invalidParamFailure();
+    }
+};

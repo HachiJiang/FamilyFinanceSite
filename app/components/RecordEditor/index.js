@@ -198,6 +198,7 @@ class RecordEditor extends Component {
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
                 <DatePicker
+                    allowClear={ false }
                     defaultValue={ moment() }
                     value={ moment(consumeDate) }
                     onChange={ value => { value && this.setState({ consumeDate: value.format(CONSUME_DATE_FORMAT) }) } } />

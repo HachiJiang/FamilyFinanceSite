@@ -28,12 +28,6 @@ export const getRecordList = state => {
 /**
  * Get time range
  * @param {Object} state
- * @returns {{from: *, to: *}}
+ * @returns {{}}
  */
-export const getRange = state => {
-    const filter = getRecordPageData(state).filter;
-    return {
-        from: filter.from,
-        to: filter.to
-    };
-};
+export const getRange = state => getRecordPageData(state).filter;

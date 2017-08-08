@@ -72,6 +72,7 @@ export const DEBTOR_DELETE = DEBTOR_UPDATE;
  * Records
  */
 export const RECORD_GET = `${HOST}/records`;
+export const RECORD_GET_BY_DATE = _.template(`${HOST}/records/from/<%= fDate %>/to/<%= tDate %>`);
 export const RECORD_CREATE = RECORD_GET;
 export const RECORD_UPDATE = _.template(`${HOST}/records/<%= rid %>`);
 export const RECORD_DELETE = RECORD_UPDATE;
