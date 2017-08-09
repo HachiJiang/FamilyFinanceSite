@@ -3,7 +3,7 @@
 /*
  * MemberPage
  *
- * List and manage info of all the members and debtors
+ * List and manage info of all the members
  */
 
 import React, { Component, PropTypes } from 'react';
@@ -18,28 +18,22 @@ import * as MemberActionCreators from '../../actions/schema/member';
 import * as DebtorActionCreators from '../../actions/schema/debtor';
 
 // Selectors
-import { getMembers, getDebtors } from '../App/selectors';
+import { getMembers } from '../App/selectors';
 
 class MemberPage extends Component {
 
     componentDidMount() {
         const { dispatch } = this.props;
         MemberActionCreators.fetchMembers(dispatch);
-        DebtorActionCreators.fetchDebtors(dispatch);
     }
 
     render() {
-        const { dispatch, members, debtors } = this.props;
+        const { dispatch, members } = this.props;
 
         // member
         const addMember = bindActionCreators(MemberActionCreators.addMember, dispatch);
         const deleteMember = bindActionCreators(MemberActionCreators.deleteMember, dispatch);
         const updateMember = bindActionCreators(MemberActionCreators.updateMember, dispatch);
-
-        // debtor
-        const addDebtor = bindActionCreators(DebtorActionCreators.addDebtor, dispatch);
-        const deleteDebtor = bindActionCreators(DebtorActionCreators.deleteDebtor, dispatch);
-        const updateDebtor = bindActionCreators(DebtorActionCreators.updateDebtor, dispatch);
 
         return (
             <div className='member-page'>
@@ -52,28 +46,17 @@ class MemberPage extends Component {
                     deleteItem={ deleteMember }
                     updateItem={ updateMember }
                 />
-                <SingleCatPanel
-                    cat={ {
-                        name: '债务相关人管理',
-                        items: debtors
-                    } }
-                    addItem={ addDebtor }
-                    deleteItem={ deleteDebtor }
-                    updateItem={ updateDebtor }
-                />
             </div>
         );
     }
 }
 
 MemberPage.propTypes = {
-    members: PropTypes.array.isRequired,
-    debtors: PropTypes.array.isRequired
+    members: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-    members: getMembers(state),
-    debtors: getDebtors(state)
+    members: getMembers(state)
 });
 
 export default connect(mapStateToProps)(MemberPage);

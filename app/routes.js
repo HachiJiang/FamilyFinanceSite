@@ -13,6 +13,7 @@ import OutcomePage from './containers/OutcomePage';
 import IncomePage from './containers/IncomePage';
 import ProjectPage from './containers/ProjectPage';
 import MemberPage from './containers/MemberPage';
+import DebtorPage from './containers/DebtorPage';
 import ProfilePage from './containers/ProfilePage';
 import NotFoundPage from './containers/NotFoundPage';
 
@@ -29,6 +30,7 @@ export default function createRoutes() {
             <Route path="income" component={ IncomePage } />
             <Route path="projects" component={ ProjectPage } />
             <Route path="members" component={ MemberPage } />
+            <Route path="debtors" component={ DebtorPage } />
             <Route path="settings" component={ ProfilePage } />
             <Route path="*" component={ NotFoundPage } />
         </Route>

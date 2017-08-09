@@ -36,7 +36,7 @@ class RecordPage extends Component {
     }
 
     render() {
-        const { dispatch, members, range, records } = this.props;
+        const { dispatch, schema, range, records } = this.props;
         const me = this;
 
         const addOutcomeCategory = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch); // Outcome
@@ -49,24 +49,20 @@ class RecordPage extends Component {
         const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
         const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
 
-        const createEditor = record => {
-            const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } = me.props;
-
-            return (
-                <RecordEditor
-                    schema={ { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } }
-                    addOutcomeCategory={ addOutcomeCategory }
-                    addIncomeCategory={ addIncomeCategory }
-                    addAccountCategory={ addAccountCategory }
-                    addProjectCategory={ addProjectCategory }
-                    addMember={ addMember }
-                    addDebtor={ addDebtor }
-                    addRecord={ addRecord }
-                    updateRecord={ updateRecord }
-                    record={ record }
-                />
-            );
-        };
+        const createEditor = record => (
+            <RecordEditor
+                schema={ me.props.schema }
+                addOutcomeCategory={ addOutcomeCategory }
+                addIncomeCategory={ addIncomeCategory }
+                addAccountCategory={ addAccountCategory }
+                addProjectCategory={ addProjectCategory }
+                addMember={ addMember }
+                addDebtor={ addDebtor }
+                addRecord={ addRecord }
+                updateRecord={ updateRecord }
+                record={ record }
+            />
+        );
 
         return (
             <div>
@@ -74,7 +70,7 @@ class RecordPage extends Component {
                 <RecordList
                     range={ range }
                     records={ records }
-                    members={ members }
+                    schema={ schema }
                     deleteRecord={ deleteRecord }
                     createEditor={ createEditor }
                     onDateRangeChange={ (fDate, tDate) => RecordPageActionCreators.changeDateRange(dispatch, fDate, tDate) }
@@ -90,22 +86,26 @@ RecordPage.propTypes = {
         tDate: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array.isRequired,
-    outcomeCategories: PropTypes.array.isRequired,
-    incomeCategories: PropTypes.array.isRequired,
-    accountCategories: PropTypes.array.isRequired,
-    projectCategories: PropTypes.array.isRequired,
-    members: PropTypes.array.isRequired,
-    debtors: PropTypes.array.isRequired
+    schema: PropTypes.shape({
+        outcomeCategories: PropTypes.arrayOf(PropTypes.object),
+        incomeCategories: PropTypes.arrayOf(PropTypes.object),
+        accountCategories: PropTypes.arrayOf(PropTypes.object),
+        projectCategories: PropTypes.arrayOf(PropTypes.object),
+        members: PropTypes.arrayOf(PropTypes.object),
+        debtors: PropTypes.arrayOf(PropTypes.object)
+    }).isRequired,
 };
 
 const mapStateToProps = state => {
 return {
-    outcomeCategories: getOutcomeCategories(state),
+    schema: {
+        outcomeCategories: getOutcomeCategories(state),
         incomeCategories: getIncomeCategories(state),
-    accountCategories: getAccountCategories(state),
-    projectCategories: getProjectCategories(state),
-    members: getMembers(state),
-    debtors: getDebtors(state),
+        accountCategories: getAccountCategories(state),
+        projectCategories: getProjectCategories(state),
+        members: getMembers(state),
+        debtors: getDebtors(state),
+    },
     records: getRecordList(state),
     range: getRange(state)
 };

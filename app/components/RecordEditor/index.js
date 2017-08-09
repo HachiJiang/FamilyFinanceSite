@@ -10,7 +10,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import React, { Component, PropTypes } from 'react';
 
-import { Button, DatePicker, InputNumber, Input } from 'antd';
+import { Button, DatePicker, InputNumber, Input, message } from 'antd';
 
 import Tabs from '../base/Tabs';
 import Pulldown2 from '../base/Pulldown2';
@@ -79,23 +79,18 @@ class RecordEditor extends Component {
         this.setState(newState);
     }
 
-    _readyToSave() {
-        const { amount, consumeDate } = this.state;
-        return !!amount && amount > 0 && !!consumeDate;
-    }
-
     save() {
         const { addRecord, updateRecord } = this.props;
-
-        if (!this._readyToSave()) {
-            return;
-        }
-
         const state = this.state;
         const record = validateRecord({ // should save id for schema info
             ...state,
             amount: _.toNumber(state.amount)
         });
+
+        if (!record) {
+            message.warning('输入信息不全或有误..');
+            return;
+        }
 
         if (record._id && updateRecord) {
             updateRecord(record._id, record);

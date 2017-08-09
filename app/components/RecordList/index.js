@@ -14,7 +14,7 @@ import messages from './messages';
 
 import { getTotals } from './selectors';
 
-const RecordList = ({ range, records, deleteRecord, members, createEditor, onDateRangeChange }) => (
+const RecordList = ({ range, records, deleteRecord, schema, createEditor, onDateRangeChange }) => (
     <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
@@ -27,19 +27,26 @@ const RecordList = ({ range, records, deleteRecord, members, createEditor, onDat
         <RecordGrid
             records={ records }
             deleteRecord={ deleteRecord }
-            members={ members }
+            schema={ schema }
             createEditor={ createEditor }
         />
     </div>
 );
 
 RecordList.propTypes = {
+    schema: PropTypes.shape({
+        outcomeCategories: PropTypes.arrayOf(PropTypes.object),
+        incomeCategories: PropTypes.arrayOf(PropTypes.object),
+        accountCategories: PropTypes.arrayOf(PropTypes.object),
+        projectCategories: PropTypes.arrayOf(PropTypes.object),
+        members: PropTypes.arrayOf(PropTypes.object),
+        debtors: PropTypes.arrayOf(PropTypes.object)
+    }).isRequired,
     range: PropTypes.shape({
         fDate: PropTypes.string.isRequired,
         tDate: PropTypes.string.isRequired
     }).isRequired,
     records: PropTypes.array,
-    members: PropTypes.array,
     deleteRecord: PropTypes.func.isRequired,
     createEditor: PropTypes.func.isRequired,
     onDateRangeChange: PropTypes.func.isRequired

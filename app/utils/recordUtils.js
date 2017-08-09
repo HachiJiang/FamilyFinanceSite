@@ -5,6 +5,8 @@ import _ from 'lodash';
 import { ID_SEPARATOR } from '../constants/Config';
 import * as EnumRecordType from '../constants/EnumRecordType';
 
+const OPTIONAL_PARAMS = ['_id', 'tips', 'location', 'createdAt', 'updatedAt'];
+
 /**
  * Get name corresponding to specific record type
  * @param {string} type
@@ -67,10 +69,15 @@ const validateRecord = record => {
     }
 
     let validRecord = {};
-    _.forEach(getPropKeysByType(record.type), key => {
+    let isValid = true;
+    _.forIn(getPropKeysByType(record.type), key => {
+        if (OPTIONAL_PARAMS.indexOf(key) === -1 && !record[key]) {
+            isValid = false;
+            return false;
+        }
         validRecord[key] = record[key];
     });
-    return validRecord;
+    return isValid ? validRecord : null;
 };
 
 /**

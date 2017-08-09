@@ -24,13 +24,38 @@ export const getRecordTypeFilters = () => Object.values(EnumRecordType).map(type
 }));
 
 /**
- * Get filters for members
- * @param {Array} members
+ * Get filters for one-level items
+ * @param {Array} items
  */
-export const getMemberFilters = members => members.map(({ name }) => ({
+export const getItemFilters = items => items.map(({ name }) => ({
     value: name,
     text: name
 }));
+
+/**
+ * Get filters for categories
+ * @param {Array} categories
+ * @returns {Array}
+ */
+export const getCategoryFilters = categories => {
+    let filters = [];
+
+    _.forEach(categories, cat => {
+        const items = cat && cat.items;
+        if (!items) {
+            return;
+        }
+
+        _.forEach(items, ({ name }) => {
+            filters.push({
+                value: name,
+                text: name
+            });
+        });
+    });
+
+    return filters;
+};
 
 /**
  * Get record list sorted by consumeDate

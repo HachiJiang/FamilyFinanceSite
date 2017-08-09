@@ -46,7 +46,7 @@ class SingleCatPanel extends Component {
                             </Collapse>
                         )
                         :
-                        <span>尚未创建账户!</span>
+                        <span>尚未创建!</span>
                 }
             </Card>
         )

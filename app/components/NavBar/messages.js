@@ -49,5 +49,9 @@ export default defineMessages({
     members: {
         id: 'boilerplate.components.NavBar.members',
         defaultMessage: '成员管理'
+    },
+    debtors: {
+        id: 'boilerplate.components.NavBar.debtors',
+        defaultMessage: '债务管理'
     }
 });

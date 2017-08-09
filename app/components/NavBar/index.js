@@ -13,7 +13,7 @@ import messages from './messages';
 
 import { Menu, Icon } from 'antd';
 
-const menuItemPaths = ['/', '/records', '/dashboards', '/profile', '/accounts', '/outcome', '/income', '/projects', '/members','/budgets'];
+const menuItemPaths = ['/', '/records', '/dashboards', '/profile', '/accounts', '/outcome', '/income', '/projects', '/members', '/debtors', '/budgets'];
 
 const { SubMenu } = Menu;
 
@@ -97,6 +97,12 @@ const NavBar = () => {
                 </Menu.Item>
                 <Menu.Item key="9">
                     <NavLink to={ menuItemPaths[9] }>
+                        <Icon type="team" />
+                        <FormattedMessage {...messages.debtors} />
+                    </NavLink>
+                </Menu.Item>
+                <Menu.Item key="10">
+                    <NavLink to={ menuItemPaths[10] }>
                         <Icon type="schedule" />
                         <FormattedMessage {...messages.budgets} />
                     </NavLink>

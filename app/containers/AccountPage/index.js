@@ -12,30 +12,13 @@ import { bindActionCreators } from 'redux';
 
 // Components
 import CategoryPanel from '../../components/CategoryPanel';
+import AccountKpiPanel from './AccountKpiPanel';
 
 // Actions
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
 
 // Selectors
-import { getAccountCategories } from '../App/selectors';
-
-import { DECIMAL_PRECISION } from '../../constants/Config';
-
-const getBalanceTotal = cat => {
-    const items = cat && cat.items;
-    let total = 0;
-
-    if (!items || items.length < 1) {
-        return total;
-    }
-
-    _.forEach(items, item => {
-        if (item && item.balance) {
-            total += item.balance;
-        }
-    });
-    return total.toFixed(DECIMAL_PRECISION);
-};
+import { getCategories } from './selectors';
 
 class AccountPage extends Component {
 
@@ -53,13 +36,13 @@ class AccountPage extends Component {
 
         return (
             <div className='account-page'>
-                <div className='account-kpi'>Account KPI</div>
+                <AccountKpiPanel accounts={ accountCategories }/>
                 <CategoryPanel
                     categories={ accountCategories }
                     addCategory={ addAccountCategory }
                     deleteCategory={ deleteAccountCategory }
                     updateCategory={ updateAccountCategory }
-                    getExtraInfo={ cat => getBalanceTotal(cat) }
+                    getExtraInfo={ cat => cat.balance }
                 />
             </div>
         );
@@ -71,7 +54,7 @@ AccountPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    accountCategories: getAccountCategories(state)
+    accountCategories: getCategories(state)
 });
 
 export default connect(mapStateToProps)(AccountPage);
