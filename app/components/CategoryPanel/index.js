@@ -17,12 +17,12 @@ const TabPane = Tabs.TabPane;
 /**
  * Create header for TabPane
  * @param {String} name
- * @param {number} balance
+ * @param {String} extraInfo
  */
-const TabPaneHeader = ({ name, balance }) => (
+const TabPaneHeader = ({ name, extraInfo }) => (
     <div>
         { name }
-        { balance && <div>#余额#</div> }
+        { extraInfo ? <div>{ extraInfo }</div> : '' }
     </div>
 );
 
@@ -43,9 +43,10 @@ class CategoryPanel extends Component {
     componentWillReceiveProps(nextProps) {
         const { categories } = nextProps;
         const { activeKey } = this.state;
+        const selected = _.filter(categories, cat => cat._id === activeKey);
 
         // activeKey不存在或者对应的category不存在, 则重新赋默认值
-        if (!activeKey || !_.filter(categories, cat => cat._id === activeKey)) {
+        if (selected.length < 1) {
             this.setState({
                 activeKey: (categories && categories.length > 0) ? categories[0]._id : ''
             });
@@ -53,7 +54,7 @@ class CategoryPanel extends Component {
     }
 
     render() {
-        const { categories, addCategory, deleteCategory, updateCategory } = this.props;
+        const { categories, addCategory, deleteCategory, updateCategory, getExtraInfo } = this.props;
 
         return (
             <div className='category-panel'>
@@ -68,7 +69,7 @@ class CategoryPanel extends Component {
                         categories && categories.map((cat, index) => (
                             <TabPane
                                 key={ cat._id }
-                                tab={ <TabPaneHeader name={ cat.name }/> }
+                                tab={ <TabPaneHeader name={ cat.name } extraInfo={ getExtraInfo ? getExtraInfo(cat) : '' }/> }
                                 >
                                 <SingleCatPanel
                                     cat={ cat }
@@ -89,7 +90,8 @@ CategoryPanel.propTypes = {
     categories: PropTypes.array.isRequired,
     addCategory: PropTypes.func.isRequired,
     deleteCategory: PropTypes.func.isRequired,
-    updateCategory: PropTypes.func.isRequired
+    updateCategory: PropTypes.func.isRequired,
+    getExtraInfo: PropTypes.func
 };
 
 export default CategoryPanel;

@@ -19,6 +19,24 @@ import * as CategoryAccountActionCreators from '../../actions/schema/account';
 // Selectors
 import { getAccountCategories } from '../App/selectors';
 
+import { DECIMAL_PRECISION } from '../../constants/Config';
+
+const getBalanceTotal = cat => {
+    const items = cat && cat.items;
+    let total = 0;
+
+    if (!items || items.length < 1) {
+        return total;
+    }
+
+    _.forEach(items, item => {
+        if (item && item.balance) {
+            total += item.balance;
+        }
+    });
+    return total.toFixed(DECIMAL_PRECISION);
+};
+
 class AccountPage extends Component {
 
     componentDidMount() {
@@ -41,6 +59,7 @@ class AccountPage extends Component {
                     addCategory={ addAccountCategory }
                     deleteCategory={ deleteAccountCategory }
                     updateCategory={ updateAccountCategory }
+                    getExtraInfo={ cat => getBalanceTotal(cat) }
                 />
             </div>
         );

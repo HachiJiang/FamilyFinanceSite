@@ -12,6 +12,8 @@ import React, { Component, PropTypes } from 'react';
 import { Popconfirm, message, Icon, Input } from 'antd';
 import AddItemPopup from './PopupInputForm';
 
+import { DECIMAL_PRECISION } from '../../constants/Config';
+
 const stopPropagation = e => e.stopPropagation();
 
 class EditableSchemaHeader extends Component  {
@@ -68,7 +70,7 @@ class EditableSchemaHeader extends Component  {
                         :
                         <div>{ value }</div>
                 }
-                { balance && <span>{ balance.toFixed(2) } (RMB)</span> }
+                { balance && <span>{ balance.toFixed(DECIMAL_PRECISION) } (RMB)</span> }
                 <span style={ {float: 'right'} }>
                     {
                         onAdd &&
