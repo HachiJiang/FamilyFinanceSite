@@ -70,7 +70,7 @@ class EditableSchemaHeader extends Component  {
                         :
                         <div>{ value }</div>
                 }
-                { balance && <span>{ balance.toFixed(DECIMAL_PRECISION) } (RMB)</span> }
+                { balance && <span>{ balance.toFixed(DECIMAL_PRECISION) }</span> }
                 <span style={ {float: 'right'} }>
                     {
                         onAdd &&
