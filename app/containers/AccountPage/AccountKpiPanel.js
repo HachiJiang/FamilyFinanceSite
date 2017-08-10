@@ -10,6 +10,8 @@ import React, { PropTypes, Component } from 'react';
 import { Row, Col } from 'antd';
 import echarts from 'echarts';
 
+import { getAllAccountNames, getCatDataForPie, getAccountDataForPie } from './selectors';
+
 /**
  * Get balance totals
  * @param {Array} accounts
@@ -20,20 +22,23 @@ const getTotals = accounts => _.sumBy(accounts, cat => _.toNumber(cat.balance));
  * Get options for pie chart
  * @param {Array} accounts
  */
-const getPieChartOptions = accounts => ({
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        x: 'left',
-        data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
-    },
-    series: [
-        {
-            name:'访问来源',
-            type:'pie',
+const getPieChartOptions = accounts => {
+    const name = '账户余额';
+    const type = 'pie';
+    const accountData = getAccountDataForPie(accounts);
+
+    return {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+            data: _.map(accountData, account => account.name)
+        },
+        series: [{
+            name, type,
             selectedMode: 'single',
             radius: [0, '30%'],
 
@@ -47,32 +52,16 @@ const getPieChartOptions = accounts => ({
                     show: false
                 }
             },
-            data:[
-                {value:335, name:'直达', selected:true},
-                {value:679, name:'营销广告'},
-                {value:1548, name:'搜索引擎'}
-            ]
-        },
-        {
-            name:'访问来源',
-            type:'pie',
+            data: getCatDataForPie(accounts)
+        }, {
+            name, type,
             radius: ['40%', '55%'],
+            data: getAccountDataForPie(accounts)
+        }]
+    };
+};
 
-            data:[
-                {value:335, name:'直达'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1048, name:'百度'},
-                {value:251, name:'谷歌'},
-                {value:147, name:'必应'},
-                {value:102, name:'其他'}
-            ]
-        }
-    ]
-});
-
-const updatePieChart = (pieChart, accounts, pieDom) => {
+const updatePieChart = (accounts, pieDom) => {
     if (!pieDom) {
         return;
     }
@@ -82,6 +71,9 @@ const updatePieChart = (pieChart, accounts, pieDom) => {
         return;
     }
 
+    pieDom.innerHTML = '';
+
+    const pieChart = echarts.init(pieDom);
     const options = getPieChartOptions(accounts);
     if (pieChart && options) {
         pieChart.setOption(options);
@@ -90,19 +82,8 @@ const updatePieChart = (pieChart, accounts, pieDom) => {
 
 class AccountKpiPanel extends Component {
 
-    componentDidMount() {
-        const pieDom = this.pieDom;
-
-        if (!pieDom) {
-            return;
-        }
-
-        const pieChart = this.pieChart = echarts.init(pieDom);
-        updatePieChart(pieChart, this.props.accounts, pieDom);
-    }
-
     componentWillReceiveProps(nextProps) {
-        updatePieChart(this.pieChart, nextProps.accounts, this.pieDom);
+        updatePieChart(nextProps.accounts, this.pieDom);
     }
 
     render() {
@@ -111,11 +92,11 @@ class AccountKpiPanel extends Component {
 
         return (
             <Row className="account-kpi" type="flex" justify="space-around" align="middle">
-                <Col span={3}>
-                    <h1 style={ { color: "red"} }>总资产: { totals }</h1>
+                <Col span={1} style={ { width: "200px" } }>
+                    <h1>总资产: { totals }</h1>
                 </Col>
-                <Col span={9}>
-                    <div ref={ div => { this.pieDom = div } }></div>
+                <Col span={11}>
+                    <div ref={ div => { this.pieDom = div } } style={ { width: "600px", height: "400px", margin: "30px 20px -20px 0" } }></div>
                 </Col>
             </Row>
         );
