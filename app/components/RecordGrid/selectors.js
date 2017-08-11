@@ -62,4 +62,15 @@ export const getCategoryFilters = categories => {
  * @param {Array} list
  * @returns {Array}
  */
-const getRecordListSortedByDate = list => _.orderBy(list, ['consumeDate', 'createdAt'], ['desc', 'asc']);
+const getRecordListSortedByDate = list => list.sort((a, b) => {
+    const aConsumeDate = moment(a.consumeDate, CONSUME_DATE_FORMAT);
+    const bConsumeDate = moment(b.consumeDate, CONSUME_DATE_FORMAT);
+    const aCreatedAt = moment(a.createdAt, CONSUME_DATE_FORMAT);
+    const bCreatedAt = moment(b.createdAt, CONSUME_DATE_FORMAT);
+
+    if (aConsumeDate.isSame(bConsumeDate)) {
+        return aCreatedAt.isSame(bCreatedAt) ? 0 : (aCreatedAt.isBefore(bCreatedAt) ? 1 : -1);
+    }
+
+    return aConsumeDate.isBefore(bConsumeDate) ? 1 : -1;
+});

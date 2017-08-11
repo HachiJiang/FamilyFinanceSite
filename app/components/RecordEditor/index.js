@@ -30,10 +30,11 @@ import { CONSUME_DATE_FORMAT } from '../../constants/Config';
  * @param {Object} record
  * @returns {Object}
  */
-function getInitialState(record = {}) {
+function getInitialState(record = {}, oldState = {}) {
+    const oldConsumeDate = oldState.consumeDate;
     return {
         amount: 0,
-        consumeDate: moment().format(CONSUME_DATE_FORMAT),
+        consumeDate: oldConsumeDate ? moment(oldConsumeDate, CONSUME_DATE_FORMAT) : moment().format(CONSUME_DATE_FORMAT),
         tips: '',
         ...record
     };
@@ -104,7 +105,7 @@ class RecordEditor extends Component {
     }
 
     reset() {
-        this.setState(getInitialState(this.props.record));
+        this.setState(getInitialState(this.props.record, this.state));
     }
 
     /**

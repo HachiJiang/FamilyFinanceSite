@@ -84,7 +84,7 @@ const getAccountDataForPie = accounts => {
         const items = cat && cat.items;
         if (items) {
             data = _.concat(data, _.map(items, item => ({
-                value: item.balance,
+                value: item.balance.toFixed(2),
                 name: item.name
             })));
         }

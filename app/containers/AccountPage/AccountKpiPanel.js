@@ -92,11 +92,12 @@ class AccountKpiPanel extends Component {
 
         return (
             <Row className="account-kpi" type="flex" justify="space-around" align="middle">
-                <Col span={1} style={ { width: "200px" } }>
-                    <h1>总资产: { totals }</h1>
+                <Col span={7}>
+                    <h1>总资产</h1>
+                    <h1>{ totals }</h1>
                 </Col>
-                <Col span={11}>
-                    <div ref={ div => { this.pieDom = div } } style={ { width: "600px", height: "400px", margin: "30px 20px -20px 0" } }></div>
+                <Col span={17}>
+                    <div ref={ div => { this.pieDom = div } } style={ { width: "100%", height: "500px", margin: "30px -20px -50px 0" } }></div>
                 </Col>
             </Row>
         );
