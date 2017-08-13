@@ -1,7 +1,15 @@
 'use strict';
 
+/*
+ *
+ * Selectors for App, the top selector
+ *
+ */
+
+import { getAccountsWithBalance } from '../../utils/accountUtils';
+
 // makeSelectLocationState expects a plain JS object for the routing state
-export const makeSelectLocationState = () => {
+const makeSelectLocationState = () => {
     let prevRoutingState;
     let prevRoutingStateJS;
 
@@ -20,57 +28,60 @@ export const makeSelectLocationState = () => {
 /**
  * Get schema
  * @param {Object} state
- * @returns {*}
+ * @returns {Object}
  */
 const getSchema = state => state.get('schema');
 
 /**
  * Get outcome categories
  * @param {Object} state
- * @returns {*}
+ * @returns {Array}
  */
-export const getOutcomeCategories = state => getSchema(state).get('outcomeCategories');
+const getOutcomeCategories = state => getSchema(state).get('outcomeCategories');
 
 /**
  * Get income categories
  * @param {Object} state
- * @returns {*}
+ * @returns {Array}
  */
-export const getIncomeCategories = state => getSchema(state).get('incomeCategories');
+const getIncomeCategories = state => getSchema(state).get('incomeCategories');
 
 /**
  * Get account categories
  * @param {Object} state
- * @returns {*}
+ * @returns {Array}
  */
-export const getAccountCategories = state => getSchema(state).get('accountCategories');
+const getAccountCategories = state => {
+    const rawList = getSchema(state).get('accountCategories');
+    return getAccountsWithBalance(rawList); // add balance info
+};
 
 /**
  * Get project categories
  * @param {Object} state
- * @returns {*}
+ * @returns {Array}
  */
-export const getProjectCategories = state => getSchema(state).get('projectCategories');
+const getProjectCategories = state => getSchema(state).get('projectCategories');
 
 /**
  * Get members
  * @param {Object} state
- * @returns {*}
+ * @returns {Array}
  */
-export const getMembers = state => getSchema(state).get('members');
+const getMembers = state => getSchema(state).get('members');
 
 /**
  * Get debtors
  * @param {Object} state
- * @returns {*}
+ * @returns {Array}
  */
-export const getDebtors = state => getSchema(state).get('debtors');
+const getDebtors = state => getSchema(state).get('debtors');
 
 /**
  * Get schema objects
  * @param {Object} state
  */
-export const getSchemaObjects = state => {
+const getSchemaObjects = state => {
     const schema = getSchema(state);
     return {
         incomeCategories: schema.get('incomeCategories'),
@@ -81,3 +92,14 @@ export const getSchemaObjects = state => {
         debtors: schema.get('debtors')
     }
 };
+
+export {
+    makeSelectLocationState,
+    getOutcomeCategories,
+    getIncomeCategories,
+    getAccountCategories,
+    getProjectCategories,
+    getMembers,
+    getDebtors,
+    getSchemaObjects
+}

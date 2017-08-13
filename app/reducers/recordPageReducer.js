@@ -46,10 +46,10 @@ const updateRecord = (oldState, record) => {
  */
 const validateWithFilter = (filter = {}, record = {}) => {
     const { fDate, tDate } = filter;
-    const { consumeDate } = record;
+    const consumeDate = moment(record.consumeDate);
 
     if (fDate && tDate && consumeDate) {
-        return moment(consumeDate).isBetween(moment(fDate), moment(tDate));
+        return consumeDate.isSameOrAfter(moment(fDate)) && consumeDate.isSameOrBefore(moment(tDate));
     }
     return false;
 };
@@ -69,9 +69,7 @@ const filterRecords = (filter, records = []) => _.filter(records, record => vali
  * @returns {{filter: *, list}}
  */
 const receiveRecords = (filter, list) => {
-    const records = filterRecords(filter, list);
-    return records.sort((a, b) => moment(a.consumeDate).isBefore(moment(b.consumeDate)) ? 1: -1)
-        .sort((a, b) => moment(a.createdAt).isBefore(moment(b.createdAt)) ? 1: -1);
+    return filterRecords(filter, list);
 };
 
 /**

@@ -8,15 +8,10 @@
 import _ from 'lodash';
 import React, { PropTypes, Component } from 'react';
 import { Row, Col } from 'antd';
-import echarts from 'echarts';
+import Pie from '../../components/myecharts/Pie';
 
 import { getAllAccountNames, getCatDataForPie, getAccountDataForPie } from './selectors';
-
-/**
- * Get balance totals
- * @param {Array} accounts
- */
-const getTotals = accounts => _.sumBy(accounts, cat => _.toNumber(cat.balance));
+import { getTotalBalance } from '../../utils/accountUtils';
 
 /**
  * Get options for pie chart
@@ -28,10 +23,6 @@ const getPieChartOptions = accounts => {
     const accountData = getAccountDataForPie(accounts);
 
     return {
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b}: {c} ({d}%)"
-        },
         legend: {
             orient: 'vertical',
             x: 'left',
@@ -61,43 +52,20 @@ const getPieChartOptions = accounts => {
     };
 };
 
-const updatePieChart = (accounts, pieDom) => {
-    if (!pieDom) {
-        return;
-    }
-
-    if (!accounts || accounts.length < 1) {
-        pieDom.innerHTML = '很遗憾, 没有资产记录...';
-        return;
-    }
-
-    pieDom.innerHTML = '';
-
-    const pieChart = echarts.init(pieDom);
-    const options = getPieChartOptions(accounts);
-    if (pieChart && options) {
-        pieChart.setOption(options);
-    }
-};
-
 class AccountKpiPanel extends Component {
-
-    componentWillReceiveProps(nextProps) {
-        updatePieChart(nextProps.accounts, this.pieDom);
-    }
 
     render() {
         const { accounts } = this.props;
-        const totals = getTotals(accounts);
+        const totals = getTotalBalance(accounts);
 
         return (
             <Row className="account-kpi" type="flex" justify="space-around" align="middle">
                 <Col span={7}>
-                    <h1>总资产</h1>
-                    <h1>{ totals }</h1>
+                    <h1 style={ { fontSize: "2em" } }>总资产</h1>
+                    <h1 className="kpi-value" style={ { fontSize: "3em" } }>{ totals }</h1>
                 </Col>
-                <Col span={17}>
-                    <div ref={ div => { this.pieDom = div } } style={ { width: "100%", height: "500px", margin: "30px -20px -50px 0" } }></div>
+                <Col span={17} style={ { margin: "30px -50px -50px 0" } }>
+                    <Pie options={ getPieChartOptions(accounts) }  height="500px"></Pie>
                 </Col>
             </Row>
         );

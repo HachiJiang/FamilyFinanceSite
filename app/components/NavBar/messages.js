@@ -14,6 +14,10 @@ export default defineMessages({
         id: 'boilerplate.components.NavBar.records',
         defaultMessage: '记账'
     },
+    salaries: {
+        id: 'boilerplate.components.NavBar.salaries',
+        defaultMessage: '职业收入'
+    },
     budgets: {
         id: 'boilerplate.components.NavBar.budgets',
         defaultMessage: '预算管理'

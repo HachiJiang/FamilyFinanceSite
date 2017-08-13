@@ -49,20 +49,30 @@ class SummaryBar extends Component {
                 />
                 <ul className="record-summary-kpi">
                     <li>
-                        <FormattedMessage {...messages.totalIncome} />
+                        <span>总收入: </span>
                         <span className="record-positive-val">{ totals.income }</span>
                     </li>
                     <li>
-                        <FormattedMessage {...messages.totalOutcome} />
+                        <span>总支出: </span>
                         <span className="record-negative-val">{ totals.outcome }</span>
                     </li>
                     <li>
-                        <FormattedMessage {...messages.totalDebt} />
-                        <span className="record-negative-val">{ totals.debt }</span>
+                        {
+                            totals.debt > 0 ?
+                                <span>净欠款: </span>
+                                :
+                                <span>净还款: </span>
+                        }
+                        <span>{ Math.abs(totals.debt) }</span>
                     </li>
                     <li>
-                        <FormattedMessage {...messages.totalLoan} />
-                        <span className="record-positive-val">{ totals.loan }</span>
+                        {
+                            totals.debt > 0 ?
+                                <span>净借出: </span>
+                                :
+                                <span>净借入: </span>
+                        }
+                        <span>{ Math.abs(totals.loan) }</span>
                     </li>
                     <li><FormattedMessage {...messages.unit} /></li>
                 </ul>

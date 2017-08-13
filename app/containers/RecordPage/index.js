@@ -93,7 +93,7 @@ RecordPage.propTypes = {
         projectCategories: PropTypes.arrayOf(PropTypes.object),
         members: PropTypes.arrayOf(PropTypes.object),
         debtors: PropTypes.arrayOf(PropTypes.object)
-    }).isRequired,
+    }).isRequired
 };
 
 const mapStateToProps = state => {

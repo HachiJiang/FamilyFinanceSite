@@ -6,19 +6,39 @@ import { CONSUME_DATE_FORMAT } from '../../constants/Config';
 import * as EnumRecordType from '../../constants/EnumRecordType';
 import { getRecordTypeName } from '../../utils/recordUtils';
 
-export const getDataRows = records => getRecordListSortedByDate(records).map((record, index) => ({
+const sorterByDate = (a, b) => {
+    const format = 'YYYYMMDD';
+    const aConsumeDate = _.toNumber(moment(a.consumeDate).format(format));
+    const bConsumeDate = _.toNumber(moment(b.consumeDate).format(format));
+    const aCreatedAt = _.toNumber(moment(a.createdAt).format(format));
+    const bCreatedAt = _.toNumber(moment(b.createdAt).format(format));
+
+    if (aConsumeDate === bConsumeDate) {
+        return (aCreatedAt < bCreatedAt ? 1 : -1);
+    }
+    return aConsumeDate < bConsumeDate ? 1 : -1;
+};
+
+/**
+ * Get record list sorted by consumeDate
+ * @param {Array} list
+ * @returns {Array}
+ */
+const getRecordListSortedByDate = list => list.sort(sorterByDate);
+
+const getDataRows = records => getRecordListSortedByDate(records).map(record => ({
     record,
     ...record,
-    key: index.toString(),
+    key: record._id,
     text: getRecordTypeName(record.type),
-    date: moment(record.consumeDate).format(CONSUME_DATE_FORMAT)
+    date: moment(record.consumeDate).format(CONSUME_DATE_FORMAT + ' dddd')
 }));
 
 /**
  * Get filters for record types
  * @returns {Array}
  */
-export const getRecordTypeFilters = () => Object.values(EnumRecordType).map(type => ({
+const getRecordTypeFilters = () => Object.values(EnumRecordType).map(type => ({
     value: type,
     text: getRecordTypeName(type)
 }));
@@ -27,7 +47,7 @@ export const getRecordTypeFilters = () => Object.values(EnumRecordType).map(type
  * Get filters for one-level items
  * @param {Array} items
  */
-export const getItemFilters = items => items.map(({ name }) => ({
+const getItemFilters = items => items.map(({ name }) => ({
     value: name,
     text: name
 }));
@@ -37,7 +57,7 @@ export const getItemFilters = items => items.map(({ name }) => ({
  * @param {Array} categories
  * @returns {Array}
  */
-export const getCategoryFilters = categories => {
+const getCategoryFilters = categories => {
     let filters = [];
 
     _.forEach(categories, cat => {
@@ -57,20 +77,10 @@ export const getCategoryFilters = categories => {
     return filters;
 };
 
-/**
- * Get record list sorted by consumeDate
- * @param {Array} list
- * @returns {Array}
- */
-const getRecordListSortedByDate = list => list.sort((a, b) => {
-    const aConsumeDate = moment(a.consumeDate, CONSUME_DATE_FORMAT);
-    const bConsumeDate = moment(b.consumeDate, CONSUME_DATE_FORMAT);
-    const aCreatedAt = moment(a.createdAt, CONSUME_DATE_FORMAT);
-    const bCreatedAt = moment(b.createdAt, CONSUME_DATE_FORMAT);
-
-    if (aConsumeDate.isSame(bConsumeDate)) {
-        return aCreatedAt.isSame(bCreatedAt) ? 0 : (aCreatedAt.isBefore(bCreatedAt) ? 1 : -1);
-    }
-
-    return aConsumeDate.isBefore(bConsumeDate) ? 1 : -1;
-});
+export {
+    sorterByDate,
+    getDataRows,
+    getRecordTypeFilters,
+    getItemFilters,
+    getCategoryFilters
+}

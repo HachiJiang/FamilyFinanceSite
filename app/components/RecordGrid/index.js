@@ -8,11 +8,10 @@
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
-
 import selfMessages from './messages';
 import { Table, Popconfirm, message } from 'antd';
 
-import { getDataRows, getRecordTypeFilters, getItemFilters, getCategoryFilters } from './selectors';
+import { getDataRows, getRecordTypeFilters, getItemFilters, getCategoryFilters, sorterByDate } from './selectors';
 
 /**
  * Get Columns
@@ -26,7 +25,7 @@ function getColumns(props) {
         title: '日期',
         dataIndex: 'date',
         key: 'date',
-        sorter: (a, b) => moment(a.date).isAfter(moment(b.date)) ? 1 : -1
+        sorter: sorterByDate
     }, {
         title: '类型',
         dataIndex: 'text',

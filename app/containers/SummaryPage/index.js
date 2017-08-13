@@ -1,5 +1,7 @@
+'use strict';
+
 /*
- * SummaryPage
+ * summaryPage
  *
  * This is the first thing users see of our App, at the '/' route
  *
@@ -9,14 +11,44 @@
  * the linting exception.
  */
 
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
 
-const SummaryPage = props => (
-    <h1>
-        <FormattedMessage {...messages.header} />
-    </h1>
-);
+import KPIPanel from './KPIPanel';
 
-export default SummaryPage;
+// Actions
+import * as CategoryAccountActionCreators from '../../actions/schema/account';
+import * as DebtorActionCreators from '../../actions/schema/debtor';
+
+import { getKpiInfo } from './selectors';
+
+class SummaryPage extends Component {
+
+    componentDidMount() {
+        const { dispatch } = this.props;
+        CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
+        DebtorActionCreators.fetchDebtors(dispatch);               // 请求debtor信息
+    }
+
+    render() {
+        const { kpiInfo } = this.props;
+
+        return (
+            <div className='summary-page'>
+                <KPIPanel data={ kpiInfo } />
+                <div>按月的日平均支出曲线</div>
+                <div>按年的总支出/总收入/净收益曲线</div>
+            </div>
+        );
+    }
+}
+
+SummaryPage.propTypes = {
+    kpiInfo: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    kpiInfo: getKpiInfo(state)
+});
+
+export default connect(mapStateToProps)(SummaryPage);
