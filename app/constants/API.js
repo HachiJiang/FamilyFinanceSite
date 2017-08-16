@@ -76,3 +76,11 @@ export const RECORD_GET_BY_DATE = _.template(`${HOST}/records/from/<%= fDate %>/
 export const RECORD_CREATE = RECORD_GET;
 export const RECORD_UPDATE = _.template(`${HOST}/records/<%= rid %>`);
 export const RECORD_DELETE = RECORD_UPDATE;
+
+/**
+ * Outcome
+ */
+// get outcome by date, response organized by day
+export const OUTCOME_GET_BY_DATE = _.template(`${HOST}/amount/aggregate_by_day/outcome/from/<%= fDate %>/to/<%= tDate %>`);
+// get outcome by date, response organized by day
+export const OUTCOME_GET_BY_CATEGORY = _.template(`${HOST}/amount/aggregate_by_category/outcome/from/<%= fDate %>/to/<%= tDate %>`);

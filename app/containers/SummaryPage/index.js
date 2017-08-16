@@ -15,6 +15,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import KPIPanel from './KPIPanel';
+import OutcomeKpiPanel from './OutcomeKpiPanel';
 
 // Actions
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
@@ -36,7 +37,7 @@ class SummaryPage extends Component {
         return (
             <div className='summary-page'>
                 <KPIPanel data={ kpiInfo } />
-                <div>按月的日平均支出曲线</div>
+                <OutcomeKpiPanel data={ {} } />
                 <div>按年的总支出/总收入/净收益曲线</div>
             </div>
         );
