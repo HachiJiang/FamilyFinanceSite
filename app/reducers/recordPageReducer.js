@@ -11,7 +11,6 @@ import moment from 'moment';
 import * as RecordActionTypes from '../actiontypes/schema/record';
 import * as RecordPageActionTypes from '../actiontypes/recordPage';
 import { getDateRangeOfCurrentMonth } from '../utils/dateUtils';
-import {changeDateRange} from "../actions/recordPage";
 
 const initialState = {
     filter: getDateRangeOfCurrentMonth(),
@@ -87,7 +86,7 @@ const onChangeDateRange = (fDate, tDate, list) => {
     };
 };
 
-function recordReducer(state = initialState, action = {}) {
+function recordPageReducer(state = initialState, action = {}) {
     const { filter, list } = state;
 
     switch (action.type) {
@@ -133,4 +132,4 @@ function recordReducer(state = initialState, action = {}) {
     }
 }
 
-export default recordReducer;
+export default recordPageReducer;

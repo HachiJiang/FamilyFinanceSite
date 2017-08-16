@@ -72,15 +72,15 @@ export const DEBTOR_DELETE = DEBTOR_UPDATE;
  * Records
  */
 export const RECORD_GET = `${HOST}/records`;
-export const RECORD_GET_BY_DATE = _.template(`${HOST}/records/from/<%= fDate %>/to/<%= tDate %>`);
+export const RECORD_GET_BY_DATE = _.template(`${HOST}/records/<%= fDate %>/<%= tDate %>`); // must use ISO dates
 export const RECORD_CREATE = RECORD_GET;
 export const RECORD_UPDATE = _.template(`${HOST}/records/<%= rid %>`);
 export const RECORD_DELETE = RECORD_UPDATE;
 
 /**
- * Outcome
+ * Aggregated data
  */
-// get outcome by date, response organized by day
-export const OUTCOME_GET_BY_DATE = _.template(`${HOST}/amount/aggregate_by_day/outcome/from/<%= fDate %>/to/<%= tDate %>`);
-// get outcome by date, response organized by day
-export const OUTCOME_GET_BY_CATEGORY = _.template(`${HOST}/amount/aggregate_by_category/outcome/from/<%= fDate %>/to/<%= tDate %>`);
+// get outcome by date, response organized by day, should use ISO dates
+export const OUTCOME_GET_BY_DATE = _.template(`${HOST}/amount/aggregate_by_day/<%= type %>/<%= fDate %>/<%= tDate %>`);
+// get outcome by date, response organized by category
+export const OUTCOME_GET_BY_CATEGORY = _.template(`${HOST}/amount/aggregate_by_cat/<%= type %>/<%= fDate %>/<%= tDate %>`);

@@ -21,7 +21,7 @@ import OutcomeKpiPanel from './OutcomeKpiPanel';
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
 import * as DebtorActionCreators from '../../actions/schema/debtor';
 
-import { getKpiInfo } from './selectors';
+import { getKpiInfo, getOutcomeInfo } from './selectors';
 
 class SummaryPage extends Component {
 
@@ -32,12 +32,12 @@ class SummaryPage extends Component {
     }
 
     render() {
-        const { kpiInfo } = this.props;
+        const { kpiInfo, outcomeInfo = {} } = this.props;
 
         return (
             <div className='summary-page'>
                 <KPIPanel data={ kpiInfo } />
-                <OutcomeKpiPanel data={ {} } />
+                <OutcomeKpiPanel {...outcomeInfo}  />
                 <div>按年的总支出/总收入/净收益曲线</div>
             </div>
         );
@@ -45,11 +45,13 @@ class SummaryPage extends Component {
 }
 
 SummaryPage.propTypes = {
-    kpiInfo: PropTypes.object.isRequired
+    kpiInfo: PropTypes.object.isRequired,
+    outcomeInfo: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    kpiInfo: getKpiInfo(state)
+    kpiInfo: getKpiInfo(state),
+    outcomeInfo: getOutcomeInfo(state)
 });
 
 export default connect(mapStateToProps)(SummaryPage);

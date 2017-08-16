@@ -42,10 +42,7 @@ RecordList.propTypes = {
         members: PropTypes.arrayOf(PropTypes.object),
         debtors: PropTypes.arrayOf(PropTypes.object)
     }).isRequired,
-    range: PropTypes.shape({
-        fDate: PropTypes.string.isRequired,
-        tDate: PropTypes.string.isRequired
-    }).isRequired,
+    range: PropTypes.object.isRequired,
     records: PropTypes.array,
     deleteRecord: PropTypes.func.isRequired,
     createEditor: PropTypes.func.isRequired,

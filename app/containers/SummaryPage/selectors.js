@@ -28,6 +28,13 @@ const getKpiInfo = state => {
     };
 };
 
+/**
+ * Get outcome info
+ * @param {Object} state
+ */
+const getOutcomeInfo = state => state.get('summaryPage').outcome;
+
 export {
-    getKpiInfo
+    getKpiInfo,
+    getOutcomeInfo
 }

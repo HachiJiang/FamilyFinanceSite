@@ -43,7 +43,7 @@ export const updateRecord = (rid, record) => request.update(API.RECORD_UPDATE({ 
 }));
 
 /**
- * Receive records @TODO: add condition
+ * Receive records
  * @param json
  * @returns {{type: RECEIVE_RECORDS, data: *}}
  */
@@ -61,8 +61,10 @@ function receiveRecords(json) {
  * @returns {Function}
  */
 export const fetchRecords = (fDate, tDate, callback = '') => {
-    if (fDate && tDate) {
-        return request.get(API.RECORD_GET_BY_DATE({ fDate, tDate }), callback ? callback : receiveRecords);
+    if (fDate && fDate.isValid() && tDate && tDate.isValid()) {
+        return request.get(
+            API.RECORD_GET_BY_DATE({ fDate: fDate.toString(), tDate: tDate.toString() }
+            ), callback ? callback : receiveRecords);
     } else {
         messageUtils.invalidParamFailure();
     }

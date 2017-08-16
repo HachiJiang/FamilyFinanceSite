@@ -5,7 +5,6 @@
  *
  * Summary header for record list
  */
-import moment from 'moment';
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { DatePicker } from 'antd';
@@ -24,20 +23,20 @@ class SummaryBar extends Component {
         };
     }
 
-    onChange(dates, dateStrs) {
-        const fDate = dateStrs[0];
-        const tDate = dateStrs[1];
+    onChange(dates) {
+        const fDate = dates[0];
+        const tDate = dates[1];
 
         if (fDate && tDate) {
-            this.setState({ fDate: dates[0], tDate: dates[1] });
+            this.setState({ fDate, tDate });
             this.props.onDateRangeChange(fDate, tDate);
         }
     }
 
     render() {
         const { range: { fDate, tDate }, totals } = this.props;
-        const currentFDate = this.state.fDate || moment(fDate, CONSUME_DATE_FORMAT);
-        const currentTDate = this.state.tDate || moment(tDate, CONSUME_DATE_FORMAT);
+        const currentFDate = this.state.fDate || fDate;
+        const currentTDate = this.state.tDate || tDate;
 
         return (
             <div className="record-summary">
@@ -89,8 +88,8 @@ SummaryBar.propTypes = {
         loan: PropTypes.number.isRequired
     }).isRequired,
     range: PropTypes.shape({
-        fDate: PropTypes.string.isRequired,
-        tDate: PropTypes.string.isRequired
+        fDate: PropTypes.object.isRequired,
+        tDate: PropTypes.object.isRequired
     }).isRequired,
     onDateRangeChange: PropTypes.func.isRequired
 };

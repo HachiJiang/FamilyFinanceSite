@@ -81,10 +81,7 @@ class RecordPage extends Component {
 }
 
 RecordPage.propTypes = {
-    range: PropTypes.shape({
-        fDate: PropTypes.string.isRequired,
-        tDate: PropTypes.string.isRequired
-    }).isRequired,
+    range: PropTypes.object.isRequired,
     records: PropTypes.array.isRequired,
     schema: PropTypes.shape({
         outcomeCategories: PropTypes.arrayOf(PropTypes.object),

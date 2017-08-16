@@ -1,7 +1,7 @@
 'use strict';
 
 import _ from 'lodash';
-
+import moment from 'moment';
 import { ID_SEPARATOR } from '../constants/Config';
 import * as EnumRecordType from '../constants/EnumRecordType';
 
@@ -133,6 +133,7 @@ const parseRecord = (record, { outcomeCategories, incomeCategories, accountCateg
         ...record,
         project: idStrToName(record.project, projectCategories),
         member: idStrToName(record.member, members),
+        consumeDate: moment.utc(record.consumeDate).local(),
         _raw: record  // store raw record
     };
 

@@ -34,7 +34,7 @@ function getInitialState(record = {}, oldState = {}) {
     const oldConsumeDate = oldState.consumeDate;
     return {
         amount: 0,
-        consumeDate: oldConsumeDate ? moment(oldConsumeDate, CONSUME_DATE_FORMAT) : moment().format(CONSUME_DATE_FORMAT),
+        consumeDate: oldConsumeDate ? oldConsumeDate : moment(),
         tips: '',
         ...record
     };
@@ -85,8 +85,11 @@ class RecordEditor extends Component {
         const state = this.state;
         const record = validateRecord({ // should save id for schema info
             ...state,
-            amount: _.toNumber(state.amount)
+            amount: _.toNumber(state.amount),
+            consumeDate: moment(state.consumeDate.format(CONSUME_DATE_FORMAT)).utc().toString()
         });
+
+        console.log(moment(state.consumeDate.format(CONSUME_DATE_FORMAT)).toString());
 
         if (!record) {
             message.warning('输入信息不全或有误..');
@@ -194,10 +197,11 @@ class RecordEditor extends Component {
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
                 <DatePicker
+                    format={ CONSUME_DATE_FORMAT }
                     allowClear={ false }
                     defaultValue={ moment() }
-                    value={ moment(consumeDate) }
-                    onChange={ value => { value && this.setState({ consumeDate: value.format(CONSUME_DATE_FORMAT) }) } } />
+                    value={ consumeDate }
+                    onChange={ value => { value && this.setState({ consumeDate: value }) } } />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >
                 <Input

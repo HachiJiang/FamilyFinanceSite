@@ -15,7 +15,7 @@ export const getDateRangeOfCurrentMonth = () => {
     const lastDay = new Date(year, month + 1, 0);
 
     return {
-        fDate: moment(firstDay).format(CONSUME_DATE_FORMAT),
-        tDate: moment(lastDay).format(CONSUME_DATE_FORMAT)
+        fDate: moment(firstDay, CONSUME_DATE_FORMAT),
+        tDate: moment(lastDay, CONSUME_DATE_FORMAT)
     }
 };
