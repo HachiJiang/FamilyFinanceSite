@@ -89,8 +89,6 @@ class RecordEditor extends Component {
             consumeDate: moment(state.consumeDate.format(CONSUME_DATE_FORMAT)).utc().toString()
         });
 
-        console.log(moment(state.consumeDate.format(CONSUME_DATE_FORMAT)).toString());
-
         if (!record) {
             message.warning('输入信息不全或有误..');
             return;
@@ -99,7 +97,8 @@ class RecordEditor extends Component {
         if (record._id && updateRecord) {
             updateRecord(record._id, record);
             this.setState({
-                ...record
+                ...record,
+                consumeDate: state.consumeDate
             });
         } else if (addRecord) {
             addRecord(record);
@@ -249,7 +248,7 @@ RecordEditor.propTypes = {
         _id: PropTypes.string,
         type: PropTypes.string.required,
         amount: PropTypes.number.required,
-        consumeDate: PropTypes.number.required,
+        consumeDate: PropTypes.object.required,
         category: PropTypes.string,
         accountFrom: PropTypes.string,
         accountTo: PropTypes.string,

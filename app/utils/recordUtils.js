@@ -129,12 +129,16 @@ const parseRecord = (record, { outcomeCategories, incomeCategories, accountCateg
         return;
     }
 
+    const consumeDate = moment.utc(record.consumeDate).local(); // convert to client time
     let result = {
         ...record,
         project: idStrToName(record.project, projectCategories),
         member: idStrToName(record.member, members),
-        consumeDate: moment.utc(record.consumeDate).local(),
-        _raw: record  // store raw record
+        consumeDate,
+        _raw: {
+            ...record,
+            consumeDate
+        }  // store raw record
     };
 
     switch(record.type) {

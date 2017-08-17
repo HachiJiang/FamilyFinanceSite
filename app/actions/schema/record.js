@@ -58,12 +58,13 @@ function receiveRecords(json) {
  * Fetch records from server
  * @param {String} fDate
  * @param {String} tDate
+ * @param {Function} callback
  * @returns {Function}
  */
 export const fetchRecords = (fDate, tDate, callback = '') => {
     if (fDate && fDate.isValid() && tDate && tDate.isValid()) {
         return request.get(
-            API.RECORD_GET_BY_DATE({ fDate: fDate.toString(), tDate: tDate.toString() }
+            API.RECORD_GET_BY_DATE({ fDate: fDate.toISOString(), tDate: tDate.toISOString() }
             ), callback ? callback : receiveRecords);
     } else {
         messageUtils.invalidParamFailure();
