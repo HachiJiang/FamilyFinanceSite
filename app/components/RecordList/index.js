@@ -15,7 +15,7 @@ import messages from './messages';
 import { getTotals } from './selectors';
 
 const RecordList = ({ range, records, deleteRecord, schema, createEditor, onDateRangeChange }) => (
-    <div className="record-list-container">
+    <div className="record-list-container section-panel">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
             <SummaryBar

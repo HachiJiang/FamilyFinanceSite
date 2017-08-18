@@ -78,9 +78,6 @@ export const RECORD_UPDATE = _.template(`${HOST}/records/<%= rid %>`);
 export const RECORD_DELETE = RECORD_UPDATE;
 
 /**
- * Aggregated data
+ * Aggregated data based on amount
  */
-// get outcome by date, response organized by day, should use ISO dates
-export const OUTCOME_GET_BY_DATE = _.template(`${HOST}/amount/aggregate_by_day/<%= type %>/<%= fDate %>/<%= tDate %>`);
-// get outcome by date, response organized by category
-export const OUTCOME_GET_BY_CATEGORY = _.template(`${HOST}/amount/aggregate_by_cat/<%= type %>/<%= fDate %>/<%= tDate %>`);
+export const AGGREGATION_BY_DATE = _.template(`${HOST}/aggregation/<%= type %>/<%= groupId %>/<%= fDate %>/<%= tDate %>`);

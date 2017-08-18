@@ -59,7 +59,7 @@ class AccountKpiPanel extends Component {
         const totals = getTotalBalance(accounts);
 
         return (
-            <Row className="account-kpi" type="flex" justify="space-around" align="middle">
+            <Row className="account-kpi section-panel" type="flex" justify="space-around" align="middle">
                 <Col span={7}>
                     <h1 style={ { fontSize: "2em" } }>总资产</h1>
                     <h1 className="kpi-value" style={ { fontSize: "3em" } }>{ totals }</h1>

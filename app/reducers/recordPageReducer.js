@@ -116,12 +116,10 @@ function recordPageReducer(state = initialState, action = {}) {
             return updateRecord(state, action.record);
 
         case RecordActionTypes.RECEIVE_RECORDS:
-            if (!action.data) return state;
-
-            return {
+            return action.data ? {
                 filter,
                 list: receiveRecords(filter, action.data)
-            };
+            } : state;
 
         case RecordPageActionTypes.CHANGE_DATERANGE:
             const { fDate, tDate } = action;

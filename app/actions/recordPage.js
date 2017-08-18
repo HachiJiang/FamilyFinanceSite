@@ -27,18 +27,16 @@ export const fetchSchema = dispatch => {
  * @param dispatch
  * @param range
  */
-export const fetchRecords = (dispatch, { fDate, tDate }) => dispatch(RecordActionCreators.fetchRecords(fDate, tDate));
+export const fetchRecords = (dispatch, range = {}) => dispatch(RecordActionCreators.fetchRecords(range.fDate, range.tDate));
 
 /**
  * Change date range of record page, need re-fetch records from server
- * @param dispatch
  * @param {String} fDate
  * @param {String} tDate
  */
-export const changeDateRange = (dispatch, fDate, tDate) =>
-    dispatch(RecordActionCreators.fetchRecords(fDate, tDate, data => ({
-        type: RecordPageActionTypes.CHANGE_DATERANGE,
-        fDate,
-        tDate,
-        data
-    })));
+export const changeDateRange = (fDate, tDate) => RecordActionCreators.fetchRecords(fDate, tDate, data => ({
+    type: RecordPageActionTypes.CHANGE_DATERANGE,
+    fDate,
+    tDate,
+    data
+}));

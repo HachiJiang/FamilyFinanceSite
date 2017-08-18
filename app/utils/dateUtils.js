@@ -4,13 +4,14 @@ import moment from 'moment';
 import { CONSUME_DATE_FORMAT } from '../constants/Config';
 
 /**
- * Get date range of current month
+ * Get date range of specific month
  * @returns {{fDate: string, tDate: string}}
  */
-export const getDateRangeOfCurrentMonth = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth();
+const getDateRange = (year, month) => {
+    if (!year || !month) {
+        return;
+    }
+
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
 
@@ -19,3 +20,19 @@ export const getDateRangeOfCurrentMonth = () => {
         tDate: moment(lastDay, CONSUME_DATE_FORMAT)
     }
 };
+
+/**
+ * Get date range of current month
+ * @returns {{fDate: string, tDate: string}}
+ */
+const getDateRangeOfCurrentMonth = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    return getDateRange(year, month);
+};
+
+export {
+    getDateRange,
+    getDateRangeOfCurrentMonth
+}

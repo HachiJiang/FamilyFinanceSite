@@ -216,7 +216,7 @@ class RecordEditor extends Component {
         const controls = this.getControls(activeIndex);
 
         return (
-            <div className="record-editor">
+            <div className="record-editor section-panel">
                 <Tabs activeIndex={ activeIndex } onSwitch={ activeIndex => this.setState(getDefaultRecord(this.props.schema, idxToType(activeIndex))) } >
                     {
                         TABS.map((tab, i) => (

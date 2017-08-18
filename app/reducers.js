@@ -11,8 +11,8 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import languageProviderReducer from './containers/LanguageProvider/reducer';
 import schemaReducer from './reducers/schema/index';
-import recordPageReducer from './reducers/recordPageReducer';
 import summaryPageReducer from './reducers/summaryPageReducer';
+import recordPageReducer from './reducers/recordPageReducer';
 
 /*
  * routeReducer
@@ -49,8 +49,8 @@ export default function createReducer(asyncReducers) {
     return combineReducers({
         route: routeReducer,
         schema: schemaReducer,
-        recordPage: recordPageReducer,
         summaryPage: summaryPageReducer,
+        recordPage: recordPageReducer,
         language: languageProviderReducer,
         ...asyncReducers
     });

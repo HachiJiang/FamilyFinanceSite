@@ -57,7 +57,7 @@ class CategoryPanel extends Component {
         const { categories, addCategory, deleteCategory, updateCategory, getExtraInfo } = this.props;
 
         return (
-            <div className='category-panel'>
+            <div className='category-panel section-panel'>
                 <AddItemPopup onConfirm={ value => addCategory(value) }>
                     <Button style={{ marginLeft: 20, marginBottom: 16 }} onClick={ e => e.stopPropagation() }>ADD</Button>
                 </AddItemPopup>

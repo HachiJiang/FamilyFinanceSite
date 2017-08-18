@@ -123,12 +123,13 @@ const idStrToName = (idStr, categories) => {
  * @param {Object} schema
  * @returns {Object}
  */
-const parseRecord = (record, { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors }) => {
+const parseRecord = (record, schema) => {
     if (!record) {
         console.log('invalid record');
         return;
     }
 
+    const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } = schema;
     const consumeDate = moment.utc(record.consumeDate).local(); // convert to client time
     let result = {
         ...record,

@@ -48,6 +48,7 @@ class RecordPage extends Component {
         const addRecord = bindActionCreators(RecordActionCreators.addRecord, dispatch);                     // Add record
         const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
         const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
+        const changeDateRange = bindActionCreators(RecordPageActionCreators.changeDateRange, dispatch);     // Change data range
 
         const createEditor = record => (
             <RecordEditor
@@ -73,7 +74,7 @@ class RecordPage extends Component {
                     schema={ schema }
                     deleteRecord={ deleteRecord }
                     createEditor={ createEditor }
-                    onDateRangeChange={ (fDate, tDate) => RecordPageActionCreators.changeDateRange(dispatch, fDate, tDate) }
+                    onDateRangeChange={ (fDate, tDate) => changeDateRange(fDate, tDate) }
                 />
             </div>
         );
@@ -101,7 +102,7 @@ return {
         accountCategories: getAccountCategories(state),
         projectCategories: getProjectCategories(state),
         members: getMembers(state),
-        debtors: getDebtors(state),
+        debtors: getDebtors(state)
     },
     records: getRecordList(state),
     range: getRange(state)
