@@ -32,7 +32,9 @@ const getKpiInfo = state => {
  * Get outcome info
  * @param {Object} state
  */
-const getOutcomeInfo = state => state.get('summaryPage').outcome;
+const getOutcomeInfo = state => {
+    return state.get('summaryPage').outcome;
+}
 
 export {
     getKpiInfo,

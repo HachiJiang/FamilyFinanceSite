@@ -6,7 +6,7 @@
  *
  */
 
-import * as SummaryPageActionTypes from '../actions/summaryPage';
+import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
 import { fetchAggregationAmount } from './aggregation';
 
 /**
