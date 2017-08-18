@@ -6,9 +6,8 @@
  *
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import BaseEchart from './BaseEchart';
-import 'echarts/lib/chart/line';
 
 class Line extends BaseEchart {
     constructor(props) {

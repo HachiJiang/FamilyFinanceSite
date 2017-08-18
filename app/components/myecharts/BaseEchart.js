@@ -7,9 +7,7 @@
  */
 import _ from 'lodash';
 import React, { PropTypes, Component } from 'react';
-import echarts from 'echarts/lib/echarts';
-import 'echarts/lib/component/tooltip';
-import 'echarts/lib/component/legend';
+import echarts from 'echarts';
 
 import { addEvent, removeEvent } from '../../utils/eventUtils';
 

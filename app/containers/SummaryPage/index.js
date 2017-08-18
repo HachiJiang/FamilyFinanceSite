@@ -13,6 +13,7 @@
 
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import KPIPanel from './TotalKPIPanel';
 import OutcomeKpiPanel from './OutcomeKpiPanel';
@@ -30,20 +31,24 @@ import { OUTCOME } from '../../constants/EnumRecordType';
 class SummaryPage extends Component {
 
     componentDidMount() {
-        const { dispatch, outcomeInfo: { year, month } } = this.props;
-        const { fDate, tDate } = getDateRange(year, month);
+        const { dispatch, outcomeInfo: { dateStr } } = this.props;
+        const { fDate, tDate } = getDateRange(dateStr);
         CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
         DebtorActionCreators.fetchDebtors(dispatch);               // 请求debtor信息
         SummaryPageActionCreators.fetchOutcomeInfo(dispatch, OUTCOME, 'consumeDate', fDate, tDate);
     }
 
     render() {
-        const { kpiInfo, outcomeInfo = {} } = this.props;
+        const { dispatch, kpiInfo, outcomeInfo = {} } = this.props;
+        const changeMonth = bindActionCreators(SummaryPageActionCreators.changeMonth, dispatch);
 
         return (
             <div className='summary-page'>
                 <KPIPanel data={ kpiInfo } />
-                <OutcomeKpiPanel data={ outcomeInfo } />
+                <OutcomeKpiPanel
+                    data={ outcomeInfo }
+                    onMonthChange={ changeMonth }
+                />
                 <div>按年的总支出/总收入/净收益曲线</div>
             </div>
         );

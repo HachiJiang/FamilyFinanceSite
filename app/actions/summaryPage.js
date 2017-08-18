@@ -10,7 +10,16 @@ import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
 import { fetchAggregationAmount } from './aggregation';
 
 /**
- * Get actions for outcome info received
+ * Get action
+ * @param {String} dateStr
+ */
+const changeMonth = dateStr => ({
+    type: SummaryPageActionTypes.CHANGE_MONTH,
+    dateStr
+});
+
+/**
+ * Get action for outcome info received
  * @param {Array} data
  */
 const receiveOutcomeInfo = data => ({
@@ -31,5 +40,6 @@ const fetchOutcomeInfo = (dispatch, type, groupId, fDate, tDate) => {
 };
 
 export {
+    changeMonth,
     fetchOutcomeInfo
 }

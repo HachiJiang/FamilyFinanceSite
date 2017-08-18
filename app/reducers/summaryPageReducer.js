@@ -7,11 +7,11 @@
  */
 import moment from 'moment';
 import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
+import { MONTH_FORMAT } from '../constants/Config';
 
 const initialState = {
     outcome: {
-        year: moment().year(),  // current month by default
-        month: moment().month(),
+        dateStr: moment().format(MONTH_FORMAT),
         amountByDay: [],
         amountByCat: []
     }
