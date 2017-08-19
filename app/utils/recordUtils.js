@@ -93,12 +93,12 @@ const getCategoryVal = (catId, itemId) => {
 };
 
 /**
- * Get category name
- * @param {string} idStr
- * @param {Array} categories
- * @returns {string}
+ * Get categories names [catName, subCate]
+ * @param idStr
+ * @param categories
+ * @returns {Array}
  */
-const idStrToName = (idStr, categories) => {
+const idStrToNames = (idStr, categories) => {
     if (!idStr || !_.isArray(categories)) {
         return;
     }
@@ -109,11 +109,24 @@ const idStrToName = (idStr, categories) => {
     if (!cat) {
         return;
     }
-    
+
     const target = (idArr.length > 1 && _.isArray(cat.items)) ? _.find(cat.items, item => item._id === idArr[1]) : cat;
 
     if (target) {
-        return target.name;
+        return [cat.name, target.name];
+    }
+};
+
+/**
+ * Get category name
+ * @param {string} idStr
+ * @param {Array} categories
+ * @returns {string}
+ */
+const idStrToName = (idStr, categories) => {
+    const names = idStrToNames(idStr, categories);
+    if (names) {
+        return names[1];
     }
 };
 
@@ -177,6 +190,7 @@ export {
     getPropKeysByType,
     validateRecord,
     getCategoryVal,
+    idStrToNames,
     idStrToName,
     parseRecord
 }

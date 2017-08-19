@@ -33,16 +33,37 @@ const updateOutcome = (oldState, amountByDay, dateStr) => {
 };
 
 function summaryPageReducer(state = initialState, action = {}) {
-    switch (action.type) {
-        case SummaryPageActionTypes.OUTCOME_CHANGE_MONTH:
+    const { outcome } = state;
 
-            return state;
+    switch (action.type) {
+        case SummaryPageActionTypes.CHANGE_MONTH:
+            return {
+                ...state,
+                outcome: {
+                    ...outcome,
+                    dateStr: action.dateStr
+                }
+            };
 
         case SummaryPageActionTypes.OUTCOME_BY_DAY_RECEIVED:
-            return updateOutcome(state, action.amountByDay, action.dateStr);
+            return {
+                ...state,
+                outcome: {
+                    ...outcome,
+                    dateStr: action.dateStr,
+                    amountByDay: action.amountByDay
+                }
+            };
 
         case SummaryPageActionTypes.OUTCOME_BY_CAT_RECEIVED:
-            return state;
+            return {
+                ...state,
+                outcome: {
+                    ...outcome,
+                    dateStr: action.dateStr,
+                    amountByCat: action.amountByCat
+                }
+            };
 
         default:
             return state;

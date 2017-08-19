@@ -7,11 +7,12 @@
  */
 import _ from 'lodash';
 import moment from 'moment';
-import { getAccountCategories, getDebtors } from '../App/selectors';
+import { getAccountCategories, getDebtors, getOutcomeCategories } from '../App/selectors';
 import { getTotalBalance } from '../../utils/accountUtils';
 import { getFirstLastDayOfMonth } from '../../utils/dateUtils';
+import { idStrToNames } from '../../utils/recordUtils';
 import { getLoanees, getLoaners, getTotalDebt, getTotalLoan } from '../../utils/debtorUtils';
-import { MONTH_FORMAT } from '../../constants/Config';
+import { MONTH_FORMAT, ID_SEPARATOR } from '../../constants/Config';
 
 /**
  * Get KPI info
@@ -31,6 +32,12 @@ const getKpiInfo = state => {
     };
 };
 
+/**
+ * Fill amount for each day
+ * @param {String} dateStr
+ * @param {Array} raw
+ * @returns {Array}
+ */
 const fillAmountInWholeMonth = (dateStr, raw) => {
     const date = moment(dateStr, MONTH_FORMAT);
     const range = getFirstLastDayOfMonth(date.year(), date.month());
@@ -51,16 +58,56 @@ const fillAmountInWholeMonth = (dateStr, raw) => {
 };
 
 /**
+ * Get amountBySubcat
+ * @param {Array} raw
+ * @param {Array}categories
+ * @returns {Array}
+ */
+const getAmountBySubcat = (raw, categories) => _.map(raw, item => {
+    const { amount } = item;
+    const names = idStrToNames(item._id, categories);
+
+    return {
+        cat: names[0],
+        name: names[1],
+        value: amount
+    };
+});
+
+/**
+ * Get amountByCat
+ * @param {Array} amountBySubcat
+ * @returns {Array}
+ */
+const getAmountByCat = amountBySubcat => {
+    let result = {};
+    _.forEach(amountBySubcat, item => {
+        const { cat, value } = item;
+        if (!result[cat]) {
+            result[cat] = {
+                name: item.name,
+                value
+            };
+        } else {
+            result[cat].value += value;
+        }
+    });
+    return _.toArray(result);
+};
+
+/**
  * Get outcome info
  * @param {Object} state
  */
 const getOutcomeInfo = state => {
     const outcome = state.get('summaryPage').outcome;
     const { dateStr } = outcome;
+    const amountBySubcat = getAmountBySubcat(outcome.amountByCat, getOutcomeCategories(state));
     return {
         dateStr,
         amountByDay: fillAmountInWholeMonth(dateStr, outcome.amountByDay),
-        amountByCat: outcome.amountByCat
+        amountByCat: getAmountByCat(amountBySubcat),
+        amountBySubcat: amountBySubcat
     };
 };
 

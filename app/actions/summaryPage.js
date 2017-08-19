@@ -13,12 +13,22 @@ import { OUTCOME } from '../constants/EnumRecordType.js';
 import { MONTH_FORMAT } from '../constants/Config';
 
 /**
- * Get action for outcome info received
+ * Get action for amountByDay received
  * @param {Array} amountByDay
  */
-const receiveOutcomeInfo = (amountByDay, dateStr) => ({
+const receiveAmountByDay = (amountByDay, dateStr) => ({
     type: SummaryPageActionTypes.OUTCOME_BY_DAY_RECEIVED,
     amountByDay,
+    dateStr
+});
+
+/**
+ * Get action for amountByCat received
+ * @param {Array} amountByCat
+ */
+const receiveAmountByCat = (amountByCat, dateStr) => ({
+    type: SummaryPageActionTypes.OUTCOME_BY_CAT_RECEIVED,
+    amountByCat,
     dateStr
 });
 
@@ -33,9 +43,15 @@ const fetchOutcomeInfo = (dispatch, dateStr) => {
 
     dispatch(
         fetchAggregationAmount(OUTCOME, 'consumeDate', fDate, tDate,
-                amountByDay => receiveOutcomeInfo(amountByDay, dateStr)
+                amountByDay => receiveAmountByDay(amountByDay, dateStr)
         )
-    ); // @TODO: add cat
+    );
+
+    dispatch(
+        fetchAggregationAmount(OUTCOME, 'category', fDate, tDate,
+                amountByCat => receiveAmountByCat(amountByCat, dateStr)
+        )
+    );
 };
 
 export {

@@ -19,6 +19,7 @@ import OutcomeKpiPanel from './OutcomeKpiPanel';
 
 // Actions
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
+import * as CategoryOutcomeActionCreators from '../../actions/schema/outcome';
 import * as DebtorActionCreators from '../../actions/schema/debtor';
 import * as SummaryPageActionCreators from '../../actions/summaryPage';
 
@@ -29,6 +30,7 @@ class SummaryPage extends Component {
     componentDidMount() {
         const { dispatch, outcomeInfo: { dateStr } } = this.props;
         CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
+        CategoryOutcomeActionCreators.fetchCategories(dispatch);   // 请求支出类别信息
         DebtorActionCreators.fetchDebtors(dispatch);               // 请求debtor信息
         SummaryPageActionCreators.fetchOutcomeInfo(dispatch, dateStr);
     }
