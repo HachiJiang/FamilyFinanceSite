@@ -5,41 +5,39 @@
  * Actions for SummaryPage
  *
  */
-
+import moment from 'moment';
 import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
 import { fetchAggregationAmount } from './aggregation';
-
-/**
- * Get action
- * @param {String} dateStr
- */
-const changeMonth = dateStr => ({
-    type: SummaryPageActionTypes.CHANGE_MONTH,
-    dateStr
-});
+import { getDateRangeOfMonth } from '../utils/dateUtils';
+import { OUTCOME } from '../constants/EnumRecordType.js';
+import { MONTH_FORMAT } from '../constants/Config';
 
 /**
  * Get action for outcome info received
- * @param {Array} data
+ * @param {Array} amountByDay
  */
-const receiveOutcomeInfo = data => ({
+const receiveOutcomeInfo = (amountByDay, dateStr) => ({
     type: SummaryPageActionTypes.OUTCOME_BY_DAY_RECEIVED,
-    data
+    amountByDay,
+    dateStr
 });
 
 /**
  * Fetch outcome info
  * @param {Object} dispatch
- * @param {String} type: record type
- * @param {String} groupId: amount will be grouped by this id
- * @param {String} fDate
- * @param {String} tDate
+ * @param {String} dateStr
  */
-const fetchOutcomeInfo = (dispatch, type, groupId, fDate, tDate) => {
-    dispatch(fetchAggregationAmount(type, groupId, fDate, tDate, receiveOutcomeInfo)); // @TODO: add cat
+const fetchOutcomeInfo = (dispatch, dateStr) => {
+    const date = moment(dateStr, MONTH_FORMAT);
+    const { fDate, tDate } = getDateRangeOfMonth(date.year(), date.month());
+
+    dispatch(
+        fetchAggregationAmount(OUTCOME, 'consumeDate', fDate, tDate,
+                amountByDay => receiveOutcomeInfo(amountByDay, dateStr)
+        )
+    ); // @TODO: add cat
 };
 
 export {
-    changeMonth,
     fetchOutcomeInfo
 }

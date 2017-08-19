@@ -23,7 +23,6 @@ const { MonthPicker } = DatePicker;
  * @returns {Object}
  */
 const getOptionsForAmountByDay = amountByDay => {
-    const outcomeData = _.map(amountByDay, item => _.toNumber(item.amount.toFixed()));
     return {
         title: {
             text: '支出曲线'
@@ -34,17 +33,19 @@ const getOptionsForAmountByDay = amountByDay => {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: _.map(amountByDay, item => moment(item._id).local().format('DD')) // @TODO: parse date
+            data: _.map(amountByDay, (item, index) => index + 1) // @TODO: parse date
         },
         series: [{
             name: '每日实际支出',
             type: 'line',
-            data: outcomeData,
+            data: amountByDay,
             markPoint: {
                 data: [
                     { type: 'min', name: '最小值' },
                     { type: 'max', name: '最大值' }
-                ]
+                ],
+                symbol: 'roundRect',
+                symbolSize: [50, 30]
             },
             markLine: {
                 data: [
@@ -54,28 +55,30 @@ const getOptionsForAmountByDay = amountByDay => {
         }, {
             name: '日均支出变化',
             type: 'line',
-            data: getMovingAvg(outcomeData)
+            data: getMovingAvg(amountByDay)
         }]
     };
 };
 
-const OutcomeKpiPanel = ({ data: { dateStr = '', amountByDay = [], amountByCat = [] }, onMonthChange}) => (
+const OutcomeKpiPanel = ({ data: { dateStr = '', amountByDay = [], amountByCat = [] }, onMonthChange = ''}) => (
     <div className='outcome-kpi-panel section-panel'>
-        <div>
+        <div className='outcome-kpi-panel-header'>
+            <span>月份: </span>
             <MonthPicker
                 placeholder="Select month"
                 value={ moment(dateStr, MONTH_FORMAT) }
-                onChange={ onMonthChange }
+                onChange={ val => onMonthChange(val.format(MONTH_FORMAT)) }
             />
         </div>
         <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDay(amountByDay) } />
         <div>按月的各类别支出饼图</div>
+        <div>按成员的支出饼图</div>
     </div>
 );
 
 OutcomeKpiPanel.propTypes = {
     data: PropTypes.shape({
-        dateStr: PropTypes.number.isRequired,
+        dateStr: PropTypes.string.isRequired,
         amountByDay: PropTypes.array,
         amountByCat: PropTypes.array
     }).isRequired,

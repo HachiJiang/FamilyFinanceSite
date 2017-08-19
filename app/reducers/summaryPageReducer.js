@@ -17,17 +17,17 @@ const initialState = {
     }
 };
 
-const updateOutcome = (oldState, data) => {
-    if (!data) {
+const updateOutcome = (oldState, amountByDay, dateStr) => {
+    if (!amountByDay) {
         return oldState;
     }
 
-    const { outcome } = oldState;
     return {
         ...oldState,
         outcome: {
-            ...outcome,
-            amountByDay: data
+            dateStr,
+            amountByDay,
+            amountByCat: oldState.outcome.amountByCat
         }
     };
 };
@@ -39,7 +39,7 @@ function summaryPageReducer(state = initialState, action = {}) {
             return state;
 
         case SummaryPageActionTypes.OUTCOME_BY_DAY_RECEIVED:
-            return updateOutcome(state, action.data);
+            return updateOutcome(state, action.amountByDay, action.dateStr);
 
         case SummaryPageActionTypes.OUTCOME_BY_CAT_RECEIVED:
             return state;

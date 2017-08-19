@@ -13,8 +13,7 @@ const getMovingAvg = arr => {
 
     _.forEach(arr, (val, index) => {
         sum += val;
-        result.push(_.toNumber((sum / (index + 1)).toFixed(2)))
-        console.log(result);
+        result.push(_.toNumber((sum / (index + 1)).toFixed(2)));
     });
 
     return result;
