@@ -1,6 +1,7 @@
 'use strict';
 
 import _ from 'lodash';
+import { DECIMAL_PRECISION } from '../constants/Config';
 
 /**
  * Get moving average of array
@@ -13,7 +14,7 @@ const getMovingAvg = arr => {
 
     _.forEach(arr, (val, index) => {
         sum += val;
-        result.push(_.toNumber((sum / (index + 1)).toFixed(2)));
+        result.push(_.toNumber((sum / (index + 1)).toFixed(DECIMAL_PRECISION)));
     });
 
     return result;

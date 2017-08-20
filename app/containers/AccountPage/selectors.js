@@ -8,6 +8,12 @@
 
 import _ from 'lodash';
 import { getAccountCategories } from '../App/selectors';
+import { DECIMAL_PRECISION } from '../../constants/Config';
+
+const HIDE_LABEL_OPTIONS = {
+    label: { normal: { show: false } },
+    labelLine: { normal: { show: false } }
+};
 
 /**
  * Get account categories with derived data
@@ -40,10 +46,14 @@ const getAllAccountNames = accounts => {
 const getCatDataForPie = accounts => {
     const data = _.map(accounts, cat => {
         if (cat) {
-            return {
+            const options = {
                 value: cat.balance,
                 name: cat.name
             };
+            if (options.value === 0) { // hide labels for account with 0 balance
+                _.assign(options, HIDE_LABEL_OPTIONS);
+            }
+            return options;
         }
     });
 
@@ -63,10 +73,16 @@ const getAccountDataForPie = accounts => {
     _.forEach(accounts, cat => {
         const items = cat && cat.items;
         if (items) {
-            data = _.concat(data, _.map(items, item => ({
-                value: item.balance.toFixed(2),
-                name: item.name
-            })));
+            data = _.concat(data, _.map(items, item => {
+                const options = {
+                    value: _.toNumber(item.balance.toFixed(DECIMAL_PRECISION)),
+                    name: item.name
+                };
+                if (options.value === 0) { // hide labels for account with 0 balance
+                    _.assign(options, HIDE_LABEL_OPTIONS);
+                }
+                return options;
+            }));
         }
     });
     return data;

@@ -34,7 +34,7 @@ const getAccountsWithBalance = accounts => _.map(accounts, cat => {
  * @param {Array} accounts
  * @returns {number}
  */
-const getTotalBalance = accounts => _.toNumber(_.sumBy(accounts, cat => _.toNumber(cat.balance)).toFixed(2));
+const getTotalBalance = accounts => _.toNumber(_.sumBy(accounts, cat => _.toNumber(cat.balance)).toFixed(DECIMAL_PRECISION));
 
 export {
     getAccountsWithBalance,

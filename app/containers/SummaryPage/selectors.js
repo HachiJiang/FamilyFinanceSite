@@ -7,12 +7,12 @@
  */
 import _ from 'lodash';
 import moment from 'moment';
-import { getAccountCategories, getDebtors, getOutcomeCategories } from '../App/selectors';
+import { getAccountCategories, getDebtors, getOutcomeCategories, getMembers } from '../App/selectors';
 import { getTotalBalance } from '../../utils/accountUtils';
 import { getFirstLastDayOfMonth } from '../../utils/dateUtils';
-import { idStrToNames } from '../../utils/recordUtils';
+import { idStrToNames, idStrToName } from '../../utils/recordUtils';
 import { getLoanees, getLoaners, getTotalDebt, getTotalLoan } from '../../utils/debtorUtils';
-import { MONTH_FORMAT, ID_SEPARATOR } from '../../constants/Config';
+import { MONTH_FORMAT, ID_SEPARATOR, DECIMAL_PRECISION } from '../../constants/Config';
 
 /**
  * Get KPI info
@@ -52,7 +52,7 @@ const fillAmountInWholeMonth = (dateStr, raw) => {
 
     _.forEach(raw, item => {
         const day = moment(item._id).local().format('DD');
-        result[_.toNumber(day) - 1] = _.toNumber(item.amount.toFixed(2));
+        result[_.toNumber(day) - 1] = _.toNumber(item.amount.toFixed(DECIMAL_PRECISION));
     });
     return result;
 };
@@ -63,16 +63,20 @@ const fillAmountInWholeMonth = (dateStr, raw) => {
  * @param {Array}categories
  * @returns {Array}
  */
-const getAmountBySubcat = (raw, categories) => _.map(raw, item => {
-    const { amount } = item;
-    const names = idStrToNames(item._id, categories);
+const parseAmountBySubcat = (raw, categories = []) =>
+    categories.length > 0 ?  _.map(raw, item => {
+        const { amount } = item;
+        const names = idStrToNames(item._id, categories);
+        if (!_.isArray(names) || names.length < 1) {
+            return;
+        }
 
-    return {
-        cat: names[0],
-        name: names[1],
-        value: amount
-    };
-});
+        return {
+            cat: names[1],
+            name: names[0],
+            value: amount
+        };
+    }) : [];
 
 /**
  * Get amountByCat
@@ -92,8 +96,29 @@ const getAmountByCat = amountBySubcat => {
             result[cat].value += value;
         }
     });
-    return _.toArray(result);
+
+    return _.map(result, ({ name, value }) => ({
+        name,
+        value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
+    }));
 };
+
+/**
+ * Parse amountByMembers
+ * @param {Array} raw
+ * @param {Array} members
+ * @returns {Array}
+ */
+const parseAmountByMembers = (raw, members = []) =>
+    members.length > 0 ? _.map(raw, item => {
+        const { amount } = item;
+        const name = idStrToName(item._id, members);
+
+        return {
+            name: name,
+            value: amount
+        };
+    }) : [];
 
 /**
  * Get outcome info
@@ -101,13 +126,14 @@ const getAmountByCat = amountBySubcat => {
  */
 const getOutcomeInfo = state => {
     const outcome = state.get('summaryPage').outcome;
-    const { dateStr } = outcome;
-    const amountBySubcat = getAmountBySubcat(outcome.amountByCat, getOutcomeCategories(state));
+    const { dateStr, amountByMember } = outcome;
+    const amountBySubcat = parseAmountBySubcat(outcome.amountByCat, getOutcomeCategories(state));
     return {
         dateStr,
         amountByDay: fillAmountInWholeMonth(dateStr, outcome.amountByDay),
         amountByCat: getAmountByCat(amountBySubcat),
-        amountBySubcat: amountBySubcat
+        amountBySubcat: amountBySubcat,
+        amountByMember: parseAmountByMembers(amountByMember, getMembers(state))
     };
 };
 

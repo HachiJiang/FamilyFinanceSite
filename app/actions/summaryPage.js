@@ -12,24 +12,36 @@ import { getDateRangeOfMonth } from '../utils/dateUtils';
 import { OUTCOME } from '../constants/EnumRecordType.js';
 import { MONTH_FORMAT } from '../constants/Config';
 
+const changeMonth = dateStr => ({
+    type: SummaryPageActionTypes.CHANGE_MONTH,
+    dateStr
+});
+
 /**
  * Get action for amountByDay received
  * @param {Array} amountByDay
  */
-const receiveAmountByDay = (amountByDay, dateStr) => ({
+const receiveAmountByDay = amountByDay => ({
     type: SummaryPageActionTypes.OUTCOME_BY_DAY_RECEIVED,
-    amountByDay,
-    dateStr
+    amountByDay
 });
 
 /**
  * Get action for amountByCat received
  * @param {Array} amountByCat
  */
-const receiveAmountByCat = (amountByCat, dateStr) => ({
+const receiveAmountByCat = amountByCat => ({
     type: SummaryPageActionTypes.OUTCOME_BY_CAT_RECEIVED,
-    amountByCat,
-    dateStr
+    amountByCat
+});
+
+/**
+ * Get action for amountByCat received
+ * @param {Array} amountByMember
+ */
+const receiveAmountByMember = amountByMember => ({
+    type: SummaryPageActionTypes.OUTCOME_BY_MEMBER_RECEIVED,
+    amountByMember
 });
 
 /**
@@ -41,16 +53,18 @@ const fetchOutcomeInfo = (dispatch, dateStr) => {
     const date = moment(dateStr, MONTH_FORMAT);
     const { fDate, tDate } = getDateRangeOfMonth(date.year(), date.month());
 
+    dispatch(changeMonth(dateStr));
+
     dispatch(
-        fetchAggregationAmount(OUTCOME, 'consumeDate', fDate, tDate,
-                amountByDay => receiveAmountByDay(amountByDay, dateStr)
-        )
+        fetchAggregationAmount(OUTCOME, 'consumeDate', fDate, tDate, receiveAmountByDay)
     );
 
     dispatch(
-        fetchAggregationAmount(OUTCOME, 'category', fDate, tDate,
-                amountByCat => receiveAmountByCat(amountByCat, dateStr)
-        )
+        fetchAggregationAmount(OUTCOME, 'category', fDate, tDate, receiveAmountByCat)
+    );
+
+    dispatch(
+        fetchAggregationAmount(OUTCOME, 'member', fDate, tDate, receiveAmountByMember)
     );
 };
 

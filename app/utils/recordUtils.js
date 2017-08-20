@@ -96,7 +96,7 @@ const getCategoryVal = (catId, itemId) => {
  * Get categories names [catName, subCate]
  * @param idStr
  * @param categories
- * @returns {Array}
+ * @returns {Array|String}
  */
 const idStrToNames = (idStr, categories) => {
     if (!idStr || !_.isArray(categories)) {
@@ -110,10 +110,11 @@ const idStrToNames = (idStr, categories) => {
         return;
     }
 
-    const target = (idArr.length > 1 && _.isArray(cat.items)) ? _.find(cat.items, item => item._id === idArr[1]) : cat;
-
-    if (target) {
-        return [cat.name, target.name];
+    if (idArr.length > 1 && _.isArray(cat.items)) {
+        const target = _.find(cat.items, item => item._id === idArr[1]);
+        return [target.name, cat.name]
+    } else {
+        return [cat.name];
     }
 };
 
@@ -123,11 +124,9 @@ const idStrToNames = (idStr, categories) => {
  * @param {Array} categories
  * @returns {string}
  */
-const idStrToName = (idStr, categories) => {
+const idStrToName = (idStr = '', categories = []) => {
     const names = idStrToNames(idStr, categories);
-    if (names) {
-        return names[1];
-    }
+    return _.isArray(names) ? names[0] : '';
 };
 
 /**

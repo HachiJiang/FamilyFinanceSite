@@ -26,7 +26,7 @@ const getPieChartOptions = accounts => {
         legend: {
             orient: 'vertical',
             x: 'left',
-            data: _.map(accountData, account => account.name)
+            data: _.map(accountData, account => account.value !== 0 ? account.name : undefined)
         },
         series: [{
             name, type,

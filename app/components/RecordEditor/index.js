@@ -21,13 +21,14 @@ import TABS from './tabConfig';
 import { getDefaultRecord } from './selectors';
 
 import { getPropKeysByType, getCategoryVal, validateRecord } from '../../utils/recordUtils';
-import { CONSUME_DATE_FORMAT } from '../../constants/Config';
+import { CONSUME_DATE_FORMAT, DECIMAL_PRECISION } from '../../constants/Config';
 
 // 共 10 项设置: 支出分类, 收入分类, 转出账户, 转入账户, 金额, 成员, 债权人, 日期, 项目, 备注
 
 /**
  * Get initial state
  * @param {Object} record
+ * @param {Object} oldState
  * @returns {Object}
  */
 function getInitialState(record = {}, oldState = {}) {
@@ -190,7 +191,7 @@ class RecordEditor extends Component {
                     value= { amount }
                     min={ 0 }
                     onChange={ value => this.setState({ amount: value }) }
-                    precision={ 2 }
+                    precision={ DECIMAL_PRECISION }
                 >
                 </InputNumber>
             </BaseInput>,

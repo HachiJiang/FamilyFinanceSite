@@ -13,23 +13,9 @@ const initialState = {
     outcome: {
         dateStr: moment().format(MONTH_FORMAT),
         amountByDay: [],
-        amountByCat: []
+        amountByCat: [],
+        amountByMember: []
     }
-};
-
-const updateOutcome = (oldState, amountByDay, dateStr) => {
-    if (!amountByDay) {
-        return oldState;
-    }
-
-    return {
-        ...oldState,
-        outcome: {
-            dateStr,
-            amountByDay,
-            amountByCat: oldState.outcome.amountByCat
-        }
-    };
 };
 
 function summaryPageReducer(state = initialState, action = {}) {
@@ -50,7 +36,6 @@ function summaryPageReducer(state = initialState, action = {}) {
                 ...state,
                 outcome: {
                     ...outcome,
-                    dateStr: action.dateStr,
                     amountByDay: action.amountByDay
                 }
             };
@@ -60,8 +45,17 @@ function summaryPageReducer(state = initialState, action = {}) {
                 ...state,
                 outcome: {
                     ...outcome,
-                    dateStr: action.dateStr,
                     amountByCat: action.amountByCat
+                }
+            };
+
+
+        case SummaryPageActionTypes.OUTCOME_BY_MEMBER_RECEIVED:
+            return {
+                ...state,
+                outcome: {
+                    ...outcome,
+                    amountByMember: action.amountByMember
                 }
             };
 

@@ -20,6 +20,7 @@ import OutcomeKpiPanel from './OutcomeKpiPanel';
 // Actions
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
 import * as CategoryOutcomeActionCreators from '../../actions/schema/outcome';
+import * as MemberActionCreators from '../../actions/schema/member';
 import * as DebtorActionCreators from '../../actions/schema/debtor';
 import * as SummaryPageActionCreators from '../../actions/summaryPage';
 
@@ -32,6 +33,7 @@ class SummaryPage extends Component {
         CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
         CategoryOutcomeActionCreators.fetchCategories(dispatch);   // 请求支出类别信息
         DebtorActionCreators.fetchDebtors(dispatch);               // 请求debtor信息
+        MemberActionCreators.fetchMembers(dispatch);               // 请求Member信息
         SummaryPageActionCreators.fetchOutcomeInfo(dispatch, dateStr);
     }
 
