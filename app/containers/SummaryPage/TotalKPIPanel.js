@@ -41,7 +41,7 @@ const getOptionsForDebt = items => {
 };
 
 const KPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [] } }) => (
-    <div className='kpi-panel section-panel'>
+    <div className='section-panel'>
         <Row type="flex" justify="space-around" align="middle">
             <Col span={8}>
                 <h2>总资产: <span className="kpi-value">{ totalBalance }</span></h2>
@@ -63,7 +63,7 @@ const KPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [] } }) =>
         </Row>
         <div className="redirect-link">
             <Icon type="arrow-right" />
-            <a href="/accounts"> 管理账户</a>
+            <a href="/accounts"> 账户管理</a>
         </div>
     </div>
 );

@@ -13,6 +13,7 @@ import * as messageUtils from '../../utils/messageUtils';
 
 /**
  * Add record
+ * @TODO: validation部分在RecordEditor实现, 如有其它编辑入口, 请将validation移至此处
  * @param {Object} record
  * @returns {{type: ADD_RECORD, record: Object}}
  */
@@ -33,6 +34,7 @@ export const deleteRecord = rid => request.del(API.RECORD_DELETE({ rid }), ({ _i
 
 /**
  * Update record of specific id
+ * @TODO: validation部分在RecordEditor实现, 如有其它编辑入口, 请将validation移至此处
  * @param {String} rid
  * @param {Object} record
  * @returns {{type: UPDATE_RECORD, id: *, record: *}}

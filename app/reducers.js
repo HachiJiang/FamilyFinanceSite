@@ -13,6 +13,7 @@ import languageProviderReducer from './containers/LanguageProvider/reducer';
 import schemaReducer from './reducers/schema/index';
 import summaryPageReducer from './reducers/summaryPageReducer';
 import recordPageReducer from './reducers/recordPageReducer';
+import incomeStatsReducer from './reducers/incomeStatsReducer';
 
 /*
  * routeReducer
@@ -51,6 +52,7 @@ export default function createReducer(asyncReducers) {
         schema: schemaReducer,
         summaryPage: summaryPageReducer,
         recordPage: recordPageReducer,
+        incomeStatsPage: incomeStatsReducer,
         language: languageProviderReducer,
         ...asyncReducers
     });

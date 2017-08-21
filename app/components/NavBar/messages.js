@@ -14,9 +14,13 @@ export default defineMessages({
         id: 'boilerplate.components.NavBar.records',
         defaultMessage: '记账'
     },
-    salaries: {
-        id: 'boilerplate.components.NavBar.salaries',
-        defaultMessage: '职业收入'
+    incomeStats: {
+        id: 'boilerplate.components.NavBar.incomeStats',
+        defaultMessage: '收入统计'
+    },
+    outcomeStats: {
+        id: 'boilerplate.components.NavBar.outcomeStats',
+        defaultMessage: '支出统计'
     },
     budgets: {
         id: 'boilerplate.components.NavBar.budgets',
@@ -24,7 +28,7 @@ export default defineMessages({
     },
     dashboards: {
         id: 'boilerplate.components.NavBar.dashboards',
-        defaultMessage: '报表'
+        defaultMessage: '我的报表库 (依赖dashbord editor)'
     },
     accounts: {
         id: 'boilerplate.components.NavBar.accounts',

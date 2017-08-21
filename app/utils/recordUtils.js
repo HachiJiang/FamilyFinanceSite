@@ -5,7 +5,7 @@ import moment from 'moment';
 import { ID_SEPARATOR } from '../constants/Config';
 import * as EnumRecordType from '../constants/EnumRecordType';
 
-const OPTIONAL_PARAMS = ['_id', 'tips', 'location', 'createdAt', 'updatedAt'];
+const OPTIONAL_PARAMS = ['_id', 'tips', 'location', 'createdAt', 'updatedAt', 'bonusPreTax'];
 
 /**
  * Get name corresponding to specific record type
@@ -45,7 +45,7 @@ const getPropKeysByType = type => {
         default:
             return keys.concat(['category', 'accountFrom']);
         case EnumRecordType.INCOME:
-            return keys.concat(['category', 'accountTo']);
+            return keys.concat(['category', 'accountTo', 'amountPreTax', 'bonusPreTax']);
         case EnumRecordType.TRANSFER:
             return keys.concat(['accountFrom', 'accountTo']);
         case EnumRecordType.BORROW:

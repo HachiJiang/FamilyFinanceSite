@@ -13,6 +13,7 @@ import Line from '../../components/myecharts/Line';
 import Pie from '../../components/myecharts/Pie';
 
 import { getMovingAvg } from '../../utils/arrUtils';
+import { getOptionsForAmountByCat, getOptionsForAmountByMember } from '../../utils/chartUtils';
 import { MONTH_FORMAT } from '../../constants/Config';
 
 const CHART_HEIGHT = '300px';
@@ -59,81 +60,9 @@ const getOptionsForAmountByDay = amountByDay => ({
     }]
 });
 
-/**
- * Get options for amountByCat
- * @param {Array} amountByCat
- * @returns {Object}
- */
-const getOptionsForAmountByCat = (amountByCat, amountBySubcat) => {
-    const name = '类别支出';
-    const type = 'pie';
-
-    return {
-        title: {
-            text: name,
-            subtext: '[后续支持显示各成员流水]'
-        },
-        series: [{
-            name,
-            type,
-            selectedMode: 'single',
-            radius: [0, '30%'],
-
-            label: {
-                normal: {
-                    position: 'inner'
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data: amountByCat
-        }, {
-            name, type,
-            radius: ['40%', '55%'],
-            data: amountBySubcat
-        }]
-    };
-};
-
-/**
- * Get options for amountByMember
- * @param {Array} amountByMember
- * @returns {Object}
- */
-const getOptionsForAmountByMember = (amountByMember) => {
-    const name = '成员支出';
-    const type = 'pie';
-
-    return {
-        title: {
-            text: name,
-            subtext: '[后续支持显示各成员流水]'
-        },
-        series: [{
-            name,
-            type,
-            radius: '55%',
-            center: ['50%', '55%'],
-            roseType: 'radius',
-            data: _.map(amountByMember, item => ({
-                    ...item,
-                    label: {
-                        normal: {
-                            formatter: '{b}: {c}'
-                        }
-                    }
-                })
-            )
-        }]
-    };
-};
-
 const OutcomeKpiPanel = ({ data: { dateStr = '', amountByDay = [], amountByCat = {}, amountBySubcat = [], amountByMember = [] }, onMonthChange = ''}) => (
-    <div className='outcome-kpi-panel section-panel'>
-        <div className='outcome-kpi-panel-header'>
+    <div className='section-panel'>
+        <div className='section-panel-header'>
             <span>月份: </span>
             <MonthPicker
                 placeholder="Select month"
@@ -144,10 +73,10 @@ const OutcomeKpiPanel = ({ data: { dateStr = '', amountByDay = [], amountByCat =
         <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDay(amountByDay) } />
         <Row type='flex' justify='space-around' align='middle'>
             <Col span={12}>
-                <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByCat(amountByCat, amountBySubcat) } />
+                <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByCat('类别支出', amountByCat, amountBySubcat) } />
             </Col>
             <Col span={12}>
-                <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByMember(amountByMember) } />
+                <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByMember('成员支出', amountByMember) } />
             </Col>
         </Row>
     </div>

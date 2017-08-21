@@ -5,6 +5,8 @@
  */
 
 import _ from 'lodash';
+import { TimeZoneOffset } from './Config';
+
 const VERSION = 'v1';
 const HOST = `http://localhost:8000/api/${VERSION}`;
 
@@ -80,4 +82,5 @@ export const RECORD_DELETE = RECORD_UPDATE;
 /**
  * Aggregated data based on amount
  */
-export const AGGREGATION_BY_DATE = _.template(`${HOST}/aggregation/<%= type %>/<%= groupId %>/<%= fDate %>/<%= tDate %>`);
+export const AGGREGATION_BY_RANGE = _.template(`${HOST}/aggregation/${TimeZoneOffset}/<%= sumBy %>/<%= type %>/<%= groupId %>/<%= fDate %>/<%= tDate %>`);
+export const AGGREGATION_ALL = _.template(`${HOST}/aggregation/${TimeZoneOffset}/<%= sumBy %>/<%= type %>/<%= groupId %>`);

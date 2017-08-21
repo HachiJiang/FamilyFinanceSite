@@ -11,7 +11,7 @@ import * as messageUtils from '../../utils/messageUtils';
 const onFail = err => {
     if (err) {
         console.log(`ERROR: ${err.message}`);
-        console.log(`ERROR: ${err.stack}`);
+        console.log(`ERROR: ${err.stack}`)
     }
     messageUtils.fail();
 };

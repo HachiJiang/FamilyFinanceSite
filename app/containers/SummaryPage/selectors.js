@@ -10,9 +10,9 @@ import moment from 'moment';
 import { getAccountCategories, getDebtors, getOutcomeCategories, getMembers } from '../App/selectors';
 import { getTotalBalance } from '../../utils/accountUtils';
 import { getFirstLastDayOfMonth } from '../../utils/dateUtils';
-import { idStrToNames, idStrToName } from '../../utils/recordUtils';
+import { parseAmountBySubcat, getAmountByCat, parseAmountByMembers } from '../../utils/aggregationUtils';
 import { getLoanees, getLoaners, getTotalDebt, getTotalLoan } from '../../utils/debtorUtils';
-import { MONTH_FORMAT, ID_SEPARATOR, DECIMAL_PRECISION } from '../../constants/Config';
+import { MONTH_FORMAT, DECIMAL_PRECISION } from '../../constants/Config';
 
 /**
  * Get KPI info
@@ -51,74 +51,11 @@ const fillAmountInWholeMonth = (dateStr, raw) => {
     _.fill(result, 0);
 
     _.forEach(raw, item => {
-        const day = moment(item._id).local().format('DD');
-        result[_.toNumber(day) - 1] = _.toNumber(item.amount.toFixed(DECIMAL_PRECISION));
+        const day = moment(item._id.consumeDate).local().format('DD');
+        result[_.toNumber(day) - 1] = _.toNumber(item.value.toFixed(DECIMAL_PRECISION));
     });
     return result;
 };
-
-/**
- * Get amountBySubcat
- * @param {Array} raw
- * @param {Array}categories
- * @returns {Array}
- */
-const parseAmountBySubcat = (raw, categories = []) =>
-    categories.length > 0 ?  _.map(raw, item => {
-        const { amount } = item;
-        const names = idStrToNames(item._id, categories);
-        if (!_.isArray(names) || names.length < 1) {
-            return;
-        }
-
-        return {
-            cat: names[1],
-            name: names[0],
-            value: amount
-        };
-    }) : [];
-
-/**
- * Get amountByCat
- * @param {Array} amountBySubcat
- * @returns {Array}
- */
-const getAmountByCat = amountBySubcat => {
-    let result = {};
-    _.forEach(amountBySubcat, item => {
-        const { cat, value } = item;
-        if (!result[cat]) {
-            result[cat] = {
-                name: item.name,
-                value
-            };
-        } else {
-            result[cat].value += value;
-        }
-    });
-
-    return _.map(result, ({ name, value }) => ({
-        name,
-        value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
-    }));
-};
-
-/**
- * Parse amountByMembers
- * @param {Array} raw
- * @param {Array} members
- * @returns {Array}
- */
-const parseAmountByMembers = (raw, members = []) =>
-    members.length > 0 ? _.map(raw, item => {
-        const { amount } = item;
-        const name = idStrToName(item._id, members);
-
-        return {
-            name: name,
-            value: amount
-        };
-    }) : [];
 
 /**
  * Get outcome info

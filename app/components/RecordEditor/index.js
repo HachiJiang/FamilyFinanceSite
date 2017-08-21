@@ -35,6 +35,8 @@ function getInitialState(record = {}, oldState = {}) {
     const oldConsumeDate = oldState.consumeDate;
     return {
         amount: 0,
+        amountPreTax: 0,
+        bonusPreTax: 0,
         consumeDate: oldConsumeDate ? oldConsumeDate : moment(),
         tips: '',
         ...record
@@ -119,7 +121,7 @@ class RecordEditor extends Component {
     getControls(activeIndex) {
         const { schema: { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors },
             addOutcomeCategory, addIncomeCategory, addAccountCategory, addProjectCategory, addMember, addDebtor } = this.props;
-        const { type, category, amount, accountFrom, accountTo, project, consumeDate, member, debtor, tips } = this.state;
+        const { type, category, amount, amountPreTax, bonusPreTax, accountFrom, accountTo, project, consumeDate, member, debtor, tips } = this.state;
         const subTitles = TABS[activeIndex].subTitles;
 
         return [
@@ -190,9 +192,27 @@ class RecordEditor extends Component {
                 <InputNumber
                     value= { amount }
                     min={ 0 }
-                    onChange={ value => this.setState({ amount: value }) }
+                    onChange={ value => this.setState({ amount: value, amountPreTax: value }) }
                     precision={ DECIMAL_PRECISION }
                 >
+                </InputNumber>
+            </BaseInput>,
+            <BaseInput key="amountPreTax" title="税前: ">
+                <InputNumber
+                    value= { amountPreTax }
+                    min={ 0 }
+                    onChange={ value => this.setState({ amountPreTax: value }) }
+                    precision={ DECIMAL_PRECISION }
+                    >
+                </InputNumber>
+            </BaseInput>,
+            <BaseInput key="bonusPreTax" title="税前bonus: ">
+                <InputNumber
+                    value= { bonusPreTax }
+                    min={ 0 }
+                    onChange={ value => this.setState({ bonusPreTax: value }) }
+                    precision={ DECIMAL_PRECISION }
+                    >
                 </InputNumber>
             </BaseInput>,
             <BaseInput key="date" title="日期: " >

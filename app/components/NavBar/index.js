@@ -13,23 +13,23 @@ import messages from './messages';
 
 import { Menu, Icon } from 'antd';
 
-const menuItemPaths = ['/', '/records', '/salaries', '/dashboards', '/profile', '/accounts', '/outcome', '/income', '/projects', '/members', '/debtors', '/budgets'];
+const subMenuItemKeys = ['profile', 'accounts', 'outcome', 'income', 'projects', 'members', 'debtors', 'budgets'];
 
 const { SubMenu } = Menu;
 
 /**
- * Get selected index based on location url
- * @returns {number}
+ * Get selected key based on location url
+ * @returns {String}
  */
-function getSelectedIdx() {
+function getSelectedKey() {
     const { pathname } = document.location || {};
-    return menuItemPaths.indexOf(pathname);
+    const arr = pathname.split('/');
+    return arr.length > 0 ? arr[arr.length - 1] : '';
 }
 
 const NavBar = () => {
-    const selectedIdx = getSelectedIdx();
-    const selectedKey = selectedIdx !== -1 ? `${selectedIdx  }` : '0';
-    const openKey = selectedIdx > 2 ? 'sub-3' : '';
+    const selectedKey = getSelectedKey();
+    const openKey = subMenuItemKeys.indexOf(selectedKey) !== -1 ? 'sub-5' : '';
 
     return (
         <Menu
@@ -38,77 +38,83 @@ const NavBar = () => {
             selectedKeys={[selectedKey]}
             defaultOpenKeys={[openKey]}
         >
-            <Menu.Item key="0">
-                <NavLink to={ menuItemPaths[0] }>
+            <Menu.Item key='summary'>
+                <NavLink to='/summary'>
                     <Icon type="home" />
                     <FormattedMessage {...messages.home} />
                 </NavLink>
             </Menu.Item>
-            <Menu.Item key="1">
-                <NavLink to={ menuItemPaths[1] }>
+            <Menu.Item key='records'>
+                <NavLink to='/records'>
                     <Icon type="calculator" />
                     <FormattedMessage {...messages.records} />
                 </NavLink>
             </Menu.Item>
-            <Menu.Item key="2">
-                <NavLink to={ menuItemPaths[2] }>
+            <Menu.Item key='incomeStats'>
+                <NavLink to='/incomeStats'>
                     <Icon type="pay-circle-o" />
-                    <FormattedMessage {...messages.salaries} />
+                    <FormattedMessage {...messages.incomeStats} />
                 </NavLink>
             </Menu.Item>
-            <Menu.Item key="3">
-                <NavLink to={ menuItemPaths[3] }>
+            <Menu.Item key='outcomeStats'>
+                <NavLink to='/outcomeStats'>
+                    <Icon type="pay-circle-o" />
+                    <FormattedMessage {...messages.outcomeStats} />
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key='dashboards'>
+                <NavLink to='/dashboards'>
                     <Icon type="line-chart" />
                     <FormattedMessage {...messages.dashboards} />
                 </NavLink>
             </Menu.Item>
             <SubMenu
-                key="sub-4"
+                key="sub-5"
                 title={<span><Icon type="setting" />设置</span>}>
-                <Menu.Item key="4">
-                    <NavLink to={ menuItemPaths[4] }>
+                <Menu.Item key='profile'>
+                    <NavLink to='/profile'>
                         <Icon type="user" />
                         <FormattedMessage {...messages.profile} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="5">
-                    <NavLink to={ menuItemPaths[5] }>
+                <Menu.Item key='accounts'>
+                    <NavLink to='/accounts'>
                         <Icon type="pie-chart" />
                         <FormattedMessage {...messages.accounts} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="6">
-                    <NavLink to={ menuItemPaths[6] }>
+                <Menu.Item key='outcome'>
+                    <NavLink to='/outcome'>
                         <Icon type="tags-o" />
                         <FormattedMessage {...messages.outcome} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="7">
-                    <NavLink to={ menuItemPaths[7] }>
+                <Menu.Item key='income'>
+                    <NavLink to='/income'>
                         <Icon type="tags-o" />
                         <FormattedMessage {...messages.income} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="8">
-                    <NavLink to={ menuItemPaths[8] }>
+                <Menu.Item key='projects'>
+                    <NavLink to='/projects'>
                         <Icon type="tags-o" />
                         <FormattedMessage {...messages.project} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="9">
-                    <NavLink to={ menuItemPaths[9] }>
+                <Menu.Item key='members'>
+                    <NavLink to='/members'>
                         <Icon type="team" />
                         <FormattedMessage {...messages.members} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="10">
-                    <NavLink to={ menuItemPaths[10] }>
+                <Menu.Item key='debtors'>
+                    <NavLink to='/debtors'>
                         <Icon type="exception" />
                         <FormattedMessage {...messages.debtors} />
                     </NavLink>
                 </Menu.Item>
-                <Menu.Item key="11">
-                    <NavLink to={ menuItemPaths[11] }>
+                <Menu.Item key='budgets'>
+                    <NavLink to='/budgets'>
                         <Icon type="schedule" />
                         <FormattedMessage {...messages.budgets} />
                     </NavLink>

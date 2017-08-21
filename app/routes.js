@@ -6,7 +6,7 @@ import { Route, IndexRedirect } from 'react-router';
 import App from './containers/App';
 import SummaryPage from './containers/summaryPage';
 import RecordPage from './containers/RecordPage';
-import SalaryPage from './containers/SalaryPage';
+import IncomeStatsPage from './containers/IncomeStatsPage';
 import BudgetPage from './containers/BudgetPage';
 import DashboardPage from './containers/DashboardPage';
 import AccountPage from './containers/AccountPage';
@@ -24,7 +24,7 @@ export default function createRoutes() {
             <IndexRedirect to="summary" />
             <Route path="summary" component={ SummaryPage } />
             <Route path="records" component={ RecordPage } />
-            <Route path="salaries" component={ SalaryPage } />
+            <Route path="incomeStats" component={ IncomeStatsPage } />
             <Route path="budgets" component={ BudgetPage } />
             <Route path="dashboards" component={ DashboardPage } />
             <Route path="accounts" component={ AccountPage } />
