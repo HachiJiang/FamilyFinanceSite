@@ -76,7 +76,12 @@ const getAccountDataForPie = accounts => {
             data = _.concat(data, _.map(items, item => {
                 const options = {
                     value: _.toNumber(item.balance.toFixed(DECIMAL_PRECISION)),
-                    name: item.name
+                    name: item.name,
+                    label: {
+                        normal: {
+                            formatter: '{b}: {d}%'
+                        }
+                    }
                 };
                 if (options.value === 0) { // hide labels for account with 0 balance
                     _.assign(options, HIDE_LABEL_OPTIONS);

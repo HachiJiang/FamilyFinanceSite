@@ -25,13 +25,18 @@ const getOptionsForAmountByDate = (name = '', amountByDate = []) => ({
         name,
         type: 'line',
         data: amountByDate,
+        label: {
+            normal: {
+                show: true
+            }
+        },
         markPoint: {
             data: [
                 {type: 'min', name: '最小值'},
                 {type: 'max', name: '最大值'}
             ],
             symbol: 'roundRect',
-            symbolSize: [50, 30]
+            symbolSize: [60, 30]
         },
         markLine: {
             data: [

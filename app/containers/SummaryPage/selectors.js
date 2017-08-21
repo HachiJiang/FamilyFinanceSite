@@ -51,7 +51,7 @@ const fillAmountInWholeMonth = (dateStr, raw) => {
     _.fill(result, 0);
 
     _.forEach(raw, item => {
-        const day = moment(item._id.consumeDate).local().format('DD');
+        const day = item._id.day;
         result[_.toNumber(day) - 1] = _.toNumber(item.value.toFixed(DECIMAL_PRECISION));
     });
     return result;

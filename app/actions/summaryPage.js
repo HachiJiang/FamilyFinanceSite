@@ -56,7 +56,7 @@ const fetchOutcomeInfo = (dispatch, dateStr) => {
     dispatch(changeMonth(dateStr));
 
     dispatch(
-        fetchAggregationAmount(OUTCOME, 'consumeDate', receiveAmountByDay, fDate, tDate)
+        fetchAggregationAmount(OUTCOME, 'day', receiveAmountByDay, fDate, tDate)
     );
 
     dispatch(

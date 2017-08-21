@@ -121,7 +121,7 @@ class RecordEditor extends Component {
     getControls(activeIndex) {
         const { schema: { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors },
             addOutcomeCategory, addIncomeCategory, addAccountCategory, addProjectCategory, addMember, addDebtor } = this.props;
-        const { type, category, amount, amountPreTax, bonusPreTax, accountFrom, accountTo, project, consumeDate, member, debtor, tips } = this.state;
+        const { type, category, amount = 0, amountPreTax = 0, bonusPreTax = 0, accountFrom, accountTo, project, consumeDate, member, debtor, tips } = this.state;
         const subTitles = TABS[activeIndex].subTitles;
 
         return [

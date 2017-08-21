@@ -60,6 +60,8 @@ function getDefaultRecordIncome(schema) {
     return {
         type: EnumRecordType.INCOME,
         amount: 0,
+        amountPreTax: 0,
+        bonusPreTax: 0,
         project: getDefaultCatId(schema.projectCategories),
         member: getDefaultItemId(schema.members),
         category: getDefaultCatId(schema.incomeCategories),
