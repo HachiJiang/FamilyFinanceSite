@@ -8,7 +8,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
     home: {
         id: 'boilerplate.components.NavBar.home',
-        defaultMessage: '概览'
+        defaultMessage: '总览'
     },
     records: {
         id: 'boilerplate.components.NavBar.records',
