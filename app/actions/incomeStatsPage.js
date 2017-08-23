@@ -47,6 +47,24 @@ const receiveAmountByMember = amountByMember => ({
 });
 
 /**
+ * Get action for amountByDateAndMember received
+ * @param {Array} amountByDateAndMember
+ */
+const receiveAmountByDateAndMember = amountByDateAndMember => ({
+    type: IncomeStatsPageActionTypes.AMOUNT_BY_DATE_MEMBER_RECEIVED,
+    amountByDateAndMember
+});
+
+/**
+ * Get action for amountByCatAndMember received
+ * @param {Array} amountByCatAndMember
+ */
+const receiveAmountByCatAndMember = amountByCatAndMember => ({
+    type: IncomeStatsPageActionTypes.AMOUNT_BY_CAT_MEMBER_RECEIVED,
+    amountByCatAndMember
+});
+
+/**
  * Fetch outcome info
  * @param {Object} dispatch
  * @param {String} year
@@ -64,6 +82,14 @@ const fetchData = (dispatch, year) => {
 
     dispatch(
         fetchAggregationAmount(INCOME, 'member', receiveAmountByMember)
+    );
+
+    dispatch(
+        fetchAggregationAmount(INCOME, 'member-year', receiveAmountByDateAndMember)
+    );
+
+    dispatch(
+        fetchAggregationAmount(INCOME, 'member-category', receiveAmountByCatAndMember)
     );
 };
 

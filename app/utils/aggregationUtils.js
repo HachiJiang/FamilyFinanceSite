@@ -68,8 +68,39 @@ const parseAmountByMembers = (raw, members = []) =>
         value: item.value
     })) : [];
 
+/**
+ * Group items by specific groupBy prop
+ * @param {Array} raw
+ * @param {boolean} needParse
+ * @param {String} groupBy
+ * @param {Array} categories: to parse groupBy
+ * @returns {{}}
+ */
+const groupItems = (raw = [], groupBy = '', needParse = false, categories = []) => {
+    if (raw.length < 1 || !groupBy || categories.length < 1) {
+        return {};
+    }
+
+    let result = {};
+
+    _.forEach(raw, item => {
+        const id = item._id[groupBy];
+        if (!result[id]) {
+            result[id] = {
+                name: needParse ? idStrToName(id, categories) : id,
+                items: [item]
+            };
+        } else {
+            result[id].items.push(item);
+        }
+    });
+
+    return result;
+};
+
 export {
     parseAmountBySubcat,
     getAmountByCat,
-    parseAmountByMembers
+    parseAmountByMembers,
+    groupItems
 }

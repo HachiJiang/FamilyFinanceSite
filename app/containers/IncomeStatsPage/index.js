@@ -6,6 +6,7 @@
  * Dashboards for income stats
  *
  */
+import _ from 'lodash';
 import moment from 'moment';
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
@@ -22,6 +23,47 @@ import { getOptionsForAmountByDate, getOptionsForAmountByCat, getOptionsForAmoun
 
 const CHART_HEIGHT = '300px';
 
+/**
+ * Get options for line chart of members
+ * @param {Array} amountByDateAndMember
+ * @returns {Object}
+ */
+const getOptionsForAmountLineOfMembers = amountByDateAndMember => {
+    const series = _.map(amountByDateAndMember, data => ({
+        name: data.name,
+        type: 'line',
+        date: data.items,
+        markPoint: {
+            data: [
+                { type: 'min', name: '最小值' },
+                { type: 'max', name: '最大值' }
+            ],
+            symbol: 'roundRect',
+            symbolSize: [50, 30]
+        },
+        markLine: {
+            data: [
+                { type: 'average', name: '平均值' }
+            ]
+        }
+    }));
+
+    return {
+        title: {
+            text: '成员 - 总收入曲线'
+        },
+        legend: {
+            data: _.map(amountByDateAndMember, item => item.name)
+        },
+        xAxis: {
+            type: 'category',
+                boundaryGap: false,
+                data: _.map(amountByDateAndMember, (item, index) => index + 1)
+        },
+        series
+    }
+};
+
 class IncomeStatsPage extends Component {
 
     componentDidMount() {
@@ -32,7 +74,7 @@ class IncomeStatsPage extends Component {
     }
 
     render() {
-        const { year, amountByCat, amountBySubcat, amountByMember, amountByDate } = this.props;
+        const { year, amountByCat, amountBySubcat, amountByMember, amountByDate, amountByDateAndMember, amountByCatAndMember } = this.props;
 
         return (
             <div className='income-stats-page'>
@@ -43,17 +85,26 @@ class IncomeStatsPage extends Component {
                             placeholder="Select year"
                             />
                     </div>
-                    <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDate('家庭总收入曲线', amountByDate) } />
+                    <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDate('家庭 - 总收入曲线', amountByDate) } />
                     <Row type='flex' justify='space-around' align='middle'>
                         <Col span={12}>
-                            <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByCat('类别总收入', amountByCat, amountBySubcat) } />
+                            <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByCat('家庭 - 类别总收入', amountByCat, amountBySubcat) } />
                         </Col>
                         <Col span={12}>
-                            <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByMember('成员总收入', amountByMember) } />
+                            <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByMember('家庭 - 成员总收入', amountByMember) } />
                         </Col>
                     </Row>
-                    <div>税前税后 家庭及成员职业收入曲线</div>
-                    <div>税前税后 家庭及成员职业收入及奖金比例</div>
+                    <Line height={ CHART_HEIGHT } options={ getOptionsForAmountLineOfMembers(amountByDateAndMember) } />
+                    <Row type='flex' justify='space-around' align='middle'>
+                        {
+                            _.map(amountByCatAndMember, (data, index) => (
+                                <Col key={ index } span={ 24 / amountByCatAndMember.length }>
+                                    <Pie height={ CHART_HEIGHT } options={ getOptionsForAmountByCat(`${data.name} - 类别总收入`, data.cats, data.subCats) } />
+                                </Col>
+                            ))
+                        }
+                    </Row>
+                    <div>税前 家庭及成员职业收入曲线</div>
                 </div>
             </div>
         );
@@ -61,11 +112,13 @@ class IncomeStatsPage extends Component {
 }
 
 IncomeStatsPage.propTypes = {
-    year: PropTypes.number,
+    year: PropTypes.string,
     amountByCat: PropTypes.array.isRequired,
     amountBySubcat: PropTypes.array.isRequired,
     amountByMember: PropTypes.array.isRequired,
-    amountByDate: PropTypes.array.isRequired   // by year or by month
+    amountByDate: PropTypes.array.isRequired,   // by year or by month
+    amountByDateAndMember: PropTypes.array.isRequired,
+    amountByCatAndMember: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => {

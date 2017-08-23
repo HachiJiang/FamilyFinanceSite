@@ -9,10 +9,12 @@
 import * as IncomeStatsPageActionTypes from '../actiontypes/incomeStatsPage';
 
 const initialState = {
-    year: 2017,  // @TODO: remove hardcode
+    year: '',  // @TODO: remove hardcode
     amountByCat: [],
     amountByMember: [],
-    amountByDate: []
+    amountByDate: [],
+    amountByDateAndMember: [],
+    amountByCatAndMember: []
 };
 
 function incomeStatsReducer(state = initialState, action = {}) {
@@ -43,6 +45,20 @@ function incomeStatsReducer(state = initialState, action = {}) {
             return {
                 ...state,
                 amountByCat: action.amountByCat
+            };
+            break;
+
+        case IncomeStatsPageActionTypes.AMOUNT_BY_DATE_MEMBER_RECEIVED:
+            return {
+                ...state,
+                amountByDateAndMember: action.amountByDateAndMember
+            };
+            break;
+
+        case IncomeStatsPageActionTypes.AMOUNT_BY_CAT_MEMBER_RECEIVED:
+            return {
+                ...state,
+                amountByCatAndMember: action.amountByCatAndMember
             };
             break;
 
