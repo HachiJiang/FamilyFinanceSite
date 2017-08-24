@@ -14,16 +14,20 @@ import { parseAmountBySubcat, getAmountByCat, parseAmountByMembers } from '../..
 import { getLoanees, getLoaners, getTotalDebt, getTotalLoan } from '../../utils/debtorUtils';
 import { MONTH_FORMAT, DECIMAL_PRECISION } from '../../constants/Config';
 
+const getSummaryPageInfo = state => state.get('summaryPage');
+
 /**
  * Get KPI info
  * @param {Object} state
  * @returns {{totalBalance: string}}
  */
-const getKpiInfo = state => {
+const getTotalInfo = state => {
     const accounts = getAccountCategories(state);
     const debtors = getDebtors(state);
+    const total = getSummaryPageInfo(state).total;
 
     return {
+        ...total,
         totalBalance: getTotalBalance(accounts),
         loaners: getLoaners(debtors),  // 借出者
         loanees: getLoanees(debtors),  // 借入者
@@ -62,9 +66,10 @@ const fillAmountInWholeMonth = (dateStr, raw) => {
  * @param {Object} state
  */
 const getOutcomeInfo = state => {
-    const outcome = state.get('summaryPage').outcome;
+    const outcome = getSummaryPageInfo(state).outcome;
     const { dateStr, amountByMember } = outcome;
     const amountBySubcat = parseAmountBySubcat(outcome.amountByCat, getOutcomeCategories(state));
+
     return {
         dateStr,
         amountByDay: fillAmountInWholeMonth(dateStr, outcome.amountByDay),
@@ -75,6 +80,6 @@ const getOutcomeInfo = state => {
 };
 
 export {
-    getKpiInfo,
+    getTotalInfo,
     getOutcomeInfo
 }

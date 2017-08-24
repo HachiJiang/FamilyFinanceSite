@@ -10,6 +10,11 @@ import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
 import { MONTH_FORMAT } from '../constants/Config';
 
 const initialState = {
+    total: {
+        dateMode: 'year',
+        incomeByDate: [],
+        outcomeByDate: []
+    },
     outcome: {
         dateStr: moment().format(MONTH_FORMAT),
         amountByDay: [],
@@ -22,6 +27,33 @@ function summaryPageReducer(state = initialState, action = {}) {
     const { outcome } = state;
 
     switch (action.type) {
+        case SummaryPageActionTypes.CHANGE_TOTAL_DATE_MODE:
+            return {
+                ...state,
+                total: {
+                    ...outcome,
+                    dateMode: action.dateMode
+                }
+            };
+
+        case SummaryPageActionTypes.TOTAL_OUTCOME_BY_DATE_RECEIVED:
+            return {
+                ...state,
+                total: {
+                    ...outcome,
+                    outcomeByDate: action.outcomeByDate
+                }
+            };
+
+        case SummaryPageActionTypes.TOTAL_INCOME_BY_DATE_RECEIVED:
+            return {
+                ...state,
+                total: {
+                    ...outcome,
+                    incomeData: action.incomeData
+                }
+            };
+
         case SummaryPageActionTypes.CHANGE_MONTH:
             return {
                 ...state,

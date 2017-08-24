@@ -14,8 +14,8 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import KPIPanel from './TotalKPIPanel';
-import OutcomeKpiPanel from './OutcomeKpiPanel';
+import TotalKPIPanel from '../../components/TotalKpiPanel';
+import OutcomeKpiPanel from '../../components/OutcomeKpiPanel';
 
 // Actions
 import * as CategoryAccountActionCreators from '../../actions/schema/account';
@@ -24,7 +24,7 @@ import * as MemberActionCreators from '../../actions/schema/member';
 import * as DebtorActionCreators from '../../actions/schema/debtor';
 import * as SummaryPageActionCreators from '../../actions/summaryPage';
 
-import { getKpiInfo, getOutcomeInfo } from './selectors';
+import { getTotalInfo, getOutcomeInfo } from './selectors';
 
 class SummaryPage extends Component {
 
@@ -42,7 +42,7 @@ class SummaryPage extends Component {
 
         return (
             <div className='summary-page'>
-                <KPIPanel data={ kpiInfo } />
+                <TotalKPIPanel data={ kpiInfo } />
                 <OutcomeKpiPanel
                     data={ outcomeInfo }
                     onMonthChange={ dateStr => SummaryPageActionCreators.fetchOutcomeInfo(dispatch, dateStr) }
@@ -59,7 +59,7 @@ SummaryPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    kpiInfo: getKpiInfo(state),
+    kpiInfo: getTotalInfo(state),
     outcomeInfo: getOutcomeInfo(state)
 });
 

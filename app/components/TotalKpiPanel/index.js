@@ -2,15 +2,17 @@
 
 /*
  *
- * KPIPanel to show Key factors compared with targets
+ * TotalKPIPanel to show Key factors compared with targets
  *
  */
 
 import React, { PropTypes } from 'React';
-import { Row, Col, Icon } from 'antd';
-import LiquidFill from '../../components/myecharts/LiquidFill';
-import Pie from '../../components/myecharts/Pie';
+import { Row, Col, Icon, Radio } from 'antd';
+import LiquidFill from '../myecharts/LiquidFill';
+import Pie from '../myecharts/Pie';
+import Line from '../myecharts/Line';
 
+const { Button, Group } = Radio;
 const CHART_HEIGHT = '200px';
 
 /**
@@ -29,6 +31,11 @@ const getOptionsForBalance = totalBalance => {
     }
 };
 
+/**
+ * Get chart options for debt
+ * @param {Array} items
+ * @returns {{series: *[]}}
+ */
 const getOptionsForDebt = items => {
     return {
         series: [{
@@ -40,7 +47,7 @@ const getOptionsForDebt = items => {
     };
 };
 
-const KPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [] } }) => (
+const TotalKPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [], dateMode = '' } }) => (
     <div className='section-panel'>
         <Row type="flex" justify="space-around" align="middle">
             <Col span={8}>
@@ -48,12 +55,12 @@ const KPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [] } }) =>
                 <LiquidFill
                     height={ CHART_HEIGHT }
                     options={ getOptionsForBalance(totalBalance) }
-                    />
+                />
             </Col>
 
             <Col span={8}>
                 <h2>总负债: <span className="kpi-value">{ Math.abs(_.sumBy(loaners, d => d.balance)) }</span></h2>
-                <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loaners) } />
+                <Pie height={ CHART_HEIGHT } />
             </Col>
 
             <Col span={8}>
@@ -65,15 +72,26 @@ const KPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [] } }) =>
             <Icon type="arrow-right" />
             <a href="/accounts"> 账户管理</a>
         </div>
+        <div>
+            <Group value={ dateMode } onChange={function(){}}>
+                <Button value="year">年</Button>
+                <Button value="month">月</Button>
+            </Group>
+            <br /><br />
+            <Line height={ CHART_HEIGHT } options={ getOptionsForDebt(loaners) } ></Line>
+        </div>
     </div>
 );
 
-KPIPanel.propTypes = {
+TotalKPIPanel.propTypes = {
     data: PropTypes.shape({
         totalBalance: PropTypes.number,
         loanees: PropTypes.array,
-        loaners: PropTypes.array
+        loaners: PropTypes.array,
+        dateMode: PropTypes.string,
+        incomeByDate: PropTypes.array,
+        outcomeByDate: PropTypes.array
     }).isRequired
 };
 
-export default KPIPanel;
+export default TotalKPIPanel;

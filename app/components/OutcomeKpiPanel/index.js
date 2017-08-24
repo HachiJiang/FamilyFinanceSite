@@ -9,8 +9,8 @@ import _ from 'lodash';
 import moment from 'moment';
 import React, { PropTypes } from 'React';
 import { DatePicker, Row, Col } from 'antd';
-import Line from '../../components/myecharts/Line';
-import Pie from '../../components/myecharts/Pie';
+import Line from '../myecharts/Line';
+import Pie from '../myecharts/Pie';
 
 import { getMovingAvg } from '../../utils/arrUtils';
 import { getOptionsForAmountByCat, getOptionsForAmountByMember } from '../../utils/chartUtils';
