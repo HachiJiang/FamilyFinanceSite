@@ -81,19 +81,24 @@ const groupItems = (raw = [], groupBy = '', needParse = false, categories = []) 
         return {};
     }
 
+    let tmp = {};
     let result = {};
 
     _.forEach(raw, item => {
         const id = item._id[groupBy];
-        if (!result[id]) {
-            result[id] = {
+        if (!tmp[id]) {
+            tmp[id] = {
                 name: needParse ? idStrToName(id, categories) : id,
                 items: [item]
             };
         } else {
-            result[id].items.push(item);
+            tmp[id].items.push(item);
         }
     });
+
+    _.forEach(tmp, (item => {
+        result[item.name] = item.items;
+    }));
 
     return result;
 };

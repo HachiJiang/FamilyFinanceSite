@@ -32,15 +32,12 @@ const getOptionsForAmountLineOfMembers = amountByDateAndMember => {
     const series = _.map(amountByDateAndMember, data => ({
         name: data.name,
         type: 'line',
-        date: data.items,
-        markPoint: {
-            data: [
-                { type: 'min', name: '最小值' },
-                { type: 'max', name: '最大值' }
-            ],
-            symbol: 'roundRect',
-            symbolSize: [50, 30]
+        label: {
+            normal: {
+                show: true
+            }
         },
+        data: data.items,
         markLine: {
             data: [
                 { type: 'average', name: '平均值' }
@@ -57,8 +54,8 @@ const getOptionsForAmountLineOfMembers = amountByDateAndMember => {
         },
         xAxis: {
             type: 'category',
-                boundaryGap: false,
-                data: _.map(amountByDateAndMember, (item, index) => index + 1)
+            boundaryGap: false,
+            data: _.map(amountByDateAndMember[0] && amountByDateAndMember[0].items, item => item.name)
         },
         series
     }
@@ -116,7 +113,7 @@ IncomeStatsPage.propTypes = {
     amountByCat: PropTypes.array.isRequired,
     amountBySubcat: PropTypes.array.isRequired,
     amountByMember: PropTypes.array.isRequired,
-    amountByDate: PropTypes.array.isRequired,   // by year or by month
+    amountByDate: PropTypes.object.isRequired,   // by year or by month
     amountByDateAndMember: PropTypes.array.isRequired,
     amountByCatAndMember: PropTypes.array.isRequired
 };

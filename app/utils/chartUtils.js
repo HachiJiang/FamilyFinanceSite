@@ -9,22 +9,22 @@
 /**
  * Get options for amountByDate pie chart
  * @param {String} name
- * @param {Array} amountByDate
+ * @param {Object} amountByDate
  * @returns {Array}
  */
-const getOptionsForAmountByDate = (name = '', amountByDate = []) => ({
+const getOptionsForAmountByDate = (name = '', amountByDate = {}) => ({
     title: {
         text: name
     },
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: _.map(amountByDate, item => item.name)
+        data: _.map(amountByDate, (item, key) => key)
     },
     series: [{
         name,
         type: 'line',
-        data: amountByDate,
+        data: _.toArray(amountByDate),
         label: {
             normal: {
                 show: true
