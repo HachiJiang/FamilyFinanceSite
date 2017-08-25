@@ -47,7 +47,6 @@ class SummaryPage extends Component {
                     data={ outcomeInfo }
                     onMonthChange={ dateStr => SummaryPageActionCreators.fetchOutcomeInfo(dispatch, dateStr) }
                 />
-                <div>按年的总支出/总收入/净收益曲线</div>
             </div>
         );
     }

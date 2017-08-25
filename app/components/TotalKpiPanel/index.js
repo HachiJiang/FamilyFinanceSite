@@ -47,41 +47,42 @@ const getOptionsForDebt = items => {
     };
 };
 
-const TotalKPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [], dateMode = '' } }) => (
-    <div className='section-panel'>
-        <Row type="flex" justify="space-around" align="middle">
-            <Col span={8}>
-                <h2>总资产: <span className="kpi-value">{ totalBalance }</span></h2>
-                <LiquidFill
-                    height={ CHART_HEIGHT }
-                    options={ getOptionsForBalance(totalBalance) }
-                />
-            </Col>
+const TotalKPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [], dateMode = '' } }) => {
+    return (
+        <div className='section-panel'>
+            <Row type="flex" justify="space-around" align="middle">
+                <Col span={8}>
+                    <h2>总资产: <span className="kpi-value">{ totalBalance }</span></h2>
+                    <LiquidFill
+                        height={ CHART_HEIGHT }
+                        options={ getOptionsForBalance(totalBalance) }
+                    />
+                </Col>
 
-            <Col span={8}>
-                <h2>总负债: <span className="kpi-value">{ Math.abs(_.sumBy(loaners, d => d.balance)) }</span></h2>
-                <Pie height={ CHART_HEIGHT } />
-            </Col>
+                <Col span={8}>
+                    <h2>总负债: <span className="kpi-value">{ Math.abs(_.sumBy(loaners, d => d.balance)) }</span></h2>
+                    <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loaners) } />
+                </Col>
 
-            <Col span={8}>
-                <h2>总借出: <span className="kpi-value">{ Math.abs(_.sumBy(loanees, d => d.balance)) }</span></h2>
-                <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loanees) } />
-            </Col>
-        </Row>
-        <div className="redirect-link">
-            <Icon type="arrow-right" />
-            <a href="/accounts"> 账户管理</a>
+                <Col span={8}>
+                    <h2>总借出: <span className="kpi-value">{ Math.abs(_.sumBy(loanees, d => d.balance)) }</span></h2>
+                    <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loanees) } />
+                </Col>
+            </Row>
+            <div className="redirect-link">
+                <Icon type="arrow-right" />
+                <a href="/accounts"> 账户管理</a>
+            </div>
+            <div>
+                <Group value={ dateMode } onChange={function(){}}>
+                    <Button value="year">年</Button>
+                    <Button value="month">月</Button>
+                </Group>
+                <br /><br />
+            </div>
         </div>
-        <div>
-            <Group value={ dateMode } onChange={function(){}}>
-                <Button value="year">年</Button>
-                <Button value="month">月</Button>
-            </Group>
-            <br /><br />
-            <Line height={ CHART_HEIGHT } options={ getOptionsForDebt(loaners) } ></Line>
-        </div>
-    </div>
-);
+    );
+};
 
 TotalKPIPanel.propTypes = {
     data: PropTypes.shape({
