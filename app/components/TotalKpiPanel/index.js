@@ -13,7 +13,7 @@ import Pie from '../myecharts/Pie';
 import Line from '../myecharts/Line';
 
 const { Button, Group } = Radio;
-const CHART_HEIGHT = '200px';
+const CHART_HEIGHT = '400px';
 
 /**
  * Get chart options for balance
@@ -47,7 +47,50 @@ const getOptionsForDebt = items => {
     };
 };
 
-const TotalKPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [], dateMode = '' } }) => {
+/**
+ * Get options for line chart of total income/outcome/profit
+ * @param {Array} incomeByDate
+ * @param {Array} outcomeByDate
+ * @param {Array} profitByDate
+ * @returns {Object}
+ */
+const getOptionsForLine = (incomeByDate = [], outcomeByDate = [], profitByDate = []) => {
+    const arr = [{
+        name: '总净收益',
+        data: profitByDate
+    }, {
+        name: '总收入',
+        data: incomeByDate
+    }, {
+        name: '总支出',
+        data: outcomeByDate
+    }];
+
+    const series = _.map(arr, ({ name, data }) => ({
+        name: name,
+        type: 'line',
+        data
+    }));
+
+    return {
+        title: {
+            text: '总净收益/总收入/总支出曲线'
+        },
+        legend: {
+            data: ['总净收益', '总收入', '总支出']
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: _.map(incomeByDate, item => item.name)  // date
+        },
+        series
+    };
+};
+
+const TotalKPIPanel = props => {
+    const { totalBalance = 0, loanees = [], loaners = [], dateMode = '', incomeByDate, outcomeByDate, profitByDate } = props.data;
+
     return (
         <div className='section-panel'>
             <Row type="flex" justify="space-around" align="middle">
@@ -79,6 +122,10 @@ const TotalKPIPanel = ({ data: { totalBalance = 0, loanees = [], loaners = [], d
                     <Button value="month">月</Button>
                 </Group>
                 <br /><br />
+                {
+                    (incomeByDate.length > 0 || outcomeByDate.length > 0) &&
+                    <Line height={ CHART_HEIGHT } options={ getOptionsForLine(incomeByDate, outcomeByDate, profitByDate) } />
+                }
             </div>
         </div>
     );
@@ -91,7 +138,8 @@ TotalKPIPanel.propTypes = {
         loaners: PropTypes.array,
         dateMode: PropTypes.string,
         incomeByDate: PropTypes.array,
-        outcomeByDate: PropTypes.array
+        outcomeByDate: PropTypes.array,
+        profitByDate: PropTypes.array
     }).isRequired
 };
 

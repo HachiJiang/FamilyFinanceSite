@@ -24,14 +24,14 @@ const initialState = {
 };
 
 function summaryPageReducer(state = initialState, action = {}) {
-    const { outcome } = state;
+    const { outcome, total } = state;
 
     switch (action.type) {
         case SummaryPageActionTypes.CHANGE_TOTAL_DATE_MODE:
             return {
                 ...state,
                 total: {
-                    ...outcome,
+                    ...total,
                     dateMode: action.dateMode
                 }
             };
@@ -40,7 +40,7 @@ function summaryPageReducer(state = initialState, action = {}) {
             return {
                 ...state,
                 total: {
-                    ...outcome,
+                    ...total,
                     outcomeByDate: action.outcomeByDate
                 }
             };
@@ -49,8 +49,8 @@ function summaryPageReducer(state = initialState, action = {}) {
             return {
                 ...state,
                 total: {
-                    ...outcome,
-                    incomeData: action.incomeData
+                    ...total,
+                    incomeByDate: action.incomeByDate
                 }
             };
 

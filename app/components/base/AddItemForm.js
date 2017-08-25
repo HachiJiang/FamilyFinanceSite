@@ -4,7 +4,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 
-import { Form, Button } from 'antd';
+import { Form, Button, Input } from 'antd';
 import MenuItem2 from './MenuItem2';
 
 class AddItemForm extends Component  {
@@ -29,9 +29,8 @@ class AddItemForm extends Component  {
         return (
             <MenuItem2 title="[新增...]" className="addItem-form" onMouseLeave={ e => this.setState({ value: '' }) }>
                 <Form layout="inline" onSubmit={ e => this.onSubmit(e) }>
-                    <input
+                    <Input
                         type="text"
-                        className="input"
                         placeholder="[输入类别...]"
                         value={ this.state.value }
                         onClick={ e => e.stopPropagation }

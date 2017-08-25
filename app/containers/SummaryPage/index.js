@@ -29,12 +29,13 @@ import { getTotalInfo, getOutcomeInfo } from './selectors';
 class SummaryPage extends Component {
 
     componentDidMount() {
-        const { dispatch, outcomeInfo: { dateStr } } = this.props;
+        const { dispatch, kpiInfo: { dateMode }, outcomeInfo: { dateStr } } = this.props;
         CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
         CategoryOutcomeActionCreators.fetchCategories(dispatch);   // 请求支出类别信息
         DebtorActionCreators.fetchDebtors(dispatch);               // 请求debtor信息
         MemberActionCreators.fetchMembers(dispatch);               // 请求Member信息
         SummaryPageActionCreators.fetchOutcomeInfo(dispatch, dateStr);
+        SummaryPageActionCreators.fetchTotalInfo(dispatch, dateMode);
     }
 
     render() {

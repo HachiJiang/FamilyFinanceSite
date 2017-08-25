@@ -16,7 +16,7 @@ import { getMovingAvg } from '../../utils/arrUtils';
 import { getOptionsForAmountByCat, getOptionsForAmountByMember } from '../../utils/chartUtils';
 import { MONTH_FORMAT } from '../../constants/Config';
 
-const CHART_HEIGHT = '300px';
+const CHART_HEIGHT = '400px';
 const { MonthPicker } = DatePicker;
 
 /**

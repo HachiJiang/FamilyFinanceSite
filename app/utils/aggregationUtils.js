@@ -11,6 +11,25 @@ import { DECIMAL_PRECISION } from '../constants/Config';
 import { idStrToNames, idStrToName } from './recordUtils';
 
 /**
+ * Get amountByDate
+ * @param {Array} raw
+ * @returns {Object}
+ */
+const parseAmountByDate = (raw = []) => {
+    let result = {};
+
+    _.forEach(raw, ({ _id, value }) => {
+        const year = _id.year;
+        result[year] = {
+            name: year,
+            value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
+        }
+    });
+
+    return result;
+};
+
+/**
  * Get amountBySubcat
  * @param {Array} raw
  * @param {Array} categories
@@ -104,6 +123,7 @@ const groupItems = (raw = [], groupBy = '', needParse = false, categories = []) 
 };
 
 export {
+    parseAmountByDate,
     parseAmountBySubcat,
     getAmountByCat,
     parseAmountByMembers,

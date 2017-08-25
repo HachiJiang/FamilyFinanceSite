@@ -7,27 +7,7 @@
  */
 
 import { getIncomeCategories, getMembers } from '../App/selectors';
-import { parseAmountBySubcat, getAmountByCat, parseAmountByMembers, groupItems } from '../../utils/aggregationUtils';
-import { DECIMAL_PRECISION } from '../../constants/Config';
-
-/**
- * Get amountByDate
- * @param {Array} raw
- * @returns {Object}
- */
-const parseAmountByDate = (raw = []) => {
-    let result = {};
-
-    _.forEach(raw, ({ _id, value }) => {
-        const year = _id.year;
-        result[year] = {
-            name: year,
-            value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
-        }
-    });
-
-    return result;
-};
+import { parseAmountBySubcat, getAmountByCat, parseAmountByMembers, groupItems, parseAmountByDate } from '../../utils/aggregationUtils';
 
 /**
  * Parse amountByDateAndMember

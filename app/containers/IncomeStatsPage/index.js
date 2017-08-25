@@ -21,7 +21,7 @@ import * as MemberActionCreators from '../../actions/schema/member';
 import * as IncomeStatsActionCreators from '../../actions/incomeStatsPage';
 import { getOptionsForAmountByDate, getOptionsForAmountByCat, getOptionsForAmountByMember } from './../../utils/chartUtils';
 
-const CHART_HEIGHT = '300px';
+const CHART_HEIGHT = '400px';
 
 /**
  * Get options for line chart of members
@@ -58,7 +58,7 @@ const getOptionsForAmountLineOfMembers = amountByDateAndMember => {
             data: _.map(amountByDateAndMember[0] && amountByDateAndMember[0].items, item => item.name)
         },
         series
-    }
+    };
 };
 
 class IncomeStatsPage extends Component {

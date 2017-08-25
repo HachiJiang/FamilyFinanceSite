@@ -61,6 +61,10 @@ function idxToType(idx) {
     return TABS[idx].value;
 }
 
+function onPressEnter(e) {
+    e.preventDefault();
+}
+
 class RecordEditor extends Component {
     constructor(props) {
         super(props);
@@ -194,8 +198,7 @@ class RecordEditor extends Component {
                     min={ 0 }
                     onChange={ value => this.setState({ amount: value, amountPreTax: value }) }
                     precision={ DECIMAL_PRECISION }
-                >
-                </InputNumber>
+                />
             </BaseInput>,
             <BaseInput key="amountPreTax" title="税前: ">
                 <InputNumber
@@ -203,8 +206,7 @@ class RecordEditor extends Component {
                     min={ 0 }
                     onChange={ value => this.setState({ amountPreTax: value }) }
                     precision={ DECIMAL_PRECISION }
-                    >
-                </InputNumber>
+                />
             </BaseInput>,
             <BaseInput key="bonusPreTax" title="税前bonus: ">
                 <InputNumber
@@ -212,8 +214,7 @@ class RecordEditor extends Component {
                     min={ 0 }
                     onChange={ value => this.setState({ bonusPreTax: value }) }
                     precision={ DECIMAL_PRECISION }
-                    >
-                </InputNumber>
+                />
             </BaseInput>,
             <BaseInput key="date" title="日期: " >
                 <DatePicker
@@ -221,13 +222,16 @@ class RecordEditor extends Component {
                     allowClear={ false }
                     defaultValue={ moment() }
                     value={ consumeDate }
-                    onChange={ value => { value && this.setState({ consumeDate: value }) } } />
+                    onChange={ value => { value && this.setState({ consumeDate: value }) } }
+                />
             </BaseInput>,
             <BaseInput key="tips" title="备注: " >
                 <Input
                     placeholder="输入备注..."
                     value = { tips }
-                    onChange={ e => this.setState({ tips: e.target.value }) }/>
+                    onChange={ e => this.setState({ tips: e.target.value }) }
+                    onPressEnter={ onPressEnter }
+                />
             </BaseInput>
         ];
     }
