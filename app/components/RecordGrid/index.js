@@ -19,7 +19,7 @@ import { getDataRows, getRecordTypeFilters, getItemFilters, getCategoryFilters, 
  * @returns {Array}
  */
 function getColumns(props) {
-    const { outcomeCategories, incomeCategories, accountCategories, projectCategories, members, debtors } = props.schema;
+    const { accountCategories, projectCategories, members } = props.schema;
 
     return [{
         title: '日期',

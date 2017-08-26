@@ -44,10 +44,22 @@ class RecordPage extends Component {
         RecordPageActionCreators.fetchOutcomeInfo(dispatch, month);
     }
 
+    /**
+     * Callback for month selector change
+     * @param {String} month
+     */
     onMonthChange(month) {
         const { dispatch } = this.props;
         RecordPageActionCreators.fetchOutcomeInfo(dispatch, month);
         RecordPageActionCreators.fetchRecordsByMonth(dispatch, month)
+    }
+
+    /**
+     * Callback for records change
+     */
+    onRecordsChange() {
+        const { dispatch, month } = this.props;
+        RecordPageActionCreators.fetchOutcomeInfo(dispatch, month);
     }
 
     render() {
@@ -73,8 +85,8 @@ class RecordPage extends Component {
                 addProjectCategory={ addProjectCategory }
                 addMember={ addMember }
                 addDebtor={ addDebtor }
-                addRecord={ addRecord }
-                updateRecord={ updateRecord }
+                addRecord={ record => addRecord(record, this.onRecordsChange.bind(this)) }
+                updateRecord={ (rid, record) => updateRecord(rid, record, this.onRecordsChange.bind(this)) }
                 record={ record }
             />
         );
@@ -95,7 +107,7 @@ class RecordPage extends Component {
                     <RecordList
                         records={ records }
                         schema={ schema }
-                        deleteRecord={ deleteRecord }
+                        deleteRecord={ id => deleteRecord(id, this.onRecordsChange.bind(this)) }
                         createEditor={ createEditor }
                     />
                 </div>
