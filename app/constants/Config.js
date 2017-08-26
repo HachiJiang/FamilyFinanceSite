@@ -15,3 +15,4 @@ export const CONSUME_DATE_FORMAT = 'YYYY-MM-DD';
 export const MONTH_FORMAT = 'YYYY-MM';
 export const DECIMAL_PRECISION = 2;
 export const TimeZoneOffset = (new Date()).getTimezoneOffset();
+export const CHART_HEIGHT = '400px';

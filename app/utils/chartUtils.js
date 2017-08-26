@@ -118,7 +118,7 @@ const getOptionsForAmountByMember = (name = '', amountByMember = []) => {
                     ...item,
                     label: {
                         normal: {
-                            formatter: '{b}: {c}, {d}'
+                            formatter: '{b}: {c}, {d}%'
                         }
                     }
                 })

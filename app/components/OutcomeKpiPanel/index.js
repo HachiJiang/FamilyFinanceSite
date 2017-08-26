@@ -6,18 +6,19 @@
  *
  */
 import _ from 'lodash';
-import moment from 'moment';
 import React, { PropTypes } from 'React';
-import { DatePicker, Row, Col } from 'antd';
+
+// Components
+import { Row, Col } from 'antd';
 import Line from '../myecharts/Line';
 import Pie from '../myecharts/Pie';
 
+// Utils
 import { getMovingAvg } from '../../utils/arrUtils';
 import { getOptionsForAmountByCat, getOptionsForAmountByMember } from '../../utils/chartUtils';
-import { MONTH_FORMAT } from '../../constants/Config';
 
-const CHART_HEIGHT = '400px';
-const { MonthPicker } = DatePicker;
+// Constants
+const CHART_HEIGHT = '300px';
 
 /**
  * Get options for line chart
@@ -60,16 +61,8 @@ const getOptionsForAmountByDay = amountByDay => ({
     }]
 });
 
-const OutcomeKpiPanel = ({ data: { dateStr = '', amountByDay = [], amountByCat = {}, amountBySubcat = [], amountByMember = [] }, onMonthChange = ''}) => (
-    <div className='section-panel'>
-        <div className='section-panel-header'>
-            <span>月份: </span>
-            <MonthPicker
-                placeholder="Select month"
-                value={ moment(dateStr, MONTH_FORMAT) }
-                onChange={ val => onMonthChange(val.format(MONTH_FORMAT)) }
-            />
-        </div>
+const OutcomeKpiPanel = ({ data: { amountByDay = [], amountByCat = {}, amountBySubcat = [], amountByMember = [] } }) => (
+    <div>
         <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDay(amountByDay) } />
         <Row type='flex' justify='space-around' align='middle'>
             <Col span={12}>
@@ -84,13 +77,11 @@ const OutcomeKpiPanel = ({ data: { dateStr = '', amountByDay = [], amountByCat =
 
 OutcomeKpiPanel.propTypes = {
     data: PropTypes.shape({
-        dateStr: PropTypes.string.isRequired,
         amountByDay: PropTypes.array,
         amountByCat: PropTypes.array,
         amountBySubcat: PropTypes.array,
         amountByMember: PropTypes.array
-    }).isRequired,
-    onMonthChange: PropTypes.func.isRequired
+    }).isRequired
 };
 
 export default OutcomeKpiPanel;

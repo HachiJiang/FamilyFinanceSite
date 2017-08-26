@@ -7,13 +7,11 @@
  */
 
 import React, { PropTypes } from 'React';
-import { Row, Col, Icon, Radio } from 'antd';
+import { Row, Col, Icon } from 'antd';
 import LiquidFill from '../myecharts/LiquidFill';
 import Pie from '../myecharts/Pie';
-import Line from '../myecharts/Line';
 
-const { Button, Group } = Radio;
-const CHART_HEIGHT = '400px';
+const CHART_HEIGHT = '200px';
 
 /**
  * Get chart options for balance
@@ -47,49 +45,8 @@ const getOptionsForDebt = items => {
     };
 };
 
-/**
- * Get options for line chart of total income/outcome/profit
- * @param {Array} incomeByDate
- * @param {Array} outcomeByDate
- * @param {Array} profitByDate
- * @returns {Object}
- */
-const getOptionsForLine = (incomeByDate = [], outcomeByDate = [], profitByDate = []) => {
-    const arr = [{
-        name: '总净收益',
-        data: profitByDate
-    }, {
-        name: '总收入',
-        data: incomeByDate
-    }, {
-        name: '总支出',
-        data: outcomeByDate
-    }];
-
-    const series = _.map(arr, ({ name, data }) => ({
-        name: name,
-        type: 'line',
-        data
-    }));
-
-    return {
-        title: {
-            text: '总净收益/总收入/总支出曲线'
-        },
-        legend: {
-            data: ['总净收益', '总收入', '总支出']
-        },
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: _.map(incomeByDate, item => item.name)  // date
-        },
-        series
-    };
-};
-
 const TotalKPIPanel = props => {
-    const { totalBalance = 0, loanees = [], loaners = [], dateMode = '', incomeByDate, outcomeByDate, profitByDate } = props.data;
+    const { totalBalance = 0, loanees = [], loaners = [] } = props.data;
 
     return (
         <div className='section-panel'>
@@ -116,17 +73,6 @@ const TotalKPIPanel = props => {
                 <Icon type="arrow-right" />
                 <a href="/accounts"> 账户管理</a>
             </div>
-            <div>
-                <Group value={ dateMode } onChange={function(){}}>
-                    <Button value="year">年</Button>
-                    <Button value="month">月</Button>
-                </Group>
-                <br /><br />
-                {
-                    (incomeByDate.length > 0 || outcomeByDate.length > 0) &&
-                    <Line height={ CHART_HEIGHT } options={ getOptionsForLine(incomeByDate, outcomeByDate, profitByDate) } />
-                }
-            </div>
         </div>
     );
 };
@@ -135,11 +81,7 @@ TotalKPIPanel.propTypes = {
     data: PropTypes.shape({
         totalBalance: PropTypes.number,
         loanees: PropTypes.array,
-        loaners: PropTypes.array,
-        dateMode: PropTypes.string,
-        incomeByDate: PropTypes.array,
-        outcomeByDate: PropTypes.array,
-        profitByDate: PropTypes.array
+        loaners: PropTypes.array
     }).isRequired
 };
 

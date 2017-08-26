@@ -23,7 +23,7 @@ const parseAmountByDate = (raw = []) => {
         result[year] = {
             name: year,
             value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
-        }
+        };
     });
 
     return result;
@@ -46,7 +46,7 @@ const parseAmountBySubcat = (raw = [], categories = []) =>
         return {
             cat: names[1],
             name: names[0],
-            value
+            value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
         };
     }) : [];
 

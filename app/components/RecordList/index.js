@@ -14,15 +14,11 @@ import messages from './messages';
 
 import { getTotals } from './selectors';
 
-const RecordList = ({ range, records, deleteRecord, schema, createEditor, onDateRangeChange }) => (
-    <div className="record-list-container section-panel">
+const RecordList = ({ records, deleteRecord, schema, createEditor }) => (
+    <div className="record-list-container">
         <header className="record-list-header">
             <h2><FormattedMessage {...messages.header} /></h2>
-            <SummaryBar
-                range={ range }
-                totals={ getTotals(records) }
-                onDateRangeChange={ onDateRangeChange }
-            />
+            <SummaryBar totals={ getTotals(records) } />
         </header>
         <RecordGrid
             records={ records }
@@ -42,11 +38,9 @@ RecordList.propTypes = {
         members: PropTypes.arrayOf(PropTypes.object),
         debtors: PropTypes.arrayOf(PropTypes.object)
     }).isRequired,
-    range: PropTypes.object.isRequired,
     records: PropTypes.array,
     deleteRecord: PropTypes.func.isRequired,
-    createEditor: PropTypes.func.isRequired,
-    onDateRangeChange: PropTypes.func.isRequired
+    createEditor: PropTypes.func.isRequired
 };
 
 export default RecordList;

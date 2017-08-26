@@ -5,13 +5,16 @@
  *
  * List finance records
  */
+import moment from 'moment';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Components
+import { DatePicker } from 'antd';
 import RecordEditor from '../../components/RecordEditor';
 import RecordList from '../../components/RecordList';
+import OutcomeKpiPanel from '../../components/OutcomeKpiPanel';
 
 // Actions
 import * as CategoryOutcomeActionCreators from '../../actions/schema/outcome';
@@ -25,18 +28,30 @@ import * as RecordPageActionCreators from '../../actions/recordPage';
 
 // Selectors
 import { getOutcomeCategories, getIncomeCategories, getAccountCategories, getProjectCategories, getMembers, getDebtors } from '../App/selectors';
-import { getRecordList, getRange } from './selectors';
+import { getRecordList, getOutcomeInfo, getMonth } from './selectors';
+
+// Constants
+import { MONTH_FORMAT } from '../../constants/Config';
+
+const { MonthPicker } = DatePicker;
 
 class RecordPage extends Component {
 
     componentDidMount() {
-        const { dispatch, range } = this.props;
+        const { dispatch, month } = this.props;
         RecordPageActionCreators.fetchSchema(dispatch);    // Async fetch
-        RecordPageActionCreators.fetchRecords(dispatch, range);
+        RecordPageActionCreators.fetchRecordsByMonth(dispatch, month);
+        RecordPageActionCreators.fetchOutcomeInfo(dispatch, month);
+    }
+
+    onMonthChange(month) {
+        const { dispatch } = this.props;
+        RecordPageActionCreators.fetchOutcomeInfo(dispatch, month);
+        RecordPageActionCreators.fetchRecordsByMonth(dispatch, month)
     }
 
     render() {
-        const { dispatch, schema, range, records } = this.props;
+        const { dispatch, schema, records, month, outcomeInfo } = this.props;
         const me = this;
 
         const addOutcomeCategory = bindActionCreators(CategoryOutcomeActionCreators.addCategory, dispatch); // Outcome
@@ -48,7 +63,6 @@ class RecordPage extends Component {
         const addRecord = bindActionCreators(RecordActionCreators.addRecord, dispatch);                     // Add record
         const updateRecord = bindActionCreators(RecordActionCreators.updateRecord, dispatch);               // Update record
         const deleteRecord = bindActionCreators(RecordActionCreators.deleteRecord, dispatch);               // Delete record
-        const changeDateRange = bindActionCreators(RecordPageActionCreators.changeDateRange, dispatch);     // Change data range
 
         const createEditor = record => (
             <RecordEditor
@@ -68,21 +82,29 @@ class RecordPage extends Component {
         return (
             <div>
                 { createEditor() }
-                <RecordList
-                    range={ range }
-                    records={ records }
-                    schema={ schema }
-                    deleteRecord={ deleteRecord }
-                    createEditor={ createEditor }
-                    onDateRangeChange={ (fDate, tDate) => changeDateRange(fDate, tDate) }
-                />
+                <div className='section-panel'>
+                    <div className='section-panel-header'>
+                        <span>月份: </span>
+                        <MonthPicker
+                            placeholder="Select month"
+                            value={ moment(month, MONTH_FORMAT) }
+                            onChange={ month => this.onMonthChange(month.format(MONTH_FORMAT)) }
+                        />
+                    </div>
+                    <OutcomeKpiPanel data={ outcomeInfo } />
+                    <RecordList
+                        records={ records }
+                        schema={ schema }
+                        deleteRecord={ deleteRecord }
+                        createEditor={ createEditor }
+                    />
+                </div>
             </div>
         );
     }
 }
 
 RecordPage.propTypes = {
-    range: PropTypes.object.isRequired,
     records: PropTypes.array.isRequired,
     schema: PropTypes.shape({
         outcomeCategories: PropTypes.arrayOf(PropTypes.object),
@@ -91,11 +113,12 @@ RecordPage.propTypes = {
         projectCategories: PropTypes.arrayOf(PropTypes.object),
         members: PropTypes.arrayOf(PropTypes.object),
         debtors: PropTypes.arrayOf(PropTypes.object)
-    }).isRequired
+    }).isRequired,
+    month: PropTypes.string.isRequired,
+    outcomeInfo: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => {
-return {
+const mapStateToProps = state => ({
     schema: {
         outcomeCategories: getOutcomeCategories(state),
         incomeCategories: getIncomeCategories(state),
@@ -104,9 +127,9 @@ return {
         members: getMembers(state),
         debtors: getDebtors(state)
     },
-    records: getRecordList(state),
-    range: getRange(state)
-};
-};
+    month: getMonth(state),
+    outcomeInfo: getOutcomeInfo(state),
+    records: getRecordList(state)
+});
 
 export default connect(mapStateToProps)(RecordPage);

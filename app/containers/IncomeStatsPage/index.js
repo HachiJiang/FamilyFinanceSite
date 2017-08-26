@@ -7,21 +7,25 @@
  *
  */
 import _ from 'lodash';
-import moment from 'moment';
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { CHART_HEIGHT } from '../../constants/Config';
 
+// Components
 import { Cascader, Row, Col } from 'antd';
 import Pie from '../../components/myecharts/Pie';
 import Line from '../../components/myecharts/Line';
 
-import { getData } from './selectors';
+// Actions
 import * as CategoryIncomeActionCreators from '../../actions/schema/income';
 import * as MemberActionCreators from '../../actions/schema/member';
 import * as IncomeStatsActionCreators from '../../actions/incomeStatsPage';
-import { getOptionsForAmountByDate, getOptionsForAmountByCat, getOptionsForAmountByMember } from './../../utils/chartUtils';
 
-const CHART_HEIGHT = '400px';
+// Selectors
+import { getData } from './selectors';
+
+// Utils
+import { getOptionsForAmountByDate, getOptionsForAmountByCat, getOptionsForAmountByMember } from './../../utils/chartUtils';
 
 /**
  * Get options for line chart of members

@@ -1,7 +1,7 @@
 'use strict';
 
 import moment from 'moment';
-import { CONSUME_DATE_FORMAT } from '../constants/Config';
+import { CONSUME_DATE_FORMAT, MONTH_FORMAT } from '../constants/Config';
 
 /**
  * Get first and last day of month
@@ -25,12 +25,14 @@ const getFirstLastDayOfMonth = (year, month) => {
 
 /**
  * Get date range of specific month
- * @param {String} year
- * @param {String} month
+ * @param {Object} momentDate: moment date
  * @returns {{fDate, tDate}}
  */
-const getDateRangeOfMonth = (year, month) => {
+const getDateRangeOfMonth = (momentDate = moment()) => {
+    const year = momentDate.year();
+    const month = momentDate.month();
     const range = getFirstLastDayOfMonth(year, month);
+
     if (range) {
         return {
             fDate: moment(range.firstDay, CONSUME_DATE_FORMAT),
@@ -40,18 +42,20 @@ const getDateRangeOfMonth = (year, month) => {
 };
 
 /**
+ * Get current month
+ * @returns {number}
+ */
+const getCurrentMonth = () => moment().format(MONTH_FORMAT);
+
+/**
  * Get date range of current month
  * @returns {{fDate: string, tDate: string}}
  */
-const getDateRangeOfCurrentMonth = () => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    return getDateRangeOfMonth(year, month);
-};
+const getDateRangeOfCurrentMonth = () => getDateRangeOfMonth(moment());
 
 export {
     getFirstLastDayOfMonth,
     getDateRangeOfMonth,
-    getDateRangeOfCurrentMonth
+    getDateRangeOfCurrentMonth,
+    getCurrentMonth
 }

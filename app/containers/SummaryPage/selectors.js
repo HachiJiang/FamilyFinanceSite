@@ -6,13 +6,10 @@
  *
  */
 import _ from 'lodash';
-import moment from 'moment';
-import { getAccountCategories, getDebtors, getOutcomeCategories, getMembers } from '../App/selectors';
+import { getAccountCategories, getDebtors } from '../App/selectors';
 import { getTotalBalance } from '../../utils/accountUtils';
-import { getFirstLastDayOfMonth } from '../../utils/dateUtils';
-import { parseAmountBySubcat, getAmountByCat, parseAmountByMembers, parseAmountByDate } from '../../utils/aggregationUtils';
+import { parseAmountByDate } from '../../utils/aggregationUtils';
 import { getLoanees, getLoaners, getTotalDebt, getTotalLoan } from '../../utils/debtorUtils';
-import { MONTH_FORMAT, DECIMAL_PRECISION } from '../../constants/Config';
 
 const getSummaryPageInfo = state => state.get('summaryPage');
 
@@ -81,20 +78,13 @@ const getProfitByDate = (incomeByDate, outcomeByDate) => {
 /**
  * Get KPI info
  * @param {Object} state
- * @returns {{totalBalance: string}}
+ * @returns {Object}
  */
-const getTotalInfo = state => {
+const getKpiInfo = state => {
     const accounts = getAccountCategories(state);
     const debtors = getDebtors(state);
-    const total = getSummaryPageInfo(state).total;
-
-    const { incomeByDate, outcomeByDate } = parseIncomeOutcomeByDate(total.incomeByDate, total.outcomeByDate);
 
     return {
-        dateMode: total.dateMode,
-        incomeByDate,
-        outcomeByDate,
-        profitByDate: getProfitByDate(incomeByDate, outcomeByDate),
         totalBalance: getTotalBalance(accounts),
         loaners: getLoaners(debtors),  // 借出者
         loanees: getLoanees(debtors),  // 借入者
@@ -104,49 +94,23 @@ const getTotalInfo = state => {
 };
 
 /**
- * Fill amount for each day
- * @param {String} dateStr
- * @param {Array} raw
- * @returns {Array}
- */
-const fillAmountInWholeMonth = (dateStr, raw) => {
-    const date = moment(dateStr, MONTH_FORMAT);
-    const range = getFirstLastDayOfMonth(date.year(), date.month());
-
-    if (!range || raw.length < 1) {
-        return raw;
-    }
-
-    const lastDay = moment(range.lastDay).format('DD');
-    let result = new Array(_.toNumber(lastDay));
-    _.fill(result, 0);
-
-    _.forEach(raw, item => {
-        const day = item._id.day;
-        result[_.toNumber(day) - 1] = _.toNumber(item.value.toFixed(DECIMAL_PRECISION));
-    });
-    return result;
-};
-
-/**
- * Get outcome info
+ * Get total data
  * @param {Object} state
+ * @returns {Object}}
  */
-const getOutcomeInfo = state => {
-    const outcome = getSummaryPageInfo(state).outcome;
-    const { dateStr, amountByMember } = outcome;
-    const amountBySubcat = parseAmountBySubcat(outcome.amountByCat, getOutcomeCategories(state));
+const getTotalData = state => {
+    const summaryPage = getSummaryPageInfo(state);
+    const { incomeByDate, outcomeByDate } = parseIncomeOutcomeByDate(summaryPage.incomeByDate, summaryPage.outcomeByDate);
 
     return {
-        dateStr,
-        amountByDay: fillAmountInWholeMonth(dateStr, outcome.amountByDay),
-        amountByCat: getAmountByCat(amountBySubcat),
-        amountBySubcat: amountBySubcat,
-        amountByMember: parseAmountByMembers(amountByMember, getMembers(state))
+        dateMode: summaryPage.dateMode,
+        incomeByDate,
+        outcomeByDate,
+        profitByDate: getProfitByDate(incomeByDate, outcomeByDate)
     };
 };
 
 export {
-    getTotalInfo,
-    getOutcomeInfo
+    getKpiInfo,
+    getTotalData
 }
