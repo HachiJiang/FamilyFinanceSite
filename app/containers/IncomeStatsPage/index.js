@@ -41,12 +41,7 @@ const getOptionsForAmountLineOfMembers = amountByDateAndMember => {
                 show: true
             }
         },
-        data: data.items,
-        markLine: {
-            data: [
-                { type: 'average', name: '平均值' }
-            ]
-        }
+        data: data.items
     }));
 
     return {
@@ -65,17 +60,38 @@ const getOptionsForAmountLineOfMembers = amountByDateAndMember => {
     };
 };
 
+/**
+ * Get year list
+ * @param {Array} data
+ */
+const getYearList = (data = []) => !_.isEmpty(data) ?
+    _.map(data, ({ name }) => ({
+        value: name,
+        label: name
+    })) :
+    null;
+
 class IncomeStatsPage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.yearList = null;
+    }
 
     componentDidMount() {
         const { dispatch, year } = this.props;
         CategoryIncomeActionCreators.fetchCategories(dispatch);    // 请求收入类别信息
         MemberActionCreators.fetchMembers(dispatch);               // 请求Member信息
-        IncomeStatsActionCreators.fetchData(dispatch, year);
+        this.onYearChange(year);
+    }
+
+    onYearChange(year = '') {
+        IncomeStatsActionCreators.fetchData(this.props.dispatch, year.toString());
     }
 
     render() {
         const { year, amountByCat, amountBySubcat, amountByMember, amountByDate, amountByDateAndMember, amountByCatAndMember } = this.props;
+        this.yearList = this.yearList || getYearList(amountByDate);  // only get the first
 
         return (
             <div className='income-stats-page'>
@@ -84,6 +100,9 @@ class IncomeStatsPage extends Component {
                         <span>年份: </span>
                         <Cascader
                             placeholder="Select year"
+                            value={ year ? [_.toNumber(year)] : '' }
+                            options={ this.yearList }
+                            onChange={ value => this.onYearChange(value[0]) }
                         />
                     </div>
                     <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDate('家庭 - 总收入曲线', amountByDate) } />
@@ -122,11 +141,6 @@ IncomeStatsPage.propTypes = {
     amountByCatAndMember: PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => {
-    const data = getData(state);
-    return {
-        ...data
-    };
-};
+const mapStateToProps = state => getData(state);
 
 export default connect(mapStateToProps)(IncomeStatsPage);

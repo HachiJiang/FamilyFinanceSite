@@ -5,6 +5,7 @@
  * Actions for SummaryPage
  *
  */
+
 import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
 import { fetchAggregationAmount } from './aggregation';
 import { OUTCOME, INCOME } from '../constants/EnumRecordType.js';

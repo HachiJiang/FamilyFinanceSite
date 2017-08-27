@@ -5,10 +5,11 @@
  * Actions for IncomeStatsPage
  *
  */
-import moment from 'moment';
+
 import * as IncomeStatsPageActionTypes from '../actiontypes/incomeStatsPage';
 import { fetchAggregationAmount } from './aggregation';
 import { INCOME } from '../constants/EnumRecordType.js';
+import { getDateRangeOfYear } from '../utils/dateUtils';
 
 /**
  * Change year filter
@@ -72,24 +73,26 @@ const receiveAmountByCatAndMember = amountByCatAndMember => ({
 const fetchData = (dispatch, year) => {
     dispatch(changeYear(year));
 
+    const { fDate, tDate } = getDateRangeOfYear(year);
+
     dispatch(
-        fetchAggregationAmount(INCOME, 'year', receiveAmountByDate)
+        fetchAggregationAmount(INCOME, year ? 'month' : 'year', receiveAmountByDate, fDate, tDate)
     );
 
     dispatch(
-        fetchAggregationAmount(INCOME, 'category', receiveAmountByCat)
+        fetchAggregationAmount(INCOME, 'category', receiveAmountByCat, fDate, tDate)
     );
 
     dispatch(
-        fetchAggregationAmount(INCOME, 'member', receiveAmountByMember)
+        fetchAggregationAmount(INCOME, 'member', receiveAmountByMember, fDate, tDate)
     );
 
     dispatch(
-        fetchAggregationAmount(INCOME, 'member-year', receiveAmountByDateAndMember)
+        fetchAggregationAmount(INCOME, year ? 'member-month' : 'member-year', receiveAmountByDateAndMember, fDate, tDate)
     );
 
     dispatch(
-        fetchAggregationAmount(INCOME, 'member-category', receiveAmountByCatAndMember)
+        fetchAggregationAmount(INCOME, 'member-category', receiveAmountByCatAndMember, fDate, tDate)
     );
 };
 
