@@ -7,8 +7,27 @@
  */
 
 import _ from 'lodash';
+
 import { DECIMAL_PRECISION } from '../constants/Config';
 import { idStrToNames, idStrToName } from './recordUtils';
+
+/**
+ * Get date string
+ * @param {string} year
+ * @param {string} month
+ * @returns {number}
+ */
+const getDateValue = (year, month) => {
+    let value = '';
+    if (year && month) {
+        value = year * 100 + month;
+    } else if (year) {
+        value = year;
+    } else if (month) {
+        value = month;
+    }
+    return value;
+};
 
 /**
  * Get amountByDate
@@ -19,9 +38,12 @@ const parseAmountByDate = (raw = []) => {
     let result = {};
 
     _.forEach(raw, ({ _id, value }) => {
-        const year = _id.year;
-        result[year] = {
-            name: year,
+        const year = _id.year || '';
+        const month = _id.month || '';
+        const date = getDateValue(year, month);
+
+        result[date] = {
+            name: date,
             value: _.toNumber(value.toFixed(DECIMAL_PRECISION))
         };
     });

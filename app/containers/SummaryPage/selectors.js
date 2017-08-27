@@ -22,6 +22,11 @@ const getSummaryPageInfo = state => state.get('summaryPage');
  */
 const fillInRange = (raw = {}, min = 0, max = 0) => {
     let result = [];
+
+    if (_.isEmpty(raw)) {
+        return result;
+    }
+
     for (let i = min; i <= max; i++) {
         if (!raw[i]) {
             result.push({
@@ -38,19 +43,37 @@ const fillInRange = (raw = {}, min = 0, max = 0) => {
     return result;
 };
 
+const getDateKeys = (incomeData = {}, outcomeData = {}) => {
+    let keys = {};
+
+    _.forEach(incomeData, (item, key) => {
+        keys[key] = _.toNumber(key);
+    });
+
+    _.forEach(outcomeData, (item, key) => {
+        keys[key] = _.toNumber(key);
+    });
+
+    return _.toArray(keys);
+};
+
 /**
  * Parse incomeByDate and outcomeByDate
  * @param {Array} incomeByDate
  * @param {Array} outcomeByDate
  * @returns {{incomeByDate: *[], outcomeByDate: *[]}}
  */
-const parseIncomeOutcomeByDate = (incomeByDate, outcomeByDate) => {
+const parseIncomeOutcomeByDate = (incomeByDate = [], outcomeByDate = []) => {
     const incomeData = parseAmountByDate(incomeByDate);
     const outcomeData = parseAmountByDate(outcomeByDate);
 
-    const keys = _.concat(_.keys(incomeData), _.keys(outcomeData));
-    const min = _.min(keys);
-    const max = _.max(keys);
+    const keys = getDateKeys(incomeData, outcomeData);
+    if (keys.length < 1) {
+        return {};
+    }
+
+    const min = _.toNumber(_.min(keys));
+    const max = _.toNumber(_.max(keys));
 
     return {
         incomeByDate: fillInRange(incomeData, min, max),
@@ -64,14 +87,16 @@ const parseIncomeOutcomeByDate = (incomeByDate, outcomeByDate) => {
  * @param {Array} outcomeByDate
  * @returns {Array}
  */
-const getProfitByDate = (incomeByDate, outcomeByDate) => {
+const getProfitByDate = (incomeByDate = [], outcomeByDate = []) => {
     let result = [];
-    _.forEach(incomeByDate, (item, index) => {
-        result.push({
-            name: item.name,
-            value: parseInt(item.value - outcomeByDate[index].value)
+    if (incomeByDate.length === outcomeByDate.length) {
+        _.forEach(incomeByDate, (item, index) => {
+            result.push({
+                name: item.name,
+                value: parseInt(item.value - outcomeByDate[index].value)
+            });
         });
-    });
+    }
     return result;
 };
 
@@ -100,10 +125,10 @@ const getKpiInfo = state => {
  */
 const getTotalData = state => {
     const summaryPage = getSummaryPageInfo(state);
-    const { incomeByDate, outcomeByDate } = parseIncomeOutcomeByDate(summaryPage.incomeByDate, summaryPage.outcomeByDate);
+    const { incomeByDate = [], outcomeByDate = [] } = parseIncomeOutcomeByDate(summaryPage.incomeByDate, summaryPage.outcomeByDate);
 
     return {
-        dateMode: summaryPage.dateMode,
+        year: summaryPage.year,
         incomeByDate,
         outcomeByDate,
         profitByDate: getProfitByDate(incomeByDate, outcomeByDate)

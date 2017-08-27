@@ -8,18 +8,19 @@
 import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
 import { fetchAggregationAmount } from './aggregation';
 import { OUTCOME, INCOME } from '../constants/EnumRecordType.js';
+import { getDateRangeOfYear } from '../utils/dateUtils';
 
 /**
- * Get action for changing dateMode of total
- * @param {String} dateMode
+ * Get action for changing year of total
+ * @param {String} year
  */
-const changeDateModeForTotal = dateMode => ({
-    type: SummaryPageActionTypes.CHANGE_TOTAL_DATE_MODE,
-    dateMode
+const selectYear = year => ({
+    type: SummaryPageActionTypes.SELECT_YEAR,
+    year
 });
 
 /**
- * Get action for changing dateMode of total
+ * Get action for receiving outcomeByDate
  * @param {Array} outcomeByDate
  */
 const receiveOutcomeByDate = outcomeByDate => ({
@@ -28,7 +29,7 @@ const receiveOutcomeByDate = outcomeByDate => ({
 });
 
 /**
- * Get action for changing dateMode of total
+ * Get action for receiving incomeByDate
  * @param {Array} incomeByDate
  */
 const receiveIncomeByDate = incomeByDate => ({
@@ -39,17 +40,20 @@ const receiveIncomeByDate = incomeByDate => ({
 /**
  * Fetch outcome
  * @param dispatch
- * @param dateMode
+ * @param year
  */
-const fetchTotalInfo = (dispatch, dateMode) => {
-    dispatch(changeDateModeForTotal(dateMode));
+const fetchTotalInfo = (dispatch, year) => {
+    dispatch(selectYear(year));
+
+    const { fDate, tDate } = getDateRangeOfYear(year);
+    const groupBy = year ? 'month' : 'year';
 
     dispatch(
-        fetchAggregationAmount(OUTCOME, dateMode, receiveOutcomeByDate)
+        fetchAggregationAmount(OUTCOME, groupBy, receiveOutcomeByDate, fDate, tDate)
     );
 
     dispatch(
-        fetchAggregationAmount(INCOME, dateMode, receiveIncomeByDate)
+        fetchAggregationAmount(INCOME, groupBy, receiveIncomeByDate, fDate, tDate)
     );
 };
 

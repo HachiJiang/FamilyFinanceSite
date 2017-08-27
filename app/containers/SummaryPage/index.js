@@ -16,8 +16,8 @@ import { connect } from 'react-redux';
 import { CHART_HEIGHT } from '../../constants/Config';
 
 // Components
-import { Radio } from 'antd';
-import Line from '../../components/myecharts/Line';
+import { Cascader } from 'antd';
+import Bar from '../../components/myecharts/Bar';
 import TotalKPIPanel from '../../components/TotalKpiPanel';
 
 // Actions
@@ -29,8 +29,6 @@ import * as SummaryPageActionCreators from '../../actions/summaryPage';
 
 // Selectors
 import { getKpiInfo, getTotalData } from './selectors';
-
-const { Button, Group } = Radio;
 
 /**
  * Get options for line chart of total income/outcome/profit
@@ -53,7 +51,7 @@ const getOptionsForLine = (incomeByDate = [], outcomeByDate = [], profitByDate =
 
     const series = _.map(arr, ({ name, data }) => ({
         name: name,
-        type: 'line',
+        type: 'bar',
         data
     }));
 
@@ -66,41 +64,64 @@ const getOptionsForLine = (incomeByDate = [], outcomeByDate = [], profitByDate =
         },
         xAxis: {
             type: 'category',
-            boundaryGap: false,
             data: _.map(incomeByDate, item => item.name)  // date
         },
         series
     };
 };
 
+/**
+ * Get year list
+ * @param {Array} data
+ */
+const getYearList = (data = []) => data.length > 0 ?
+    _.map(data, ({ name }) => ({
+        value: name,
+        label: name
+    })) :
+    null;
+
 class SummaryPage extends Component {
+    constructor(props) {
+        super(props);
+        this.yearList = null;
+    }
 
     componentDidMount() {
-        const { dispatch, totalData: { dateMode } } = this.props;
+        const { dispatch, totalData: { year } } = this.props;
         CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
         CategoryOutcomeActionCreators.fetchCategories(dispatch);   // 请求支出类别信息
         DebtorActionCreators.fetchDebtors(dispatch);               // 请求debtor信息
         MemberActionCreators.fetchMembers(dispatch);               // 请求Member信息
-        SummaryPageActionCreators.fetchTotalInfo(dispatch, dateMode);
+        this.onYearChange(year);
+    }
+
+    onYearChange(value = '') {
+        SummaryPageActionCreators.fetchTotalInfo(this.props.dispatch, value.toString());
     }
 
     render() {
         const { kpiInfo, totalData } = this.props;
-        const { dateMode = '', incomeByDate, outcomeByDate, profitByDate } = totalData;
+        const { year = '', incomeByDate, outcomeByDate, profitByDate } = totalData;
+        this.yearList = this.yearList || getYearList(incomeByDate);  // only get the first
 
         return (
             <div className='summary-page'>
                 <TotalKPIPanel data={ kpiInfo } />
 
                 <div className='section-panel'>
-                    <Group value={ dateMode } onChange={function(){}}>
-                        <Button value="year">年</Button>
-                        <Button value="month">月</Button>
-                    </Group>
-                    <br /><br />
+                    <div className='section-panel-header'>
+                        <span>年份: </span>
+                        <Cascader
+                            placeholder="Select year"
+                            value={ year ? [_.toNumber(year)] : '' }
+                            options={ this.yearList }
+                            onChange={ value => this.onYearChange(value[0]) }
+                        />
+                    </div>
                     {
                         (incomeByDate.length > 0 || outcomeByDate.length > 0) &&
-                        <Line height={ CHART_HEIGHT } options={ getOptionsForLine(incomeByDate, outcomeByDate, profitByDate) } />
+                        <Bar height={ CHART_HEIGHT } options={ getOptionsForLine(incomeByDate, outcomeByDate, profitByDate) } />
                     }
                 </div>
             </div>
@@ -110,10 +131,12 @@ class SummaryPage extends Component {
 
 SummaryPage.propTypes = {
     kpiInfo: PropTypes.object.isRequired,
-    dateMode: PropTypes.string,
-    incomeByDate: PropTypes.array,
-    outcomeByDate: PropTypes.array,
-    profitByDate: PropTypes.array
+    totalData: PropTypes.shape({
+        year: PropTypes.string,
+        incomeByDate: PropTypes.array,
+        outcomeByDate: PropTypes.array,
+        profitByDate: PropTypes.array
+    }).isRequired
 };
 
 const mapStateToProps = state => ({

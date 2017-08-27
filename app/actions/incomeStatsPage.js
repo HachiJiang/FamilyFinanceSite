@@ -15,7 +15,7 @@ import { INCOME } from '../constants/EnumRecordType.js';
  * @param {String} year
  */
 const changeYear = year => ({
-    type: IncomeStatsPageActionTypes.CHANGE_YEAR,
+    type: IncomeStatsPageActionTypes.SELECT_YEAR,
     year
 });
 

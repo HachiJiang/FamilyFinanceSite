@@ -56,7 +56,7 @@ class Pulldown2 extends Component {
                         className="menu-item selected" ref="levelSelected"
                         onClick={ () => this.setState({ expanded: !this.state.expanded })}>
                         <span className='selected-content'>{ value ? idStrToName(value, items) : DEFAULT_VALUE }</span>
-                        <span className="fa fa-caret-down" aria-hidden="true"></span>
+                        <span className="fa fa-caret-down" aria-hidden="true" />
                     </div>
                     <div className={ menuCls }>
                         {

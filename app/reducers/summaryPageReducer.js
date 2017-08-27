@@ -5,24 +5,21 @@
  * SummaryPage reducer
  *
  */
-import moment from 'moment';
 import * as SummaryPageActionTypes from '../actiontypes/summaryPage';
-import { MONTH_FORMAT } from '../constants/Config';
 
 const initialState = {
-    dateMode: 'year',
+    year: '',
     incomeByDate: [],
     outcomeByDate: []
 };
 
 function summaryPageReducer(state = initialState, action = {}) {
-    const { outcome } = state;
 
     switch (action.type) {
-        case SummaryPageActionTypes.CHANGE_TOTAL_DATE_MODE:
+        case SummaryPageActionTypes.SELECT_YEAR:
             return {
                 ...state,
-                dateMode: action.dateMode
+                year: action.year
             };
 
         case SummaryPageActionTypes.TOTAL_OUTCOME_BY_DATE_RECEIVED:

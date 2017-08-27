@@ -20,7 +20,7 @@ const initialState = {
 function incomeStatsReducer(state = initialState, action = {}) {
 
     switch (action.type) {
-        case IncomeStatsPageActionTypes.CHANGE_YEAR:
+        case IncomeStatsPageActionTypes.SELECT_YEAR:
             return {
                 ...state,
                 year: action.year

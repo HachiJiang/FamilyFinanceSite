@@ -7,7 +7,6 @@
  */
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
-import moment from 'moment';
 import selfMessages from './messages';
 import { Table, Popconfirm, message } from 'antd';
 
@@ -92,7 +91,7 @@ class RecordGrid extends Component {
         this.state = {
             bordered: false,
             loading: false,
-            pagination: false,
+            pagination: { pageSize: 20 },
             size: 'default',
             expandedRowRender: ({ record }) => props.createEditor(record._raw),  // use raw record for editing
             showHeader: true,

@@ -84,7 +84,7 @@ class IncomeStatsPage extends Component {
                         <span>年份: </span>
                         <Cascader
                             placeholder="Select year"
-                            />
+                        />
                     </div>
                     <Line height={ CHART_HEIGHT } options={ getOptionsForAmountByDate('家庭 - 总收入曲线', amountByDate) } />
                     <Row type='flex' justify='space-around' align='middle'>

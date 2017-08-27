@@ -42,6 +42,24 @@ const getDateRangeOfMonth = (momentDate = moment()) => {
 };
 
 /**
+ * Get date range of specific year
+ * @param {string} year
+ * @returns {{}}
+ */
+const getDateRangeOfYear = (year = '') => {
+    if (!year) {
+        return {};
+    }
+
+    const fDate = moment(year, 'YYYY').startOf('year');
+    const tDate = moment(year, 'YYYY').endOf('year');
+    return {
+        fDate,
+        tDate
+    };
+};
+
+/**
  * Get current month
  * @returns {number}
  */
@@ -57,5 +75,6 @@ export {
     getFirstLastDayOfMonth,
     getDateRangeOfMonth,
     getDateRangeOfCurrentMonth,
-    getCurrentMonth
+    getCurrentMonth,
+    getDateRangeOfYear
 }

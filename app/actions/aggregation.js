@@ -15,8 +15,8 @@ import { invalidParamFailure } from '../utils/messageUtils';
  * @param {String} type: record type
  * @param {String} groupId: amount will be grouped by this id
  * @param {Function} callback
- * @param {String} fDate
- * @param {String} tDate
+ * @param {Moment} fDate
+ * @param {Moment} tDate
  */
 const fetchAggregationAmount = (type, groupId, callback, fDate, tDate) => {
     if (type && groupId && callback) {
