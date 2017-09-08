@@ -52,6 +52,12 @@ const getOptionsForLine = (incomeByDate = [], outcomeByDate = [], profitByDate =
     const series = _.map(arr, ({ name, data }) => ({
         name: name,
         type: 'bar',
+        label: {
+            normal: {
+                show: true,
+                position: 'top'
+            }
+        },
         data
     }));
 

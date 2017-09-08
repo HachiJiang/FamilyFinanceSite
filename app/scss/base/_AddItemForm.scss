@@ -5,7 +5,11 @@
   .menu {
     top: -$width-border-default;
     padding: 5px;
-    width: auto;
+    min-width: 150px;
     text-align: right;
+
+    input {
+      margin-bottom: 5px;
+    }
   }
 }

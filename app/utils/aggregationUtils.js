@@ -106,7 +106,7 @@ const getAmountByCat = (amountBySubcat = []) => {
 const parseAmountByMembers = (raw, members = []) =>
     members.length > 0 ? _.map(raw, item => ({
         name: idStrToName(item._id.member, members),
-        value: item.value
+        value: _.toNumber(item.value.toFixed(2))
     })) : [];
 
 /**
