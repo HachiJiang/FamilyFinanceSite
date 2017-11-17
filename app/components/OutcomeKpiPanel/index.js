@@ -30,7 +30,7 @@ const getOptionsForAmountByDay = amountByDay => ({
         text: '支出曲线'
     },
     legend: {
-        data: ['每日实际支出', '日均支出变化']
+        data: ['当日实际支出', '日均支出变化']
     },
     xAxis: {
         type: 'category',
@@ -38,7 +38,7 @@ const getOptionsForAmountByDay = amountByDay => ({
         data: _.map(amountByDay, (item, index) => index + 1)
     },
     series: [{
-        name: '每日实际支出',
+        name: '当日实际支出',
         type: 'line',
         data: amountByDay,
         markPoint: {

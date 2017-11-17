@@ -10,6 +10,7 @@ import React, { PropTypes } from 'React';
 import { Row, Col, Icon } from 'antd';
 import LiquidFill from '../myecharts/LiquidFill';
 import Pie from '../myecharts/Pie';
+import { DECIMAL_PRECISION } from '../../constants/Config';
 
 const CHART_HEIGHT = '200px';
 
@@ -60,12 +61,12 @@ const TotalKPIPanel = props => {
                 </Col>
 
                 <Col span={8}>
-                    <h2>总负债: <span className="kpi-value">{ Math.abs(_.sumBy(loaners, d => d.balance)) }</span></h2>
+                    <h2>总负债: <span className="kpi-value">{ (Math.abs(_.sumBy(loaners, d => d.balance))).toFixed(DECIMAL_PRECISION) }</span></h2>
                     <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loaners) } />
                 </Col>
 
                 <Col span={8}>
-                    <h2>总借出: <span className="kpi-value">{ Math.abs(_.sumBy(loanees, d => d.balance)) }</span></h2>
+                    <h2>总借出: <span className="kpi-value">{ (Math.abs(_.sumBy(loanees, d => d.balance))).toFixed(DECIMAL_PRECISION) }</span></h2>
                     <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loanees) } />
                 </Col>
             </Row>

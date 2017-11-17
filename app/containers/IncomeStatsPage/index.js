@@ -68,7 +68,7 @@ const getYearList = (data = []) => !_.isEmpty(data) ?
     _.map(data, ({ name }) => ({
         value: name,
         label: name
-    })) :
+    })).reverse() :
     null;
 
 class IncomeStatsPage extends Component {

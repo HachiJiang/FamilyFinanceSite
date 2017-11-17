@@ -84,7 +84,7 @@ const getYearList = (data = []) => data.length > 0 ?
     _.map(data, ({ name }) => ({
         value: name,
         label: name
-    })) :
+    })).reverse() :
     null;
 
 class SummaryPage extends Component {
