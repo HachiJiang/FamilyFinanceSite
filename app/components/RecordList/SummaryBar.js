@@ -36,7 +36,7 @@ class SummaryBar extends Component {
                 </li>
                 <li>
                     {
-                        totals.debt > 0 ?
+                        totals.loan > 0 ?
                             <span>净借出: </span>
                             :
                             <span>净借入: </span>
