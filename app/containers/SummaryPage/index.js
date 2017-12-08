@@ -30,6 +30,8 @@ import * as SummaryPageActionCreators from '../../actions/summaryPage';
 // Selectors
 import { getKpiInfo, getTotalData } from './selectors';
 
+let yearList = null;
+
 /**
  * Get options for line chart of total income/outcome/profit
  * @param {Array} incomeByDate
@@ -88,11 +90,6 @@ const getYearList = (data = []) => data.length > 0 ?
     null;
 
 class SummaryPage extends Component {
-    constructor(props) {
-        super(props);
-        this.yearList = null;
-    }
-
     componentDidMount() {
         const { dispatch, totalData: { year } } = this.props;
         CategoryAccountActionCreators.fetchCategories(dispatch);   // 请求账户信息
@@ -109,7 +106,7 @@ class SummaryPage extends Component {
     render() {
         const { kpiInfo, totalData } = this.props;
         const { year = '', incomeByDate, outcomeByDate, profitByDate } = totalData;
-        this.yearList = this.yearList || getYearList(incomeByDate);  // only get the first
+        yearList = yearList || getYearList(incomeByDate); // @TODO: dynamic generate
 
         return (
             <div className='summary-page'>
@@ -121,7 +118,7 @@ class SummaryPage extends Component {
                         <Cascader
                             placeholder="Select year"
                             value={ year ? [_.toNumber(year)] : '' }
-                            options={ this.yearList }
+                            options={ yearList }
                             onChange={ value => this.onYearChange(value[0]) }
                         />
                     </div>
