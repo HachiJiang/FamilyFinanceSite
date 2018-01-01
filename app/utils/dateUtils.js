@@ -1,5 +1,6 @@
 'use strict';
 
+import _ from 'lodash';
 import moment from 'moment';
 import { CONSUME_DATE_FORMAT, MONTH_FORMAT } from '../constants/Config';
 
@@ -10,7 +11,7 @@ import { CONSUME_DATE_FORMAT, MONTH_FORMAT } from '../constants/Config';
  * @returns {{firstDay: Date, lastDay: Date}}
  */
 const getFirstLastDayOfMonth = (year, month) => {
-    if (!year || !month) {
+    if (!_.isNumber(year) || !_.isNumber(month)) {
         return;
     }
 
