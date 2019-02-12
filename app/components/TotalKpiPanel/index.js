@@ -20,7 +20,7 @@ const CHART_HEIGHT = '200px';
  * @returns {{series: *[]}}
  */
 const getOptionsForBalance = totalBalance => {
-    const target = 10000; // @TODO: hardcode target
+    const target = 1200000; // @TODO: hardcode target
     return {
         series: [{
             type: 'liquidFill',
