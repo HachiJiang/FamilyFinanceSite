@@ -10,7 +10,6 @@ import React, { PropTypes } from 'React';
 import { Row, Col, Icon } from 'antd';
 import LiquidFill from '../myecharts/LiquidFill';
 import Pie from '../myecharts/Pie';
-import { DECIMAL_PRECISION } from '../../constants/Config';
 
 const CHART_HEIGHT = '200px';
 
@@ -41,13 +40,22 @@ const getOptionsForDebt = items => {
             name:'债务',
             type:'pie',
             radius: '80%',
-            data:_.map(items, item => ({ value: Math.abs(item.balance), name: item.name }))
+            data: _.map(items, item => ({ value: Math.abs(item.balance), name: item.name }))
         }]
     };
 };
 
+const getValidDebt = items => _.map(items, (item) => ({ 
+    ...item,
+    balance: parseInt(Number(Number(item.balance).toFixed(0))),
+})).filter(item => !!item.balance);
+
 const TotalKPIPanel = props => {
-    const { totalBalance = 0, loanees = [], loaners = [] } = props.data;
+    const totalBalance = Number.parseInt(props.data.totalBalance || 0);
+    const loanees = getValidDebt(props.data.loanees);
+    const loaners = getValidDebt(props.data.loaners);
+
+    console.log(loaners, loanees)
 
     return (
         <div className='section-panel'>
@@ -61,12 +69,12 @@ const TotalKPIPanel = props => {
                 </Col>
 
                 <Col span={8}>
-                    <h2>总负债: <span className="kpi-value">{ (Math.abs(_.sumBy(loaners, d => d.balance))).toFixed(DECIMAL_PRECISION) }</span></h2>
+                    <h2>总负债: <span className="kpi-value">{ (Math.abs(_.sumBy(loaners, d => d.balance))) }</span></h2>
                     <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loaners) } />
                 </Col>
 
                 <Col span={8}>
-                    <h2>总借出: <span className="kpi-value">{ (Math.abs(_.sumBy(loanees, d => d.balance))).toFixed(DECIMAL_PRECISION) }</span></h2>
+                    <h2>总借出: <span className="kpi-value">{ (Math.abs(_.sumBy(loanees, d => d.balance))) }</span></h2>
                     <Pie height={ CHART_HEIGHT } options={ getOptionsForDebt(loanees) } />
                 </Col>
             </Row>
